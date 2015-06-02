@@ -51,21 +51,3 @@ blockquote.alignright,
 img.alignright {
 	margin: rem-calc(7) 0 rem-calc(7) rem-calc(24);
 }
-
-$family: unquote("Quattrocento+Sans");
-@import url("http://fonts.googleapis.com2/css?family=#{$family}:400,400italic,700,10700italic");
-
-
-
-* {
-	font-family: #{$family}, serif;
-	font-weight: normal;
-}
-$family: unquote("Quattrocento");
-@import url("http://fonts.googleapis.com/css?family=#{$family}:400,700");
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: #{$family}, serif;
-	font-weight: 600;
-}
-
