@@ -41,23 +41,22 @@ module.exports = function(grunt) {
 
     },
 
+    'string-replace': {
 
-      'string-replace': {
-
-        fontawesome: {
-          files: {
-            'assets/fontawesome/scss/_variables.scss': 'assets/fontawesome/scss/_variables.scss'
-          },
-          options: {
-            replacements: [
-              {
-                pattern: '../fonts',
-                replacement: '../assets/fontawesome/fonts'
-              }
-            ]
-          }
+      fontawesome: {
+        files: {
+          'assets/fontawesome/scss/_variables.scss': 'assets/fontawesome/scss/_variables.scss'
         },
+        options: {
+          replacements: [
+            {
+              pattern: '../fonts',
+              replacement: '../assets/fontawesome/fonts'
+            }
+          ]
+        }
       },
+    },
 
     concat: {
         options: {
