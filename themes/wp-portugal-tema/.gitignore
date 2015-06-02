@@ -1,6 +1,0 @@
-.DS_Store
-node_modules/
-*.sass-cache*
-bower_components/
-stylesheets/*.css
-*.log
