@@ -46,10 +46,8 @@
 @import "../bower_components/foundation/scss/foundation/components/tabs";
 @import "../bower_components/foundation/scss/foundation/components/thumbs";
 @import "../bower_components/foundation/scss/foundation/components/tooltips";
-@import "../bower_components/foundation/scss/foundation/components/top-bar";
+//@import "../bower_components/foundation/scss/foundation/components/top-bar";
 //@import "../bower_components/foundation/scss/foundation/components/type";
-@import "../bower_components/foundation/scss/foundation/components/offcanvas";
-@import "../bower_components/foundation/scss/foundation/components/visibility";
 
 /*
   Font Awesome - (http://fontawesome.io/) :
@@ -65,9 +63,11 @@
 */
 
 
-@import "site/global";
-@import "site/type";
-@import "site/wp-admin";
-@import "site/topbar";
-@import "site/hero";
-@import "site/footer";
+ @import "site/global";
+ @import "site/top-bar";
+ @import "site/type";
+// @import "site/wp-admin";
+// @import "site/hero";
+// @import "site/footer";
+ @import "site/offcanvas";
+@import "../bower_components/foundation/scss/foundation/components/visibility";
