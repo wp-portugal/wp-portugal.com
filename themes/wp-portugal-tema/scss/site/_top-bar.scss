@@ -5,16 +5,16 @@
 $include-html-top-bar-classes: $include-html-classes !default;
 
 // Background color for the top bar
-$topbar-bg-color: $oil !default;
+$topbar-bg-color: $midnight-blue !default;
 $topbar-bg: $topbar-bg-color !default;
 
 // Height and margin
-$topbar-height: rem-calc(45) !default;
+$topbar-height: rem-calc(70) !default;
 $topbar-margin-bottom: 0 !default;
 
 // Controlling the styles for the title in the top bar
 $topbar-title-weight: $font-weight-normal !default;
-$topbar-title-font-size: rem-calc(17) !default;
+$topbar-title-font-size: rem-calc(40) !default;
 
 // Set the link colors and styles for top-level nav
 $topbar-link-color: $white !default;
@@ -22,10 +22,10 @@ $topbar-link-color-hover: $white !default;
 $topbar-link-color-active: $white !default;
 $topbar-link-color-active-hover: $white !default;
 $topbar-link-weight: $font-weight-normal !default;
-$topbar-link-font-size: rem-calc(13) !default;
+$topbar-link-font-size: rem-calc(23) !default;
 $topbar-link-hover-lightness: -10% !default; // Darken by 10%
 $topbar-link-bg: $topbar-bg !default;
-$topbar-link-bg-hover: $jet !default;
+$topbar-link-bg-hover: $wet-asphalt !default;
 $topbar-link-bg-color-hover: $charcoal !default;
 $topbar-link-bg-active: $primary-color !default;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%) !default;
@@ -38,10 +38,10 @@ $topbar-button-font-size: .75rem !default;
 $topbar-button-top: 7px !default;
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: $oil !default;
+$topbar-dropdown-bg: $wet-asphalt !default;
 $topbar-dropdown-link-color: $white !default;
 $topbar-dropdown-link-color-hover: $topbar-link-color-hover !default;
-$topbar-dropdown-link-bg: $oil !default;
+$topbar-dropdown-link-bg: $wet-asphalt !default;
 $topbar-dropdown-link-bg-hover: $jet !default;
 $topbar-dropdown-link-weight: $font-weight-normal !default;
 $topbar-dropdown-toggle-size: 5px !default;
@@ -726,4 +726,33 @@ $topbar-dropdown-arrows: true !default; //Set false to remove the \00bb >> text 
       }
     }
   }
+}
+
+// Add some whitespace between top bar and content
+.top-bar-container, .tab-bar {
+  margin-bottom: rem-calc(32);
+}
+
+.top-bar .name {
+  h1 a { font-weight: 500; }
+}
+
+// A more subtle background color for the active menu item
+.top-bar-section li.active:not(.has-form) a:not(.button)  {
+  background: #272727;
+}
+.top-bar-section li.active:not(.has-form) a:hover:not(.button) {
+  background: #202020;
+}
+
+// Switch between the mobile menu (tab-bar) and desktop menu (topbar) based on a custom $topbar-breakpoint value.
+// The $topbar-breakpoint can be edited in _custom-settings.scss.
+
+@media only screen and (min-width: ($topbar-breakpoint + em-calc(1))) {
+  .tab-bar { display: none; }
+}
+
+// Hide the topbar when the screen size is smaller than the topbar breakpoint
+@media only screen and (max-width: $topbar-breakpoint) {
+  .top-bar { display: none; }
 }

@@ -1,19 +1,19 @@
 /*
 	Custom settings for "wp-portugal-tema".
-    These variables are copied from _settings.css
-	This file will only contain uncommented settings that are actually used in the theme.
+    These variables are customized from original _settings.css
+	This file will only (hopefully) contain uncommented settings that are actually used in the theme.
 */
 
+// External fonts to include
+@import "fonts";
 
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "../../bower_components/foundation/scss/foundation/functions";
+
 // We use this to control whether or not CSS classes come through in the gem files.
 $include-html-classes: true;
 // $include-print-styles: true;
 $include-html-global-classes: $include-html-classes;
-
-
-
 
 // We use these to define default font stacks
 $font-family-sans-serif: $open-sans;
@@ -85,7 +85,6 @@ $primary-color: $peter-river;
 $secondary-color: $clouds;
 $alert-color: $alizarin;
 $success-color: $emerald;
-
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
 
@@ -101,8 +100,7 @@ $heading-font-family: $font-family-serif;
 $heading-font-weight: $font-weight-bold;
 $heading-font-style: normal;
 
-
-$header-font-weight: 300;
+$header-font-weight: $heading-font-weight;
 $header-text-rendering: optimizeLegibility;
 $topbar-link-weight: bold;
 
