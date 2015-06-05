@@ -19,7 +19,7 @@
 // @import "../bower_components/foundation/scss/foundation/components/block-grid";
 // @import "../bower_components/foundation/scss/foundation/components/breadcrumbs";
 // @import "../bower_components/foundation/scss/foundation/components/button-groups";
-// @import "../bower_components/foundation/scss/foundation/components/buttons";
+@import "../bower_components/foundation/scss/foundation/components/buttons";
 @import "../bower_components/foundation/scss/foundation/components/clearing";
 @import "../bower_components/foundation/scss/foundation/components/dropdown";
 @import "../bower_components/foundation/scss/foundation/components/dropdown-buttons";
@@ -62,6 +62,7 @@
 */
 
 @import "site/global";
+@import "site/buttons";
 @import "site/top-bar";
 @import "site/type";
 @import "site/styles";

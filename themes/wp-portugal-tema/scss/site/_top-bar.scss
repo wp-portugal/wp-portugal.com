@@ -9,7 +9,7 @@ $topbar-bg-color: $midnight-blue !default;
 $topbar-bg: $topbar-bg-color !default;
 
 // Height and margin
-$topbar-height: rem-calc(70) !default;
+$topbar-height: rem-calc(90) !default;
 $topbar-margin-bottom: 0 !default;
 
 // Controlling the styles for the title in the top bar
@@ -22,7 +22,7 @@ $topbar-link-color-hover: $white !default;
 $topbar-link-color-active: $white !default;
 $topbar-link-color-active-hover: $white !default;
 $topbar-link-weight: $font-weight-normal !default;
-$topbar-link-font-size: rem-calc(23) !default;
+$topbar-link-font-size: rem-calc(15) !default;
 $topbar-link-hover-lightness: -10% !default; // Darken by 10%
 $topbar-link-bg: $topbar-bg !default;
 $topbar-link-bg-hover: $wet-asphalt !default;
@@ -31,8 +31,8 @@ $topbar-link-bg-active: $primary-color !default;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%) !default;
 $topbar-link-font-family: $body-font-family !default;
 $topbar-link-text-transform: none !default;
-$topbar-link-padding: ($topbar-height / 3) !default;
-$topbar-back-link-size: rem-calc(18) !default;
+$topbar-link-padding: ($topbar-height / 6) !default;
+$topbar-back-link-size: rem-calc(16) !default;
 $topbar-link-dropdown-padding: rem-calc(20) !default;
 $topbar-button-font-size: .75rem !default;
 $topbar-button-top: 7px !default;
@@ -734,7 +734,7 @@ $topbar-dropdown-arrows: true !default; //Set false to remove the \00bb >> text 
 }
 
 .top-bar .name {
-  h1 a { font-weight: 500; }
+  h1 a { font-weight: 1500; }
 }
 
 // A more subtle background color for the active menu item
@@ -755,4 +755,16 @@ $topbar-dropdown-arrows: true !default; //Set false to remove the \00bb >> text 
 // Hide the topbar when the screen size is smaller than the topbar breakpoint
 @media only screen and (max-width: $topbar-breakpoint) {
   .top-bar { display: none; }
+}
+
+
+
+body > div.off-canvas-wrap > div > div > nav > ul > li > h1 > a {
+  width: 250px!important;
+  text-indent: -9999px;
+  background-image: url(../assets/img/wp-portugal-logo_big.png);
+  background-repeat: no-repeat;
+  background-size: 250px;
+  background-position: 50%;
+
 }
