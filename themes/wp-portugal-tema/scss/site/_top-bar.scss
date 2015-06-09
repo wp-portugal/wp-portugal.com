@@ -5,7 +5,7 @@
 $include-html-top-bar-classes: $include-html-classes !default;
 
 // Background color for the top bar
-$topbar-bg-color: $midnight-blue !default;
+$topbar-bg-color: $wp-blue !default;
 $topbar-bg: $topbar-bg-color !default;
 
 // Height and margin
@@ -25,24 +25,24 @@ $topbar-link-weight: $font-weight-normal !default;
 $topbar-link-font-size: rem-calc(15) !default;
 $topbar-link-hover-lightness: -10% !default; // Darken by 10%
 $topbar-link-bg: $topbar-bg !default;
-$topbar-link-bg-hover: $wet-asphalt !default;
+$topbar-link-bg-hover: lighten($topbar-bg, 15%) !default;
 $topbar-link-bg-color-hover: $charcoal !default;
 $topbar-link-bg-active: $primary-color !default;
 $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%) !default;
 $topbar-link-font-family: $body-font-family !default;
 $topbar-link-text-transform: none !default;
-$topbar-link-padding: ($topbar-height / 6) !default;
-$topbar-back-link-size: rem-calc(16) !default;
+$topbar-link-padding: ($topbar-height / 10) !default;
+$topbar-back-link-size: rem-calc(13) !default;
 $topbar-link-dropdown-padding: rem-calc(20) !default;
 $topbar-button-font-size: .75rem !default;
 $topbar-button-top: 7px !default;
 
 // Style the top bar dropdown elements
-$topbar-dropdown-bg: $wet-asphalt !default;
+$topbar-dropdown-bg: $topbar-bg-color !default;
 $topbar-dropdown-link-color: $white !default;
-$topbar-dropdown-link-color-hover: $topbar-link-color-hover !default;
-$topbar-dropdown-link-bg: $wet-asphalt !default;
-$topbar-dropdown-link-bg-hover: $jet !default;
+$topbar-dropdown-link-color-hover: lighten($wp-orange, 15%) !default;
+$topbar-dropdown-link-bg: $topbar-bg-color !default;
+$topbar-dropdown-link-bg-hover: $topbar-bg-color !default;
 $topbar-dropdown-link-weight: $font-weight-normal !default;
 $topbar-dropdown-toggle-size: 5px !default;
 $topbar-dropdown-toggle-color: $white !default;
@@ -58,7 +58,7 @@ $topbar-dropdown-label-bg: $oil !default;
 $topbar-menu-link-transform: uppercase !default;
 $topbar-menu-link-font-size: rem-calc(13) !default;
 $topbar-menu-link-weight: $font-weight-bold !default;
-$topbar-menu-link-color: $white !default;
+$topbar-menu-link-color:$wp-orange !default;
 $topbar-menu-icon-color: $white !default;
 $topbar-menu-link-color-toggled: $jumbo !default;
 $topbar-menu-icon-color-toggled: $jumbo !default;
@@ -74,8 +74,10 @@ $topbar-media-query: "#{$screen} and (min-width:#{lower-bound($topbar-breakpoint
 $topbar-input-height: rem-calc(28) !default;
 
 // Divider Styles
-$topbar-divider-border-bottom: solid 1px scale-color($topbar-bg-color, $lightness: 13%) !default;
-$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%) !default;
+//$topbar-divider-border-bottom: solid 1px scale-color($topbar-bg-color, $lightness: 13%) !default;
+$topbar-divider-border-bottom: solid 1px $wp-blue !default;
+//$topbar-divider-border-top: solid 1px scale-color($topbar-bg-color, $lightness: -50%) !default;
+$topbar-divider-border-top: solid  1px $wp-blue !default;
 
 // Sticky Class
 $topbar-sticky-class: ".sticky" !default;
@@ -764,7 +766,10 @@ body > div.off-canvas-wrap > div > div > nav > ul > li > h1 > a {
   text-indent: -9999px;
   background-image: url(../assets/img/wp-portugal-logo_big.png);
   background-repeat: no-repeat;
-  background-size: 250px;
+  background-size: 200px;
   background-position: 50%;
 
 }
+
+
+
