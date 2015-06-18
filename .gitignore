@@ -1,12 +1,7 @@
 # Ignore everything in the root except the "wp-content" directory.
-/*
 !.gitignore
-!wp-content/
- 
-# Ignore everything in the "wp-content" directory, except the "plugins" and "themes" directories.
-wp-content/*
-!wp-content/themes/
- 
-# Ignore everything in the "themes" directory, except the themes you specify
-wp-content/themes/*
-!wp-content/themes/wp-portugal-tema/
+themes/wp-portugal-tema/bower_components/
+themes/wp-portugal-tema/node_modules/
+plugins/
+uploads/
+*.log
