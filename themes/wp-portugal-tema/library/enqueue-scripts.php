@@ -38,6 +38,13 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'foundation' );
 
+	//TODO: do a conditional load on page id
+	//wp_enqueue_script( 'glossary', get_template_directory_uri() . '/js/custom/glossary.js', array( 'jquery' ), '20150330', true );
+	wp_localize_script( 'foundation', 'MyAjax', 
+  	array( 'ajaxurl' => admin_url( 'admin-ajax.php' ),
+    	   'gettermsNonce' => wp_create_nonce( 'myajax-term-nonce' ),
+	 ) );
+
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
