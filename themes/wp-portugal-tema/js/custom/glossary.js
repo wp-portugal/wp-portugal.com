@@ -26,7 +26,7 @@ function search_term() {
   }
 jQuery(document).ready(function() {
   //TODO: don't block enter.
-  if(jQuery("#term__text").is(":focus")){
+  //if(jQuery("#term__text").is(":focus")){
 
   jQuery(window).keydown(function(event){
     if(event.keyCode == 13) {
@@ -35,7 +35,8 @@ jQuery(document).ready(function() {
       return false;
     }
   });
-  }
+  //}
+  document.getElementById("term__text").focus();
 });
 jQuery(document).on('change', '#term__text' ,function (event) {
   search_term();  
