@@ -22,15 +22,15 @@ get_header(); ?>
 				
 			<div id="gloss__block"><h2>Glossário</h2>
 			<form id     = "booking__form"
-  		class  = "form-horizontal"  
-        method = "get"  >
-				<label class="floatl" for="booking__name<?= $i ?>"><?php _e('Termo em Inglês','43lc');?></label>
+  			      class  = "form-horizontal"  
+    		      method = "get"  >
+				<label class="floatl" for="booking__name"><?php _e('Termo em Inglês','43lc');?></label>
 				<input type        ="text"  required
 				       class       ="form-control " 
 				       id          ="term__text" 
 				       name        ="term__text"
-				       value			="<?= $term__text?>"
-				       min        ="0"
+				       value	   =""
+				       min         ="0"
 				       placeholder ="<?php _e('termo*','43lc');?>">
 				       
 			
