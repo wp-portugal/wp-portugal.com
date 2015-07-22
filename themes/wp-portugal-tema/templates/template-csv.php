@@ -21,17 +21,17 @@ get_header(); ?>
 				<?php the_content(); ?>
 				
 			<div id="gloss__block"><h2>Glossário</h2>
-			<form id     = "booking__form"
+			<form id     = "term__form"
   			      class  = "form-horizontal"  
     		      method = "get"  >
-				<label class="floatl" for="booking__name"><?php _e('Termo em Inglês','43lc');?></label>
+				<label class="floatl" for="term__text">Termo em Inglês</label>
 				<input type        ="text"  required
 				       class       ="form-control " 
 				       id          ="term__text" 
 				       name        ="term__text"
 				       value	   =""
 				       min         ="0"
-				       placeholder ="<?php _e('termo*','43lc');?>">
+				       placeholder ="termo*">
 				       
 			
 			</form>
