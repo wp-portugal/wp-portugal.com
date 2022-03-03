@@ -1,0 +1,422 @@
+# Copyright (C) 2017 CF7 Google Sheet Connector
+# This file is distributed under the same license as the CF7 Google Sheet Connector package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CF7 Google Sheet Connector 4.9.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/cf7-google-sheets-"
+"connector\n"
+"POT-Creation-Date: 2022-02-25 17:07+0530\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: helpdesk@gsheetconnector.com\n"
+"X-Generator: Poedit 2.4.3\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: assets/js\n"
+
+#: google-sheet-connector.php:177
+msgid ""
+"Google Sheet Connector Add-on requires Contact Form 7 plugin to be installed "
+"and activated."
+msgstr ""
+
+#: google-sheet-connector.php:189 google-sheet-connector.php:214
+#: includes/class-gs-service.php:110
+msgid "Google Sheets"
+msgstr ""
+
+#: google-sheet-connector.php:211
+msgid "Contact Form 7 - Google Sheet Integration"
+msgstr ""
+
+#: google-sheet-connector.php:217
+msgid ""
+"Click \"Get code\" to retrieve your code from Google Drive to allow us to "
+"access your spreadsheets. And paste the code in the below textbox. "
+msgstr ""
+
+#: google-sheet-connector.php:219
+msgid "Google Access Code"
+msgstr ""
+
+#: google-sheet-connector.php:221
+msgid "Currently Active"
+msgstr ""
+
+#: google-sheet-connector.php:222
+msgid "Deactivate"
+msgstr ""
+
+#: google-sheet-connector.php:226
+msgid "Enter Code"
+msgstr ""
+
+#: google-sheet-connector.php:232
+msgid "Save"
+msgstr ""
+
+#: google-sheet-connector.php:245
+#, php-format
+msgid "Connected email account: %s"
+msgstr ""
+
+#: google-sheet-connector.php:247
+msgid ""
+"Something wrong ! Your Auth Code may be wrong or expired. Please deactivate "
+"and do Re-Authentication again. "
+msgstr ""
+
+#: google-sheet-connector.php:253
+msgid "Debug Log"
+msgstr ""
+
+#: google-sheet-connector.php:268
+msgid ""
+"Did Contact Form 7 - Google Sheet Connector help you out ? Please leave a 5-"
+"star review. Thank you!"
+msgstr ""
+
+#: google-sheet-connector.php:272
+msgid "Need a helping hand ?"
+msgstr ""
+
+#: google-sheet-connector.php:273
+msgid "Please ask for help on "
+msgstr ""
+
+#: google-sheet-connector.php:273
+msgid "Support Forum"
+msgstr ""
+
+#: google-sheet-connector.php:273
+msgid " and "
+msgstr ""
+
+#: google-sheet-connector.php:273
+msgid "Email. "
+msgstr ""
+
+#: google-sheet-connector.php:273
+msgid ""
+"Do provide us detailed information about the issue along with wordpress "
+"version. "
+msgstr ""
+
+#: google-sheet-connector.php:391
+msgid "Settings"
+msgstr ""
+
+#: google-sheet-connector.php:392
+msgid "Upgrade to PRO"
+msgstr ""
+
+#: google-sheet-connector.php:397
+msgid "CF7 Google Sheet Connector"
+msgstr ""
+
+#: includes/class-gs-service.php:275
+msgid "Google Sheet Settings"
+msgstr ""
+
+#: includes/class-gs-service.php:275
+msgid ""
+"( Fetch your sheets automatically using PRO <a href=\"https://www."
+"gsheetconnector.com/cf7-google-sheet-connector-pro?gsheetconnector-ref=17\" "
+"target=\"__blank\">Upgrade to PRO</a> )"
+msgstr ""
+
+#: includes/class-gs-service.php:277
+msgid "Google Sheet Name"
+msgstr ""
+
+#: includes/class-gs-service.php:282
+msgid ""
+"Go to your google account and click on\"Google apps\" icon and than click "
+"\"Sheets\". Select the name of the appropriate sheet you want to link your "
+"contact form or create new sheet."
+msgstr ""
+
+#: includes/class-gs-service.php:285
+msgid "Google Sheet ID"
+msgstr ""
+
+#: includes/class-gs-service.php:288
+msgid "you can get sheet id from your sheet URL"
+msgstr ""
+
+#: includes/class-gs-service.php:291
+msgid "Google Sheet Tab Name"
+msgstr ""
+
+#: includes/class-gs-service.php:294
+msgid ""
+"Open your Google Sheet with which you want to link your contact form . You "
+"will notice a tab names at bottom of the screen. Copy the tab name where you "
+"want to have an entry of contact form."
+msgstr ""
+
+#: includes/class-gs-service.php:297
+msgid "Google Tab ID"
+msgstr ""
+
+#: includes/class-gs-service.php:300
+msgid "you can get tab id from your sheet URL"
+msgstr ""
+
+#: includes/class-gs-service.php:392
+msgid "No mail tags available."
+msgstr ""
+
+#: includes/class-gs-service.php:433
+msgid ""
+"Map special mail tags with custom header name and save automatically to "
+"google sheet. "
+msgstr ""
+
+#: includes/class-gs-service.php:500
+msgid "No custom mail tags available."
+msgstr ""
+
+#: includes/class-gs-utility.php:81
+msgid "There's something wrong with your code..."
+msgstr ""
+
+#: includes/pages/cf7gs-dashboard-widget.php:20
+msgid "Contact forms connected with Google Sheet"
+msgstr ""
+
+#: includes/pages/cf7gs-dashboard-widget.php:34
+#: includes/pages/cf7gs-dashboard-widget.php:39
+msgid "No contact forms are connected with google sheet."
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:19
+msgid "Integration"
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:20
+msgid "Support"
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:21
+msgid "FAQ"
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:22
+msgid "Demos"
+msgstr ""
+
+#: includes/pages/google-sheet-settings.php:23
+msgid "System Status"
+msgstr ""
+
+#: includes/pages/gs-custom-mail-tags.php:4
+msgid "Custom Mail Tags "
+msgstr ""
+
+#: includes/pages/gs-custom-ordering.php:4
+msgid "Custom Ordering - "
+msgstr ""
+
+#: includes/pages/gs-custom-ordering.php:8
+msgid ""
+"Not showing correct header name ? Un-select and select the fields checkbox "
+"again. It happens due to various reasons like change in field/mail tag name."
+msgstr ""
+
+#: includes/pages/gs-demo-details.php:4
+msgid "Upgrade to CF7 Google Sheet Connector PRO"
+msgstr ""
+
+#: includes/pages/gs-demo-details.php:10
+#: includes/pages/gs-integrate-demo.php:25
+msgid "Click Here Demo"
+msgstr ""
+
+#: includes/pages/gs-demo-details.php:22
+#: includes/pages/gs-integrate-demo.php:29
+msgid "Sheet URL (Click Here to view Sheet with submitted data.)"
+msgstr ""
+
+#: includes/pages/gs-demo-details.php:52
+#: includes/pages/gs-integrate-demo.php:62
+msgid "Buy Now - $29.00"
+msgstr ""
+
+#: includes/pages/gs-field-list.php:4
+msgid "Field List - "
+msgstr ""
+
+#: includes/pages/gs-field-list.php:7
+msgid ""
+"Map mail tags with custom header name and save automatically to google "
+"sheet. "
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:3
+msgid "Why isn’t the data send to spreadsheet? CF7 Submit is just Spinning."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:7 includes/pages/gs-integrate-faq.php:59
+msgid ""
+"Sometimes it can take a while of spinning before it goes through. But if the "
+"entries never show up in your Sheet then one of these things might be the "
+"reason:"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:8 includes/pages/gs-integrate-faq.php:61
+msgid "Wrong access code ( Check debug log )"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:9 includes/pages/gs-integrate-faq.php:62
+msgid "Wrong Sheet name or tab name"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:10
+msgid ""
+"Wrong Column name mapping( Column names are the contact form mail-tags. It "
+"cannot have underscore or any special characters )"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:12
+#: includes/pages/gs-integrate-faq.php:65
+msgid ""
+"Please double-check those items and hopefully getting them right will fix "
+"the issue."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:19
+msgid "How to configure your Spreadsheet with CF7 to Spreadsheet plugin?"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:22
+msgid "Go to the Current Working Contact Form7 and edit it."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:23
+msgid "Then click on the Google Sheet tab."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:24
+msgid ""
+"Enter Google Sheet name and Google Sheet tab name inside the Google Sheet "
+"tab."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:32
+msgid "Why I am Getting Error 500 After Installing Plugin."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:34
+msgid "Following are few of the points which will help to debug the issue."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:35
+msgid ""
+"1) Enable debug by adding&nbsp;following in your wp-config.php file before /"
+"* That’s all, stop editing! Happy blogging."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:36
+msgid ""
+"define(‘WP_DEBUG’, true); define(‘WP_DEBUG_LOG’, true); "
+"define(‘SCRIPT_DEBUG’, true); define(‘SAVEQUERIES’, true);"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:37
+msgid ""
+"And then try to activate the plugin again. This will create a debug.log "
+"under wp-content folder.&nbsp;Check for cf7 google sheet connector error if "
+"so send us the file at support@westerndeal.com"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:38
+msgid ""
+"2) Check the log that is created by CF7 google sheet. For that click “View” "
+"from goggle sheet integration page. Let us know if there is any error we "
+"will assist you."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:39
+msgid ""
+"3) Check what other CF7 extension you are using. Deactivate one by one and "
+"check if there is any conflict."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:45
+msgid "How do I get the Google Access Code required in step 3 of Installation?"
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:48
+msgid ""
+"On the&nbsp;<code>Admin Panel &gt; Contact form 7 &gt; Google Sheets</"
+"code>&nbsp;screen, click the “Get Code” button."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:49
+msgid ""
+"In a popup Google will ask you to authorize the plugin to connect to your "
+"Google Sheets. Authorize it – you may have to log in to your Google account "
+"if you aren’t already logged in."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:50
+msgid "On the next screen, you should receive the Access Code. Copy it."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:51
+msgid ""
+"Now you can paste this code back on the&nbsp;<code>Admin Panel &gt; Contact "
+"form 7 &gt; Google Sheets</code>&nbsp;screen."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:57
+msgid "Value is not Saving in Google Sheet and Email Works."
+msgstr ""
+
+#: includes/pages/gs-integrate-faq.php:63
+msgid ""
+"Wrong Column name mapping ( Column names are the contact form mail-tags. It "
+"cannot have underscore or any special characters )"
+msgstr ""
+
+#: includes/pages/gs-integrate-info.php:9
+msgid ""
+"To copy the system info, click below then press Ctrl + C (PC) or Cmd + C "
+"(Mac)."
+msgstr ""
+
+#: includes/pages/gs-integrate-support.php:5
+msgid "Submit A Ticket"
+msgstr ""
+
+#: includes/pages/gs-integrate-support.php:6
+msgid ""
+"We offer excellent support through our advanced ticket system. Make sure to "
+"register your purchase first to access our support services and other "
+"resources."
+msgstr ""
+
+#: includes/pages/gs-integrate-support.php:7
+msgid "Submit a ticket"
+msgstr ""
+
+#: includes/pages/gs-integrate-support.php:11
+#: includes/pages/gs-integrate-support.php:13
+msgid "Documentation"
+msgstr ""
+
+#: includes/pages/gs-integrate-support.php:12
+msgid ""
+"This is the place to go to reference different aspects of the theme. Our "
+"online documentaiton is an incredible resource for learning the ins and outs."
+msgstr ""
+
+#: includes/pages/gs-special-mailtags.php:4
+msgid "Special Mail Tags - "
+msgstr ""

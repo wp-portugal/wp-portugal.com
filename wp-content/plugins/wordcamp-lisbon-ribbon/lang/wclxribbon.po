@@ -1,0 +1,58 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WordCamp Lisboa Ribbon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-17 21:52-0000\n"
+"PO-Revision-Date: 2012-08-17 21:55-0000\n"
+"Last-Translator: Filipe Varela <keoshi@keoshi.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../wclxribbon.php:68
+msgid "WordCamp Lisboa Ribbon"
+msgstr ""
+
+#: ../wclxribbon.php:69
+msgid ""
+"Use the options below to choose the Ribbon and its placement on your site."
+msgstr ""
+
+#: ../wclxribbon.php:75
+msgid "Bright Yellow Ribbon"
+msgstr ""
+
+#: ../wclxribbon.php:77 ../wclxribbon.php:84
+msgid "Left Corner"
+msgstr ""
+
+#: ../wclxribbon.php:78 ../wclxribbon.php:85
+msgid "Right Corner"
+msgstr ""
+
+#: ../wclxribbon.php:82
+msgid "Dark Grey Ribbon"
+msgstr ""
+
+#: ../wclxribbon.php:90
+msgid "Save Changes"
+msgstr ""
+
+#: ../wclxribbon.php:100
+msgid "Settings"
+msgstr ""
+
+#~ msgid "Plugin Options Starter Kit"
+#~ msgstr "Kit Inicial para Opções de Plugin"
+
+#~ msgid ""
+#~ "Below is a collection of sample controls you can use in your own Plugins. "
+#~ "Or, you can analyse the code and learn how all the most common controls "
+#~ "can be added to a Plugin options form. See the code for more details, it "
+#~ "is fully commented."
+#~ msgstr "Abaixo encontra-se uma colecção de controlos blah blah blah."

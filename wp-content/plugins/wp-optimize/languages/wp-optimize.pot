@@ -1,0 +1,3932 @@
+# Copyright (C) 2022 wp-optimize
+# This file is distributed under the same license as the wp-optimize package.
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-optimize\n"
+"Report-Msgid-Bugs-To: http://example.com\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2022-MO-DA HO:MI+ZONE\n"
+"Last-Translator: John Doe <mail@example.com>\n"
+"Language-Team: Team Updraft <mail@example.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/cache/class-cache-commands.php:62
+msgid "Page caching was disabled, but with some warnings:"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:82
+msgid "Page caching was enabled, but with some warnings:"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:127
+msgid "Caching is enabled"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:127
+msgid "Caching is disabled"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:130
+msgid "Current cache size: %s"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:131
+msgid "Number of files: %s"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:168, src/minify/class-wp-optimize-minify-commands.php:72
+msgid "You do not have permission to purge the cache"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:193
+msgid "Page cache purged successfully"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:217
+msgid "Preloading is currently running in another process."
+msgstr ""
+
+#: src/cache/class-cache-commands.php:224
+msgid "All URLs were preloaded into cache successfully"
+msgstr ""
+
+#: src/cache/class-cache-commands.php:227
+msgid "Preloading URLs into cache..."
+msgstr ""
+
+#: src/cache/class-cache-commands.php:287
+msgid "Page cache settings updated successfully."
+msgstr ""
+
+#: src/cache/class-wpo-cache-config.php:183
+msgid "The cache configuration file could not be saved to the disk; please check the file/folder permissions of %s ."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:190
+msgid "Page cache is disabled."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:209
+msgid "Probably page cache preload is running already."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:377, src/wp-optimize.php:1294
+msgid "Loading URLs..."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:392
+msgid "Last preload finished at %s"
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:406
+msgid "%1$s out of %2$s URL preloaded"
+msgid_plural "%1$s out of %2$s URLs preloaded"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/cache/class-wpo-cache-preloader.php:408
+msgid "Preloading posts found in sitemap:"
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:466
+msgid "Creating tasks for preload site urls."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:482
+msgid "Tasks for preload site urls created."
+msgstr ""
+
+#: src/cache/class-wpo-cache-preloader.php:587
+msgid "%d url found."
+msgid_plural "%d urls found."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/cache/class-wpo-page-cache.php:170, src/wp-optimize.php:837
+msgid "Page cache"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:171, src/minify/class-wp-optimize-minify.php:70
+msgid "Cache size:"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:171
+msgid "(%d files)"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:184, src/cache/class-wpo-page-cache.php:187
+msgid "Purge cache for all pages"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:195, src/cache/class-wpo-page-cache.php:198
+msgid "Purge cache for this page"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:258, src/cache/class-wpo-page-cache.php:272
+msgid "The page cache was successfully purged."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:265, src/cache/class-wpo-page-cache.php:279
+msgid "The page cache was not purged."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:345, src/cache/class-wpo-page-cache.php:1223
+msgid "Please check file and directory permissions on the file paths up to this point, and your PHP error log."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:348
+msgid "1. Please navigate, via FTP, to the folder - %s"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:349
+msgid "2. Edit or create a file with the name advanced-cache.php"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:350
+msgid "3. Copy and paste the following lines into the file:"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:387
+msgid "Could not turn off the WP_CACHE constant in wp-config.php"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:397
+msgid "The request to the filesystem to remove or empty advanced-cache.php failed"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:403
+msgid "The page caching could not be disabled: the WP_CACHE constant could not be removed from wp-config.php and the request to the filesystem to remove or empty advanced-cache.php failed."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:666
+msgid "The file advanced-cache.php needs to be updated, but the automatic process failed."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:667
+msgid "Please try to disable and then re-enable the WP-Optimize cache manually."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:765
+msgid "Unable to write to or find wp-config.php; please check file/folder permissions."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:773
+msgid "Unable to write the file advanced-cache.php inside the wp-content folder; please check file/folder permissions"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:780
+msgid "Unable to write inside the cache files folder (%s); please check file/folder permissions (no cache files will be able to be created otherwise)"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:793
+msgid "Unable to write inside the cache configuration folder (%s); please check file/folder permissions"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:1194, src/cache/class-wpo-page-cache.php:1215
+msgid "WP-Optimize:"
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:1194
+msgid "Please disable the feature \"Gzip compression\" in PageSpeed Ninja to prevent conflicts."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:1215
+msgid "Please disable the feature \"Gzip compression\" in Far Future Expiration to prevent conflicts."
+msgstr ""
+
+#: src/cache/class-wpo-page-cache.php:1222
+msgid "The request to write the file %s failed."
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:32
+msgid "Output is too small (less than %d bytes) to be worth caching"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:37
+msgid "User is logged in"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:47
+msgid "WP-O cache parent directory was not found"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:51
+msgid "WP-O cache directory was not found"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:62
+msgid "Comments are opened and the visitor saved his information."
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:82
+msgid "wpo_can_cache_page filter forbade it"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:84
+msgid "DONOTCACHEPAGE constant forbade it and wpo_can_cache_page filter did not over-ride it"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:89
+msgid "This is a REST API request (identified by REST_REQUEST constant)"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:95
+msgid "This page has a fatal error"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:99
+msgid "This page has a critical error (HTTP code %s)"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:101
+msgid "This page returned an HTTP unauthorised response code (%s)"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:120
+msgid "Attempt to create subfolder within cache directory failed"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:264
+msgid "Page type is not cacheable (search, 404 or password-protected)"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:270
+msgid "In the settings, caching is disabled for the front page"
+msgstr ""
+
+#: src/cache/file-based-page-cache-functions.php:280
+msgid "We don't cache RSS feeds"
+msgstr ""
+
+#: src/includes/class-commands.php:200, src/includes/class-commands.php:248, src/includes/class-commands.php:290
+msgid "No optimization was indicated."
+msgstr ""
+
+#: src/includes/class-commands.php:428
+msgid "We could not determine if Gzip compression is enabled."
+msgstr ""
+
+#: src/includes/class-commands.php:440, src/includes/class-commands.php:449
+msgid "Please upload a valid settings file."
+msgstr ""
+
+#: src/includes/class-commands.php:513
+msgid "No such command found"
+msgstr ""
+
+#: src/includes/class-commands.php:519
+msgid "No tweak provided"
+msgstr ""
+
+#: src/includes/class-commands.php:538
+msgid "The command %s failed"
+msgstr ""
+
+#: src/includes/class-updraft-abstract-logger.php:82
+msgid "Placeholder"
+msgstr ""
+
+#: src/includes/class-updraft-email-logger.php:26
+msgid "Log events to email"
+msgstr ""
+
+#: src/includes/class-updraft-email-logger.php:37
+msgid "Enter email for logs here"
+msgstr ""
+
+#: src/includes/class-updraft-file-logger.php:32
+msgid "Log events into a log file"
+msgstr ""
+
+#: src/includes/class-updraft-php-logger.php:25
+msgid "Log events into the PHP error log"
+msgstr ""
+
+#: src/includes/class-updraft-ring-logger.php:24
+msgid "Store the most recent log entries in the WordPress database"
+msgstr ""
+
+#: src/includes/class-updraft-ring-logger.php:34
+msgid "How many last records store?"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:63, src/includes/class-updraft-smush-manager.php:297
+msgid "The blog ID provided does not match the current blog."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:132
+msgid "The image was restored successfully"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:173
+msgid "Since your compression statistics were last reset, a total of %d image(s) were compressed on this site, saving approximately %s of space at an average of %02d percent per image."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:174
+msgid "%d image(s) could not be compressed. Please see the logs for more information, or try again later."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:175
+msgid "%d image(s) images were selected for compressing previously, but were not all processed. You can either complete them now or cancel and retry later."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:184
+msgid "A total of %d image(s) were successfully compressed in this iteration. "
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:188
+msgid "%d selected image(s) could not be compressed. Please see the logs for more information, you may try again later."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:218
+msgid "Options could not be updated"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:224
+msgid "Options updated successfully"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:239
+msgid "Stats could not be cleared"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:244
+msgid "Stats cleared successfully"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:284
+msgid "Pending tasks could not be cleared"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:289
+msgid "Pending tasks cleared successfully"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:312
+msgid "This image is marked as already compressed by another tool."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:335
+msgid "The selected image was successfully marked as uncompressed"
+msgid_plural "The selected images were successfully marked as uncompressed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:337
+msgid "The selected image was successfully marked as compressed"
+msgid_plural "The selected images were successfully marked as compressed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:364, src/includes/class-updraft-smush-manager-commands.php:388, src/includes/class-updraft-smush-manager.php:449
+msgid "All the compressed images were successfully restored."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:390, src/includes/class-updraft-smush-manager.php:455
+msgid "All the compressed images were successfully marked as uncompressed."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager-commands.php:432
+msgid "Log file does not exist or could not be read"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:130
+msgid "The file was either compressed using another tool or marked as compressed"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:138, src/includes/class-updraft-smush-task.php:287
+msgid "The file was compressed to %s using WP-Optimize"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:141
+msgid "The file was compressed from %s to %s, saving %s percent, using WP-Optimize"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:343
+msgid "The backup was not found; it may have been deleted or was already restored"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:345
+msgid "The destination could not be written to."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:345
+msgid "Please check your folder's permissions"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:347
+msgid "The file could not be copied; check your PHP error logs for details"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:349
+msgid "The backup file %s could not be deleted."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:433
+msgid "%s compressed images were restored from their backup for the site %s"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:435
+msgid "%s compressed images were restored from their backup"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:447
+msgid "All the compressed images for the site %s were successfully restored."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:453
+msgid "All the compressed images for the site %s were successfully marked as uncompressed."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:713
+msgid "No uncompressed images were found."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:714
+msgid "An unexpected response was received from the server. More information has been logged in the browser console."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:715
+msgid "Please wait: compressing the selected image."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:716
+msgid "Please try again later."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:717
+msgid "Connecting to the Smush API server, please wait"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:718
+msgid "Please wait while the request is being processed"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:719
+msgid "There was an error connecting to the image compression server. This could mean either the server is temporarily unavailable or there are connectivity issues with your internet connection. Please try later."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:720
+msgid "Please select the images you want compressed from the \"Uncompressed images\" panel first"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:721
+msgid "Please wait: updating information about the selected image."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:722
+msgid "Please select the images you want to mark as already compressed from the \"Uncompressed images\" panel first"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:723
+msgid "View Image"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:724
+msgid "Do you really want to delete all backup images now? This action is irreversible."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:725
+msgid "Do you really want to mark all the images as uncompressed? This action is irreversible."
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:726
+msgid "Do you want to restore the original images from the backup (where they exist?)"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:727
+msgid "Do you really want to restore all the compressed images?"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:728, src/templates/images/smush-details.php:2
+msgid "More"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:729
+msgid "Less"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:746
+msgid "Compress Image"
+msgstr ""
+
+#: src/includes/class-updraft-smush-manager.php:1529
+msgid "Compress image"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:290
+msgid "The file was compressed from %s to %s saving %s percent using WP-Optimize"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:329
+msgid "Failed with error code %s - %s"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:355
+msgid "Initialised"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:356
+msgid "Connecting to API server"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:357
+msgid "Processing response"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:358
+msgid "Backing up original image"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:359
+msgid "Saving optimized image"
+msgstr ""
+
+#: src/includes/class-updraft-smush-task.php:360
+msgid "Successful"
+msgstr ""
+
+#: src/includes/class-wp-optimization.php:470
+msgid "Preview found items"
+msgstr ""
+
+#: src/includes/class-wp-optimize-browser-cache.php:57
+msgid "We successfully updated your .htaccess file. But it seems one of Apache modules - mod_expires or mod_headers is not active."
+msgstr ""
+
+#: src/includes/class-wp-optimize-browser-cache.php:125
+msgid "Browser static caching settings already exists in the .htaccess file"
+msgstr ""
+
+#: src/includes/class-wp-optimize-browser-cache.php:168
+msgid "We successfully updated your .htaccess file."
+msgstr ""
+
+#: src/includes/class-wp-optimize-browser-cache.php:175, src/includes/class-wp-optimize-gzip-compression.php:209
+msgid "We can't update your %s file. Please try to add following lines manually:"
+msgstr ""
+
+#: src/includes/class-wp-optimize-browser-cache.php:180, src/includes/class-wp-optimize-gzip-compression.php:207
+msgid "We can't update your %s file. Please try to remove following lines manually:"
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:82, src/includes/class-wp-optimize-gzip-compression.php:86
+msgid "We can't definitely determine Gzip status as API doesn't return correct answer."
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:119, src/includes/class-wp-optimize-gzip-compression.php:121, src/includes/class-wp-optimize-gzip-compression.php:123
+msgid "We successfully added Gzip compression settings into .htaccess file."
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:119, src/includes/class-wp-optimize-gzip-compression.php:121, src/includes/class-wp-optimize-gzip-compression.php:123
+msgid "However, the test file we fetched was not Gzip-compressed."
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:119
+msgid "It seems one of Apache modules - mod_filter or mod_deflate - is not active."
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:121
+msgid "Possible causes include that Apache (your webserver) is not configured to allow .htaccess files to take effect, or one of Apache modules - mod_filter or mod_deflate - is not active, or the webserver is configured to disallow Gzip compression."
+msgstr ""
+
+#: src/includes/class-wp-optimize-gzip-compression.php:121, src/includes/class-wp-optimize-gzip-compression.php:123
+msgid "You should speak to your web hosting support to find how to enable it."
+msgstr ""
+
+#: src/includes/class-wp-optimize-options.php:144
+msgid "Auto backup option updated."
+msgstr ""
+
+#: src/includes/class-wp-optimize-options.php:272
+msgid "Settings updated."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:134, src/includes/class-wp-optimizer.php:140
+msgid "No such optimization"
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:389, src/includes/wp-optimize-database-information.php:427, src/includes/wp-optimize-database-information.php:505, src/templates/database/tables-body.php:34
+msgid "WordPress core"
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:561
+msgid "Comments have now been disabled on all current and previously published posts."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:562
+msgid "All comments on existing posts were disabled at %s."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:565
+msgid "Comments have now been enabled on all current and previously published posts."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:566
+msgid "All comments on existing posts were enabled at %s."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:573
+msgid "Trackbacks have now been disabled on all current and previously published posts."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:574
+msgid "All trackbacks on existing posts were disabled at %s."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:577
+msgid "Trackbacks have now been enabled on all current and previously published posts."
+msgstr ""
+
+#: src/includes/class-wp-optimizer.php:578
+msgid "All trackbacks on existing posts were enabled at %s."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:41
+msgid "Make sure you backup before you optimize your database"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:42
+msgid "UpdraftPlus is the world's most trusted backup plugin from the owners of WP-Optimize"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:52
+msgid "Save Time and Money. Manage multiple WordPress sites from one location."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:53
+msgid "UpdraftCentral is a highly efficient way to take backup, update and manage multiple WP sites from one location."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:62
+msgid "Hey - We noticed WP-Optimize has kept your site running fast for a while.  If you like us, please consider leaving a positive review to spread the word.  Or if you have any issues or questions please leave us a support message"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:62
+msgid "here"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:62
+msgid "Thank you so much!"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:83
+msgid "Perform optimizations while your visitors sleep"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:84
+msgid "WP-Optimize Premium features an advanced scheduling system that allows you to run optimizations at the quietest time of day (or night)."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:94
+msgid "Manage a multisite installation? Need extra control?"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:95
+msgid "WP-Optimize Premium's multisite feature includes a locking system that restricts optimization commands to users with the right permissions."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:105
+msgid "WP-Optimize Premium offers unparalleled choice and flexibility"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:106
+msgid "Upgrade today to combine over a dozen optimization options."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:116
+msgid "Remove unwanted images for better site performance."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:117
+msgid "WP-Optimize Premium comes with a feature to easily remove orphaned images, or images that exceed a certain size from your website."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:127
+msgid "Power tweaks for advanced users and better site performance."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:128
+msgid "WP-Optimize Premium comes with the power tweaks that will enable you to improve performance by targeting specific weak points, either in WordPress Core, or in popular plugins."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:138
+msgid "by"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:139
+msgid "The WordPress subscription extension for WooCommerce store owners."
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:150
+msgid "Black Friday - 20% off WP-Optimize Premium until November 30th"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:151, src/includes/wp-optimize-notices.php:165, src/includes/wp-optimize-notices.php:179, src/includes/wp-optimize-notices.php:193
+msgid "To benefit, use this discount code:"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:164
+msgid "Happy New Year - 20% off WP-Optimize Premium until January 14th"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:178
+msgid "Spring sale - 20% off WP-Optimize Premium until May 31st"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:192
+msgid "Summer sale - 20% off WP-Optimize Premium until July 31st"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:206
+msgid "The Updraft Plugin Collection Sale"
+msgstr ""
+
+#: src/includes/wp-optimize-notices.php:207
+msgid "Get 20% off any of our plugins. But hurry - offer ends 30th September, use this discount code:"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:77
+msgid "WP-Optimize Minify requires PHP 5.4 or higher. You’re using version %s."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:81
+msgid "WP-Optimize Minify requires the PHP mbstring module to be installed on the server; please ask your web hosting company for advice on how to enable it on your server."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:85
+msgid "WP-Optimize Minify requires WordPress version %s or higher. You’re using version %s."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:111
+msgid "WP-Optimize Minify needs write permissions on the folder %s."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:116
+msgid "The current permissions for WP-Optimize Minify are chmod %s."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:122
+msgid "If you need something more than %s for it to work, then your server is probably misconfigured."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-admin.php:124
+msgid "Please contact your hosting provider."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-cache-functions.php:165, src/minify/class-wp-optimize-minify-cache-functions.php:172, src/minify/class-wp-optimize-minify-cache-functions.php:178, src/minify/class-wp-optimize-minify-cache-functions.php:190
+msgid "All caches from %s have also been purged."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-cache-functions.php:184, src/minify/class-wp-optimize-minify-cache-functions.php:206
+msgid "A cache purge request has been sent to %s. Please note that it may not work every time, due to cache rate limiting by your host."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-cache-functions.php:215, src/minify/class-wp-optimize-minify-cache-functions.php:224, src/minify/class-wp-optimize-minify-cache-functions.php:233, src/minify/class-wp-optimize-minify-cache-functions.php:242
+msgid "A cache purge request was also sent to %s"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-cache-functions.php:364
+msgid "Error: %s is not a directory!"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-cache-functions.php:401, src/templates/minify/status-tab.php:189
+msgid "Never."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-commands.php:18, src/minify/class-wp-optimize-minify-commands.php:33, src/minify/class-wp-optimize-minify-commands.php:56, src/minify/class-wp-optimize-minify-commands.php:71
+msgid "WP-Optimize Minify requires a higher PHP version"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-commands.php:39
+msgid "The minification cache was deleted."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify-commands.php:88
+msgid "All caches from WP-Optimize Minify have been purged."
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify.php:70
+msgid "Minify cache"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify.php:84
+msgid "Purge minify cache"
+msgstr ""
+
+#: src/minify/class-wp-optimize-minify.php:223
+msgid "The minify cache was successfully purged."
+msgstr ""
+
+#: src/optimizations/attachments.php:30
+msgid "%s orphaned attachment deleted"
+msgid_plural "%s orphaned attachments deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/attachments.php:33, src/optimizations/attachments.php:73, src/optimizations/autodraft.php:85, src/optimizations/autodraft.php:130, src/optimizations/commentmeta.php:103, src/optimizations/commentmeta.php:172, src/optimizations/orphandata.php:20, src/optimizations/orphandata.php:48, src/optimizations/pingbacks.php:70, src/optimizations/pingbacks.php:117, src/optimizations/postmeta.php:65, src/optimizations/postmeta.php:100, src/optimizations/revisions.php:81, src/optimizations/revisions.php:169, src/optimizations/spam.php:114, src/optimizations/spam.php:201, src/optimizations/trackbacks.php:71, src/optimizations/trackbacks.php:119, src/optimizations/transient.php:180, src/optimizations/trash.php:100, src/optimizations/trash.php:173, src/optimizations/unapproved.php:102, src/optimizations/unapproved.php:148
+msgid "across %s site"
+msgid_plural "across %s sites"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/attachments.php:67
+msgid "%s orphaned attachment found"
+msgid_plural "%s orphaned attachments found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/attachments.php:69
+msgid "No orphaned attachments found"
+msgstr ""
+
+#: src/optimizations/attachments.php:97, src/optimizations/attachments.php:107
+msgid "Remove orphaned attachments"
+msgstr ""
+
+#: src/optimizations/autodraft.php:54, src/optimizations/commentmeta.php:51, src/optimizations/pingbacks.php:37, src/optimizations/revisions.php:50, src/optimizations/trackbacks.php:38, src/optimizations/trash.php:62, src/optimizations/unapproved.php:59
+msgid "no title"
+msgstr ""
+
+#: src/optimizations/autodraft.php:66, src/optimizations/commentmeta.php:74, src/optimizations/pingbacks.php:51, src/optimizations/postmeta.php:45, src/optimizations/revisions.php:62, src/optimizations/spam.php:85, src/optimizations/trackbacks.php:52, src/optimizations/transient.php:142, src/optimizations/transient.php:148, src/optimizations/trash.php:81, src/optimizations/unapproved.php:81
+msgid "ID"
+msgstr ""
+
+#: src/optimizations/autodraft.php:67, src/optimizations/revisions.php:63, src/optimizations/trash.php:82
+msgid "Title"
+msgstr ""
+
+#: src/optimizations/autodraft.php:68, src/optimizations/revisions.php:64, src/optimizations/trash.php:83, src/optimizations/unapproved.php:85
+msgid "Date"
+msgstr ""
+
+#: src/optimizations/autodraft.php:74, src/optimizations/autodraft.php:126
+msgid "No auto draft posts found"
+msgstr ""
+
+#: src/optimizations/autodraft.php:82
+msgid "%s auto draft deleted"
+msgid_plural "%s auto drafts deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/autodraft.php:124
+msgid "%s auto draft post in your database"
+msgid_plural "%s auto draft posts in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/autodraft.php:164
+msgid "Clean auto draft posts which are older than %s weeks"
+msgstr ""
+
+#: src/optimizations/autodraft.php:166
+msgid "Clean all auto-draft posts"
+msgstr ""
+
+#: src/optimizations/autodraft.php:177
+msgid "Remove auto-draft posts"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:75
+msgid "Comment ID"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:76, src/optimizations/postmeta.php:47
+msgid "Meta Key"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:77, src/optimizations/postmeta.php:48
+msgid "Meta Value"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:83, src/optimizations/commentmeta.php:162
+msgid "No orphaned comment meta data in your database"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:99
+msgid "%s unused comment metadata item removed"
+msgid_plural "%s unused comment metadata items removed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/commentmeta.php:100
+msgid "%s unused akismet comment metadata item removed"
+msgid_plural "%s unused akismet comment metadata items removed"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/commentmeta.php:160
+msgid "%s orphaned comment meta data in your database"
+msgid_plural "%s orphaned comment meta data in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/commentmeta.php:166
+msgid "%s unused Akismet comment meta rows in your database"
+msgid_plural "%s unused Akismet meta rows in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/commentmeta.php:168
+msgid "No Akismet comment meta rows in your database"
+msgstr ""
+
+#: src/optimizations/commentmeta.php:206, src/optimizations/commentmeta.php:210
+msgid "Clean comment meta data"
+msgstr ""
+
+#: src/optimizations/inactive-tags.php:21
+msgid "Remove unused tags"
+msgstr ""
+
+#: src/optimizations/optimizetables.php:85, src/optimizations/orphanedtables.php:35, src/optimizations/orphanedtables.php:54
+msgid "The table \"%s\" does not exist."
+msgstr ""
+
+#: src/optimizations/optimizetables.php:118
+msgid "Optimized table:"
+msgstr ""
+
+#: src/optimizations/optimizetables.php:159
+msgid "Total gain:"
+msgstr ""
+
+#: src/optimizations/optimizetables.php:167
+msgid "Other tables will be optimized (%s)."
+msgstr ""
+
+#: src/optimizations/optimizetables.php:172
+msgid "Optimize InnoDB tables anyway."
+msgstr ""
+
+#: src/optimizations/optimizetables.php:172
+msgid "Warning: you should read the FAQ on the risks of this operation first."
+msgstr ""
+
+#: src/optimizations/optimizetables.php:175
+msgid "Tables will be optimized (%s)."
+msgstr ""
+
+#: src/optimizations/optimizetables.php:180, src/optimizations/optimizetables.php:184
+msgid "Optimize database tables"
+msgstr ""
+
+#: src/optimizations/orphandata.php:17
+msgid "%s orphaned relationship data deleted"
+msgid_plural "%s orphaned relationship data deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/orphandata.php:42
+msgid "%s orphaned relationship data in your database"
+msgid_plural "%s orphaned relationship data in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/orphandata.php:44
+msgid "No orphaned relationship data in your database"
+msgstr ""
+
+#: src/optimizations/orphandata.php:65
+msgid "Clean orphaned relationship data"
+msgstr ""
+
+#: src/optimizations/orphanedtables.php:182, src/optimizations/repairtables.php:145
+msgid "No corrupted tables found"
+msgstr ""
+
+#: src/optimizations/orphanedtables.php:194
+msgid "Delete orphaned database tables"
+msgstr ""
+
+#: src/optimizations/pingbacks.php:52, src/optimizations/spam.php:86, src/optimizations/trackbacks.php:53, src/optimizations/unapproved.php:82
+msgid "Author"
+msgstr ""
+
+#: src/optimizations/pingbacks.php:53, src/optimizations/spam.php:87, src/optimizations/trackbacks.php:54, src/optimizations/unapproved.php:83
+msgid "Comment"
+msgstr ""
+
+#: src/optimizations/pingbacks.php:59, src/optimizations/pingbacks.php:113
+msgid "No pingbacks found"
+msgstr ""
+
+#: src/optimizations/pingbacks.php:67
+msgid "%s pingback deleted"
+msgid_plural "%s pingbacks deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/pingbacks.php:111
+msgid "%s pingback found"
+msgid_plural "%s pingbacks found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/pingbacks.php:139
+msgid "Remove pingbacks"
+msgstr ""
+
+#: src/optimizations/postmeta.php:46
+msgid "Post ID"
+msgstr ""
+
+#: src/optimizations/postmeta.php:54, src/optimizations/postmeta.php:96
+msgid "No orphaned post meta data in your database"
+msgstr ""
+
+#: src/optimizations/postmeta.php:62
+msgid "%s orphaned post meta data deleted"
+msgid_plural "%s orphaned post meta data deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/postmeta.php:94
+msgid "%s orphaned post meta data in your database"
+msgid_plural "%s orphaned post meta data in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/postmeta.php:122
+msgid "Clean post meta data"
+msgstr ""
+
+#: src/optimizations/postmeta.php:131
+msgid "Remove orphaned post meta"
+msgstr ""
+
+#: src/optimizations/repairtables.php:157
+msgid "Repair database tables"
+msgstr ""
+
+#: src/optimizations/revisions.php:70, src/optimizations/revisions.php:165
+msgid "No post revisions found"
+msgstr ""
+
+#: src/optimizations/revisions.php:78
+msgid "%s post revision deleted"
+msgid_plural "%s post revisions deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/revisions.php:163
+msgid "%s post revision in your database"
+msgid_plural "%s post revisions in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/revisions.php:227
+msgid "Clean post revisions which are older than %d weeks and keep at least %d revisions"
+msgstr ""
+
+#: src/optimizations/revisions.php:231
+msgid "Clean post revisions which are older than %d weeks"
+msgstr ""
+
+#: src/optimizations/revisions.php:235
+msgid "Clean post revisions but keep at least %d revisions"
+msgstr ""
+
+#: src/optimizations/revisions.php:238, src/optimizations/revisions.php:242
+msgid "Clean all post revisions"
+msgstr ""
+
+#: src/optimizations/spam.php:93
+msgid "No spam or trashed comments found"
+msgstr ""
+
+#: src/optimizations/spam.php:109
+msgid "%s spam comment deleted"
+msgid_plural "%s spam comments deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/spam.php:110
+msgid "%s comment removed from Trash"
+msgid_plural "%s comments removed from Trash"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/spam.php:176
+msgid "%s spam comment found"
+msgid_plural "%s spam comments found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/spam.php:181, src/optimizations/spam.php:194
+msgid "Review"
+msgstr ""
+
+#: src/optimizations/spam.php:185
+msgid "No spam comments found"
+msgstr ""
+
+#: src/optimizations/spam.php:189
+msgid "%s trashed comment found"
+msgid_plural "%s trashed comments found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/spam.php:197
+msgid "No trashed comments found"
+msgstr ""
+
+#: src/optimizations/spam.php:251
+msgid "Remove spam and trashed comments which are older than %d weeks"
+msgstr ""
+
+#: src/optimizations/spam.php:253, src/optimizations/spam.php:258
+msgid "Remove spam and trashed comments"
+msgstr ""
+
+#: src/optimizations/trackbacks.php:60, src/optimizations/trackbacks.php:115
+msgid "No trackbacks found"
+msgstr ""
+
+#: src/optimizations/trackbacks.php:68
+msgid "%s trackback deleted"
+msgid_plural "%s trackbacks deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/trackbacks.php:113
+msgid "%s Trackback found"
+msgid_plural "%s Trackbacks found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/trackbacks.php:133
+msgid "Remove trackbacks"
+msgstr ""
+
+#: src/optimizations/transient.php:143, src/optimizations/transient.php:149
+msgid "Name"
+msgstr ""
+
+#: src/optimizations/transient.php:144, src/optimizations/transient.php:150
+msgid "Value"
+msgstr ""
+
+#: src/optimizations/transient.php:161, src/optimizations/transient.php:388
+msgid "No transient options found"
+msgstr ""
+
+#: src/optimizations/transient.php:177
+msgid "%s transient option deleted"
+msgid_plural "%s transient options deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/transient.php:254
+msgid "%s network-wide transient option deleted"
+msgid_plural "%s network-wide transient options deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/transient.php:386
+msgid "%1$d of %2$d transient option expired"
+msgid_plural "%1$d of %2$d transient options expired"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/transient.php:392
+msgid "across %d site"
+msgid_plural "across %d sites"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/transient.php:404
+msgid "%1$d of %2$d network-wide transient option found"
+msgid_plural "%1$d of %2$d network-wide transient options found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/transient.php:407
+msgid "No site-wide transient options found"
+msgstr ""
+
+#: src/optimizations/transient.php:416
+msgid "Remove all transient options (not only expired)"
+msgstr ""
+
+#: src/optimizations/transient.php:465, src/optimizations/transient.php:469
+msgid "Remove expired transient options"
+msgstr ""
+
+#: src/optimizations/trash.php:89, src/optimizations/trash.php:169
+msgid "No trashed posts found"
+msgstr ""
+
+#: src/optimizations/trash.php:97
+msgid "%s post removed from Trash"
+msgid_plural "%s posts removed from Trash"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/trash.php:167
+msgid "%s trashed post in your database"
+msgid_plural "%s trashed posts in your database"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/trash.php:208
+msgid "Clean trashed posts which are older than %d weeks"
+msgstr ""
+
+#: src/optimizations/trash.php:210
+msgid "Clean all trashed posts"
+msgstr ""
+
+#: src/optimizations/trash.php:220
+msgid "Remove trashed posts"
+msgstr ""
+
+#: src/optimizations/unapproved.php:84
+msgid "Post"
+msgstr ""
+
+#: src/optimizations/unapproved.php:91, src/optimizations/unapproved.php:144
+msgid "No unapproved comments found"
+msgstr ""
+
+#: src/optimizations/unapproved.php:99
+msgid "%s unapproved comment deleted"
+msgid_plural "%s unapproved comments deleted"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/unapproved.php:142
+msgid "%s unapproved comment found"
+msgid_plural "%s unapproved comments found"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/optimizations/unapproved.php:176
+msgid "Remove unapproved comments which are older than %d weeks"
+msgstr ""
+
+#: src/optimizations/unapproved.php:178, src/optimizations/unapproved.php:183
+msgid "Remove unapproved comments"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:6
+msgid "Restore original"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:8
+msgid "Restore"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:16, src/templates/images/smush.php:41
+msgid "Prioritize maximum compression"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:17
+msgid "Potentially uses lossy compression to ensure maximum savings per image, the resulting images are of a slightly lower quality"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:21, src/templates/images/smush.php:45
+msgid "Prioritize retention of detail"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:22
+msgid "Uses lossless compression, which results in much better image quality but lower filesize savings per image"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:26, src/templates/images/smush.php:49
+msgid "Custom"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:29, src/templates/images/smush.php:52
+msgid "Maximum compression"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:39, src/templates/images/smush.php:62
+msgid "Best image quality"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:42, src/templates/images/smush.php:85
+msgid "Show advanced options"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:44
+msgid "Service provider"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:48, src/templates/images/smush.php:91
+msgid "reSmush.it"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:51
+msgid "Other options"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:55
+msgid "Backup original"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:59
+msgid "Keep EXIF data"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:65
+msgid "Note: This image is already compressed by another plugin"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:69
+msgid "Compress"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:73, src/templates/images/smush.php:143
+msgid "Mark as already compressed"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:77
+msgid "Mark as uncompressed"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:93
+msgid "WP-Optimize image settings"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:99, src/templates/cache/page-cache.php:11, src/templates/images/smush.php:4, src/templates/images/smush.php:199, src/templates/images/smush.php:205, src/templates/images/smush.php:210, src/templates/minify/status-tab.php:5
+msgid "Close"
+msgstr ""
+
+#: src/templates/admin-metabox-smush.php:104, src/templates/cache/page-cache-preload.php:7, src/templates/database/tables-list-after.php:58, src/templates/images/smush.php:182, src/templates/images/smush.php:215, src/wp-optimize.php:1279
+msgid "Cancel"
+msgstr ""
+
+#: src/templates/admin-page-header-tabs.php:8, src/templates/pages-menu.php:5
+msgid "Menu"
+msgstr ""
+
+#: src/templates/admin-page-header-tabs.php:33
+msgid "Feedback"
+msgstr ""
+
+#: src/templates/admin-page-header-tabs.php:36
+msgid "I have an idea to improve WP-Optimize"
+msgstr ""
+
+#: src/templates/admin-page-header-tabs.php:38, src/templates/admin-page-header-tabs.php:40
+msgid "I need help / something is not working"
+msgstr ""
+
+#: src/templates/admin-page-header.php:5, src/templates/pages-menu.php:24
+msgid "Useful links"
+msgstr ""
+
+#: src/templates/admin-page-header.php:6, src/templates/pages-menu.php:25
+msgid "Home"
+msgstr ""
+
+#: src/templates/admin-page-header.php:10, src/templates/pages-menu.php:29
+msgid "News"
+msgstr ""
+
+#: src/templates/admin-page-header.php:12, src/templates/pages-menu.php:31
+msgid "Twitter"
+msgstr ""
+
+#: src/templates/admin-page-header.php:14, src/templates/notices/install-or-update-notice.php:52, src/templates/pages-menu.php:33
+msgid "Support"
+msgstr ""
+
+#: src/templates/admin-page-header.php:16, src/templates/pages-menu.php:35
+msgid "Newsletter"
+msgstr ""
+
+#: src/templates/admin-page-header.php:18, src/templates/pages-menu.php:37
+msgid "Team lead"
+msgstr ""
+
+#: src/templates/admin-page-header.php:20, src/templates/pages-menu.php:39, src/templates/settings/may-also-like.php:8
+msgid "FAQs"
+msgstr ""
+
+#: src/templates/admin-page-header.php:22, src/templates/pages-menu.php:41
+msgid "More plugins"
+msgstr ""
+
+#: src/templates/admin-page-header.php:29, src/templates/settings/may-also-like.php:26, src/wp-optimize.php:1410
+msgid "Premium"
+msgstr ""
+
+#: src/templates/admin-page-header.php:31
+msgid "Make your site fast & efficient"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:5
+msgid "Browser static file caching settings (via headers)"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:7
+msgid "Browser static file caching uses HTTP response headers to advise a visitor's browser to cache non-changing files for a while, so that it doesn't attempt to retrieve them upon every visit."
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:7
+msgid "Follow this link to get more information."
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:13
+msgid "Your website seems to use Cloudflare, which handles the browser caching rules."
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:19, src/templates/cache/browser-cache.php:20
+msgid "Browser static file caching headers are currently %s."
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:19, src/templates/database/status-box-contents.php:57
+msgid "enabled"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:20
+msgid "disabled"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:39, src/wp-optimize.php:1291
+msgid "Update"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:39, src/templates/cache/gzip-compression.php:47, src/templates/settings/settings-trackback-and-comments.php:18, src/templates/settings/settings-trackback-and-comments.php:49, src/wp-optimize.php:1281
+msgid "Enable"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:42
+msgid "Expiration time:"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:44
+msgid "day(s)"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:46
+msgid "hour(s)"
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:50
+msgid "Empty or 0 values disable the headers."
+msgstr ""
+
+#: src/templates/cache/browser-cache.php:54
+msgid "Follow this link to read the article about how to enable browser cache with your server software."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:5
+msgid "Gzip compression settings"
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:7
+msgid "This option improves the performance of your website and decreases its loading time. When a visitor makes a request, the server compresses the requested resource before sending it leading to smaller file sizes and faster loading."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:8
+msgid "Follow this link to get more information about Gzip compression."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:21
+msgid "Your server uses Brotli compression instead of Gzip, which is good."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:23
+msgid "Gzip compression is already enabled."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:26
+msgid "It seems to be handled by Cloudflare."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:34
+msgid "Gzip compression is currently ENABLED."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:35
+msgid "Gzip compression is currently DISABLED."
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:37
+msgid "Press this to see if any changes were made to your Gzip configuration"
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:37
+msgid "Check status again"
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:47, src/templates/settings/settings-trackback-and-comments.php:20, src/templates/settings/settings-trackback-and-comments.php:51, src/wp-optimize.php:1282
+msgid "Disable"
+msgstr ""
+
+#: src/templates/cache/gzip-compression.php:58
+msgid "Follow this link to read the article about how to enable Gzip compression with your server software."
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:3
+msgid "URLs to exclude from caching"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:8
+msgid "List paths (e.g. %s) that should not be cached (one per line)"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:8
+msgctxt "an example path"
+msgid "/product/green-beans"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:13
+msgid "Use the wildcard * to exclude child URLs."
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:13
+msgctxt "%s are examples of path using the wildcard *"
+msgid "e.g. %s or %s"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:13
+msgctxt "an example path with the wildcard (*)"
+msgid "/shop/*"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:13
+msgctxt "a second example path using the wildcard (*) twice"
+msgid "*sample-path*"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:22
+msgid "Cookies which, if present, will prevent caching (one per line)"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:27
+msgid "List of cookies that will prevent caching when set."
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:32
+msgid "List of browser agent strings which, if detected, will prevent caching"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:37
+msgid "List of browser agents strings or substrings that should not be served cached files (one per line)"
+msgstr ""
+
+#: src/templates/cache/page-cache-advanced.php:41
+msgid "If any of the above strings is found in the User-Agent HTTP header, then the requested page will not be cached."
+msgstr ""
+
+#: src/templates/cache/page-cache-cloudflare-placeholder.php:2
+msgid "Cloudflare settings"
+msgstr ""
+
+#: src/templates/cache/page-cache-cloudflare-placeholder.php:6
+msgid "Purge Cloudflare cached pages when the WP-Optimize cache is purged"
+msgstr ""
+
+#: src/templates/cache/page-cache-cloudflare-placeholder.php:6
+msgid "(This feature requires %s)"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:3
+msgid "Preload now"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:7, src/wp-optimize.php:1292
+msgid "Run now"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:13
+msgid "This action will trigger WP-Optimize to cache the site by visiting pages to preload them (so that they are ready the first time a human visitor wants them)."
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:14
+msgid "If a sitemap is available, then it will be used to determine which content gets cached."
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:18
+msgid "Schedule preloader"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:24
+msgid "Activate scheduled cache preloading"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:27
+msgid "The scheduled preloading will run automatically in your chosen time period."
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:31
+msgid "Select schedule type"
+msgstr ""
+
+#: src/templates/cache/page-cache-preload.php:49, src/templates/cache/page-cache.php:106
+msgid "Save changes"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:4
+msgid "Your web hosting company/server handles: "
+msgstr ""
+
+#: src/templates/cache/page-cache.php:5
+msgid "Page caching"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:6, src/wp-optimize.php:840
+msgid "Gzip compression"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:7
+msgid "Browser static file caching (via headers)"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:11
+msgid "How to use the cache feature"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:13
+msgid "Not sure how to use the cache feature?"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:13, src/templates/minify/status-tab.php:7
+msgid "Watch our how-to video below."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:15
+msgid "Cache video preview"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:17, src/templates/images/smush.php:10, src/templates/minify/status-tab.php:11
+msgid "Loads a video hosted on vimeo.com"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:17, src/templates/images/smush.php:10, src/templates/minify/status-tab.php:11
+msgid "Open the video in a new window"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:32
+msgid "Enable page caching"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:36
+msgid "This is all that's needed for caching to work."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:36
+msgid "WP-Optimize will automatically detect and configure itself optimally for your site."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:36
+msgid "You can tweak the the settings below and in the advanced settings tab, if needed."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:42
+msgid "It looks like you already have an active caching plugin (%s) installed. Having more than one active page cache might cause unexpected results."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:49
+msgid "Purge the cache"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:52, src/wp-optimize.php:1385, src/wp-optimize.php:1388
+msgid "Purge cache"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:57
+msgid "Deletes the entire cache contents but keeps the page cache enabled."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:60, src/wp-optimize.php:1295
+msgid "Current cache size:"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:61, src/wp-optimize.php:1296
+msgid "Number of files:"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:65
+msgid "Cache settings"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:72
+msgid "Generate separate files for mobile devices"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:74
+msgid "Useful if your website has mobile-specific content."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:80
+msgid "Serve cached pages to logged in users"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:82
+msgid "Enable this option if you do not have user-specific or restricted content on your website."
+msgstr ""
+
+#: src/templates/cache/page-cache.php:88, src/templates/minify/advanced-tab.php:80
+msgid "Cache lifespan"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:92
+msgid "Hours"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:93
+msgid "Days"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:94
+msgid "Months"
+msgstr ""
+
+#: src/templates/cache/page-cache.php:98
+msgid "Time after which a new cached version will be generated (0 = only when the cache is emptied)"
+msgstr ""
+
+#: src/templates/database/optimizations-table.php:7
+msgid "Optimization"
+msgstr ""
+
+#: src/templates/database/optimizations-table.php:80
+msgid "Run optimization"
+msgstr ""
+
+#: src/templates/database/optimizations-table.php:82
+msgid "Go"
+msgstr ""
+
+#: src/templates/database/optimize-table.php:8, src/templates/database/tables.php:5, src/wp-optimize.php:1303
+msgid "Loading data..."
+msgstr ""
+
+#: src/templates/database/optimize-table.php:30
+msgid "Warning: This operation is permanent. Continue?"
+msgstr ""
+
+#: src/templates/database/optimize-table.php:34, src/wp-optimize.php:827
+msgid "Optimizations"
+msgstr ""
+
+#: src/templates/database/optimize-table.php:38
+msgid "Run all selected optimizations"
+msgstr ""
+
+#: src/templates/database/optimize-table.php:54
+msgid "Warning:"
+msgstr ""
+
+#: src/templates/database/optimize-table.php:54
+msgid "Items marked with this icon perform more intensive database operations. In very rare cases, if your database server happened to crash or be forcibly powered down at the same time as an optimization operation was running, data might be corrupted. "
+msgstr ""
+
+#: src/templates/database/optimize-table.php:54
+msgid "You may wish to run a backup before optimizing."
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:3
+msgid "Scheduled clean-up settings"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:6
+msgid "Take control of clean-ups: Upgrade to Premium for a more powerful and flexible scheduler"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:14
+msgid "Enable scheduled clean-up and optimization"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:22
+msgid "Select schedule type (default is Weekly)"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:27, src/wp-optimize.php:1104
+msgid "Daily"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:28, src/wp-optimize.php:1105
+msgid "Weekly"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:29, src/wp-optimize.php:1106
+msgid "Fortnightly"
+msgstr ""
+
+#: src/templates/database/settings-auto-cleanup.php:30, src/wp-optimize.php:1107
+msgid "Monthly (approx. - every 30 days)"
+msgstr ""
+
+#: src/templates/database/settings-general.php:3, src/templates/settings/settings-general.php:3
+msgid "General settings"
+msgstr ""
+
+#: src/templates/database/settings-general.php:6
+msgid "Whether manually or on a schedule, these settings apply whenever a relevant optimization is run."
+msgstr ""
+
+#: src/templates/database/settings-general.php:15
+msgid "Keep last %s weeks data"
+msgstr ""
+
+#: src/templates/database/settings-general.php:21
+msgid "This option will, where relevant, retain data from the chosen period, and remove any garbage data before that period."
+msgstr ""
+
+#: src/templates/database/settings-general.php:21, src/templates/database/settings-general.php:36
+msgid "If the option is not active, then all garbage data will be removed."
+msgstr ""
+
+#: src/templates/database/settings-general.php:21, src/templates/database/settings-general.php:36
+msgid "This will also affect Auto Clean-up process"
+msgstr ""
+
+#: src/templates/database/settings-general.php:30
+msgid "Always keep %s post revisions"
+msgstr ""
+
+#: src/templates/database/settings-general.php:36
+msgid "This option will retain specified number of post revisions, and remove other revisions."
+msgstr ""
+
+#: src/templates/database/settings-general.php:38
+msgid "Take a backup with UpdraftPlus before running scheduled optimizations"
+msgstr ""
+
+#: src/templates/database/settings.php:19, src/templates/minify/advanced-tab.php:322, src/templates/minify/css-settings-tab.php:162, src/templates/minify/font-settings-tab.php:140, src/templates/minify/js-settings-tab.php:153, src/templates/minify/settings-tab.php:108, src/templates/settings/settings.php:37
+msgid "Save settings"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:14, src/templates/settings/settings-logging.php:24
+msgid "Status"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:25
+msgid "Last scheduled optimization was at"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:30
+msgid "There was no scheduled optimization"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:56
+msgid "Scheduled cleaning"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:69
+msgid "Next schedule:"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:74
+msgid "Refresh"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:78
+msgid "Scheduled cleaning disabled"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:85
+msgid "Keeping last %s weeks data"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:88
+msgid "Not keeping recent data"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:95
+msgid "Keeping last %s revisions"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:98
+msgid "Not keeping any revisions"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:109
+msgid "Total clean up overall:"
+msgstr ""
+
+#: src/templates/database/status-box-contents.php:123
+msgid "Your database has %s corrupted table."
+msgid_plural "Your database has %s corrupted tables."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/templates/database/status-box-contents.php:124
+msgid "Repair corrupted tables here."
+msgstr ""
+
+#: src/templates/database/tables-body.php:28, src/templates/database/tables.php:39
+msgid "No."
+msgstr ""
+
+#: src/templates/database/tables-body.php:29, src/templates/database/tables.php:40
+msgid "Table"
+msgstr ""
+
+#: src/templates/database/tables-body.php:33
+msgid "Belongs to:"
+msgstr ""
+
+#: src/templates/database/tables-body.php:37
+msgid "Known plugins that use this table name:"
+msgstr ""
+
+#: src/templates/database/tables-body.php:48
+msgid "not installed"
+msgstr ""
+
+#: src/templates/database/tables-body.php:50
+msgid "inactive"
+msgstr ""
+
+#: src/templates/database/tables-body.php:59, src/templates/database/tables.php:41
+msgid "Records"
+msgstr ""
+
+#: src/templates/database/tables-body.php:60, src/templates/database/tables.php:42
+msgid "Data Size"
+msgstr ""
+
+#: src/templates/database/tables-body.php:61, src/templates/database/tables.php:43
+msgid "Index Size"
+msgstr ""
+
+#: src/templates/database/tables-body.php:64, src/templates/database/tables-body.php:77, src/templates/database/tables.php:44
+msgid "Type"
+msgstr ""
+
+#: src/templates/database/tables-body.php:66, src/templates/database/tables-body.php:78, src/templates/database/tables.php:45
+msgid "Overhead"
+msgstr ""
+
+#: src/templates/database/tables-body.php:85, src/templates/database/tables-body.php:114, src/templates/database/tables.php:46, src/templates/settings/settings-logging.php:25
+msgid "Actions"
+msgstr ""
+
+#: src/templates/database/tables-body.php:100
+msgid "Total:"
+msgstr ""
+
+#: src/templates/database/tables-body.php:101
+msgid "%s Table"
+msgid_plural "%s Tables"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/templates/database/tables-list-after.php:10
+msgid "Total size of database:"
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:22
+msgid "Optimization results:"
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:26
+msgid "Total space saved:"
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:37
+msgid "Are you sure?"
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:39
+msgid "WARNING - some plugins might not be detected as installed or activated if they are in unknown folders (for example premium plugins)."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:39
+msgid "Only delete a table if you are sure of what you are doing, and after taking a backup."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:40
+msgid "If none of the plugins listed were ever installed on this website, you should not delete this table as it is likely to be used by an unlisted plugin."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:42
+msgid "You are about to remove the table %s."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:48
+msgid "No automatic backup was detected."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:48
+msgid "I confirm that I will be able to revert the changes if needed."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:52
+msgid "I confirm that I have understood the risks in doing that, and that I know what I am doing."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:55
+msgid "Do not show this warning again."
+msgstr ""
+
+#: src/templates/database/tables-list-after.php:57
+msgid "Remove the table"
+msgstr ""
+
+#: src/templates/database/tables.php:13
+msgid "Optimized all the tables found in the database."
+msgstr ""
+
+#: src/templates/database/tables.php:22
+msgid "Take a backup with UpdraftPlus before any actions upon tables (recommended)."
+msgstr ""
+
+#: src/templates/database/tables.php:24
+msgid "Database name:"
+msgstr ""
+
+#: src/templates/database/tables.php:24
+msgid "Refresh data"
+msgstr ""
+
+#: src/templates/database/tables.php:24
+msgid "Search for table"
+msgstr ""
+
+#: src/templates/database/tables.php:31
+msgid "Note:"
+msgstr ""
+
+#: src/templates/database/tables.php:31
+msgid "Your WordPress install does not use a database prefix, so WP-Optimize was not able to differentiate which tables belong to WordPress so all tables are listed below."
+msgstr ""
+
+#: src/templates/database/tables.php:57
+msgid "Loading tables list..."
+msgstr ""
+
+#: src/templates/database/tables.php:65
+msgid "Tables not found."
+msgstr ""
+
+#: src/templates/images/lazyload.php:17
+msgid "Lazy-loading is technique that defers loading of non-critical resources (images, video) at page load time. Instead, these non-critical resources are loaded at the point they are needed (e.g. the user scrolls down to them)."
+msgstr ""
+
+#: src/templates/images/lazyload.php:19
+msgid "Follow this link to read more about lazy-loading images and video"
+msgstr ""
+
+#: src/templates/images/lazyload.php:22, src/wp-optimize.php:1631, src/wp-optimize.php:1632
+msgid "Images"
+msgstr ""
+
+#: src/templates/images/lazyload.php:23
+msgid "Iframes and Videos"
+msgstr ""
+
+#: src/templates/images/lazyload.php:27
+msgid "Skip image classes"
+msgstr ""
+
+#: src/templates/images/lazyload.php:29
+msgid "Enter the image class or classes comma-separated. Supports wildcards. Example: image-class1, image-class2, thumbnail*, ..."
+msgstr ""
+
+#: src/templates/images/lazyload.php:33
+msgid "Enable Lazy-loading with WP-Optimize Premium."
+msgstr ""
+
+#: src/templates/images/smush.php:4
+msgid "How to use the image compression feature"
+msgstr ""
+
+#: src/templates/images/smush.php:6
+msgid "Not sure how to use the image compression feature?"
+msgstr ""
+
+#: src/templates/images/smush.php:6
+msgid "Watch our howto video below."
+msgstr ""
+
+#: src/templates/images/smush.php:14
+msgid "Note: Currently this feature uses third party services from reSmush.it. The performance of this free image compression service may be limited for large workloads. We are working on a premium service."
+msgstr ""
+
+#: src/templates/images/smush.php:22
+msgid "Automatically compress newly-added images"
+msgstr ""
+
+#: src/templates/images/smush.php:23
+msgid "The images will be added to a background queue, which will start automatically within the next hour."
+msgstr ""
+
+#: src/templates/images/smush.php:23
+msgid "This prevents the site from being slowed down during media uploads."
+msgstr ""
+
+#: src/templates/images/smush.php:23
+msgid "The time taken to complete the compression will depend upon the size and quantity of the images."
+msgstr ""
+
+#: src/templates/images/smush.php:33
+msgid "Show compression meta-box on an image's dashboard media page."
+msgstr ""
+
+#: src/templates/images/smush.php:34
+msgid "The image compression metabox allows you to compress specific images from the media library. But if you are using a solution other than WP-Optimize to compress your images, you can hide these metaboxes by disabling this switch."
+msgstr ""
+
+#: src/templates/images/smush.php:39
+msgid "Compression options"
+msgstr ""
+
+#: src/templates/images/smush.php:42
+msgid "Uses lossy compression to ensure maximum savings per image. The resulting images are of a slightly lower quality"
+msgstr ""
+
+#: src/templates/images/smush.php:46
+msgid "Uses lossless compression, which results in much better image quality but lower file size savings per image"
+msgstr ""
+
+#: src/templates/images/smush.php:64
+msgid "Not sure what to choose?"
+msgstr ""
+
+#: src/templates/images/smush.php:64
+msgid "Read our article \"Lossy vs Lossless image compression\""
+msgstr ""
+
+#: src/templates/images/smush.php:66
+msgid "WebP conversion"
+msgstr ""
+
+#: src/templates/images/smush.php:70
+msgid "Note: Local WebP conversion tools are not allowed on your server."
+msgstr ""
+
+#: src/templates/images/smush.php:72
+msgid "Available WebP conversion tools:"
+msgstr ""
+
+#: src/templates/images/smush.php:75
+msgid "Create WebP version of image"
+msgstr ""
+
+#: src/templates/images/smush.php:76
+msgid "Creates WebP image format and serves it whenever possible."
+msgstr ""
+
+#: src/templates/images/smush.php:80
+msgid "No WebP conversion tools are available on your web-server."
+msgstr ""
+
+#: src/templates/images/smush.php:85
+msgid "Hide advanced options"
+msgstr ""
+
+#: src/templates/images/smush.php:88
+msgid "Compression service"
+msgstr ""
+
+#: src/templates/images/smush.php:92
+msgid "Can keep EXIF data"
+msgstr ""
+
+#: src/templates/images/smush.php:93
+msgid "Service provided by reSmush.it"
+msgstr ""
+
+#: src/templates/images/smush.php:98
+msgid "More options"
+msgstr ""
+
+#: src/templates/images/smush.php:101
+msgid "Preserve EXIF data"
+msgstr ""
+
+#: src/templates/images/smush.php:104
+msgid "Backup original images"
+msgstr ""
+
+#: src/templates/images/smush.php:105
+msgid "The original images are stored alongside the compressed images, you can visit the edit screen of the individual images in the Media Library to restore them."
+msgstr ""
+
+#: src/templates/images/smush.php:108
+msgid "Automatically delete image backups after"
+msgstr ""
+
+#: src/templates/images/smush.php:108, src/templates/minify/advanced-tab.php:90
+msgid "days"
+msgstr ""
+
+#: src/templates/images/smush.php:108
+msgid "or"
+msgstr ""
+
+#: src/templates/images/smush.php:108
+msgid "Delete all backup images now"
+msgstr ""
+
+#: src/templates/images/smush.php:112
+msgid "Mark all images as uncompressed"
+msgstr ""
+
+#: src/templates/images/smush.php:115
+msgid "Restore all compressed images"
+msgstr ""
+
+#: src/templates/images/smush.php:115
+msgid "Only the original image will be restored. In order to restore the other sizes, you should use a plugin such as \"Regenerate Thumbnails\"."
+msgstr ""
+
+#: src/templates/images/smush.php:119
+msgid "Save options"
+msgstr ""
+
+#: src/templates/images/smush.php:121
+msgid "Saved options"
+msgstr ""
+
+#: src/templates/images/smush.php:122
+msgid "Failed to save options"
+msgstr ""
+
+#: src/templates/images/smush.php:127
+msgid "Uncompressed images"
+msgstr ""
+
+#: src/templates/images/smush.php:130
+msgid "Select all"
+msgstr ""
+
+#: src/templates/images/smush.php:131
+msgid "Select none"
+msgstr ""
+
+#: src/templates/images/smush.php:134
+msgid "Refresh image list"
+msgstr ""
+
+#: src/templates/images/smush.php:142
+msgid "Compress the selected images"
+msgstr ""
+
+#: src/templates/images/smush.php:144, src/templates/images/smush.php:194
+msgid "View logs"
+msgstr ""
+
+#: src/templates/images/smush.php:151
+msgid "Compressing images"
+msgstr ""
+
+#: src/templates/images/smush.php:156
+msgid "The selected images are being processed; please do not close the browser"
+msgstr ""
+
+#: src/templates/images/smush.php:160
+msgid "Images pending"
+msgstr ""
+
+#: src/templates/images/smush.php:164
+msgid "Images completed"
+msgstr ""
+
+#: src/templates/images/smush.php:168
+msgid "Size savings"
+msgstr ""
+
+#: src/templates/images/smush.php:172
+msgid "Average savings per image"
+msgstr ""
+
+#: src/templates/images/smush.php:176
+msgid "Time elapsed"
+msgstr ""
+
+#: src/templates/images/smush.php:195
+msgid "Clear compression statistics"
+msgstr ""
+
+#: src/templates/images/smush.php:204
+msgid "Download log file"
+msgstr ""
+
+#: src/templates/images/unused.php:4
+msgid "Unused images"
+msgstr ""
+
+#: src/templates/images/unused.php:16
+msgid "Manage unused images with WP-Optimize Premium."
+msgstr ""
+
+#: src/templates/images/unused.php:22
+msgid "Image sizes"
+msgstr ""
+
+#: src/templates/images/unused.php:24
+msgid "Registered image sizes"
+msgstr ""
+
+#: src/templates/images/unused.php:25
+msgid "This feature is for experienced users. Don't remove registered image sizes if you are not sure that images with selected sizes are not used on your site."
+msgstr ""
+
+#: src/templates/images/unused.php:37
+msgid "Unused image sizes"
+msgstr ""
+
+#: src/templates/images/unused.php:39
+msgid "These image sizes were used by some of the themes or plugins installed previously and they remain within your database."
+msgstr ""
+
+#: src/templates/images/unused.php:40
+msgid "Read more about custom image sizes here."
+msgstr ""
+
+#: src/templates/images/unused.php:54
+msgid "Remove selected sizes"
+msgstr ""
+
+#: src/templates/images/unused.php:57
+msgid "Take control of WordPress image sizes with WP-Optimize Premium."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:3
+msgid "Minify cache information"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:6
+msgid "Current cache path:"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:10
+msgid "none"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:16
+msgid "List of processed files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:18
+msgid "JavaScript files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:38, src/templates/minify/advanced-tab.php:66
+msgid "There are no processed files yet."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:43
+msgid "CSS files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:46
+msgid "There are no merged CSS files listed here, because you are inlining all CSS directly"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:76
+msgid "Advanced options"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:93
+msgid "In order to prevent broken pages when using a third party page caching, WP-Optimize keeps the stale minified cache for 30 days."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:94
+msgid "Enter 0 to never keep stale cache."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:111
+msgid "Enable debug mode"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:114
+msgid "Enabling the debug mode will add various comments and show more information in the files list."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:114
+msgid "It also adds extra actions in the status tab."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:116
+msgid "Default exclusions"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:131
+msgid "Edit default exclusions"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:137
+msgid "Known incompatible files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:140
+msgid "List of files that can't or shouldn't be minified or merged."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:141, src/templates/minify/advanced-tab.php:163
+msgid "Do not edit this if you are not sure what it is."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:142, src/templates/minify/advanced-tab.php:164
+msgid "Tick the checkbox to merge / minify the corresponding file anyways."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:143
+msgid "Files that have been consistently reported by other users to cause trouble when merged"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:148, src/templates/minify/advanced-tab.php:169
+msgid "Refresh the page to see the list"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:159
+msgid "IE incompatible files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:162
+msgid "List of excluded files used for IE compatibility."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:194
+msgid "Enable WP-O Minify CSS files preloading"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:195
+msgid "Automatically create HTTP headers for WP-O Minify-generated CSS files (when not inlined)"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:206
+msgid "Enable WP-O Minify JavaScript files Preload"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:207
+msgid "Automatically create HTTP headers for WP-O Minify-generated JS files"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:212
+msgid "HTTP Headers"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:215
+msgid "Preconnect Headers: This will add link headers to your HTTP response to instruct the browser to preconnect to other domains (e.g.: fonts, images, videos, etc)"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:218
+msgid "Preload Headers: Use this for preloading specific, high priority resources that exist across all of your pages."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:221
+msgid "Note: Some servers do not support http push or headers. If you get a server error: a) rename the plugin directory via (S)FTP or your hosting control panel, b) go to your plugins page (plugin will be disabled on access), c) rename it back and d) activate it back (reset to default settings)."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:224
+msgid "Preconnect Headers"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:228
+msgid "Preconnect"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:232
+msgid "Use only the strictly minimum necessary domain names, (CDN or frequent embeds):"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:245
+msgid "Use the complete scheme (http:// or https://) followed by the domain name only (no file paths)."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:248
+msgid "Examples: https://fonts.googleapis.com, https://fonts.gstatic.com"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:253
+msgid "External URLs to merge"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:257
+msgid "List of external domains that can be fetched and merged:"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:258
+msgid "Add any external \"domain\" for JavaScript or CSS files that can be fetched and merged by WP-Optimize, e.g.: cdnjs.cloudflare.com"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:266
+msgid "e.g.: example.com"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:271
+msgid "CDN Options"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:273
+msgid "When the \"Enable defer on processed JavaScript files\" option is enabled, JavaScript and CSS files will not be loaded from the CDN due to %scompatibility%s reasons."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:274
+msgid "However, you can define a CDN Domain below, in order to use it for all of the static assets \"inside\" your CSS and JS files."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:277
+msgid "Your CDN domain"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:291
+msgid "Will rewrite the static assets urls inside WP-O Minify-merged files to your CDN domain. Usage: cdn.example.com"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:297
+msgid "Force the CDN Usage"
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:300
+msgid "If you force this, your JS files may not load for certain slow internet users on Google Chrome."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:311
+msgid "I know what I'm doing..."
+msgstr ""
+
+#: src/templates/minify/advanced-tab.php:312
+msgid "Load my JS files from the CDN, even when \"defer for Pagespeed Insights\" is enabled"
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:2
+msgid "Preload key requests / assets"
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:5
+msgid "Preload critical assets to improve loading speed."
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:6
+msgid "Learn more about preloading key requests."
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:10, src/templates/settings/may-also-like.php:235, src/templates/settings/may-also-like.php:236
+msgid "Preload key requests"
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:12
+msgid "Preload key requests is a premium feature."
+msgstr ""
+
+#: src/templates/minify/asset-preload.php:12
+msgid "Find out more here."
+msgstr ""
+
+#: src/templates/minify/cached-file-log.php:11
+msgid "Exclude"
+msgstr ""
+
+#: src/templates/minify/cached-file-log.php:15
+msgid "Defer loading"
+msgstr ""
+
+#: src/templates/minify/cached-file-log.php:18
+msgid "Load asynchronously"
+msgstr ""
+
+#: src/templates/minify/cached-file.php:4, src/wp-optimize.php:1297
+msgid "Show information"
+msgstr ""
+
+#: src/templates/minify/cached-file.php:6, src/wp-optimize.php:1299
+msgid "The file was added to the list"
+msgstr ""
+
+#: src/templates/minify/cached-file.php:7, src/wp-optimize.php:1300
+msgid "Save the changes"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:5
+msgid "CSS options"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:16
+msgid "Enable minification of CSS files"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:26
+msgid "Enable merging of CSS files"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:27
+msgid "If some of the design is breaking on the frontend, disabling merging of CSS might fix the issues."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:37
+msgid "Inline CSS"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:37
+msgid "Recommended if the CSS files are small enough."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:38
+msgid "When enabled, small CSS files will be inlined."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:48
+msgid "Strip the \"print\" related stylesheets"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:49
+msgid "When selected, any CSS files with the media type \"print\" will be removed."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:49
+msgid "Enable if your site does not need specific print styles."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:60
+msgid "Dequeue all CSS files"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:61
+msgid "This is useful if you want to test your critical path CSS"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:67
+msgid "Exclude the following CSS files from processing"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:71
+msgid "Any CSS files that match the paths below will be completely ignored."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:73, src/templates/minify/js-settings-tab.php:48
+msgid "Any file present here will be loaded normally by WordPress"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:80
+msgid "e.g.: /bootstrap.css"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:83, src/templates/minify/js-settings-tab.php:58
+msgid "Some files known for causing issues when combined / minified are excluded by default."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:83, src/templates/minify/js-settings-tab.php:58
+msgid "You can see / edit them in the Advanced tab."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:87
+msgid "Load the following CSS files asynchronously"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:91
+msgid "Any CSS files that match the paths below will be loaded asynchronously."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:93
+msgid "e.g. You may want to exclude 'fontawesome' or other libraries from the initial load"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:101
+msgid "e.g.: /wp-content/themes/my-theme/css/custom-font.css"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:107
+msgid "Enable asynchronous CSS"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:118
+msgid "Load all CSS files asynchronously"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:119
+msgid "Note that inline CSS won't work if this is active"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:122
+msgid "If you have multiple css files per media type, they may load out of order and break your design when loaded asynchronously."
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:130
+msgid "Critical path CSS"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:134
+msgid "Fallback CSS"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:145
+msgid "is_front_page (conditional)"
+msgstr ""
+
+#: src/templates/minify/css-settings-tab.php:145
+msgid "This will be inlined after the above if your page matches the WP conditional is_front_page()"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:5
+msgid "Google Fonts"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:17
+msgid "Merge fonts from Google Fonts into one request"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:18
+msgid "This improves speed when loading multiple fonts from Google Fonts."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:29
+msgid "Do not load Google Fonts"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:30
+msgid "If enabled, stylesheets from Google Fonts will not be loaded on the site and system fallback fonts will be used instead."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:40
+msgid "Add \"display=swap\" to Google Fonts requests"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:41
+msgid "This feature of Google Fonts is encouraged for better accessibility, but may result in a visible font change."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:45
+msgid "Choose how to include fonts from Google Fonts on your pages, when available:"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:55, src/templates/minify/font-settings-tab.php:103
+msgid "Inherit from the CSS settings"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:56, src/templates/minify/font-settings-tab.php:104
+msgid "The stylesheets will be merged or inlined."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:65
+msgid "Inline google font CSS files"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:66
+msgid "The stylesheets will be inlined."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:75
+msgid "Asynchronously load CSS files from Google Fonts"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:76, src/templates/minify/font-settings-tab.php:122
+msgid "Will use 'preload' with LoadCSS polyfill"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:85
+msgid "Asynchronously load fonts from Google Fonts using JavaScript"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:86
+msgid "Use if you want to exclude the CSS from Google Fonts from performance tests."
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:91
+msgid "Font Awesome"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:94
+msgid "Choose how to include Font Awesome (only available if it has 'font-awesome' in the url):"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:112
+msgid "Inline the Font Awesome CSS file"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:121
+msgid "Asynchronously load the Font Awesome CSS file"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:130
+msgid "Asynchronously load the Font Awesome stylesheet using JavaScript"
+msgstr ""
+
+#: src/templates/minify/font-settings-tab.php:131
+msgid "Use if you want to exclude Font Awesome from page speed tests (PageSpeed Insights, GTMetrix...)"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:5
+msgid "JavaScript options"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:16
+msgid "Enable minification of JavaScript files"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:26
+msgid "Enable merging of JavaScript files"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:27
+msgid "If some functionality is breaking on the frontend, disabling merging of JavaScript might fix the issues."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:37
+msgid "Contain each included file in its own block"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:38
+msgid "(enable if trying to isolate a JavaScript error introduced by minifying or merging)"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:39
+msgid "When enabled, the content of each JavaScript file that is combined will be wrapped in its own \"try / catch\" statement. This means that if one file has an error, it should not impede execution of other, independent files."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:43
+msgid "Exclude JavaScript from processing"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:55
+msgid "e.g.: /wp-includes/js/jquery/jquery.js"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:62
+msgid "Defer JavaScript"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:72
+msgid "Defer selected JavaScript files"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:73
+msgid "The files in the list will be loaded asynchronously, and will not be minified or merged."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:81
+msgid "Independent scripts are for example 'analytics' or 'pixel' scripts. They are not required for the website to work"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:89
+msgid "e.g.: /js/main.js"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:103
+msgid "Defer all the JavaScript files"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:104
+msgid "All files - including the ones processed by WP-Optimize - will be deferred, except the ones in the exclusion list above."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:110
+msgid "Some themes and plugins need render blocking scripts to work."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:110
+msgid "Please check the browser console for any eventual JavaScript errors caused by deferring the scripts."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:113
+msgid "Defer method:"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:121
+msgid "Use the \"defer\" html attribute"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:122
+msgid "Supported by all modern browsers."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:131
+msgid "Defer using JavaScript"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:132
+msgid "(Use this method if you require support for %solder browsers%s)."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:142
+msgid "Defer jQuery"
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:142
+msgid "(Note that as jQuery is a common dependency, it probably needs to be loaded synchronously)."
+msgstr ""
+
+#: src/templates/minify/js-settings-tab.php:143
+msgid "Disable this setting if you have an error 'jQuery undefined'."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:6
+msgid "Miscellaneous"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:17
+msgid "Merge inline extra css and javascript"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:18
+msgid "Inline JavaScript and CSS that should come before or after other enqueued files will be merged."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:28
+msgid "Disable Minify for logged-in users"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:29
+msgid "HTML, JavaScript and CSS will be loaded normally by WordPress."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:29
+msgid "Useful for debugging or to improve compatibility with some visual editors."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:39
+msgid "Remove meta information from page header"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:40
+msgid "Remove resource hints, generator tag, shortlinks, manifest link, etc."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:51
+msgid "Remove default WordPress and TinyMCE icons"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:52
+msgid "When selected, the site will use the device's built in Emoji"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:57
+msgid "SSL options"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:60
+msgid "Force HTTP or HTTPS on the assets generated by WP-Optimize Minify."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:61
+msgid "You may need it for some CDN plugins to work:"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:71
+msgid "Same as home URL"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:71
+msgid "Currently: %s"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:72
+msgid "Uses your site's default protocol."
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:81
+msgid "Force HTTP"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:82
+msgid "If you do not have SSL"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:91
+msgid "Force HTTPS"
+msgstr ""
+
+#: src/templates/minify/settings-tab.php:92
+msgid "Recommended if you have SSL"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:5
+msgid "How to use the minify feature"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:7
+msgid "Not sure how to use the Minify feature?"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:9
+msgid "Minify video preview"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:12, src/templates/minify/status-tab.php:24, src/templates/notices/install-or-update-notice.php:51
+msgid "Read the documentation"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:20
+msgid "CSS, JavaScript and HTML minification is an advanced feature."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:21
+msgctxt "\"it\" refers to the Minify feature."
+msgid "While enabling it will work just fine for most sites, it might need specific configuration to work properly on your website."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:22
+msgctxt "\"it\" refers to the Minify feature."
+msgid "If you encounter an issue and are not sure what to do, disable the feature and ask for help on the support forum."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:23
+msgctxt "\"it\" refers to the Minify feature."
+msgid "We will do our best to help you configure it."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:44
+msgid "Enable Minify"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:46
+msgid "The PHP version on your server is too old."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:46
+msgid "Update PHP to enable minification of JS, CSS and HTML on this website"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:48
+msgid "PHP version requirement (5.4 minimum) not met"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:55
+msgid "If this is turned on, then the default settings are that JavaScript and CSS on this website will be concatenated and minified and HTML will be minified."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:55
+msgid "You can adjust the settings in the tabs above to control this to meet your requirements."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:60
+msgid "It looks like you already have an active minify plugin (%s) installed. Having more than one active plugin to minify front end assets might cause unexpected results and waste of resources."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:67
+msgid "The constant %s is set to true, so no JavaScript or CSS file will be minified."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:87
+msgid "Process HTML (works only when cache pre-loading)"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:89
+msgid "All HTML will be minified. It takes effect only when cache pre-loading because it takes time."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:109
+msgid "Process JavaScript files"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:110
+msgid "The JavaScript files will be combined and minified to lower the number and size of requests."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:111, src/templates/minify/status-tab.php:133, src/wp-optimize.php:829, src/wp-optimize.php:848, src/wp-optimize.php:853, src/wp-optimize.php:1414, src/wp-optimize.php:1663, src/wp-optimize.php:1664
+msgid "Settings"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:131
+msgid "Process CSS files"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:132
+msgid "The stylesheets will be combined and minified to lower the number and size of requests."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:145
+msgid "Purge the minified files"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:145
+msgid "Reset the minified files"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:152
+msgid "The new minified files will be regenerated when visiting your website's pages."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:152
+msgid "Read more about what this does in our FAQs."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:152
+msgid "This will also purge the page cache"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:155
+msgid "Minify cache size:"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:157
+msgid "Current cache:"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:163, src/templates/minify/status-tab.php:176, src/wp-optimize.php:1309
+msgid "No minified files are present"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:167
+msgid "View the files"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:170
+msgid "Total cache:"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:180
+msgid "This includes the older, non-expired cache, as well as the temporary files used to generate the minified files."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:185
+msgid "Last Minify cache update:"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:203
+msgid "Increment cache"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:208
+msgid "This will reset the files generated by minify, but use the existing minify temporary files."
+msgstr ""
+
+#: src/templates/minify/status-tab.php:218
+msgid "Delete all the files generated by minifcation"
+msgstr ""
+
+#: src/templates/minify/status-tab.php:223
+msgid "If you are using an unsupported cache plugin, then you will also need to purge your page cache when doing this."
+msgstr ""
+
+#: src/templates/notices/cache-notice.php:5
+msgid "Page caching issue."
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:8, src/templates/notices/horizontal-notice.php:38
+msgid "notice image"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:18
+msgid "Ok, you deserve it"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:22
+msgid "Maybe later"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:25
+msgid "Never"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:48, src/templates/notices/horizontal-notice.php:50, src/templates/notices/install-or-update-notice.php:27, src/templates/notices/install-or-update-notice.php:47
+msgid "Dismiss"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:63
+msgid "Get UpdraftCentral"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:65
+msgid "Get UpdraftPlus"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:67
+msgid "Sign up"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:69
+msgid "Go there"
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:71, src/templates/notices/horizontal-notice.php:73
+msgid "Find out more."
+msgstr ""
+
+#: src/templates/notices/horizontal-notice.php:75
+msgid "Read more."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:6, src/templates/notices/thanks-for-using-main-dash.php:7
+msgid "Thank you for installing WP-Optimize!"
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:7, src/templates/notices/install-or-update-notice.php:34
+msgid "The team at WP-Optimize is working hard to make your site fast and efficient."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:9
+msgctxt "%s will be replaced by a \"strong\" tag"
+msgid "The plugin settings are split into three parts: %sclean%s the database, %scompress%s images and %scaching%s."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:11
+msgid "If you are unsure what settings to use, please take a look at the %sdocumentation%s."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:13
+msgctxt "%s will be replaced by a \"strong\" tag"
+msgid "We also recently added the ability to %scombine and minify%s CSS, JavaScript and HTML, for an increased performance boost."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:14, src/templates/notices/install-or-update-notice.php:41
+msgctxt "%s will be replaced by a link tag"
+msgid "Read more about this feature %son our website%s."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:18
+msgid "But first, we strongly recommend you backup your site with %sUpdraftPlus%s."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:19
+msgid "WP-Optimize can trigger UpdraftPlus to automatically back up right before any optimization takes place, so you can undo any changes you make."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:23
+msgid "Finally, please take a look at our %spremium version%s, which is packed full of additional speed enhancements to make your site go even faster!"
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:33
+msgid "Thank you for updating WP-Optimize!"
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:36
+msgctxt "%s will be replaced by a \"strong\" tag"
+msgid "This new version includes a new major feature: the ability to %s minify your scripts and stylesheets.%s"
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:37
+msgid "This highly requested feature adds an extra layer of optimization to your website, lowering the number of requests sent to your server by combining and minifying the JavaScript and CSS files."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:38
+msgid "Go to minify settings."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:40
+msgid "If you already have plugins for minifying, don't worry - WP-Optimize won't interfere unless you turn these options on."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:43
+msgctxt "%s is replaced by a link tag"
+msgid "PS - check out our new improved Premium version %shere%s."
+msgstr ""
+
+#: src/templates/notices/install-or-update-notice.php:49
+msgid "%sRead the full WP-Optimize documentation%s, or if you have any questions, please ask %sPremium support%s"
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:5
+msgid "Dismiss (for %s months)"
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:14
+msgid "Super-charge and secure your WordPress site with our other top plugins:"
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:18
+msgid "%s offers powerful extra features and flexibility, and WordPress multisite support."
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:18
+msgid "WP-Optimize Premium:"
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:22
+msgid "%s simplifies backups and restoration. It is the world’s highest ranking and most popular scheduled backup plugin, with over a million currently-active installs."
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:26
+msgid "%s is a highly efficient way to manage, optimize, update and backup multiple websites from one place."
+msgstr ""
+
+#: src/templates/notices/thanks-for-using-main-dash.php:30
+msgid "Premium WooCommerce extensions"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:4
+msgid "WP-Optimize free / premium comparison"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:10
+msgid "Ask a pre-sales question"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:21
+msgid "Free"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:24
+msgid "WP-Optimize Premium"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:32, src/templates/settings/may-also-like.php:275
+msgid "Installed"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:35, src/templates/settings/may-also-like.php:278
+msgid "Upgrade now"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:40, src/templates/settings/may-also-like.php:41
+msgid "Database cleaning"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:42
+msgid "Clears out unnecessary data, cleans up your tables and retrieves space lost to data fragmentation."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:45, src/templates/settings/may-also-like.php:48, src/templates/settings/may-also-like.php:58, src/templates/settings/may-also-like.php:61, src/templates/settings/may-also-like.php:71, src/templates/settings/may-also-like.php:74, src/templates/settings/may-also-like.php:87, src/templates/settings/may-also-like.php:100, src/templates/settings/may-also-like.php:113, src/templates/settings/may-also-like.php:126, src/templates/settings/may-also-like.php:139, src/templates/settings/may-also-like.php:152, src/templates/settings/may-also-like.php:165, src/templates/settings/may-also-like.php:178, src/templates/settings/may-also-like.php:191, src/templates/settings/may-also-like.php:204, src/templates/settings/may-also-like.php:217, src/templates/settings/may-also-like.php:230, src/templates/settings/may-also-like.php:243, src/templates/settings/may-also-like.php:256, src/templates/settings/may-also-like.php:269
+msgid "Yes"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:53, src/templates/settings/may-also-like.php:54
+msgid "Image compression"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:55
+msgid "Compress your images for a much faster page load."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:66, src/templates/settings/may-also-like.php:67
+msgid "Caching"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:68
+msgid "Cache your page and post for even more speed."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:79, src/templates/settings/may-also-like.php:80, src/templates/settings/may-also-like.php:118
+msgid "Multisite support"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:81
+msgid "Optimize any site (or combination of sites) on your WordPress Multisite or network"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:84, src/templates/settings/may-also-like.php:97, src/templates/settings/may-also-like.php:110, src/templates/settings/may-also-like.php:123, src/templates/settings/may-also-like.php:136, src/templates/settings/may-also-like.php:149, src/templates/settings/may-also-like.php:162, src/templates/settings/may-also-like.php:175, src/templates/settings/may-also-like.php:188, src/templates/settings/may-also-like.php:201, src/templates/settings/may-also-like.php:214, src/templates/settings/may-also-like.php:227, src/templates/settings/may-also-like.php:240, src/templates/settings/may-also-like.php:253, src/templates/settings/may-also-like.php:266
+msgid "No"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:92, src/templates/settings/may-also-like.php:93
+msgid "Optimize individual tables"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:94
+msgid "Perform optimizations on single tables"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:105, src/templates/settings/may-also-like.php:106
+msgid "Remove unwanted images"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:107
+msgid "Remove images that have been orphaned or are no longer in use"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:119
+msgid "Sophisticated scheduling"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:120
+msgid "A more advanced scheduling system to make regular routine optimizations whenever you prefer"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:131, src/templates/settings/may-also-like.php:132
+msgid "Control with WP-CLI"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:133
+msgid "Save time managing multiple sites from the WP command line"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:144, src/templates/settings/may-also-like.php:145
+msgid "Lazy Loading"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:146
+msgid "Make your site run faster by only loading parts of a web-page when it is visible to the user"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:157, src/templates/settings/may-also-like.php:158
+msgid "Optimization Preview"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:159
+msgid "Preview, select and remove data and records available for optimization from the database"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:170, src/templates/settings/may-also-like.php:171
+msgid "Enhanced logging and reporting"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:172
+msgid "Send log messages to three additional locations: Slack, Syslog and Simple History"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:183, src/templates/settings/may-also-like.php:184
+msgid "More choice and flexibility"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:185
+msgid "Choose from a number of advanced options, like the ability to optimize individual DB tables"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:196
+msgid "Geolocation for WooCommerce"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:197
+msgid "Geolocation and tax country for WooCommerce"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:198
+msgid "Anyone running an international WooCommerce store needs this: serve country specific content to your customers, appropriate VAT, pricing, all cached for great performance"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:209, src/templates/settings/may-also-like.php:210
+msgid "Multilingual and multi-currency compatible"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:211
+msgid "Cache supports WPML multilingual plugin and multiple currencies for WooCommerce"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:222, src/templates/settings/may-also-like.php:223
+msgid "More caching options"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:224
+msgid "Exclude posts and pages from the cache, straight from the post edit screen."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:237
+msgid "Preload assets such as web fonts and icon fonts, as recommended by Google PageSpeed Insights"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:248, src/templates/settings/may-also-like.php:249
+msgid "Power tweaks"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:250
+msgid "Catered towards more advanced users, the power tweaks will enable you to improve performance by targeting specific weak points, either in WordPress Core, or in popular plugins"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:261, src/templates/settings/may-also-like.php:262
+msgid "Premium support"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:263
+msgid "Get your specific queries addressed directly by our experts"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:286
+msgid "Our other plugins"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:296
+msgid "UpdraftPlus"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:297
+msgid "UpdraftPlus – the ultimate protection for your site, hard work and business"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:300
+msgid "If you’ve got a WordPress website, you need a backup."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:303
+msgid "Hacking, server crashes, dodgy updates or simple user error can ruin everything."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:306
+msgid "With UpdraftPlus, you can rest assured that if the worst does happen, it's no big deal. rather than losing everything, you can simply restore the backup and be up and running again in no time at all."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:309
+msgid "You can also migrate your website with few clicks without hassle."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:312
+msgid "With a long-standing reputation for excellence and outstanding reviews, it’s no wonder that UpdraftPlus is the world’s most popular WordPress backup plugin."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:314, src/templates/settings/may-also-like.php:331
+msgid "Try for free"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:318
+msgid ""
+"UpdraftCentral Dashboard\n"
+""
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:320
+msgid "UpdraftCentral – save hours managing multiple WP sites from one place"
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:323
+msgid "If you manage a few WordPress sites, you need UpdraftCentral."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:326
+msgid "UpdraftCentral is a powerful tool that allows you to efficiently manage, update, backup and even restore multiple websites from just one location. You can also manage users and comments on all the sites at once, and through its central login feature, you can access each WP-dashboard with a single click."
+msgstr ""
+
+#: src/templates/settings/may-also-like.php:329
+msgid "With a wide range of useful features, including automated backup schedules and sophisticated one click updates, UpdraftCentral is sure to boost to your productivity and save you time."
+msgstr ""
+
+#: src/templates/settings/settings-general.php:8
+msgid "Enable admin bar menu"
+msgstr ""
+
+#: src/templates/settings/settings-general.php:11
+msgid "This option will add a link labeled \"WP-Optimize\" in the top admin bar, for easy access to the different features."
+msgstr ""
+
+#: src/templates/settings/settings-general.php:11, src/templates/settings/settings-general.php:19
+msgid "Requires a page refresh after saving the settings."
+msgstr ""
+
+#: src/templates/settings/settings-general.php:16
+msgid "Enable the caching menu in the admin bar"
+msgstr ""
+
+#: src/templates/settings/settings-general.php:19
+msgid "This option will add a caching menu on the top admin bar."
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:3
+msgid "Logging settings"
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:7
+msgid "Add logging destination"
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:11
+msgid "Remember to save your settings so that your changes take effect."
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:22
+msgid "Destination"
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:23
+msgid "Options"
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:39, src/templates/settings/settings-logging.php:79
+msgid "Active"
+msgstr ""
+
+#: src/templates/settings/settings-logging.php:39
+msgid "Inactive"
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:6
+msgid "Trackback/comments actions"
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:9
+msgid "Trackbacks"
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:14
+msgid "Use these buttons to enable or disable any future trackbacks on all your previously published posts."
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:28
+msgid "All trackbacks on existing posts were enabled on the %s."
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:30
+msgid "All trackbacks on existing posts were disabled on the %s."
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:42
+msgid "Comments"
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:46
+msgid "Use these buttons to enable or disable any future comments on all your previously published posts."
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:60
+msgid "All comments on existing posts were enabled on the %s."
+msgstr ""
+
+#: src/templates/settings/settings-trackback-and-comments.php:62
+msgid "All comments on existing posts were disabled on the %s."
+msgstr ""
+
+#: src/templates/settings/settings.php:20, src/templates/settings/settings.php:27
+msgid "Wipe settings"
+msgstr ""
+
+#: src/templates/settings/settings.php:24
+msgid "This button will delete all of WP-Optimize's settings. You will then need to enter all your settings again. You can also do this before deactivating/deinstalling WP-Optimize if you wish."
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:3
+msgid "Support and feedback"
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:7
+msgid "Read our FAQ here"
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:8
+msgid "Support is available here."
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:9
+msgid "If you like WP-Optimize,"
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:9
+msgid "please give us a positive review, here."
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:9
+msgid "Or, if you did not like it,"
+msgstr ""
+
+#: src/templates/settings/support-and-faqs.php:9
+msgid "please tell us why at this link."
+msgstr ""
+
+#: src/templates/settings/system-status.php:6
+msgid "running on:"
+msgstr ""
+
+#: src/templates/take-a-backup.php:17
+msgid "Backup before running optimizations"
+msgstr ""
+
+#: src/templates/take-a-backup.php:54
+msgid "Take a backup with UpdraftPlus before doing this"
+msgstr ""
+
+#: src/templates/take-a-backup.php:72
+msgid "Follow this link to install UpdraftPlus, to take a backup before optimization"
+msgstr ""
+
+#: src/templates/take-a-backup.php:88
+msgid "UpdraftPlus needs to be updated to 1.12.33 or higher in order to backup the database before optimization."
+msgstr ""
+
+#: src/templates/take-a-backup.php:88
+msgid "Please update UpdraftPlus to the latest version."
+msgstr ""
+
+#: src/templates/take-a-backup.php:91
+msgid "UpdraftPlus is installed but currently not active. Follow this link to activate UpdraftPlus, to take a backup before optimization."
+msgstr ""
+
+#: src/wp-optimize.php:629
+msgid "WP-Optimize (Free) has been de-activated, because WP-Optimize Premium is active."
+msgstr ""
+
+#: src/wp-optimize.php:639
+msgid "New feature: WP-Optimize Premium can now optimize all sites within a multisite install, not just the main one."
+msgstr ""
+
+#: src/wp-optimize.php:692
+msgid "The security check failed; try refreshing the page."
+msgstr ""
+
+#: src/wp-optimize.php:703
+msgid "You are not allowed to run this command."
+msgstr ""
+
+#: src/wp-optimize.php:717
+msgid "Options can only be saved by network admin"
+msgstr ""
+
+#: src/wp-optimize.php:768
+msgid "The command \"%s\" was not found"
+msgstr ""
+
+#: src/wp-optimize.php:828
+msgid "Tables"
+msgstr ""
+
+#: src/wp-optimize.php:832
+msgid "Compress images"
+msgstr ""
+
+#: src/wp-optimize.php:833
+msgid "Unused images and sizes"
+msgstr ""
+
+#: src/wp-optimize.php:834
+msgid "Lazy-load"
+msgstr ""
+
+#: src/wp-optimize.php:838
+msgid "Preload"
+msgstr ""
+
+#: src/wp-optimize.php:839
+msgid "Advanced settings"
+msgstr ""
+
+#: src/wp-optimize.php:841
+msgid "Static file headers"
+msgstr ""
+
+#: src/wp-optimize.php:844
+msgid "Minify status"
+msgstr ""
+
+#: src/wp-optimize.php:845
+msgid "JavaScript"
+msgstr ""
+
+#: src/wp-optimize.php:845, src/wp-optimize.php:846
+msgid "Disabled"
+msgstr ""
+
+#: src/wp-optimize.php:846
+msgid "CSS"
+msgstr ""
+
+#: src/wp-optimize.php:847
+msgid "Fonts"
+msgstr ""
+
+#: src/wp-optimize.php:849
+msgid "Advanced"
+msgstr ""
+
+#: src/wp-optimize.php:856
+msgid "Support / FAQs"
+msgstr ""
+
+#: src/wp-optimize.php:857
+msgid "Premium / Plugin family"
+msgstr ""
+
+#: src/wp-optimize.php:1103
+msgid "Same as cache lifespan"
+msgstr ""
+
+#: src/wp-optimize.php:1228
+msgid "Your server takes care of table optimization"
+msgstr ""
+
+#: src/wp-optimize.php:1258
+msgid "Enjoyed %s? Please leave us a %s rating. We really appreciate your support!"
+msgstr ""
+
+#: src/wp-optimize.php:1272
+msgid "Automatic backup before optimizations"
+msgstr ""
+
+#: src/wp-optimize.php:1273
+msgid "An unexpected response was received."
+msgstr ""
+
+#: src/wp-optimize.php:1274
+msgid "Optimization complete"
+msgstr ""
+
+#: src/wp-optimize.php:1275
+msgid "(with warnings - open the browser console for more details)"
+msgstr ""
+
+#: src/wp-optimize.php:1276
+msgid "Optimizing table:"
+msgstr ""
+
+#: src/wp-optimize.php:1277
+msgid "Run optimizations"
+msgstr ""
+
+#: src/wp-optimize.php:1280
+msgid "Cancelling..."
+msgstr ""
+
+#: src/wp-optimize.php:1283
+msgid "Please, select settings file."
+msgstr ""
+
+#: src/wp-optimize.php:1284
+msgid "Are you sure you want to remove this logging destination?"
+msgstr ""
+
+#: src/wp-optimize.php:1285
+msgid "Before saving, you need to complete the currently incomplete settings (or remove them)."
+msgstr ""
+
+#: src/wp-optimize.php:1286
+msgid "%s was not repaired. For more details, please check the logs (configured in your logging destinations settings)."
+msgstr ""
+
+#: src/wp-optimize.php:1287
+msgid "%s was not deleted. For more details, please check your logs configured in logging destinations settings."
+msgstr ""
+
+#: src/wp-optimize.php:1288
+msgid "%s was not converted to InnoDB. For more details, please check your logs configured in logging destinations settings."
+msgstr ""
+
+#: src/wp-optimize.php:1289
+msgid "Please use positive integers."
+msgstr ""
+
+#: src/wp-optimize.php:1290
+msgid "Please use valid values."
+msgstr ""
+
+#: src/wp-optimize.php:1293
+msgid "Started preload..."
+msgstr ""
+
+#: src/wp-optimize.php:1298
+msgid "Added to the list"
+msgstr ""
+
+#: src/wp-optimize.php:1301
+msgid "Refreshing the page to reflect changes..."
+msgstr ""
+
+#: src/wp-optimize.php:1302
+msgid "WP-Optimize settings have been deleted successfully."
+msgstr ""
+
+#: src/wp-optimize.php:1308
+msgid "The tweak has been performed."
+msgstr ""
+
+#: src/wp-optimize.php:1417
+msgid "Optimize"
+msgstr ""
+
+#: src/wp-optimize.php:1433
+msgid "Repair"
+msgstr ""
+
+#: src/wp-optimize.php:1442
+msgid "Remove"
+msgstr ""
+
+#: src/wp-optimize.php:1451
+msgid "Convert to InnoDB"
+msgstr ""
+
+#: src/wp-optimize.php:1583
+msgid "Warning"
+msgstr ""
+
+#: src/wp-optimize.php:1583
+msgid "WordPress has a number (%d) of scheduled tasks which are overdue. Unless this is a development site, this probably means that the scheduler in your WordPress install is not working."
+msgstr ""
+
+#: src/wp-optimize.php:1583
+msgid "Read this page for a guide to possible causes and how to fix it."
+msgstr ""
+
+#: src/wp-optimize.php:1622, src/wp-optimize.php:1623
+msgid "Database"
+msgstr ""
+
+#: src/wp-optimize.php:1640, src/wp-optimize.php:1641
+msgid "Cache"
+msgstr ""
+
+#: src/wp-optimize.php:1649, src/wp-optimize.php:1650
+msgid "Minify"
+msgstr ""
+
+#: src/wp-optimize.php:1672
+msgid "Support & FAQs"
+msgstr ""
+
+#: src/wp-optimize.php:1673
+msgid "Help"
+msgstr ""
+
+#: src/wp-optimize.php:1681, src/wp-optimize.php:1682
+msgid "Premium Upgrade"
+msgstr ""
+
+#: src/wp-optimize.php:1753
+msgid "Error:"
+msgstr ""
+
+#: src/wp-optimize.php:1753
+msgid "template not found"
+msgstr ""
+
+#: src/wp-optimize.php:1817
+msgid "N/A"
+msgstr ""
+
+#: src/wp-optimize.php:2166
+msgid "You have no permissions to run optimizations."
+msgstr ""
+
+#: src/wp-optimize.php:2175
+msgid "You have no permissions to manage WP-Optimize settings."
+msgstr ""
+
+#: src/wp-optimize.php:2457
+msgid "Only Network Administrator can activate WP-Optimize plugin."
+msgstr ""
+
+#: src/wp-optimize.php:2458
+msgid "go back"
+msgstr ""

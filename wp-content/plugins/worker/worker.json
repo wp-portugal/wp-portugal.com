@@ -1,0 +1,11 @@
+{
+    "master_url": "https:\/\/managewp.com\/",
+    "master_cron_url": "https:\/\/managewp.com\/wp-content\/plugins\/master\/mwp-notifications-handle.php",
+    "noti_cache_life_time": "86400",
+    "noti_treshold_spam_comments": "10",
+    "noti_treshold_pending_comments": "0",
+    "noti_treshold_approved_comments": "0",
+    "noti_treshold_posts": "0",
+    "noti_treshold_drafts": "0",
+    "key_name": "managewp"
+}

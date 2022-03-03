@@ -1,0 +1,41 @@
+.p2-likes-link {
+	display: inline;
+	position: relative;
+}
+
+.p2-likes-box {
+	display: none;
+	position: absolute;
+	right: 0;
+	padding: 4px 0;
+	width: 300px;
+	z-index: 1;
+}
+
+.p2-likes-box-inner {
+	overflow: hidden;
+}
+
+.p2-likes-user {
+	background: #ffffff;
+	float: right;
+	padding: 0 4px 0 0;
+}
+
+.p2-likes-user a {
+	display: block;
+	height: 32px;
+	width: 32px;
+}
+
+.p2-likes-user a:hover {
+	border: 0 none !important;
+	text-decoration: none !important;
+}
+
+#postlist .p2-likes-user img {
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	margin: 0;
+}

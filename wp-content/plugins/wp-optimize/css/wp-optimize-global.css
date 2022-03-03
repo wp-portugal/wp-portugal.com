@@ -1,0 +1,85 @@
+/* Admin bar separator */
+
+#wpadminbar .quicklinks .menupop.hover ul li.separator .ab-item.ab-empty-item {
+	height: 2px;
+	line-height: 2px;
+	background: rgba(255, 255, 255, 0.0902);
+	margin: 5px 10px;
+	width: auto;
+	min-width: 0;
+}
+
+#wpadminbar .quicklinks .menupop ul li.wpo-cache-stats::before {
+	content: '';
+	display: block;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-top: 1px solid rgba(114, 119, 124, 0.48);
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+#wpadminbar .quicklinks .menupop ul li.wpo-cache-stats .ab-item {
+	height: auto;
+	line-height: 1.2;
+}
+
+#wpadminbar .quicklinks .menupop ul li.wpo-cache-stats .ab-item span {
+	line-height: 1.5;
+	font-size: 80%;
+	color: #989898;
+}
+
+#wpadminbar .quicklinks .menupop ul li.wpo-cache-stats .ab-item h4 {
+	font-weight: 500;
+	text-transform: uppercase;
+	color: #FFF;
+}
+
+#wpadminbar .quicklinks .menupop ul li .ab-item.loading {
+	opacity: 0.2;
+}
+
+#wpo_always_purge_this_post_type_select + .select2 {
+	width: 90% !important;
+}
+
+.wpo-collapsible-content .smush-details th {
+	font-weight: bold;
+}
+
+.wpo-collapsible-content .smush-details th,
+.wpo-collapsible-content .smush-details td {
+	text-align: left;
+	padding: 0 3px;
+	font-size: 0.8em;
+}
+
+.wpo-collapsible-content .smush-details td:first-child {
+	word-break: break-all;
+}
+
+.wpo-collapsible {
+	cursor: pointer;
+}
+
+.wpo-collapsible::before {
+	display: inline-block;
+	width: 10px;
+}
+
+.wpo-collapsible::before {
+	content: '+';
+}
+
+.wpo-collapsible.opened::before {
+	content: '-';
+}
+
+.wpo-collapsible-content {
+	display: none;
+}
+
+.wpo-collapsible.opened + .wpo-collapsible-content {
+	display: block;
+}

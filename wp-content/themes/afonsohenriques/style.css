@@ -1,0 +1,78 @@
+/*
+Theme Name: D. Afonso Henriques
+Theme URI: http://www.wp-portugal.com
+Description: Tema temporário para a Comunidade Portuguesa de WordPress
+Version: 1.0
+Author: Hugo Baeta, José Fontainhas
+Author URI: http://hugobaeta.com
+*/
+
+@import "assets/css/reset.css";
+@import "assets/css/layout.css";
+@import "assets/css/enchancements.css";
+
+/* @group Basic Styles */
+body { font-size: 62.5%; font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	background: #e4e4e4; color: #333333; }
+/* @end */
+
+/* @group Typography */
+/* HEADINGS */
+h1, h2, h3, h5, h5, h6 { font-weight:bold; font-family: Helvetica, "Helvetica Neue", Arial, sans-serif; }
+h1.introtitle { font-size: 1.2em; margin: 0; }
+h2 { font-size: 1.4em; text-transform: uppercase; line-height:1; margin-bottom:0.5em; 
+	text-shadow: white 0 1px 1px; }
+h3 { font-size: 1.1em; margin-bottom:0.75em; text-transform: uppercase; }
+/* PARAGRAPHS */
+p {margin:0 0 1em;}
+p:last-child { margin: 0; }
+blockquote {margin:1.5em;color:#666;font-style:italic;}
+strong {font-weight:bold;}
+em, dfn {font-style:italic;}
+/* LISTS */
+#content li ul, #content li ol {margin:0 1.5em 0.5em;}
+#content ul, #content ol, #content dl {margin: 1.5em 1.5em 1.5em;}
+#content ul {list-style-type:disc;}
+#content ol {list-style-type:decimal;}
+#content dl dt {font-weight:bold;}
+#content dd {margin-left:1.5em;}
+/* TABLES */
+table {margin-bottom:1.4em;width:100%;}
+th {font-weight:bold;}
+thead th {background:#c3d9ff;}
+th, td, caption {padding:4px 10px 4px 5px;}
+tr.even td {background:#e5ecf9;}
+tfoot {font-style:italic;}
+/* @end */
+
+/* @group Links */
+a:link, a:visited { color: #000; text-decoration: underline; }
+a:hover, a:active { color: #990033; text-decoration: none; }
+#footer a:link, #footer a:visited { color: #999; text-decoration: none; }
+#footer a:hover, #footer a:active { color: #990033; text-decoration: none; }
+/* @end */
+
+/* @group Layout */
+body { border-top: 10px solid #333; }
+#body-wrap { width: 400px; margin: 0 auto 50px; }
+#header { margin: 100px 0 0; }
+#content { padding: 35px; margin: 20px 0; font-size: 1.5em; line-height: 1.5em; background: #ccc; color: #333; }
+#footer { color: #999; font-weight: bold; text-transform: uppercase; font-size: .9em; }
+/* @end */
+
+/* @group Logo */
+#logo { width: 400px; height: 100px; margin: 0; padding: 0; }
+#logo h1 { width: 400px; height: 100px; margin: 0;
+	background: transparent url(assets/images/logo.png) no-repeat; }
+#logo h1 a { width: 400px; height: 100px; margin: 0; text-indent: -9999px; float: left;
+	background: transparent url(assets/images/logo.png) no-repeat; }
+/* @end */
+
+/* @group Content */
+
+/* @end */
+
+/* @group Footer */
+#footer { }
+#footer ul li { margin: 0 34px 5px; }
+/* @end */

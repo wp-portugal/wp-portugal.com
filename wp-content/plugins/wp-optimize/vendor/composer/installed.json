@@ -1,0 +1,1505 @@
+{
+    "packages": [
+        {
+            "name": "components/jquery",
+            "version": "3.6.0",
+            "version_normalized": "3.6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
+                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
+                "shasum": ""
+            },
+            "time": "2021-03-20T19:13:42+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery.min.map",
+                        "jquery.slim.js",
+                        "jquery.slim.min.js",
+                        "jquery.slim.min.map"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JS Foundation and other contributors"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "support": {
+                "forum": "http://forum.jquery.com",
+                "irc": "irc://irc.freenode.org/jquery",
+                "issues": "https://github.com/jquery/jquery/issues",
+                "source": "https://github.com/jquery/jquery",
+                "wiki": "http://docs.jquery.com/"
+            },
+            "install-path": "../components/jquery"
+        },
+        {
+            "name": "components/jquery-blockui",
+            "version": "v2.71",
+            "version_normalized": "2.71.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DavidAnderson684/blockui.git",
+                "reference": "ba184b5d243e0be7183060f72ff58fabacc234d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DavidAnderson684/blockui/zipball/ba184b5d243e0be7183060f72ff58fabacc234d7",
+                "reference": "ba184b5d243e0be7183060f72ff58fabacc234d7",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.12",
+                "robloach/component-installer": "*"
+            },
+            "time": "2020-12-08T22:54:51+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.blockUI.js"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ]
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "license": [
+                "MIT",
+                "GPL"
+            ],
+            "authors": [
+                {
+                    "name": "M. Alsup",
+                    "homepage": "http://jquery.malsup.com"
+                }
+            ],
+            "description": "Simulate synchronous ajax by blocking - not locking - the UI. This plugin lets you block user interaction with the page or with a specific element on the page. Also great at displaying modal dialogs.",
+            "homepage": "http://jquery.malsup.com/block/",
+            "keywords": [
+                "block",
+                "dialog",
+                "modal",
+                "overlay"
+            ],
+            "support": {
+                "source": "https://github.com/DavidAnderson684/blockui/tree/v2.71"
+            },
+            "install-path": "../components/jquery-blockui"
+        },
+        {
+            "name": "intervention/httpauth",
+            "version": "3.0.3",
+            "version_normalized": "3.0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Intervention/httpauth.git",
+                "reference": "7742aa013e1a72f94379cb6623286f06fa1ea5f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Intervention/httpauth/zipball/7742aa013e1a72f94379cb6623286f06fa1ea5f7",
+                "reference": "7742aa013e1a72f94379cb6623286f06fa1ea5f7",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^0.12.11",
+                "phpunit/phpunit": "^9.0"
+            },
+            "time": "2021-01-22T15:08:35+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Intervention\\HttpAuth\\Laravel\\HttpAuthServiceProvider"
+                    ],
+                    "aliases": {
+                        "HttpAuth": "Intervention\\HttpAuth\\Laravel\\Facades\\HttpAuth"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Intervention\\HttpAuth\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Oliver Vogel",
+                    "email": "oliver@olivervogel.com",
+                    "homepage": "https://olivervogel.com/"
+                }
+            ],
+            "description": "HTTP authentication (Basic & Digest) including ServiceProviders for easy Laravel integration",
+            "homepage": "https://github.com/Intervention/httpauth",
+            "keywords": [
+                "Authentication",
+                "http",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/Intervention/httpauth/issues",
+                "source": "https://github.com/Intervention/httpauth/tree/3.0.3"
+            },
+            "install-path": "../intervention/httpauth"
+        },
+        {
+            "name": "kriswallsmith/assetic",
+            "version": "v1.4.0",
+            "version_normalized": "1.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kriswallsmith/assetic.git",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kriswallsmith/assetic/zipball/e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
+                "reference": "e911c437dbdf006a8f62c2f59b15b2d69a5e0aa1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1",
+                "symfony/process": "~2.1|~3.0"
+            },
+            "conflict": {
+                "twig/twig": "<1.27"
+            },
+            "require-dev": {
+                "leafo/lessphp": "^0.3.7",
+                "leafo/scssphp": "~0.1",
+                "meenie/javascript-packer": "^1.1",
+                "mrclay/minify": "<2.3",
+                "natxet/cssmin": "3.0.4",
+                "patchwork/jsqueeze": "~1.0|~2.0",
+                "phpunit/phpunit": "~4.8 || ^5.6",
+                "psr/log": "~1.0",
+                "ptachoire/cssembed": "~1.0",
+                "symfony/phpunit-bridge": "~2.7|~3.0",
+                "twig/twig": "~1.23|~2.0",
+                "yfix/packager": "dev-master"
+            },
+            "suggest": {
+                "leafo/lessphp": "Assetic provides the integration with the lessphp LESS compiler",
+                "leafo/scssphp": "Assetic provides the integration with the scssphp SCSS compiler",
+                "leafo/scssphp-compass": "Assetic provides the integration with the SCSS compass plugin",
+                "patchwork/jsqueeze": "Assetic provides the integration with the JSqueeze JavaScript compressor",
+                "ptachoire/cssembed": "Assetic provides the integration with phpcssembed to embed data uris",
+                "twig/twig": "Assetic provides the integration with the Twig templating engine"
+            },
+            "time": "2016-11-11T18:43:20+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Assetic": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kris Wallsmith",
+                    "email": "kris.wallsmith@gmail.com",
+                    "homepage": "http://kriswallsmith.net/"
+                }
+            ],
+            "description": "Asset Management for PHP",
+            "homepage": "https://github.com/kriswallsmith/assetic",
+            "keywords": [
+                "assets",
+                "compression",
+                "minification"
+            ],
+            "support": {
+                "issues": "https://github.com/kriswallsmith/assetic/issues",
+                "source": "https://github.com/kriswallsmith/assetic/tree/master"
+            },
+            "install-path": "../kriswallsmith/assetic"
+        },
+        {
+            "name": "marcusschwarz/lesserphp",
+            "version": "v0.5.5",
+            "version_normalized": "0.5.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MarcusSchwarz/lesserphp.git",
+                "reference": "77ba82b5218ff228267d3b0e5ec8697be75e86a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MarcusSchwarz/lesserphp/zipball/77ba82b5218ff228267d3b0e5ec8697be75e86a7",
+                "reference": "77ba82b5218ff228267d3b0e5ec8697be75e86a7",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": ">=4.8.35 <8"
+            },
+            "time": "2021-03-10T17:56:57+00:00",
+            "bin": [
+                "plessc"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.1-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Leaf Corcoran",
+                    "email": "leafot@gmail.com",
+                    "homepage": "http://leafo.net"
+                },
+                {
+                    "name": "Marcus Schwarz",
+                    "email": "github@maswaba.de",
+                    "homepage": "https://www.maswaba.de"
+                }
+            ],
+            "description": "lesserphp is a compiler for LESS written in PHP based on leafo's lessphp.",
+            "homepage": "http://leafo.net/lessphp/",
+            "support": {
+                "issues": "https://github.com/MarcusSchwarz/lesserphp/issues",
+                "source": "https://github.com/MarcusSchwarz/lesserphp/tree/v0.5.5"
+            },
+            "install-path": "../marcusschwarz/lesserphp"
+        },
+        {
+            "name": "matthiasmullie/minify",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DavidAnderson684/minify.git",
+                "reference": "aa9c91d9f7d871b8f886e553da568e9b6768d01b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DavidAnderson684/minify/zipball/aa9c91d9f7d871b8f886e553da568e9b6768d01b",
+                "reference": "aa9c91d9f7d871b8f886e553da568e9b6768d01b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "matthiasmullie/path-converter": "~1.1",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "~2.0",
+                "matthiasmullie/scrapbook": "dev-master",
+                "phpunit/phpunit": ">=4.8"
+            },
+            "suggest": {
+                "psr/cache-implementation": "Cache implementation to use with Minify::cache"
+            },
+            "time": "2021-12-17T17:04:13+00:00",
+            "default-branch": true,
+            "bin": [
+                "bin/minifycss",
+                "bin/minifyjs"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\Minify\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "homepage": "http://www.mullie.eu",
+                    "email": "minify@mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "CSS & JavaScript minifier, in PHP. Removes whitespace, strips comments, combines files (incl. @import statements and small assets in CSS files), and optimizes/shortens a few common programming patterns.",
+            "homepage": "http://www.minifier.org",
+            "keywords": [
+                "css",
+                "javascript",
+                "js",
+                "minifier",
+                "minify"
+            ],
+            "support": {
+                "source": "https://github.com/DavidAnderson684/minify/tree/master"
+            },
+            "funding": [
+                {
+                    "type": "github",
+                    "url": "https://github.com/matthiasmullie"
+                }
+            ],
+            "install-path": "../matthiasmullie/minify"
+        },
+        {
+            "name": "matthiasmullie/path-converter",
+            "version": "1.1.3",
+            "version_normalized": "1.1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/matthiasmullie/path-converter.git",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/matthiasmullie/path-converter/zipball/e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "reference": "e7d13b2c7e2f2268e1424aaed02085518afa02d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "time": "2019-02-05T23:41:09+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "MatthiasMullie\\PathConverter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matthias Mullie",
+                    "email": "pathconverter@mullie.eu",
+                    "homepage": "http://www.mullie.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Relative path converter",
+            "homepage": "http://github.com/matthiasmullie/path-converter",
+            "keywords": [
+                "converter",
+                "path",
+                "paths",
+                "relative"
+            ],
+            "support": {
+                "issues": "https://github.com/matthiasmullie/path-converter/issues",
+                "source": "https://github.com/matthiasmullie/path-converter/tree/1.1.3"
+            },
+            "install-path": "../matthiasmullie/path-converter"
+        },
+        {
+            "name": "monolog/monolog",
+            "version": "2.3.5",
+            "version_normalized": "2.3.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "fd4380d6fc37626e2f799f29d91195040137eba9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fd4380d6fc37626e2f799f29d91195040137eba9",
+                "reference": "fd4380d6fc37626e2f799f29d91195040137eba9",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2",
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0.0 || 2.0.0 || 3.0.0"
+            },
+            "require-dev": {
+                "aws/aws-sdk-php": "^2.4.9 || ^3.0",
+                "doctrine/couchdb": "~1.0@dev",
+                "elasticsearch/elasticsearch": "^7",
+                "graylog2/gelf-php": "^1.4.2",
+                "mongodb/mongodb": "^1.8",
+                "php-amqplib/php-amqplib": "~2.4 || ^3",
+                "php-console/php-console": "^3.1.3",
+                "phpspec/prophecy": "^1.6.1",
+                "phpstan/phpstan": "^0.12.91",
+                "phpunit/phpunit": "^8.5",
+                "predis/predis": "^1.1",
+                "rollbar/rollbar": "^1.3",
+                "ruflin/elastica": ">=0.90@dev",
+                "swiftmailer/swiftmailer": "^5.3|^6.0"
+            },
+            "suggest": {
+                "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
+                "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
+                "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
+                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
+                "ext-mbstring": "Allow to work properly with unicode symbols",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "ext-openssl": "Required to send log messages using SSL",
+                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
+                "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
+                "php-console/php-console": "Allow sending log messages to Google Chrome",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
+            },
+            "time": "2021-10-01T21:08:31+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jordi Boggiano",
+                    "email": "j.boggiano@seld.be",
+                    "homepage": "https://seld.be"
+                }
+            ],
+            "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "https://github.com/Seldaek/monolog",
+            "keywords": [
+                "log",
+                "logging",
+                "psr-3"
+            ],
+            "support": {
+                "issues": "https://github.com/Seldaek/monolog/issues",
+                "source": "https://github.com/Seldaek/monolog/tree/2.3.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../monolog/monolog"
+        },
+        {
+            "name": "mrclay/jsmin-php",
+            "version": "2.4.0",
+            "version_normalized": "2.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrclay/jsmin-php.git",
+                "reference": "bb05febc9440852d39899255afd5569b7f21a72c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrclay/jsmin-php/zipball/bb05febc9440852d39899255afd5569b7f21a72c",
+                "reference": "bb05febc9440852d39899255afd5569b7f21a72c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.2"
+            },
+            "time": "2018-12-06T15:03:38+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "JSMin\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Clay",
+                    "email": "steve@mrclay.org",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Ryan Grove",
+                    "email": "ryan@wonko.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Provides a modified port of Douglas Crockford's jsmin.c, which removes unnecessary whitespace from JavaScript files.",
+            "homepage": "https://github.com/mrclay/jsmin-php/",
+            "keywords": [
+                "compress",
+                "jsmin",
+                "minify"
+            ],
+            "support": {
+                "email": "minify@googlegroups.com",
+                "issues": "https://github.com/mrclay/jsmin-php/issues",
+                "source": "https://github.com/mrclay/jsmin-php/tree/master"
+            },
+            "install-path": "../mrclay/jsmin-php"
+        },
+        {
+            "name": "mrclay/minify",
+            "version": "3.0.11",
+            "version_normalized": "3.0.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrclay/minify.git",
+                "reference": "f1572a580a8ab29c5c7df4319c4787c74f7dcb3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrclay/minify/zipball/f1572a580a8ab29c5c7df4319c4787c74f7dcb3e",
+                "reference": "f1572a580a8ab29c5c7df4319c4787c74f7dcb3e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "intervention/httpauth": "^2.0|^3.0",
+                "marcusschwarz/lesserphp": "^0.5.1",
+                "monolog/monolog": "~1.1|~2.0",
+                "mrclay/jsmin-php": "~2",
+                "mrclay/props-dic": "^2.2|^3.0",
+                "php": "^5.3.0 || ^7.0 || ^8.0",
+                "tubalmartin/cssmin": "~4"
+            },
+            "require-dev": {
+                "firephp/firephp-core": "~0.4.0",
+                "leafo/scssphp": "^0.3 || ^0.6 || ^0.7",
+                "meenie/javascript-packer": "~1.1",
+                "phpunit/phpunit": "^4.8.36",
+                "tedivm/jshrink": "~1.1.0"
+            },
+            "suggest": {
+                "firephp/firephp-core": "Use FirePHP for Log messages",
+                "meenie/javascript-packer": "Keep track of the Packer PHP port using Composer"
+            },
+            "time": "2021-03-11T11:58:14+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Clay",
+                    "email": "steve@mrclay.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Minify is a PHP app that helps you follow several rules for client-side performance. It combines multiple CSS or Javascript files, removes unnecessary whitespace and comments, and serves them with gzip encoding and optimal client-side cache headers",
+            "homepage": "https://github.com/mrclay/minify",
+            "support": {
+                "email": "minify@googlegroups.com",
+                "issues": "https://github.com/mrclay/minify/issues",
+                "source": "https://github.com/mrclay/minify/tree/3.0.11",
+                "wiki": "https://github.com/mrclay/minify/blob/master/docs"
+            },
+            "install-path": "../mrclay/minify"
+        },
+        {
+            "name": "mrclay/props-dic",
+            "version": "3.0.0",
+            "version_normalized": "3.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mrclay/Props.git",
+                "reference": "0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mrclay/Props/zipball/0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843",
+                "reference": "0b0fd254e33e2d60bc2bcd7867f2ab3cdd05a843",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "pimple/pimple": "~3.0",
+                "psr/container": "^1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8"
+            },
+            "time": "2019-11-26T17:56:10+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Props\\": [
+                        "src/"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve Clay",
+                    "email": "steve@mrclay.org",
+                    "homepage": "http://www.mrclay.org/"
+                }
+            ],
+            "description": "Props is a simple DI container that allows retrieving values via custom property and method names",
+            "keywords": [
+                "container",
+                "dependency injection",
+                "dependency injection container",
+                "di",
+                "di container"
+            ],
+            "support": {
+                "issues": "https://github.com/mrclay/Props/issues",
+                "source": "https://github.com/mrclay/Props/tree/master"
+            },
+            "install-path": "../mrclay/props-dic"
+        },
+        {
+            "name": "pimple/pimple",
+            "version": "v3.5.0",
+            "version_normalized": "3.5.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silexphp/Pimple.git",
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silexphp/Pimple/zipball/a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "reference": "a94b3a4db7fb774b3d78dad2315ddc07629e1bed",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.5",
+                "psr/container": "^1.1 || ^2.0"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "^5.4@dev"
+            },
+            "time": "2021-10-28T11:13:42+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Pimple": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "Pimple, a simple Dependency Injection Container",
+            "homepage": "https://pimple.symfony.com",
+            "keywords": [
+                "container",
+                "dependency injection"
+            ],
+            "support": {
+                "source": "https://github.com/silexphp/Pimple/tree/v3.5.0"
+            },
+            "install-path": "../pimple/pimple"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.1.2",
+            "version_normalized": "1.1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/513e0666f7216c7459170d56df27dfcefe1689ea",
+                "reference": "513e0666f7216c7459170d56df27dfcefe1689ea",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0"
+            },
+            "time": "2021-11-05T16:50:12+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "support": {
+                "issues": "https://github.com/php-fig/container/issues",
+                "source": "https://github.com/php-fig/container/tree/1.1.2"
+            },
+            "install-path": "../psr/container"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.1.4",
+            "version_normalized": "1.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2021-05-03T11:20:27+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Log\\": "Psr/Log/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "homepage": "https://github.com/php-fig/log",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/log/tree/1.1.4"
+            },
+            "install-path": "../psr/log"
+        },
+        {
+            "name": "robloach/component-installer",
+            "version": "0.0.12",
+            "version_normalized": "0.0.12.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/RobLoach/component-installer.git",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/RobLoach/component-installer/zipball/1864f25db21fc173e02a359f646acd596c1b0460",
+                "reference": "1864f25db21fc173e02a359f646acd596c1b0460",
+                "shasum": ""
+            },
+            "require": {
+                "kriswallsmith/assetic": "1.*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "composer/composer": "1.*"
+            },
+            "time": "2013-08-31T23:46:48+00:00",
+            "type": "composer-installer",
+            "extra": {
+                "class": "ComponentInstaller\\Installer"
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "ComponentInstaller": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Loach",
+                    "email": "robloach@gmail.com",
+                    "homepage": "http://robloach.net"
+                }
+            ],
+            "description": "Allows installation of Components via Composer.",
+            "support": {
+                "issues": "https://github.com/RobLoach/component-installer/issues",
+                "source": "https://github.com/RobLoach/component-installer/tree/master"
+            },
+            "abandoned": "oomphinc/composer-installers-extender",
+            "install-path": "../robloach/component-installer"
+        },
+        {
+            "name": "rosell-dk/exec-with-fallback",
+            "version": "1.2.0",
+            "version_normalized": "1.2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rosell-dk/exec-with-fallback.git",
+                "reference": "f88a6b29abd0b580566056b7c1eb0434eb5db20d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rosell-dk/exec-with-fallback/zipball/f88a6b29abd0b580566056b7c1eb0434eb5db20d",
+                "reference": "f88a6b29abd0b580566056b7c1eb0434eb5db20d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 | ^7.0 | ^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^9.3",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "suggest": {
+                "php-stan/php-stan": "Suggested for dev, in order to analyse code before committing"
+            },
+            "time": "2021-12-08T12:09:43+00:00",
+            "type": "library",
+            "extra": {
+                "scripts-descriptions": {
+                    "ci": "Run tests before CI",
+                    "phpcs": "Checks coding styles (PSR2) of file/dir, which you must supply. To check all, supply 'src'",
+                    "phpcbf": "Fix coding styles (PSR2) of file/dir, which you must supply. To fix all, supply 'src'",
+                    "cs-fix-all": "Fix the coding style of all the source files, to comply with the PSR-2 coding standard",
+                    "cs-fix": "Fix the coding style of a PHP file or directory, which you must specify.",
+                    "test": "Launches the preconfigured PHPUnit"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ExecWithFallback\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bjørn Rosell",
+                    "homepage": "https://www.bitwise-it.dk/contact",
+                    "role": "Project Author"
+                }
+            ],
+            "description": "An exec() with fallback to emulations (proc_open, etc)",
+            "keywords": [
+                "command",
+                "exec",
+                "fallback",
+                "open_proc",
+                "resiliant",
+                "sturdy"
+            ],
+            "support": {
+                "issues": "https://github.com/rosell-dk/exec-with-fallback/issues",
+                "source": "https://github.com/rosell-dk/exec-with-fallback/tree/1.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rosell-dk",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/rosell",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../rosell-dk/exec-with-fallback"
+        },
+        {
+            "name": "rosell-dk/htaccess-capability-tester",
+            "version": "1.0.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rosell-dk/htaccess-capability-tester.git",
+                "reference": "b4499dcd9fe8b538a617069fdf34ae3de877c977"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rosell-dk/htaccess-capability-tester/zipball/b4499dcd9fe8b538a617069fdf34ae3de877c977",
+                "reference": "b4499dcd9fe8b538a617069fdf34ae3de877c977",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 | ^7.0 | ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "suggest": {
+                "php-stan/php-stan": "Suggested for dev, in order to analyse code before committing"
+            },
+            "time": "2021-11-25T13:21:12+00:00",
+            "type": "library",
+            "extra": {
+                "scripts-descriptions": {
+                    "ci": "Run tests before CI",
+                    "phpcs": "Checks coding styles (PSR2) of file/dir, which you must supply. To check all, supply 'src'",
+                    "phpcbf": "Fix coding styles (PSR2) of file/dir, which you must supply. To fix all, supply 'src'",
+                    "cs-fix-all": "Fix the coding style of all the source files, to comply with the PSR-2 coding standard",
+                    "cs-fix": "Fix the coding style of a PHP file or directory, which you must specify.",
+                    "test": "Launches the preconfigured PHPUnit"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "HtaccessCapabilityTester\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bjørn Rosell",
+                    "homepage": "https://www.bitwise-it.dk/contact",
+                    "role": "Project Author"
+                }
+            ],
+            "description": "Test the capabilities of .htaccess files on the server using live tests",
+            "keywords": [
+                ".htaccess",
+                "apache",
+                "litespeed"
+            ],
+            "support": {
+                "issues": "https://github.com/rosell-dk/htaccess-capability-tester/issues",
+                "source": "https://github.com/rosell-dk/htaccess-capability-tester/tree/1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rosell-dk",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/rosell",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../rosell-dk/htaccess-capability-tester"
+        },
+        {
+            "name": "rosell-dk/image-mime-type-guesser",
+            "version": "0.4.0",
+            "version_normalized": "0.4.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rosell-dk/image-mime-type-guesser.git",
+                "reference": "5ff1c218faccb6ad7146b012e9544229271b30a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rosell-dk/image-mime-type-guesser/zipball/5ff1c218faccb6ad7146b012e9544229271b30a9",
+                "reference": "5ff1c218faccb6ad7146b012e9544229271b30a9",
+                "shasum": ""
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^9.3",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "time": "2021-07-01T17:31:37+00:00",
+            "type": "library",
+            "extra": {
+                "scripts-descriptions": {
+                    "ci": "Run tests before CI",
+                    "phpcs": "Checks coding styles (PSR2) of file/dir, which you must supply. To check all, supply 'src'",
+                    "phpcbf": "Fix coding styles (PSR2) of file/dir, which you must supply. To fix all, supply 'src'",
+                    "cs-fix-all": "Fix the coding style of all the source files, to comply with the PSR-2 coding standard",
+                    "cs-fix": "Fix the coding style of a PHP file or directory, which you must specify.",
+                    "test": "Launches the preconfigured PHPUnit"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "ImageMimeTypeGuesser\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bjørn Rosell",
+                    "homepage": "https://www.bitwise-it.dk/contact",
+                    "role": "Project Author"
+                }
+            ],
+            "description": "Guess mime type of images",
+            "keywords": [
+                "image",
+                "images",
+                "mime",
+                "mime type"
+            ],
+            "support": {
+                "issues": "https://github.com/rosell-dk/image-mime-type-guesser/issues",
+                "source": "https://github.com/rosell-dk/image-mime-type-guesser/tree/0.4.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rosell-dk",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/rosell",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../rosell-dk/image-mime-type-guesser"
+        },
+        {
+            "name": "rosell-dk/webp-convert",
+            "version": "2.9.1",
+            "version_normalized": "2.9.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rosell-dk/webp-convert.git",
+                "reference": "bb29cadb423691c620f395513e82fa414c17e464"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rosell-dk/webp-convert/zipball/bb29cadb423691c620f395513e82fa414c17e464",
+                "reference": "bb29cadb423691c620f395513e82fa414c17e464",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.6 | ^7.0 | ^8.0",
+                "rosell-dk/exec-with-fallback": "^1.0.0",
+                "rosell-dk/image-mime-type-guesser": "^0.4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "^9.3",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "suggest": {
+                "ext-gd": "to use GD extension for converting. Note: Gd must be compiled with webp support",
+                "ext-imagick": "to use Imagick extension for converting. Note: Gd must be compiled with webp support",
+                "ext-vips": "to use Vips extension for converting.",
+                "php-stan/php-stan": "Suggested for dev, in order to analyse code before committing"
+            },
+            "time": "2021-12-09T13:07:20+00:00",
+            "type": "library",
+            "extra": {
+                "scripts-descriptions": {
+                    "ci": "Run tests before CI",
+                    "phpcs": "Checks coding styles (PSR2) of file/dir, which you must supply. To check all, supply 'src'",
+                    "phpcbf": "Fix coding styles (PSR2) of file/dir, which you must supply. To fix all, supply 'src'",
+                    "cs-fix-all": "Fix the coding style of all the source files, to comply with the PSR-2 coding standard",
+                    "cs-fix": "Fix the coding style of a PHP file or directory, which you must specify.",
+                    "test": "Launches the preconfigured PHPUnit"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "WebPConvert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bjørn Rosell",
+                    "homepage": "https://www.bitwise-it.dk/contact",
+                    "role": "Project Author"
+                },
+                {
+                    "name": "Martin Folkers",
+                    "homepage": "https://twobrain.io",
+                    "role": "Collaborator"
+                }
+            ],
+            "description": "Convert JPEG & PNG to WebP with PHP",
+            "keywords": [
+                "Webp",
+                "cwebp",
+                "gd",
+                "image conversion",
+                "images",
+                "imagick",
+                "jpg",
+                "jpg2webp",
+                "png",
+                "png2webp"
+            ],
+            "support": {
+                "issues": "https://github.com/rosell-dk/webp-convert/issues",
+                "source": "https://github.com/rosell-dk/webp-convert/tree/2.9.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/rosell-dk",
+                    "type": "github"
+                },
+                {
+                    "url": "https://ko-fi.com/rosell",
+                    "type": "ko_fi"
+                }
+            ],
+            "install-path": "../rosell-dk/webp-convert"
+        },
+        {
+            "name": "rosell-dk/webp-convert-cloud-service",
+            "version": "2.0.1",
+            "version_normalized": "2.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rosell-dk/webp-convert-cloud-service.git",
+                "reference": "703c2f1c76d30468ee3977170bfa3da138d8c4ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rosell-dk/webp-convert-cloud-service/zipball/703c2f1c76d30468ee3977170bfa3da138d8c4ad",
+                "reference": "703c2f1c76d30468ee3977170bfa3da138d8c4ad",
+                "shasum": ""
+            },
+            "require": {
+                "rosell-dk/webp-convert": "^2.0.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.11",
+                "phpunit/phpunit": "5.7.27",
+                "squizlabs/php_codesniffer": "3.*"
+            },
+            "time": "2019-06-30T08:28:35+00:00",
+            "type": "library",
+            "extra": {
+                "scripts-descriptions": {
+                    "ci": "Run tests before CI",
+                    "phpcs": "Checks coding styles (PSR2) of file/dir, which you must supply. To check all, supply 'src'",
+                    "phpcbf": "Fix coding styles (PSR2) of file/dir, which you must supply. To fix all, supply 'src'",
+                    "cs-fix-all": "Fix the coding style of all the source files, to comply with the PSR-2 coding standard",
+                    "cs-fix": "Fix the coding style of a PHP file or directory, which you must specify.",
+                    "test": "Launches the preconfigured PHPUnit"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "WebPConvertCloudService\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bjørn Rosell",
+                    "homepage": "https://www.bitwise-it.dk/contact",
+                    "role": "Project Author"
+                }
+            ],
+            "description": "Cloud service for converting JPEG & PNG to WebP",
+            "keywords": [
+                "Webp",
+                "cwebp",
+                "gd",
+                "image conversion",
+                "images",
+                "imagick",
+                "jpg",
+                "jpg2webp",
+                "png",
+                "png2webp"
+            ],
+            "support": {
+                "issues": "https://github.com/rosell-dk/webp-convert-cloud-service/issues",
+                "source": "https://github.com/rosell-dk/webp-convert-cloud-service/tree/master"
+            },
+            "install-path": "../rosell-dk/webp-convert-cloud-service"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v3.4.47",
+            "version_normalized": "3.4.47.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/b8648cf1d5af12a44a51d07ef9bf980921f15fca",
+                "reference": "b8648cf1d5af12a44a51d07ef9bf980921f15fca",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.5.9|>=7.0.8"
+            },
+            "time": "2020-10-24T10:57:07+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Process Component",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v3.4.47"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "../symfony/process"
+        },
+        {
+            "name": "team-updraft/common-libs",
+            "version": "3.0.2",
+            "version_normalized": "3.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://source.updraftplus.com/team-updraft/common-libs.git",
+                "reference": "1551f78e0c3577aa993be9a2b7e7a7cca6a7fbca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://source.updraftplus.com/api/v4/projects/28/packages/composer/archives/team-updraft/common-libs.zip?sha=1551f78e0c3577aa993be9a2b7e7a7cca6a7fbca",
+                "reference": "1551f78e0c3577aa993be9a2b7e7a7cca6a7fbca",
+                "shasum": ""
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "0.7.*",
+                "phpcompatibility/php-compatibility": "9.3.*",
+                "sirbrillig/phpcs-variable-analysis": "2.11.*",
+                "squizlabs/php_codesniffer": "3.6.*",
+                "wp-coding-standards/wpcs": "2.3.*"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Team Updraft",
+                    "email": "team.updraft@gmail.com"
+                }
+            ],
+            "description": "These are the common libs used across all of our projects",
+            "install-path": "../team-updraft/common-libs"
+        },
+        {
+            "name": "tubalmartin/cssmin",
+            "version": "v4.1.1",
+            "version_normalized": "4.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port.git",
+                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tubalmartin/YUI-CSS-compressor-PHP-port/zipball/3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
+                "reference": "3cbf557f4079d83a06f9c3ff9b957c022d7805cf",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "cogpowered/finediff": "0.3.*",
+                "phpunit/phpunit": "4.8.*"
+            },
+            "time": "2018-01-15T15:26:51+00:00",
+            "bin": [
+                "cssmin"
+            ],
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "tubalmartin\\CssMin\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Túbal Martín",
+                    "homepage": "http://tubalmartin.me/"
+                }
+            ],
+            "description": "A PHP port of the YUI CSS compressor",
+            "homepage": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port",
+            "keywords": [
+                "compress",
+                "compressor",
+                "css",
+                "cssmin",
+                "minify",
+                "yui"
+            ],
+            "support": {
+                "issues": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port/issues",
+                "source": "https://github.com/tubalmartin/YUI-CSS-compressor-PHP-port"
+            },
+            "install-path": "../tubalmartin/cssmin"
+        }
+    ],
+    "dev": false,
+    "dev-package-names": []
+}

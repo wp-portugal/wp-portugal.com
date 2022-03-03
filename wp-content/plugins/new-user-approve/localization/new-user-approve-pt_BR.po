@@ -1,0 +1,317 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: aprove\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/new-user-approve\n"
+"POT-Creation-Date: 2014-10-08 23:50-0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marcos Yoshihiro Nakamine <marcos@nakamine.com.br>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ../new-user-approve.php:98
+#, php-format
+msgid "New User Approve requires WordPress %s or newer."
+msgstr "New User Approve requer o WordPress %s ou mais recente."
+
+#: ../new-user-approve.php:145
+#, php-format
+msgid ""
+"The Membership setting must be turned on in order for the New User Approve "
+"to work correctly. <a href=\"%1$s\">Update in settings</a>. | <a href=\"%2$s"
+"\">Hide Notice</a>"
+msgstr ""
+"A configuração de associação deve estar ativada para que o plugin New User "
+"Approve funcione corretamente. <a href=\"%1$s\">Atualizar em configurações</"
+"a>. | <a href=\"%2$s\">Ocultar Aviso</a>"
+
+#: ../new-user-approve.php:257
+msgid "<strong>ERROR</strong>: Your account is still pending approval."
+msgstr "<strong>ERRO</strong>: Sua conta ainda está pendente de aprovação."
+
+#: ../new-user-approve.php:260
+msgid ""
+"<strong>ERROR</strong>: Your account has been denied access to this site."
+msgstr "<strong>ERRO</strong>: A sua conta teve acesso negado a este site."
+
+#: ../new-user-approve.php:362
+msgid "Users"
+msgstr "Usuários"
+
+#: ../new-user-approve.php:392
+#, php-format
+msgid "[%s] User Approval"
+msgstr "[%s] Aprovação de usuário"
+
+#: ../new-user-approve.php:454
+#, php-format
+msgid ""
+"<strong>ERROR</strong>: Couldn&#8217;t register you... please contact the <a "
+"href=\"mailto:%s\">webmaster</a> !"
+msgstr ""
+"<strong>ERROR</strong>: Não é possível se registar ... entre em contato com o "
+"<a href=\"mailto:%s\">webmaster</a> !"
+
+#: ../new-user-approve.php:520
+#, php-format
+msgid "[%s] Registration Approved"
+msgstr "[%s] Registro aprovado"
+
+#: ../new-user-approve.php:550
+#, php-format
+msgid "[%s] Registration Denied"
+msgstr "[%s] Registro negado"
+
+#: ../new-user-approve.php:614
+msgid "Registration successful."
+msgstr "Registro bem sucedido."
+
+#: ../new-user-approve.php:617
+msgid "Pending Approval"
+msgstr "Aprovação pendente"
+
+#: ../admin/templates/approve.php:6
+msgid "User successfully updated."
+msgstr "Usuário atualizado com sucesso!"
+
+#: ../admin/templates/approve.php:11
+msgid "User Registration Approval"
+msgstr "Aprovação de registro de usuários"
+
+#: ../includes/admin-approve.php:50
+msgid "Approve New Users"
+msgstr "Aprovar novos usuários"
+
+#: ../includes/admin-approve.php:82
+msgid "Username"
+msgstr "Username"
+
+#: ../includes/admin-approve.php:83
+msgid "Name"
+msgstr "Nome"
+
+#: ../includes/admin-approve.php:84
+msgid "E-mail"
+msgstr "E-mail"
+
+#: ../includes/admin-approve.php:86 ../includes/admin-approve.php:88
+msgid "Actions"
+msgstr "Ações"
+
+#: ../includes/admin-approve.php:129
+msgid "email:"
+msgstr "e-mail:"
+
+#: ../includes/admin-approve.php:133 ../includes/user-list.php:97
+#: ../includes/user-list.php:223 ../includes/user-list.php:224
+msgid "Approve"
+msgstr "Aprovar"
+
+#: ../includes/admin-approve.php:138 ../includes/user-list.php:98
+#: ../includes/user-list.php:226 ../includes/user-list.php:227
+msgid "Deny"
+msgstr "Negar"
+
+#: ../includes/admin-approve.php:154
+msgid "approved"
+msgstr "aprovado"
+
+#: ../includes/admin-approve.php:156
+msgid "denied"
+msgstr "negado"
+
+#: ../includes/admin-approve.php:158
+msgid "pending"
+msgstr "pendente"
+
+#: ../includes/admin-approve.php:161
+#, php-format
+msgid "There are no users with a status of %s"
+msgstr "Não há usuários com o status %s "
+
+#: ../includes/admin-approve.php:197
+#, php-format
+msgid ""
+"You can now update user status on the <a href=\"%1$s\">users admin page</a>. "
+"| <a href=\"%2$s\">Hide Notice</a>"
+msgstr ""
+"Agora você pode atualizar o status do usuário no  <a href=\"%1$s\">página de "
+"administração de usuários</a>. | <a href=\"%2$s\">Ocultar Aviso</a>"
+
+#: ../includes/admin-approve.php:220
+#, fuzzy
+msgid "Approve Users"
+msgstr "Aprovar Usuários"
+
+#: ../includes/admin-approve.php:221
+msgid "Updates"
+msgstr "Atualizações"
+
+#: ../includes/admin-approve.php:222
+msgid "Support"
+msgstr "Apoio"
+
+#: ../includes/admin-approve.php:223
+msgid "Feedback"
+msgstr "Comentários"
+
+#: ../includes/admin-approve.php:231
+msgid "Users Pending Approval"
+msgstr "Usuários com aprovação pendente"
+
+#: ../includes/admin-approve.php:233
+msgid "Approved Users"
+msgstr "Usuários aprovados"
+
+#: ../includes/admin-approve.php:235
+msgid "Denied Users"
+msgstr "Usuários negados"
+
+#: ../includes/email-tags.php:235
+msgid "The user's username on the site as well as the Username label"
+msgstr ""
+"O nome de usuário do usuário no site, bem como o label do Nome de usuário"
+
+#: ../includes/email-tags.php:241
+msgid "The user's email address"
+msgstr "O endereço de e-mail do usuário"
+
+#: ../includes/email-tags.php:247
+msgid "Your site name"
+msgstr "Nome do seu site"
+
+#: ../includes/email-tags.php:253
+msgid "Your site URL"
+msgstr "URL do seu site"
+
+#: ../includes/email-tags.php:259
+msgid "The URL to approve/deny users"
+msgstr "O URL para aprovar/negar usuários"
+
+#: ../includes/email-tags.php:265
+msgid "The URL to login to the site"
+msgstr "O URL para fazer login no site"
+
+#: ../includes/email-tags.php:271
+msgid "Generates the password for the user to add to the email"
+msgstr "Gera a senha para o usuário adicionar ao e-mail"
+
+#: ../includes/email-tags.php:299
+#, php-format
+msgid "Username: %s"
+msgstr "Username: %s"
+
+#: ../includes/email-tags.php:390
+#, php-format
+msgid "Password: %s"
+msgstr "Senha: %s"
+
+#: ../includes/messages.php:9
+#, fuzzy
+msgid "You have been approved to access {sitename}"
+msgstr "Você foi aprovado para acessar {sitename}"
+
+#: ../includes/messages.php:25
+#, fuzzy
+msgid "You have been denied access to {sitename}."
+msgstr "Você teve o acesso negado a {sitename}."
+
+#: ../includes/messages.php:38
+msgid ""
+"An email has been sent to the site administrator. The administrator will "
+"review the information that has been submitted and either approve or deny "
+"your request."
+msgstr ""
+"Um e-mail foi enviado ao administrador do site. Ele(a) irá revisar suas "
+"informações e então aprovar ou não o seu pedido."
+
+#: ../includes/messages.php:40
+msgid ""
+"You will receive an email with instructions on what you will need to do "
+"next. Thanks for your patience."
+msgstr ""
+"Você receberá um e-mail com instruções do que fazer em seguida. Obrigado "
+"pela paciência."
+
+#: ../includes/messages.php:53
+#, fuzzy
+msgid ""
+"Welcome to {sitename}. This site is accessible to approved users only. To be "
+"approved, you must first register."
+msgstr ""
+"Bem-vindo ao {sitename}. Este site é acessível apenas para usuários "
+"aprovados. Para ser aprovado, você deve primeiro se registrar."
+
+#: ../includes/messages.php:66
+#, fuzzy
+msgid "{username} ({user_email}) has requested a username at {sitename}"
+msgstr "{Username} ({user_email}) solicitou um nome de usuário em {sitename}"
+
+#: ../includes/messages.php:68
+#, fuzzy
+msgid "To approve or deny this user access to {sitename} go to"
+msgstr "Para aprovar ou negar esse acesso de usuário a {sitename}, "
+
+#: ../includes/messages.php:83
+msgid ""
+"After you register, your request will be sent to the site administrator for "
+"approval. You will then receive an email with further instructions."
+msgstr ""
+"Depois de se registrar, seu pedido será enviado ao administrador do site "
+"para aprovação. Você receberá então um e-mail com mais instruções."
+
+#: ../includes/user-list.php:120
+msgid "Status"
+msgstr "Status"
+
+#: ../includes/user-list.php:156
+msgid "Filter"
+msgstr "Filtrar"
+
+#: ../includes/user-list.php:161 ../includes/user-list.php:163
+msgid "View all users"
+msgstr "Ver todos os usuários"
+
+#: ../includes/user-list.php:320
+#, php-format
+msgid "User denied."
+msgid_plural "%s users denied."
+msgstr[0] "Acesso negado"
+msgstr[1] "%s Acessos negados"
+
+#: ../includes/user-list.php:325
+#, php-format
+msgid "User approved."
+msgid_plural "%s users approved."
+msgstr[0] "Usuário aprovado"
+msgstr[1] "%s usuários aprovados"
+
+#: ../includes/user-list.php:349
+msgid "Access Status"
+msgstr "Status de Acesso"
+
+#: ../includes/user-list.php:354
+msgid "-- Status --"
+msgstr "-- Status --"
+
+#: ../includes/user-list.php:362
+msgid "If user has access to sign in or not."
+msgstr "Se o usuário tiver acesso para iniciar sessão ou não."
+
+#: ../includes/user-list.php:365
+msgid "Current user status is <strong>pending</strong>."
+msgstr "O status atual do usuário é <strong>pendente</strong>."
+
+#~ msgid "Settings"
+#~ msgstr "Configurações"
+
+#~ msgid "User Management"
+#~ msgstr "Administração de usuários"
+
+#~ msgid "User name already exists"
+#~ msgstr "Nome de usuário já existe"

@@ -1,0 +1,288 @@
+/* Hide the wpfooter, which is mainly useless. */
+#wpfooter {
+	display: none;
+}
+
+
+/* Tweaking the page title to look more like the other wp-admin screens. */
+#media-library .media-frame-title h1 {
+	font-size: 23px;
+	font-weight: 400;
+	color: #222;
+}
+
+
+/**
+ * Position both the frame and the uploader window into the content
+ * area of the screen.
+ */
+#media-library .media-frame {
+	position: fixed;
+	bottom: 0;
+	left: 160px;
+	right: 0;
+	top: 32px;
+}
+
+
+/* Adding a 'List View' button */
+#media-list-view {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	z-index: 200000;
+}
+
+
+
+/* Removing the tabs. */
+#media-library .media-frame-router {
+	display: none;
+}
+
+/**
+ * Bring the Content up to fill in the space where the tabs
+ * used to live. And clearing out the background and borders
+ * so the grid feels more at home. (less modal-like)
+ */
+#media-library .media-frame-content {
+	top: 70px;
+	background: transparent;
+	border: none;
+}
+
+/* Bringing the grid up. */
+.attachments-browser .attachments, .attachments-browser .uploader-inline {
+	top: 0;
+	padding: 60px 8px 10px 8px !important; /* The important is overriding #__attachments-view-{{id}} */
+}
+
+
+/* Making the filter toolbar look more like its Theme's counterpart. */
+#media-library .media-toolbar {
+	background: rgba(255,255,255,0.95);
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	color: #555;
+	display: inline-block;
+	font-size: 13px;
+	right: 284px;
+	left: 15px;
+	padding: 0;
+}
+
+
+/* Making the sidebar smaller. */
+#media-library .media-sidebar {
+	background: transparent;
+	width: 230px;
+}
+
+/* Making the grid a little wider. */
+.attachments-browser .attachments, .attachments-browser .uploader-inline {
+	right: 250px;
+}
+
+
+.folded #media-library .media-frame {
+	left: 36px;
+}
+
+.media-modal .uploader-inline {
+	margin: 20px;
+	padding: 20px;
+	text-align: center;
+}
+
+@media screen and (max-width: 782px) {
+	.auto-fold #media-library .media-frame {
+		left: 0px;
+		bottom: 0px;
+	}
+}
+
+/* Thumbnail Size Selector */
+.size-options {
+	display: inline-block;
+	margin: 0;
+}
+
+.size-options li {
+	cursor: pointer;
+	display: inline-block;
+	margin: 0;
+	padding: 0 15px;
+	line-height: 50px;
+}
+
+.size-options li:hover {
+	background: rgba(0,0,0,0.03);
+}
+
+.size-options .current,
+.size-options .current:hover {
+	box-shadow: inset 0 -4px 0 #666;
+	color: #222;
+}
+
+
+#media-library .media-selection {
+	position: static;
+}
+#media-library .attachments-browser .media-selection {
+	height: auto;
+}
+#media-library .attachments-browser .media-selection .selection-view {
+	display: block;
+}
+#media-library .attachments-browser .media-selection .attachments {
+	position: static;
+	height: auto;
+}
+
+/**
+ * Reset the colors for the sidebar `clear selection` button.
+ */
+.media-selection .selection-info .clear-selection {
+	color: #21759B;
+}
+.media-selection .selection-info .clear-selection:hover {
+	background: #21759B;
+	color: #fff;
+	border-color: transparent;
+}
+
+.media-selection .selection-info .delete-selection {
+	color: red;
+}
+.media-selection .selection-info .delete-selection:hover {
+	background: red;
+}
+
+/**
+ * While bulk editing, make any selected attachment styled the same
+ * as other selected attachments.
+ */
+.media-selection .attachment.selection.details {
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+.selected.attachment {
+	-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 5px #1e8cbe;
+	        box-shadow: 0 0 0 1px #fff, 0 0 0 5px #1e8cbe;
+}
+
+.attachment.selected .check {
+	background-color: #1e8cbe;
+	-webkit-box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1e8cbe;
+	        box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1e8cbe;
+}
+
+.attachment.selected .check div {
+	background-position: -21px 0;
+}
+.attachment.selected .check:hover div {
+	background-position: -60px 0;
+}
+
+.media-toolbar {
+	/* So the filters dropdown can fall on top of browser results */
+	overflow: visible;
+}
+
+
+
+/* Search UI for Media Grid */
+#media-library .search-button {
+	cursor: pointer;
+	margin: 14px 14px 0 0;
+	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+#media-library .search-button:before {
+	content: '\f179';
+	font: normal 20px/1 'dashicons' !important;
+	position: absolute;
+	right: 0;
+	speak: none;
+	top: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	z-index: 20;
+}
+
+.media-toolbar-secondary, .media-toolbar-primary {
+	height: auto;
+}
+.media-frame .attachments-browser .media-toolbar-tertiary {
+	display: none;
+	height: 30px;
+	left: 0;
+	padding: 10px 15px;
+	position: absolute;
+	right: 0;
+	top: 50px;
+}
+
+.media-frame.show-search-interface .attachments-browser .media-toolbar-tertiary {
+	display: block;
+}
+
+.media-frame.show-search-interface .attachments-browser .media-toolbar {
+	height: 100px;
+}
+
+.media-frame.show-search-interface .attachments-browser .attachments {
+	top: 80px;
+}
+
+.search-interface * {
+	display: inline;
+}
+
+.search-interface h4 {
+	margin: 0;
+}
+
+.search-interface input[type="text"], .search-interface input[type="search"] {
+	font-family: "Open Sans", sans-serif;
+	font-size: 12px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dfdfdf;
+	padding: 4px;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.07);
+	background-color: #fff;
+	color: #333;
+	-webkit-transition: .05s border-color ease-in-out;
+	transition: .05s border-color ease-in-out;
+}
+.search-interface input[type="search"] {
+	width: 160px;
+}
+
+.search-interface .search {
+	background-color: transparent;
+	margin-top: 0;
+	padding: 0;
+}
+
+.search-interface .hasDatepicker {
+	width: 80px;
+}
+.search-interface input.minimum-filesize, .search-interface input.maximum-filesize {
+	width: 50px;
+}

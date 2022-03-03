@@ -1,0 +1,207 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Google Fonts\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-12-08 21:48+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Frédéric Serva <fred.serva@gmail.com>\n"
+"Language-Team: Frédéric Serva <fred.serva@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"Plural-Forms: nplurals=2;plural=n>2\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop;_n\n"
+"X-Poedit-Basepath: /Users/Frederic/Desktop/wp-google-fonts/\n"
+"X-Poedit-SearchPath-0: /Users/Frederic/Desktop/wp-google-fonts\n"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:223
+msgid "Unable to do a live update on the font list."
+msgstr "Impossible d'effectuer une mise à jour en ligne de la liste des polices."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:233
+msgid "Font list file doesn't exist and wasn't able to be updated."
+msgstr "La liste de polices n'existe pas et n'a pu être mise à jour."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:321
+msgid "Using the local font list file because we could not connect with Google."
+msgstr "La liste de polices locales a été utilisée car il est impossible de se connecter à Google."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:323
+msgid "Local font list file cannot be found or does not exist."
+msgstr "La liste de polices locales n'a pu être trouvée ou n'existe pas."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:428
+msgid "Show Options"
+msgstr "Afficher les options"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:434
+msgid "1. Choose the font styles you want:*"
+msgstr "1. Choisissez le style que vous désirez pour cette police :*"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:437
+msgid "2. Elements you want to assign this font to:*"
+msgstr "2. Choisissez les éléments à associer à cette police de caractère : *"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:438
+msgid "3. Custom CSS (optional):"
+msgstr "3. CSS personnalisé (optionnel) :"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:441
+msgid "4. Choose character sets you want."
+msgstr "4. Choisissez le jeu de caractères :"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:444
+msgid "Save All Fonts"
+msgstr "Sauvegarder toutes les polices"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:877
+msgid "Settings"
+msgstr "Paramètres"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:884
+msgid "Whoops! There was a problem with the data you posted. Please go back and try again."
+msgstr "Oups ! Un problème a été rencontré avec les données que vous avez postées. Merci de revenir en arrière et de réessayer."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:929
+msgid "Success! Your changes were sucessfully saved!"
+msgstr "Bravo ! Vos modifications ont été sauvegardées !"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:931
+msgid "Error. Either you did not make any changes, or your changes did not save. Please try again."
+msgstr "Erreur. Soit vous n'avez effectué aucune modification, soit ces modifications n'ont pas été prises en compte. Merci de réessayer."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:940
+msgid "Google Font Control Panel"
+msgstr "Panneau de contrôle des polices Google"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:943
+msgid "This control panel gives you the ability to control how your Google Fonts fonts are displayed. For more information about this plugin, please visit the"
+msgstr "Ce panneau de contrôle vous offre la capacité de choisir à quelles balises CSS les polices de caractères Google Fonts seront associées. Pour plus d'informations concernant cette extension, merci de visiter la"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:944
+msgid "Google Fonts plugin page"
+msgstr "page de l'extension Google Fonts"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:945
+msgid "Thanks for using Google Fonts, and we hope you like this plugin."
+msgstr "Merci d'utiliser Google Fonts. Nous espérons que vous apprécierez cette extension."
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:952
+msgid "Select Fonts"
+msgstr "Choix de la police de caractères"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:967
+msgid "Troubleshooting"
+msgstr "Diagnostics d'incidents"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:968
+msgid "This plugin uses open source fonts that are hosted on Google&rsquo;s servers. For more information about this service, you can visit the"
+msgstr "Cette extension utilise des polices Open Source hébergées sur les serveurs de Google. Pour plus d'informations concernant ce service, vous pouvez visiter le"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:969
+msgid "Google Font Directory"
+msgstr "Répertoire des polices Google"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:974
+msgid "* CSS WARNING"
+msgstr "* MISE EN GARDE CSS"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:975
+msgid "Most likely the theme you are using has defined very specific elements in its stylesheet and these may override the generic tags specified above. If you don&rsquo;t see any changes after checking the style boxes above, you will need to enter custom css into the CSS box. An example of CSS that would be more specific would be:"
+msgstr "Il est fort probable que le thème que vous avez installé utilise une feuille de style dans laquelle des éléments très spécifiques ont été définis. Ces définitions peuvent prendre le pas sur les balises génériques définies ci-dessus. Si vous ne constatez aucun changement dans le comportement des éléments définis ci-dessus après avoir sauvegardé vos réglages, vous devrez inspecter la feuille de style du thème et redéfinir certaines balises grâce aux champs CSS personnalisé.<br />Par exemple :"
+
+#: /Users/Frederic/Desktop/wp-google-fonts/google-fonts.php:979
+msgid "This would define all paragraphs found within a &lt;div id=&quot;container&quot;&gt;&lt;/div&gt; element. Stylesheets (CSS) can be sensitive and tricky sometimes. If you are new to CSS the <a href=\"http://www.w3schools.com/css/\" title=\"w3schools tutorials\">w3schools tutorials</a> are a great place to start."
+msgstr "Dans cet exemple, tous les paragraphes utilisés entre ces balises HTML &lt;div id=&quot;container&quot;&gt;&lt;/div&gt; utiliseront la police 'Reenie Beanie'. <br />Les feuilles de style (CSS) sont parfois sensibles et retorses. Si vous débutez en CSS (et que vous lisez l'anglais) vous pouvez consulter les tutoriaux de la W3Schools. Vous les trouverez ici : <a href=\"http://www.w3schools.com/css/\" title=\"w3schools tutorials\">w3schools tutorials</a>."
+
+#~ msgid ""
+#~ "Unable to connect to Google's Webfont server at <a href='%s' "
+#~ "target='_blank'>this URL</a>."
+#~ msgstr ""
+#~ "Impossible de se connecter au serveur Google Webfont à <a href='%s' "
+#~ "target='_blank'>cette URL</a>."
+
+#~ msgid "Font List Synchronization"
+#~ msgstr "Synchronisation de la liste des polices"
+
+#~ msgid "All (body tags)"
+#~ msgstr "Tous (balises body)"
+
+#~ msgid "Blockquotes"
+#~ msgstr "Citations (blockquotes)"
+
+#~ msgid "Custom CSS:*"
+#~ msgstr "CSS personnalisé : *"
+
+#~ msgid "Font 2 Options"
+#~ msgstr "Police de caractères 2 : Options"
+
+#~ msgid "Font 3 Options"
+#~ msgstr "Police de caractères 3 : Options"
+
+#~ msgid "Font 4 Options"
+#~ msgstr "Police de caractères 4 : Options"
+
+#~ msgid "Font 5 Options"
+#~ msgstr "Police de caractères 5 : Options"
+
+#~ msgid "Font 6 Options"
+#~ msgstr "Police de caractères 6 : Options"
+
+#~ msgid "Headline 1 (h1 tags)"
+#~ msgstr "Titre 1 (balises h1)"
+
+#~ msgid "Headline 2 (h2 tags)"
+#~ msgstr "Titre 2 (balises h2)"
+
+#~ msgid "Headline 3 (h3 tags)"
+#~ msgstr "Titre 3 (balises h3)"
+
+#~ msgid "Headline 4 (h4 tags)"
+#~ msgstr "Titre 4 (balises h4)"
+
+#~ msgid "Headline 5 (h5 tags)"
+#~ msgstr "Titre 5 (balises h5)"
+
+#~ msgid "Headline 6 (h6 tags)"
+#~ msgstr "Titre 6 (balises h6)"
+
+#~ msgid "Lists (li tags)"
+#~ msgstr "Listes (balises li)"
+
+#~ msgid "None (Turn off Font 1)"
+#~ msgstr "Aucune (Ne pas utiliser la police 1)"
+
+#~ msgid "None (Turn off Font 2)"
+#~ msgstr "Aucune (Ne pas utiliser la police 2)"
+
+#~ msgid "None (Turn off Font 3)"
+#~ msgstr "Aucune (Ne pas utiliser la police 3)"
+
+#~ msgid "None (Turn off Font 4)"
+#~ msgstr "Aucune (Ne pas utiliser la police 4)"
+
+#~ msgid "None (Turn off Font 5)"
+#~ msgstr "Aucune (Ne pas utiliser la police 5)"
+
+#~ msgid "None (Turn off Font 6)"
+#~ msgstr "Aucune (Ne pas utiliser la police 6)"
+
+#~ msgid "Paragraphs (p tags)"
+#~ msgstr "Paragraphes (balises p)"
+
+#~ msgid "Save"
+#~ msgstr "Sauvegarder"
+
+#~ msgid ""
+#~ "The most common error occurs when a font is specified as \"off\" but has "
+#~ "boxes checked beneath it. Make sure that there are no boxes checked "
+#~ "beneath a font that you want to be off."
+#~ msgstr ""
+#~ "L'erreur la plus répandue survient lorsqu'une police de caractères est "
+#~ "indiquée comme n'étant pas utilisée mais qu'un des boutons liés à cette "
+#~ "police est coché. Vérifiez bien qu'aucun bouton n'est coché lorsque vous "
+#~ "indiquez que vous n'utilisez pas une police."

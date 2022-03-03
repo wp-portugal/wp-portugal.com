@@ -1,0 +1,124 @@
+# Translation of the WordPress plugin Notifly - Post/Comment Emailer 1.2.2 by Otto42, Matt, John James Jacoby.
+# Copyright (C) 2010 Otto42, Matt, John James Jacoby
+# This file is distributed under the same license as the Notifly - Post/Comment Emailer package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Notifly - Post/Comment Emailer 1.2.2\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/notifly\n"
+"POT-Creation-Date: 2010-08-26 01:07+0000\n"
+"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: notifly.php:23
+#, php-format
+msgid ""
+"<strong>Notifly is almost ready.</strong> Go <a href=\"%s\">add some email "
+"addresses</a> to keep people in the loop."
+msgstr ""
+
+#: notifly.php:40
+msgid "Settings"
+msgstr ""
+
+#: notifly.php:56
+msgid "Notifications"
+msgstr ""
+
+#: notifly.php:58
+msgid "Email Addresses"
+msgstr ""
+
+#: notifly.php:72
+msgid ""
+"Enter the email addresses of recipients to notify when new posts and "
+"comments are published. One per line."
+msgstr ""
+
+#: notifly.php:172
+#, php-format
+msgid "[%1$s] Comment: \"%2$s\""
+msgstr ""
+
+#: notifly.php:175
+#, php-format
+msgid "New comment on post \"%s\""
+msgstr ""
+
+#: notifly.php:176
+#, php-format
+msgid "Author : %1$s (IP: %2$s , %3$s)"
+msgstr ""
+
+#: notifly.php:177
+#, php-format
+msgid "E-mail : %s"
+msgstr ""
+
+#: notifly.php:178
+#, php-format
+msgid "URL    : %s"
+msgstr ""
+
+#: notifly.php:179
+#, php-format
+msgid "Whois  : http://ws.arin.net/cgi-bin/whois.pl?queryinput=%s"
+msgstr ""
+
+#: notifly.php:180
+#, php-format
+msgid "Comment: %s"
+msgstr ""
+
+#: notifly.php:181
+#, php-format
+msgid "You can see all comments on this post here: %s"
+msgstr ""
+
+#: notifly.php:232
+#, php-format
+msgid "[%1$s] Post: \"%2$s\" by %3$s"
+msgstr ""
+
+#: notifly.php:236
+#, php-format
+msgid "Title: \"%s\""
+msgstr ""
+
+#: notifly.php:237
+#, php-format
+msgid "Author : %s"
+msgstr ""
+
+#: notifly.php:238
+#, php-format
+msgid "Post Preview: %s"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Notifly - Post/Comment Emailer"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://wordpress.org/extend/plugins/notifly/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Sends an email to the addresses of your choice when a new post or comment is "
+"made. Add email addesses in your Discussion Settings area."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Otto42, Matt, John James Jacoby"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://ottodestruct.com"
+msgstr ""

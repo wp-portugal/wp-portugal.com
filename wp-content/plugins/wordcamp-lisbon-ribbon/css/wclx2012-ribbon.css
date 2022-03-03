@@ -1,0 +1,38 @@
+/* WordCamp Lisboa Ribbon specific CSS styles */
+
+a.wclx-ribbon {
+	cursor:pointer;
+	position:fixed;
+	z-index:12345;
+}
+	a.wclx-ribbon-right {
+		right:0px;
+	}
+
+	a.wclx-ribbon-left {
+		left:0px;
+	}
+	
+
+.wclx-ribbon-image {
+	margin:0px;
+	padding:0px;
+	border:none;
+	z-index:12344;
+}
+
+a:hover.wclx-ribbon img {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=90)";
+	filter: alpha(opacity=90);
+	opacity:0.9;
+	-webkit-transition:all 0.12s ease !important;
+	-moz-transition:all 0.12s ease !important;
+	transition:all 0.12s ease !important;
+}
+
+@media only screen and (max-width:768px) {
+	.wclx-ribbon {
+		width:100px;
+		height:auto;
+	}
+}

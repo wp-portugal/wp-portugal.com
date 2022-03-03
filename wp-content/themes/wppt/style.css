@@ -1,0 +1,148 @@
+/*
+Theme Name: WP Portugal
+Theme URI: http://wp-portugal.com/
+Description: Child theme do Gazette
+Author: Automattic
+Author URI: https://wordpress.com/themes/gazette/
+Template: gazette
+Version: 1.0.5
+*/
+
+/* Estilos alterados */
+
+.entry-meta {
+    font-size: 11px;
+}
+.content-full {
+	padding-top: 60px;
+}
+
+/*--------------------------------------------------------------
+## x >= 768px
+--------------------------------------------------------------*/
+@media screen and (min-width: 768px) {
+	/* Typography */
+	body {
+		font-size: 20px;
+	}
+
+	/* Grid */
+	.archive .content-area,
+	.blog .content-area,
+	.entry-header-inner,
+	.error404 .content-area,
+	.footer-widget-inner,
+	.header-image-inner,
+	.search .content-area,
+	.site-content-inner,
+	.site-footer-inner,
+	.site-header-inner, .content-full {
+		width: 648px;
+	}	
+	.content-full {
+	padding-top: 60px;
+	}
+}
+
+/*--------------------------------------------------------------
+## x >= 840px
+--------------------------------------------------------------*/
+@media screen and (min-width: 840px) {
+
+	/* Grid */
+	.archive .content-area,
+	.blog .content-area,
+	.entry-header-inner,
+	.error404 .content-area,
+	.footer-widget-inner,
+	.header-image-inner,
+	.search .content-area,
+	.site-content-inner,
+	.site-footer-inner,
+	.site-header-inner, .content-full {
+		width: 720px;
+	}
+	.content-full {
+	padding-top: 60px;
+	}
+}
+
+/*--------------------------------------------------------------
+## x >= 960px
+--------------------------------------------------------------*/
+@media screen and (min-width: 960px) {
+
+	/* Grid */
+	.archive .content-area,
+	.blog .content-area,
+	.entry-header-inner,
+	.error404 .content-area,
+	.footer-widget-inner,
+	.header-image-inner,
+	.search .content-area,
+	.site-content-inner,
+	.site-footer-inner,
+	.site-header-inner, .content-full {
+		width: 840px;
+	}
+	.page .site-main,
+	.single .site-main {
+		width: 615px;
+	}
+	.content-full {
+	padding-top: 60px;
+	}
+}
+
+/*--------------------------------------------------------------
+## x >= 1080px
+--------------------------------------------------------------*/
+@media screen and (min-width: 1080px) {
+	/* Grid */
+	.archive .content-area,
+	.blog .content-area,
+	.entry-header-inner,
+	.error404 .content-area,
+	.footer-widget-inner,
+	.header-image-inner,
+	.search .content-area,
+	.site-content-inner,
+	.site-footer-inner,
+	.site-header-inner, .content-full {
+		width: 960px;
+	}
+	.page .site-main,
+	.single .site-main {
+		width: 705px;
+	}
+	.content-full {
+	padding-top: 60px;
+}
+}
+
+/*--------------------------------------------------------------
+## x >= 1380px
+--------------------------------------------------------------*/
+@media screen and (min-width: 1380px) {
+	/* Grid */
+	.archive .content-area,
+	.blog .content-area,
+	.entry-header-inner,
+	.error404 .content-area,
+	.footer-widget-inner,
+	.header-image-inner,
+	.search .content-area,
+	.site-content-inner,
+	.site-footer-inner,
+	.site-header-inner, .content-full {
+		width: 1260px;
+	}
+	.page .comments-area,
+	.page .site-main,
+	.single .site-main {
+		width: 930px;
+	}
+	.content-full {
+	padding-top: 60px;
+	}
+}

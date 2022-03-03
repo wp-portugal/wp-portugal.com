@@ -1,0 +1,78 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Network Plugin Auditor\n"
+"POT-Creation-Date: 2013-12-15 11:56-0500\n"
+"PO-Revision-Date: 2013-12-15 11:59-0500\n"
+"Last-Translator: Katherine Semel-Munson <ksemel@gmail.com>\n"
+"Language-Team: Katherine Semel <ksemel@gmail.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: network-plugin-auditor.php:52
+msgid "Network Plugin Auditor"
+msgstr ""
+
+#: network-plugin-auditor.php:54
+msgid ""
+"Your wp-config.php has an empty database table prefix, which is not "
+"supported. Please disable the Network Plugin Auditor and visit the support "
+"forum for assistance."
+msgstr ""
+
+#: network-plugin-auditor.php:64 network-plugin-auditor.php:117
+msgid "Active Blogs"
+msgstr ""
+
+#: network-plugin-auditor.php:81
+msgid "Network Activated"
+msgstr ""
+
+#: network-plugin-auditor.php:102
+msgid "Manage plugins on "
+msgstr ""
+
+#: network-plugin-auditor.php:120
+msgid "Children"
+msgstr ""
+
+#: network-plugin-auditor.php:179
+msgid "Active Plugins"
+msgstr ""
+
+#: network-plugin-auditor.php:179
+msgid "Excludes network-active and must-use plugins"
+msgstr ""
+
+#: network-plugin-auditor.php:181
+msgid "Active Theme"
+msgstr ""
+
+#: network-plugin-auditor.php:216
+msgid "Visit the plugin URL"
+msgstr ""
+
+#: network-plugin-auditor.php:224
+msgid "Plugin files were removed while the plugin was active on this blog"
+msgstr ""
+
+#: network-plugin-auditor.php:230
+msgid "No Active Plugins"
+msgstr ""
+
+#: network-plugin-auditor.php:444
+msgid "child of"
+msgstr ""
+
+#: network-plugin-auditor.php:467
+msgid "Manage themes on "
+msgstr ""

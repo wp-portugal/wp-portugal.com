@@ -1,0 +1,9 @@
+{
+  "name": "wapuuvatar",
+  "devDependencies": {
+    "grunt": "^1.4.1"
+  },
+  "dependencies": {
+    "grunt-responsive-images": "^1.10.1"
+  }
+}

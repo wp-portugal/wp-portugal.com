@@ -1,0 +1,40 @@
+/**
+ *
+ */
+.eb-attendees-list {
+	display: block;
+	margin-bottom: 25px;
+}
+.eb-attendees-list:after {
+	content:    ".";
+	display:    block;
+	height:     0;
+	clear:      both;
+	visibility: hidden;
+}
+	.eb-attendees-list > ul {
+		border-bottom: 1px solid #fff;
+		box-shadow: 0 1px 0 #efefef;
+		list-style: none;
+		margin: 0 0 15px 0;
+	}
+	.eb-attendees-list > ul li {
+		list-style: none;
+		margin: 0;
+	}
+	
+.eb-attendee-list-item {
+	padding-bottom: 8px;
+}
+
+.eb-attendee-list-item.last_name {
+}
+.eb-attendee-list-item.first_name,
+.eb-attendee-list-item.last_name {
+	display: inline;
+	width: auto;
+}
+
+.eb-attendee-list-item.company {
+	font-weight: 900;
+}

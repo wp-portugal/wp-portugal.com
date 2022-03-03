@@ -1,0 +1,14 @@
+/*
+Progressive Enchancement CSS
+*/
+
+#content {
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 8px;
+	border-radius: 5px; /* future proofing */
+	-khtml-border-radius: 5px; 
+	
+	-moz-box-shadow: #fff 0 1px 1px;
+	-webkit-box-shadow: #fff 0 1px 1px;
+	box-shadow:  #fff 0 1px 1px;
+	 }

@@ -1,0 +1,103 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Network Plugin Auditor\n"
+"POT-Creation-Date: 2014-07-12 07:23-0300\n"
+"PO-Revision-Date: 2014-07-12 07:32-0300\n"
+"Last-Translator: Gabriel Reguly <po.translations@ppgr.com.br>\n"
+"Language-Team: Katherine Semel <ksemel@gmail.com>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: network-plugin-auditor.php:52
+msgid "Network Plugin Auditor"
+msgstr "Network Plugin Auditor"
+
+#: network-plugin-auditor.php:54
+msgid ""
+"Your wp-config.php has an empty database table prefix, which is not "
+"supported. Please disable the Network Plugin Auditor and visit the support "
+"forum for assistance."
+msgstr ""
+"No seu arquivo wp-config.php, o prefixo para a base de dados está vazio e "
+"isto não é suportado.  Por favor, desative Network Plugin Auditor e visite o "
+"fórum para mais detalhes."
+
+#: network-plugin-auditor.php:64 network-plugin-auditor.php:148
+msgid "Active Blogs"
+msgstr "Ativo nos blogs"
+
+#: network-plugin-auditor.php:81
+msgid "Network Activated"
+msgstr "Ativado na rede"
+
+#: network-plugin-auditor.php:110
+msgid "Archived"
+msgstr "Arquivado"
+
+#: network-plugin-auditor.php:111
+msgctxt "site"
+msgid "Spam"
+msgstr "Spam"
+
+#: network-plugin-auditor.php:112
+msgid "Deleted"
+msgstr "Excluído"
+
+#: network-plugin-auditor.php:113
+msgid "Mature"
+msgstr "Adulto"
+
+#: network-plugin-auditor.php:133
+#, php-format
+msgid "Manage plugins on %s"
+msgstr "Gerenciar plugins em %s"
+
+#: network-plugin-auditor.php:151
+msgid "Children"
+msgstr "Filhos"
+
+#: network-plugin-auditor.php:210
+msgid "Active Plugins"
+msgstr "Plugins ativos"
+
+#: network-plugin-auditor.php:210
+msgid "Excludes network-active and must-use plugins"
+msgstr "Não inclui plugins dos tipos network-active and must-use"
+
+#: network-plugin-auditor.php:212
+msgid "Active Theme"
+msgstr "Temas ativos"
+
+#: network-plugin-auditor.php:247
+msgid "Visit the plugin URL"
+msgstr "Viste o site do plugin"
+
+#: network-plugin-auditor.php:255
+msgid "Plugin files were removed while the plugin was active on this blog"
+msgstr ""
+"Os arquivos do plugin foram removidos enquanto o plugin estava ativo neste "
+"blog"
+
+#: network-plugin-auditor.php:261
+msgid "No Active Plugins"
+msgstr "Não há plugins ativos"
+
+#: network-plugin-auditor.php:479
+#, php-format
+msgid "child of %s"
+msgstr "filho de %s"
+
+#: network-plugin-auditor.php:502
+#, php-format
+msgid "Manage themes on %s"
+msgstr "Gerenciar temas em %s"
