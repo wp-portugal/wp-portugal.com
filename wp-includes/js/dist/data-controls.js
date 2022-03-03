@@ -140,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
 function apiFetch(request) {
   return {
     type: 'API_FETCH',
-    request: request
+    request
   };
 }
 /**
@@ -152,9 +152,10 @@ function apiFetch(request) {
 
 function select() {
   _wordpress_deprecated__WEBPACK_IMPORTED_MODULE_2___default()('`select` control in `@wordpress/data-controls`', {
+    since: '5.7',
     alternative: 'built-in `resolveSelect` control in `@wordpress/data`'
   });
-  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].resolveSelect.apply(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"], arguments);
+  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].resolveSelect(...arguments);
 }
 /**
  * Control for calling a selector in a registered data store.
@@ -165,9 +166,10 @@ function select() {
 
 function syncSelect() {
   _wordpress_deprecated__WEBPACK_IMPORTED_MODULE_2___default()('`syncSelect` control in `@wordpress/data-controls`', {
+    since: '5.7',
     alternative: 'built-in `select` control in `@wordpress/data`'
   });
-  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].select.apply(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"], arguments);
+  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].select(...arguments);
 }
 /**
  * Control for dispatching an action in a registered data store.
@@ -178,9 +180,10 @@ function syncSelect() {
 
 function dispatch() {
   _wordpress_deprecated__WEBPACK_IMPORTED_MODULE_2___default()('`dispatch` control in `@wordpress/data-controls`', {
+    since: '5.7',
     alternative: 'built-in `dispatch` control in `@wordpress/data`'
   });
-  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].dispatch.apply(_wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"], arguments);
+  return _wordpress_data__WEBPACK_IMPORTED_MODULE_1__["controls"].dispatch(...arguments);
 }
 /**
  * Dispatches a control action for awaiting on a promise to be resolved.
@@ -202,17 +205,16 @@ function dispatch() {
  * @return {Object} The control descriptor.
  */
 
-var __unstableAwaitPromise = function __unstableAwaitPromise(promise) {
+const __unstableAwaitPromise = function (promise) {
   return {
     type: 'AWAIT_PROMISE',
-    promise: promise
+    promise
   };
 };
 /**
  * The default export is what you use to register the controls with your custom
  * store.
  *
- * @param paths
  * @example
  * ```js
  * // WordPress dependencies
@@ -237,15 +239,21 @@ var __unstableAwaitPromise = function __unstableAwaitPromise(promise) {
  * store.
  */
 
-var controls = {
-  AWAIT_PROMISE: function AWAIT_PROMISE(_ref) {
-    var promise = _ref.promise;
+const controls = {
+  AWAIT_PROMISE: _ref => {
+    let {
+      promise
+    } = _ref;
     return promise;
   },
-  API_FETCH: function API_FETCH(_ref2) {
-    var request = _ref2.request;
+
+  API_FETCH(_ref2) {
+    let {
+      request
+    } = _ref2;
     return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_0___default()(request);
   }
+
 };
 
 

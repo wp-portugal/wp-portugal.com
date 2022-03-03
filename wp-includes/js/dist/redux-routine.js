@@ -98,16 +98,19 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.d(__webpack_exports__, "default", function() { return /* binding */ createMiddleware; });
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/redux-routine/build-module/is-generator.js
+/* eslint-disable jsdoc/valid-types */
+
 /**
  * Returns true if the given object is a generator, or false otherwise.
  *
  * @see https://www.ecma-international.org/ecma-262/6.0/#sec-generator-objects
  *
- * @param {*} object Object to test.
+ * @param {any} object Object to test.
  *
- * @return {boolean} Whether object is a generator.
+ * @return {object is Generator} Whether object is a generator.
  */
 function isGenerator(object) {
+  /* eslint-enable jsdoc/valid-types */
   // Check that iterator (next) and iterable (Symbol.iterator) interfaces are satisfied.
   // These checks seem to be compatible with several generator helpers as well as the native implementation.
   return !!object && typeof object[Symbol.iterator] === 'function' && typeof object.next === 'function';
@@ -128,12 +131,14 @@ var is_promise_default = /*#__PURE__*/__webpack_require__.n(is_promise);
  * External dependencies
  */
 
+/* eslint-disable jsdoc/valid-types */
+
 /**
  * Returns true if the given object quacks like an action.
  *
- * @param {*} object Object to test
+ * @param {any} object Object to test
  *
- * @return {boolean}  Whether object is an action.
+ * @return {object is import('redux').AnyAction}  Whether object is an action.
  */
 
 function isAction(object) {
@@ -143,13 +148,14 @@ function isAction(object) {
  * Returns true if the given object quacks like an action and has a specific
  * action type
  *
- * @param {*}      object       Object to test
- * @param {string} expectedType The expected type for the action.
+ * @param {unknown} object       Object to test
+ * @param {string}  expectedType The expected type for the action.
  *
- * @return {boolean} Whether object is an action and is of specific type.
+ * @return {object is import('redux').AnyAction} Whether object is an action and is of specific type.
  */
 
 function isActionOfType(object, expectedType) {
+  /* eslint-enable jsdoc/valid-types */
   return isAction(object) && object.type === expectedType;
 }
 
@@ -160,43 +166,39 @@ function isActionOfType(object, expectedType) {
 
 
 
+
 /**
  * Internal dependencies
  */
 
-
 /**
  * Create a co-routine runtime.
  *
- * @param {Object}    controls Object of control handlers.
- * @param {Function}  dispatch Unhandled action dispatch.
- *
- * @return {Function} co-routine runtime
+ * @param  controls Object of control handlers.
+ * @param  dispatch Unhandled action dispatch.
  */
 
 function createRuntime() {
-  var controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  var dispatch = arguments.length > 1 ? arguments[1] : undefined;
-  var rungenControls = Object(external_lodash_["map"])(controls, function (control, actionType) {
-    return function (value, next, iterate, yieldNext, yieldError) {
-      if (!isActionOfType(value, actionType)) {
-        return false;
-      }
+  let controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  let dispatch = arguments.length > 1 ? arguments[1] : undefined;
+  const rungenControls = Object(external_lodash_["map"])(controls, (control, actionType) => (value, next, iterate, yieldNext, yieldError) => {
+    if (!isActionOfType(value, actionType)) {
+      return false;
+    }
 
-      var routine = control(value);
+    const routine = control(value);
 
-      if (is_promise_default()(routine)) {
-        // Async control routine awaits resolution.
-        routine.then(yieldNext, yieldError);
-      } else {
-        yieldNext(routine);
-      }
+    if (is_promise_default()(routine)) {
+      // Async control routine awaits resolution.
+      routine.then(yieldNext, yieldError);
+    } else {
+      yieldNext(routine);
+    }
 
-      return true;
-    };
+    return true;
   });
 
-  var unhandledActionControl = function unhandledActionControl(value, next) {
+  const unhandledActionControl = (value, next) => {
     if (!isAction(value)) {
       return false;
     }
@@ -207,18 +209,14 @@ function createRuntime() {
   };
 
   rungenControls.push(unhandledActionControl);
-  var rungenRuntime = Object(dist["create"])(rungenControls);
-  return function (action) {
-    return new Promise(function (resolve, reject) {
-      return rungenRuntime(action, function (result) {
-        if (isAction(result)) {
-          dispatch(result);
-        }
+  const rungenRuntime = Object(dist["create"])(rungenControls);
+  return action => new Promise((resolve, reject) => rungenRuntime(action, result => {
+    if (isAction(result)) {
+      dispatch(result);
+    }
 
-        resolve(result);
-      }, reject);
-    });
-  };
+    resolve(result);
+  }, reject));
 }
 
 // CONCATENATED MODULE: ./node_modules/@wordpress/redux-routine/build-module/index.js
@@ -235,23 +233,21 @@ function createRuntime() {
  * value of the yield assignment. If the control handler returns undefined, the
  * execution is not continued.
  *
- * @param {Object} controls Object of control handlers.
+ * @param {Record<string, (value: import('redux').AnyAction) => Promise<boolean> | boolean>} controls Object of control handlers.
  *
- * @return {Function} Co-routine runtime
+ * @return {import('redux').Middleware} Co-routine runtime
  */
 
 function createMiddleware() {
-  var controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return function (store) {
-    var runtime = createRuntime(controls, store.dispatch);
-    return function (next) {
-      return function (action) {
-        if (!isGenerator(action)) {
-          return next(action);
-        }
+  let controls = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  return store => {
+    const runtime = createRuntime(controls, store.dispatch);
+    return next => action => {
+      if (!isGenerator(action)) {
+        return next(action);
+      }
 
-        return runtime(action);
-      };
+      return runtime(action);
     };
   };
 }
