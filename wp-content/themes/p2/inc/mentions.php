@@ -16,16 +16,16 @@
 class P2_Mentions extends P2_Terms_In_Comments {
 	var $names          = array();
 	var $users          = array();
-	var $mentions_regex = '/\B@([\w-\.]+)\b/';
+	var $mentions_regex = '/\B@([\.\w-]+)\b/';
 
 	function P2_Mentions() {
 		p2_maybe_define( 'P2_MENTIONS_TAXONOMY', 'mentions', 'p2_mentions_taxonomy' );
-		p2_maybe_define( 'P2_MENTIONS_SLUG',     'mentions', 'p2_mentions_slug'     );
+		p2_maybe_define( 'P2_MENTIONS_SLUG', 'mentions', 'p2_mentions_slug' );
 
 		// Hooks
-		add_action( 'init',              array( &$this, 'init'            ), 0 );
-		add_filter( 'the_content',       array( &$this, 'mention_links'   ), 5 );
-		add_filter( 'comment_text',      array( &$this, 'mention_links'   ), 5 );
+		add_action( 'init', array( &$this, 'init' ), 0 );
+		add_filter( 'the_content', array( &$this, 'mention_links' ), 5 );
+		add_filter( 'comment_text', array( &$this, 'mention_links' ), 5 );
 		add_filter( 'p2_found_mentions', array( &$this, 'filter_mentions' ), 5 );
 
 		parent::P2_Terms_In_Comments( P2_MENTIONS_TAXONOMY );
@@ -35,11 +35,14 @@ class P2_Mentions extends P2_Terms_In_Comments {
 	 * Register P2 mentions taxonomy.
 	 */
 	function init() {
-		$taxonomy_args = apply_filters( 'p2_mentions_taxonomy_args', array(
-			'show_ui'           => false,
-			'show_in_nav_menus' => false,
-			'rewrite'           => array( 'slug' => P2_MENTIONS_SLUG ),
-		) );
+		$taxonomy_args = apply_filters(
+			'p2_mentions_taxonomy_args',
+			array(
+				'show_ui'           => false,
+				'show_in_nav_menus' => false,
+				'rewrite'           => array( 'slug' => P2_MENTIONS_SLUG ),
+			)
+		);
 
 		register_taxonomy( P2_MENTIONS_TAXONOMY, 'post', $taxonomy_args );
 	}
@@ -53,8 +56,9 @@ class P2_Mentions extends P2_Terms_In_Comments {
 	function load_users() {
 
 		// Cache the user information.
-		if ( ! empty( $this->users ) )
-	 		return $this->users;
+		if ( ! empty( $this->users ) ) {
+			return $this->users;
+		}
 
 		$users = get_users();
 		foreach ( $users as $user ) {
@@ -74,8 +78,9 @@ class P2_Mentions extends P2_Terms_In_Comments {
 	}
 
 	function find_mentions( $content ) {
-		if ( ! preg_match_all( $this->mentions_regex, $content, $matches ) )
+		if ( ! preg_match_all( $this->mentions_regex, $content, $matches ) ) {
 			return array();
+		}
 
 		// Filters found mentions. Passes original found mentions and content as args.
 		return apply_filters( 'p2_found_mentions', $matches[1], $matches[1], $content );
@@ -104,11 +109,13 @@ class P2_Mentions extends P2_Terms_In_Comments {
 		foreach ( $names as $name ) {
 			$classes = 'mention';
 			// If we're searching for this name, highlight it.
-			if ( $name === $search )
+			if ( $name === $search ) {
 				$classes .= ' mention-highlight';
+			}
 
-			if ( is_user_logged_in() && $name === $current_user->user_login )
+			if ( is_user_logged_in() && $name === $current_user->user_login ) {
 				$classes .= ' mention-current-user';
+			}
 
 			$url = get_term_link( $name, P2_MENTIONS_TAXONOMY );
 			$url = apply_filters( 'p2_mention_url', $url, $name );
@@ -133,22 +140,24 @@ class P2_Mentions extends P2_Terms_In_Comments {
 
 		// Membership check
 		$user = wp_get_current_user();
-		if ( function_exists( 'is_user_member_of_blog' ) && ! is_user_member_of_blog( $user->ID ) )
+		if ( function_exists( 'is_user_member_of_blog' ) && ! is_user_member_of_blog( $user->ID ) ) {
 			return;
+		}
 
 		// Capability check
-		if ( ! current_user_can( 'edit_posts' ) )
+		if ( ! current_user_can( 'edit_posts' ) ) {
 			return;
+		}
 
 		$this->load_users();
 
 		$js_users = array();
 
-		foreach( $this->users as $user ) {
+		foreach ( $this->users as $user ) {
 			$js_users[] = array(
-				'name'      => $user->display_name,
-				'username'  => ( isset( $user->user_nicename ) ? $user->user_nicename : $user->display_name ),
-				'gravatar'  => get_avatar( $user->user_email, 32 ),
+				'name'     => $user->display_name,
+				'username' => ( isset( $user->user_nicename ) ? $user->user_nicename : $user->display_name ),
+				'gravatar' => get_avatar( $user->user_email, 32 ),
 			);
 		}
 
