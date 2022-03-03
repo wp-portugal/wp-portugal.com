@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7c444861ba353c35267acf63abb2286",
+    "content-hash": "d9841d5311f998cc5fc60b7064bfa142",
     "packages": [
         {
             "name": "boxuk/wp-muplugin-loader",
@@ -1349,24 +1349,6 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
-        },
-        {
-            "name": "wpackagist-plugin/worker",
-            "version": "4.9.13",
-            "source": {
-                "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/worker/",
-                "reference": "tags/4.9.13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/worker.4.9.13.zip"
-            },
-            "require": {
-                "composer/installers": "^1.0 || ^2.0"
-            },
-            "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/worker/"
         },
         {
             "name": "wpackagist-plugin/wp-approve-user",

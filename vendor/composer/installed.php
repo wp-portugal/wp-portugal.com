@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '65c20dd5dbdb03bb94645015088cdc8013b05404',
+        'reference' => 'a9c1d6b420eeb4ab9aeb6ac46218648abbe63234',
         'name' => 'wp-portugal/wp-portugal.com',
         'dev' => true,
     ),
@@ -133,7 +133,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '65c20dd5dbdb03bb94645015088cdc8013b05404',
+            'reference' => 'a9c1d6b420eeb4ab9aeb6ac46218648abbe63234',
             'dev_requirement' => false,
         ),
         'wpackagist-plugin/akismet' => array(
@@ -494,15 +494,6 @@
             'install_path' => __DIR__ . '/../../wp-content/plugins/wordpress-seo',
             'aliases' => array(),
             'reference' => 'tags/18.2',
-            'dev_requirement' => false,
-        ),
-        'wpackagist-plugin/worker' => array(
-            'pretty_version' => '4.9.13',
-            'version' => '4.9.13.0',
-            'type' => 'wordpress-plugin',
-            'install_path' => __DIR__ . '/../../wp-content/plugins/worker',
-            'aliases' => array(),
-            'reference' => 'tags/4.9.13',
             'dev_requirement' => false,
         ),
         'wpackagist-plugin/wp-approve-user' => array(
