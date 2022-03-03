@@ -5,7 +5,7 @@ use Automattic\Jetpack\Blocks;
 use Automattic\Jetpack\Sync\Settings;
 
 class Jetpack_RelatedPosts {
-	const VERSION   = '20210604';
+	const VERSION   = '20211209';
 	const SHORTCODE = 'jetpack-related-posts';
 
 	private static $instance     = null;
@@ -77,6 +77,21 @@ class Jetpack_RelatedPosts {
 			'jetpack/related-posts',
 			array(
 				'render_callback' => array( $this, 'render_block' ),
+				'supports'        => array(
+					'color'      => array(
+						'gradients' => true,
+						'link'      => true,
+					),
+					'spacing'    => array(
+						'margin'  => true,
+						'padding' => true,
+					),
+					'typography' => array(
+						'fontSize'   => true,
+						'lineHeight' => true,
+					),
+					'align'      => array( 'wide', 'full' ),
+				),
 			)
 		);
 	}
@@ -235,10 +250,6 @@ class Jetpack_RelatedPosts {
 			return '';
 		}
 
-		// For client-side rendering, enqueue both the styles and the scripts for fetching related posts.
-		// This supports related posts added via the shortcode, or via the hook for non-AMP requests.
-		$this->_enqueue_assets( true, true );
-
 		/**
 		 * Filter the Related Posts headline.
 		 *
@@ -307,7 +318,7 @@ EOT;
 
 		if ( ! empty( $block_attributes['show_thumbnails'] ) && ! empty( $related_post['img']['src'] ) ) {
 			$img_link = sprintf(
-				'<li class="jp-related-posts-i2__post-img-link"><a href="%1$s" %2$s><img src="%3$s" width="%4$s" height="%5$s" alt="%6$s" /></a></li>',
+				'<li class="jp-related-posts-i2__post-img-link"><a href="%1$s" %2$s><img src="%3$s" width="%4$s" height="%5$s" alt="%6$s" loading="lazy" /></a></li>',
 				esc_url( $related_post['url'] ),
 				( ! empty( $related_post['rel'] ) ? 'rel="' . esc_attr( $related_post['rel'] ) . '"' : '' ),
 				esc_url( $related_post['img']['src'] ),
@@ -367,10 +378,7 @@ EOT;
 	 * @return string
 	 */
 	public function render_block( $attributes ) {
-		// Enqueue styles for Related Posts. We do not need to enqueue the scripts, as the related posts are
-		// fetched server-side.
-		$this->_enqueue_assets( false, true );
-
+		$post_id          = get_the_ID();
 		$block_attributes = array(
 			'headline'        => isset( $attributes['headline'] ) ? $attributes['headline'] : null,
 			'show_thumbnails' => isset( $attributes['displayThumbnails'] ) && $attributes['displayThumbnails'],
@@ -383,7 +391,7 @@ EOT;
 		$excludes = $this->parse_numeric_get_arg( 'relatedposts_origin' );
 
 		$related_posts = $this->get_for_post_id(
-			get_the_ID(),
+			$post_id,
 			array(
 				'size'             => $block_attributes['size'],
 				'exclude_post_ids' => $excludes,
@@ -416,12 +424,30 @@ EOT;
 			$rows_markup .= $this->render_block_row( $lower_row_posts, $block_attributes );
 		}
 
-		return sprintf(
-			'<nav class="jp-relatedposts-i2" data-layout="%1$s">%2$s%3$s</nav>',
+		$wrapper_attributes = \WP_Block_Supports::get_instance()->apply_block_supports();
+
+		$display_markup = sprintf(
+			'<nav class="jp-relatedposts-i2%1$s"%2$s data-layout="%3$s">%4$s%5$s</nav>',
+			! empty( $wrapper_attributes['class'] ) ? ' ' . esc_attr( $wrapper_attributes['class'] ) : '',
+			! empty( $wrapper_attributes['style'] ) ? ' style="' . esc_attr( $wrapper_attributes['style'] ) . '"' : '',
 			esc_attr( $block_attributes['layout'] ),
 			$block_attributes['headline'],
 			$rows_markup
 		);
+
+		/**
+		 * Filter the output HTML of Related Posts.
+		 *
+		 * @module related-posts
+		 *
+		 * @since 10.7
+		 *
+		 * @param string $display_markup HTML output of Related Posts.
+		 * @param int|false get_the_ID() Post ID of the post for which we are retrieving Related Posts.
+		 * @param array $related_posts Array of related posts.
+		 * @param array $block_attributes Array of Block attributes.
+		 */
+		return apply_filters( 'jetpack_related_posts_display_markup', $display_markup, $post_id, $related_posts, $block_attributes );
 	}
 
 	/**
@@ -852,7 +878,7 @@ EOT;
 		 * @since 2.8.0
 		 *
 		 * @param array $results Array of related posts matched by Elasticsearch.
-		 * @param string $post_id Post ID of the post for which we are retrieving Related Posts.
+		 * @param int $post_id Post ID of the post for which we are retrieving Related Posts.
 		 */
 		return apply_filters( 'jetpack_relatedposts_returned_results', $results, $post_id );
 	}
@@ -1148,7 +1174,7 @@ EOT;
 			foreach ( array_merge( $with_post_thumbnails, $no_post_thumbnails ) as $index => $real_post ) {
 				$related_posts[ $index ]['id']      = $real_post->ID;
 				$related_posts[ $index ]['url']     = esc_url( get_permalink( $real_post ) );
-				$related_posts[ $index ]['title']   = $this->_to_utf8( $this->_get_title( $real_post->post_title, $real_post->post_content ) );
+				$related_posts[ $index ]['title']   = $this->_to_utf8( $this->get_title( $real_post->post_title, $real_post->post_content, $real_post->ID ) );
 				$related_posts[ $index ]['date']    = get_the_date( '', $real_post );
 				$related_posts[ $index ]['excerpt'] = html_entity_decode( $this->_to_utf8( $this->_get_excerpt( $real_post->post_excerpt, $real_post->post_content ) ), ENT_QUOTES, 'UTF-8' );
 				$related_posts[ $index ]['img']     = $this->_generate_related_post_image_params( $real_post->ID );
@@ -1191,16 +1217,18 @@ EOT;
 	 * @return array
 	 */
 	public function get_related_post_data_for_post( $post_id, $position, $origin ) {
-		$post = get_post( $post_id );
-
-		return array(
-			'id' => $post->ID,
-			'url' => get_permalink( $post->ID ),
-			'url_meta' => array( 'origin' => $origin, 'position' => $position ),
-			'title' => $this->_to_utf8( $this->_get_title( $post->post_title, $post->post_content ) ),
-			'date' => get_the_date( '', $post->ID ),
-			'format' => get_post_format( $post->ID ),
-			'excerpt' => html_entity_decode( $this->_to_utf8( $this->_get_excerpt( $post->post_excerpt, $post->post_content ) ), ENT_QUOTES, 'UTF-8' ),
+		$post          = get_post( $post_id );
+		$related_posts = array(
+			'id'       => $post->ID,
+			'url'      => get_permalink( $post->ID ),
+			'url_meta' => array(
+				'origin'   => $origin,
+				'position' => $position,
+			),
+			'title'    => $this->_to_utf8( $this->get_title( $post->post_title, $post->post_content, $post->ID ) ),
+			'date'     => get_the_date( '', $post->ID ),
+			'format'   => get_post_format( $post->ID ),
+			'excerpt'  => html_entity_decode( $this->_to_utf8( $this->_get_excerpt( $post->post_excerpt, $post->post_content ) ), ENT_QUOTES, 'UTF-8' ),
 			/**
 			 * Filters the rel attribute for the Related Posts' links.
 			 *
@@ -1221,7 +1249,7 @@ EOT;
 			 * @since 3.0.0
 			 *
 			 * @param string $this->_to_utf8( $this->_generate_related_post_context( $post->ID ) ) Context displayed below each related post.
-			 * @param string $post_id Post ID of the post for which we are retrieving Related Posts.
+			 * @param int $post_id Post ID of the post for which we are retrieving Related Posts.
 			 */
 			'context' => apply_filters(
 				'jetpack_relatedposts_filter_post_context',
@@ -1245,19 +1273,28 @@ EOT;
 				$post->ID
 			),
 		);
+
+		/** This filter is already documented in modules/related-posts/jetpack-related-posts.php */
+		return apply_filters( 'jetpack_relatedposts_returned_results', $related_posts, $post_id );
 	}
 
 	/**
 	 * Returns either the title or a small excerpt to use as title for post.
 	 *
-	 * @param string $post_title
-	 * @param string $post_content
-	 * @uses strip_shortcodes, wp_trim_words, __
+	 * @uses strip_shortcodes, wp_trim_words, __, apply_filters
+	 *
+	 * @param string $post_title   Post title.
+	 * @param string $post_content Post content.
+	 * @param int    $post_id Post ID.
+	 *
 	 * @return string
 	 */
-	protected function _get_title( $post_title, $post_content ) {
+	protected function get_title( $post_title, $post_content, $post_id ) {
 		if ( ! empty( $post_title ) ) {
-			return wp_strip_all_tags( $post_title );
+			return wp_strip_all_tags(
+				/** This filter is documented in core/src/wp-includes/post-template.php */
+				apply_filters( 'the_title', $post_title, $post_id )
+			);
 		}
 
 		$post_title = wp_trim_words( wp_strip_all_tags( strip_shortcodes( $post_content ) ), 5, '…' );
@@ -1649,9 +1686,23 @@ EOT;
 	 * @return null
 	 */
 	protected function _action_frontend_init_page() {
+		$this->_enqueue_assets( true, true );
 		$this->_setup_shortcode();
 
 		add_filter( 'the_content', array( $this, 'filter_add_target_to_dom' ), 40 );
+	}
+
+	/**
+	 * Determines if the scripts need be enqueued.
+	 *
+	 * @return bool
+	 */
+	protected function requires_scripts() {
+		return (
+			! ( class_exists( 'Jetpack_AMP_Support' ) && Jetpack_AMP_Support::is_amp_request() ) &&
+			! has_block( 'jetpack/related-posts' ) &&
+			! Blocks::is_fse_theme()
+		);
 	}
 
 	/**
@@ -1662,7 +1713,8 @@ EOT;
 	 */
 	protected function _enqueue_assets( $script, $style ) {
 		$dependencies = is_customize_preview() ? array( 'customize-base' ) : array();
-		if ( $script ) {
+		// Do not enqueue scripts unless they are required.
+		if ( $script && $this->requires_scripts() ) {
 			wp_enqueue_script(
 				'jetpack_related-posts',
 				Assets::get_file_url_for_environment(

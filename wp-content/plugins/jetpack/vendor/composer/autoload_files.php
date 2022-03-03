@@ -6,7 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'bce4ecd6aabb2a2948e06d0e2c4ea9a6' => $vendorDir . '/automattic/jetpack-connection/legacy/load-ixr.php',
-    'd4eb94df91a729802d18373ee8cdc79f' => $vendorDir . '/automattic/jetpack-backup/actions.php',
-    '009de6aaa0d497eacea41fab13fc05f1' => $vendorDir . '/automattic/jetpack-compat/functions.php',
+    '3773ef3f09c37da5478d578e32b03a4b' => $baseDir . '/jetpack_vendor/automattic/jetpack-assets/actions.php',
+    'd4eb94df91a729802d18373ee8cdc79f' => $baseDir . '/jetpack_vendor/automattic/jetpack-backup/actions.php',
+    '009de6aaa0d497eacea41fab13fc05f1' => $baseDir . '/jetpack_vendor/automattic/jetpack-compat/functions.php',
+    'd7b298d70ab0e8605f5d5b6edeab1bd2' => $vendorDir . '/automattic/jetpack-waf/actions.php',
+    'c41c8291342c1bc5fcb32cf6fda33a14' => $baseDir . '/jetpack_vendor/automattic/jetpack-search/search.php',
 );
