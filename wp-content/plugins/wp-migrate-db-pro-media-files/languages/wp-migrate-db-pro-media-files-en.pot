@@ -1,0 +1,58 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the wp-migrate-db-pro-media-files package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-migrate-db-pro-media-files\n"
+"Report-Msgid-Bugs-To: nom@deliciousbrains.com\n"
+"POT-Creation-Date: 2021-10-19 08:36-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/wp-migrate-db-pro-media-files/class/MediaFilesAddon.php:108
+msgid "Downloading files"
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/MediaFilesAddon.php:109
+msgid "Uploading files"
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/MediaFilesLocal.php:187
+#: src/wp-migrate-db-pro-media-files/class/MediaFilesLocal.php:190
+msgid "Invalid folder path supplied."
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:148
+msgid "--media must be set to an acceptable value, see: wp help migratedb "
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:160
+msgid ""
+"--media-date required when using --media=since-date, see: wp help migratedb "
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:174
+msgid ""
+"--media-date parameter received an invalid date format, see wp help "
+"migratedb "
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:240
+msgid "Initiating media migration..."
+msgstr ""
+
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:306
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:312
+#: src/wp-migrate-db-pro-media-files/class/CliCommand/MediaFilesCli.php:311
+msgid ""
+"WP Migrate DB Pro Media Files does not seem to be installed/active on the "
+"remote website."
+msgstr ""

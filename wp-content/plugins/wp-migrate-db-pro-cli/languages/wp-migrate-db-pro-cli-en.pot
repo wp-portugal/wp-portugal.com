@@ -1,0 +1,336 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the wp-migrate-db-pro-cli package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-migrate-db-pro-cli\n"
+"Report-Msgid-Bugs-To: nom@deliciousbrains.com\n"
+"POT-Creation-Date: 2021-10-19 08:36-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:230
+#: src/wp-migrate-db-pro-cli/class/Cli.php:227
+msgid "Profile ID not found."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:252
+#: src/wp-migrate-db-pro-cli/class/Cli.php:249
+msgid ""
+"There is more than one profile with that name, please use the profile ID "
+"instead. See wp migratedb profiles for help."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:263
+#: src/wp-migrate-db-pro-cli/class/Cli.php:260
+msgid "Profile not found."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:275
+#: src/wp-migrate-db-pro-cli/class/Cli.php:272
+msgid "Verifying connection..."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:362
+#: src/wp-migrate-db-pro-cli/class/Cli.php:359
+msgid "URL and secret-key are required"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:437
+#: src/wp-migrate-db-pro-cli/class/Cli.php:434
+msgid "Invalid backup option or non-existent table selected for backup."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:619
+#: src/wp-migrate-db-pro-cli/class/Cli.php:616
+msgid "Please update WP Migrate DB Pro."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:640
+#: src/wp-migrate-db-pro-cli/class/Cli.php:637
+msgid "Profile ID missing."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:694
+#: src/wp-migrate-db-pro-cli/class/Cli.php:691
+msgid ""
+"This profile is from an older version of WP Migrate DB Pro and some settings "
+"have changed."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:697
+#: src/wp-migrate-db-pro-cli/class/Cli.php:694
+#, php-format
+msgid "Please visit %s to update the profile."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:726
+#: src/wp-migrate-db-pro-cli/class/Cli.php:723
+msgid ""
+"The profile is set to migrate media files, however WP Migrate DB Pro Media "
+"Files does not seem to be installed/active on the local website."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:749
+#: src/wp-migrate-db-pro-cli/class/Cli.php:746
+msgid ""
+"The profile is set to migrate media files, however WP Migrate DB Pro Media "
+"Files does not seem to be installed/active on the remote website."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:782
+#: src/wp-migrate-db-pro-cli/class/Cli.php:779
+msgid ""
+"The profile is set to migrate between a single site and a multisite, however "
+"WP Migrate DB Pro Multisite Tools does not seem to be installed/active on "
+"the local website."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:818
+#: src/wp-migrate-db-pro-cli/class/Cli.php:815
+msgid ""
+"The profile is set to migrate a subsite, however WP Migrate DB Pro Multisite "
+"Tools does not currently support migrating a subsite between multisite "
+"installs."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:827
+#: src/wp-migrate-db-pro-cli/class/Cli.php:824
+msgid ""
+"The profile is set to migrate a subsite, however WP Migrate DB Pro Multisite "
+"tools does not seem to be installed/active on the remote website."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:836
+#: src/wp-migrate-db-pro-cli/class/Cli.php:833
+msgid ""
+"A valid Blog ID or Subsite URL must be supplied to make use of the subsite "
+"option"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:884
+#: src/wp-migrate-db-pro-cli/class/Cli.php:881
+msgid ""
+"The profile is set to migrate theme/plugin files, however WP Migrate DB Pro "
+"Theme & Plugin Files does not seem to be installed/active on the remote "
+"website."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:907
+#: src/wp-migrate-db-pro-cli/class/Cli.php:904
+msgctxt "The caches and rewrite rules for the target are being flushed"
+msgid "Flushing caches and rewrite rules..."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:962
+#: src/wp-migrate-db-pro-cli/class/Cli.php:959
+msgid "Performing backup"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:964
+#: src/wp-migrate-db-pro-cli/class/Cli.php:961
+msgid "Migrating tables"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:967
+#: src/wp-migrate-db-pro-cli/class/Cli.php:964
+msgid "Running find & replace"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1035
+msgid "Database table prefix differs between installations."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1039
+#, php-format
+msgid ""
+"We have detected you have table prefix \"%s\" at %s but have \"%s\" here. "
+"Multisite Tools currently only supports migrating subsites between sites "
+"with the same base table prefix."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1042
+#, php-format
+msgid ""
+"The remote database uses a prefix of \"%s\". This migration will create new "
+"tables in the remote database with a prefix of \"%s\".  \n"
+"To use these new tables, AFTER the migration is complete, you will need to "
+"edit the wp-config.php file on the remote server and change the "
+"$table_prefix variable to \"%s\""
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1044
+#, php-format
+msgid ""
+"The local database uses a prefix of \"%s\". This migration will create new "
+"tables in the local database with a prefix of \"%s\".  \n"
+"To use these new tables, AFTER the migration is complete, you will need to "
+"edit your wp-config.php file in your local environment and change the "
+"$table_prefix variable to \"%s\""
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1142
+#: src/wp-migrate-db-pro-cli/class/Cli.php:1037
+msgid "Importing file"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/CliAddon.php:29
+#, php-format
+msgid ""
+"Update Required - The CLI Addon requires WP Migrate DB Pro %s or higher."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:140
+#: src/wp-migrate-db-pro-cli/class/Command.php:174
+msgid "You must provide an import file."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:480
+#: src/wp-migrate-db-pro-cli/class/Command.php:548
+msgid "There are no saved profiles for this site."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:496
+#: src/wp-migrate-db-pro-cli/class/Command.php:564
+msgctxt "Export data to remote database"
+msgid "push"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:497
+#: src/wp-migrate-db-pro-cli/class/Command.php:565
+msgctxt "Import data from remote database"
+msgid "pull"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:498
+#: src/wp-migrate-db-pro-cli/class/Command.php:566
+msgctxt "Export file from local database"
+msgid "export"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:499
+#: src/wp-migrate-db-pro-cli/class/Command.php:567
+msgctxt "Run a find & replace on local database"
+msgid "find & replace"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:500
+#: src/wp-migrate-db-pro-cli/class/Command.php:568
+msgctxt "Import data from SQL file"
+msgid "import"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:501
+#: src/wp-migrate-db-pro-cli/class/Command.php:569
+msgctxt "Backup the local database"
+msgid "backup"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:519
+#: src/wp-migrate-db-pro-cli/class/Command.php:587
+msgctxt "Profile list column heading"
+msgid "ID"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:520
+#: src/wp-migrate-db-pro-cli/class/Command.php:588
+msgctxt "Profile list column heading"
+msgid "NAME"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:521
+#: src/wp-migrate-db-pro-cli/class/Command.php:589
+msgctxt "Profile list column heading"
+msgid "ACTION"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:522
+#: src/wp-migrate-db-pro-cli/class/Command.php:590
+msgctxt "Profile list column heading"
+msgid "REMOTE"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:608
+#: src/wp-migrate-db-pro-cli/class/Command.php:676
+msgid "WP Migrate DB Pro CLI class not available."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:616
+#: src/wp-migrate-db-pro-cli/class/Command.php:684
+msgid "Migration successful."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Command.php:618
+#: src/wp-migrate-db-pro-cli/class/Command.php:686
+#, php-format
+msgid "Export saved to: %s"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:107
+#, php-format
+msgid "Invalid action parameter - `%s`"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:113
+#, php-format
+msgid "Invalid setting parameter - `%s`"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:122
+msgid "Please pass a value to update."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:128
+msgid "Invalid parameter for push/push settings. Value must be `on` or `off`."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:137
+#, php-format
+msgid "%s setting updated."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:139
+msgid "Setting unchanged."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:142
+msgid "The connection-key cannot be set via the CLI."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:147
+#: src/wp-migrate-db-pro-cli/class/Setting.php:193
+msgid "License updated."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:162
+#: src/wp-migrate-db-pro-cli/class/Setting.php:153
+#, php-format
+msgid "Too many positional arguments: %s"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:175
+#: src/wp-migrate-db-pro-cli/class/Setting.php:171
+#, php-format
+msgid "No setting `%s` currently saved in the database."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:220
+#: src/wp-migrate-db-pro-cli/class/Setting.php:278
+msgid "Checking license key..."
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:229
+msgid "License requires specifying a user via --user=<id|login|email>"
+msgstr ""
+
+#: src/wp-migrate-db-pro-cli/class/Setting.php:232
+msgid "User must be an Admin"
+msgstr ""

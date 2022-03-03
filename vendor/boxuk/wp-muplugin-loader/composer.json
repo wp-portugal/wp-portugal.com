@@ -1,0 +1,60 @@
+{
+    "name": "boxuk/wp-muplugin-loader",
+    "description": "A drop-in MU Plugin loader for WordPress",
+    "keywords": [
+        "wordpress",
+        "muplugin",
+        "loader"
+    ],
+    "type": "composer-plugin",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Box UK",
+            "email": "developers@boxuk.com"
+        },
+        {
+            "name": "Luke Woodward",
+            "email": "woodward.lucas@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "LkWdwrd\\MuPluginLoader\\": "src"
+        },
+        "files": [
+            "src/Util/util.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LkWdwrd\\MuPluginLoader\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "class": "LkWdwrd\\MuPluginLoader\\Composer\\MuLoaderPlugin",
+        "branch-alias": {
+            "dev-main": "2.0.x-dev"
+        }
+   },
+    "require": {
+        "php": "^7.3 || ^8.0 || ^8.1",
+        "composer-plugin-api": "^1.0 || ^2.0",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "10up/wp_mock": "^0.4",
+        "composer/composer": "^1.10 || ^2.0",
+        "phpunit/phpunit": "^9",
+        "mockery/mockery": "~1.3",
+        "psr/container": "1.1.1"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --colors",
+        "install-tools": "@composer install --working-dir=tools/php-cs-fixer",
+        "php-cs-fixer:test": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff --dry-run",
+        "php-cs-fixer:fix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff"
+    }
+}

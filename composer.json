@@ -1,0 +1,108 @@
+{
+    "name": "wp-portugal/wp-portugal.com",
+    "description": "WordPress Portugal Website",
+    "type": "project",
+    "repositories": [{
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        },
+        {
+            "type": "composer",
+            "url": "https://composer.deliciousbrains.com"
+        }
+    ],
+    "require": {
+        "boxuk/wp-muplugin-loader": "*",
+        "deliciousbrains-plugin/wp-migrate-db-pro": "*",
+        "deliciousbrains-plugin/wp-migrate-db-pro-media-files": "*",
+        "deliciousbrains-plugin/wp-migrate-db-pro-theme-plugin-files": "*",
+        "deliciousbrains-plugin/wp-migrate-db-pro-cli": "*",
+        "deliciousbrains-plugin/wp-migrate-db-pro-multisite-tools": "*",
+        "squizlabs/php_codesniffer": "^3.6",
+        "wp-coding-standards/wpcs": "^2.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "wpackagist-plugin/akismet": "*",
+        "wpackagist-plugin/asynchronous-widgets": "*",
+        "wpackagist-plugin/cf7-google-sheets-connector": "*",
+        "wpackagist-plugin/classic-editor": "*",
+        "wpackagist-plugin/classic-editor-addon": "*",
+        "wpackagist-plugin/contact-form-7": "*",
+        "wpackagist-plugin/disable-emails": "*",
+        "wpackagist-plugin/edit-author-slug": "*",
+        "wpackagist-plugin/eventbrite-attendees-shortcode": "*",
+        "wpackagist-plugin/ewww-image-optimizer": "*",
+        "wpackagist-plugin/force-reauthentication": "*",
+        "wpackagist-plugin/jetpack": "*",
+        "wpackagist-plugin/lazy-invitation": "*",
+        "wpackagist-plugin/liveblog": "*",
+        "wpackagist-plugin/login-with-ajax": "*",
+        "wpackagist-plugin/markdown-for-p2": "*",
+        "wpackagist-plugin/media-grid": "*",
+        "wpackagist-plugin/menu-humility": "*",
+        "wpackagist-plugin/more-privacy-options": "*",
+        "wpackagist-plugin/multisite-user-management": "*",
+        "wpackagist-plugin/network-plugin-auditor": "*",
+        "wpackagist-plugin/new-user-approve": "*",
+        "wpackagist-plugin/notifly": "*",
+        "wpackagist-plugin/p2-by-email": "*",
+        "wpackagist-plugin/p2-likes": "*",
+        "wpackagist-plugin/p2-resolved-posts": "*",
+        "wpackagist-plugin/plugin-activation-status": "*",
+        "wpackagist-plugin/quick-flickr-widget": "*",
+        "wpackagist-plugin/recently-updated-pages": "*",
+        "wpackagist-plugin/robohash-avatar": "*",
+        "wpackagist-plugin/sapo-videos-o-embed": "*",
+        "wpackagist-plugin/sidebar-login": "*",
+        "wpackagist-plugin/simple-footnotes": "*",
+        "wpackagist-plugin/syntaxhighlighter": "*",
+        "wpackagist-plugin/tablepress": "*",
+        "wpackagist-plugin/theme-tester": "*",
+        "wpackagist-plugin/wapuuvatar": "*",
+        "wpackagist-plugin/wordcamp-lisbon-ribbon": "*",
+        "wpackagist-plugin/wordpress-importer": "*",
+        "wpackagist-plugin/wordpress-seo": "*",
+        "wpackagist-plugin/worker": "*",
+        "wpackagist-plugin/wp-approve-user": "*",
+        "wpackagist-plugin/wp-dbmanager": "*",
+        "wpackagist-plugin/wp-google-fonts": "*",
+        "wpackagist-plugin/wp-job-manager": "*",
+        "wpackagist-plugin/wp-job-manager-colors": "*",
+        "wpackagist-plugin/wp-job-manager-companies": "*",
+        "wpackagist-plugin/wp-mail-smtp": "*",
+        "wpackagist-plugin/wp-optimize": "*",
+        "wpackagist-plugin/wppt-admin-widget": "*"
+	},
+    "extra": {
+        "force-mu": [
+            "wp-muplugin-loader"
+        ],
+        "installer-paths": {
+            "wp-content/mu-plugins/{$name}": [
+                "type:wordpress-muplugin"
+            ],
+            "wp-content/themes/{$name}": [
+                "type:wordpress-theme"
+            ],
+            "wp-content/plugins/{$name}": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "authors": [{
+        "name": "José Fontainhas",
+        "email": "jfontainhas@gmail.com"
+    }],
+    "config": {
+        "allow-plugins": {
+            "ffraenz/private-composer-installer": true,
+            "composer/installers": true,
+            "boxuk/wp-muplugin-loader": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

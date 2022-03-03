@@ -3,7 +3,7 @@ Contributors: netweblogic
 Tags: login, ajax, ajax login, registration, redirect redirect, buddypress, multi site, sidebar, admin, widget
 Text Domain: login-with-ajax
 Requires at least: 4.8
-Tested up to: 5.7
+Tested up to: 5.9
 Stable tag: 3.1.11
 Requires PHP: 5.2
 License: GPLv2 or later

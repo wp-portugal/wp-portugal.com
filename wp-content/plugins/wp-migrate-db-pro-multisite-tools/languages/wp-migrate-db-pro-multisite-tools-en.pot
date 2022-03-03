@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the wp-migrate-db-pro-multisite-tools package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wp-migrate-db-pro-multisite-tools\n"
+"Report-Msgid-Bugs-To: nom@deliciousbrains.com\n"
+"POT-Creation-Date: 2021-11-08 10:46-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:420
+msgid ""
+"Please only enter letters, numbers or underscores for the new table prefix."
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:883
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:880
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:879
+msgid "Expected local subsite \"short_basedir\" missing from `state_data`."
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:889
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:886
+#: src/wp-migrate-db-pro-multisite-tools/class/MultisiteToolsAddon.php:885
+msgid "Expected remote subsite \"short_basedir\" missing from `state_data`."
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:159
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:171
+msgid ""
+"The installation must be a Multisite network to make use of the export "
+"subsite option"
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:162
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:168
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:174
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:180
+msgid ""
+"A valid Blog ID or Subsite URL must be supplied to make use of the subsite "
+"option"
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:182
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:194
+msgid "A new table name prefix may only be specified for subsite exports."
+msgstr ""
+
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:185
+#: src/wp-migrate-db-pro-multisite-tools/class/CliCommand/MultisiteToolsAddonCli.php:197
+msgid "A valid prefix must be supplied to make use of the prefix option"
+msgstr ""

@@ -1,0 +1,37 @@
+language: php
+
+dist: bionic
+
+matrix:
+  include:
+    - php: 7.3
+    - php: 7.4
+    - php: 8.0
+    - php: 8.1.0
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+cache:
+    directories:
+        - $HOME/.composer/cache
+        - $HOME/.php-cs-fixer
+
+before_script:
+    - phpenv config-rm xdebug.ini
+    - composer self-update
+    - composer install
+    - composer install --working-dir=tools/php-cs-fixer
+
+script:
+    - PHP_CS_FIXER_IGNORE_ENV=1 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix -v --diff --dry-run
+    - composer test
+
+branches:
+  only:
+    - master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change

@@ -8,6 +8,7 @@ wp-content/*
 wp-content/mu-plugins/disable-emails-mu.php
 *.log
 
+auth.json
 googlecd*
 googlehosted*
 wp-config.php
