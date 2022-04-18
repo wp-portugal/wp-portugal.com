@@ -323,9 +323,10 @@ class Util
      */
     public function get_queue_status($stage, $migration_state_id)
     {
-        $filename = $this->get_queue_manifest_file_name($migration_state_id);
-        $tmp_path = $this->get_queue_tmp_path($stage);
-        $manifest = @file_get_contents($tmp_path . DIRECTORY_SEPARATOR . $filename);
+        $filename  = $this->get_queue_manifest_file_name($migration_state_id);
+        $tmp_path  = $this->get_queue_tmp_path($stage);
+        $file_path = $tmp_path . DIRECTORY_SEPARATOR . $filename;
+        $manifest  = is_file($file_path) ? @file_get_contents($file_path) : false;
 
         if (false !== $manifest) {
             return unserialize($manifest);

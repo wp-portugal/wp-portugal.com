@@ -158,8 +158,10 @@ function ewww_image_optimizer_set_defaults() {
 	add_option( 'exactdn_lossy', true );
 	add_option( 'exactdn_exclude', '' );
 	add_option( 'exactdn_sub_folder', false );
+	add_option( 'exactdn_prevent_db_queries', true );
 	add_option( 'ewww_image_optimizer_lazy_load', false );
-	add_option( 'ewww_image_optimizer_ll_autoscale', true );
+	add_option( 'ewww_image_optimizer_use_siip', false );
+	add_option( 'ewww_image_optimizer_use_lqip', false );
 	add_option( 'ewww_image_optimizer_ll_exclude', '' );
 	add_option( 'ewww_image_optimizer_ll_all_things', '' );
 	add_option( 'ewww_image_optimizer_disable_pngout', true );
@@ -188,6 +190,7 @@ function ewww_image_optimizer_set_defaults() {
 	add_site_option( 'exactdn_all_the_things', true );
 	add_site_option( 'exactdn_lossy', true );
 	add_site_option( 'exactdn_sub_folder', false );
+	add_site_option( 'exactdn_prevent_db_queries', true );
 	add_site_option( 'ewww_image_optimizer_ll_autoscale', true );
 }
 
@@ -1981,11 +1984,19 @@ function ewww_image_optimizer( $file, $gallery_type = 4, $converted = false, $ne
 	$file_group = 'unknown';
 	if ( function_exists( 'posix_getpwuid' ) ) {
 		$file_owner = posix_getpwuid( fileowner( $file ) );
-		$file_owner = 'xxxxxxxx' . substr( $file_owner['name'], -4 );
+		if ( $file_owner ) {
+			$file_owner = 'xxxxxxxx' . substr( $file_owner['name'], -4 );
+		} else {
+			$file_owner = 'unknown';
+		}
 	}
 	if ( function_exists( 'posix_getgrgid' ) ) {
 		$file_group = posix_getgrgid( filegroup( $file ) );
-		$file_group = 'xxxxx' . substr( $file_group['name'], -5 );
+		if ( $file_group ) {
+			$file_group = 'xxxxx' . substr( $file_group['name'], -5 );
+		} else {
+			$file_group = 'unknown';
+		}
 	}
 	ewwwio_debug_message( "permissions: $file_perms, owner: $file_owner, group: $file_group" );
 	$type = ewww_image_optimizer_mimetype( $file, 'i' );

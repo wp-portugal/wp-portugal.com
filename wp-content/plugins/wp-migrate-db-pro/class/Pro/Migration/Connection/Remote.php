@@ -195,12 +195,12 @@ class Remote
          */
         if (!isset($filtered_post['version']) || version_compare($filtered_post['version'], $this->props->plugin_version, '!=')) {
             if (!isset($filtered_post['version'])) {
-                $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate DB Pro at %2$s but are using an outdated version here. Please go to the Plugins page on both installs and check for updates.', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()));
+                $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate at %2$s but are using an outdated version here. Please go to the Plugins page on both installs and check for updates.', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()));
             } else {
                 if (version_compare($filtered_post['version'], $this->props->plugin_version, '>')) {
-                    $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate DB Pro at %2$s but are using %3$s here. (#196)', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()), $filtered_post['version']);
+                    $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate at %2$s but are using %3$s here. (#196)', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()), $filtered_post['version']);
                 } else {
-                    $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate DB Pro at %2$s but are using %3$s here. Please go to the Plugins page on both installs and check for updates.', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()), $filtered_post['version']);
+                    $return['message'] = sprintf(__('<b>Version Mismatch</b> &mdash; We\'ve detected you have version %1$s of WP Migrate at %2$s but are using %3$s here. Please go to the Plugins page on both installs and check for updates.', 'wp-migrate-db'), $GLOBALS['wpmdb_meta'][$this->props->plugin_slug]['version'], $this->util->get_short_home_address_from_url(Util::home_url()), $filtered_post['version']);
 
                     // If the other site is pre-2.0, we need to serialize the response.
                     if (version_compare($filtered_post['version'], '2.0b1', '<')) {
@@ -229,7 +229,7 @@ class Remote
             return $this->http->end_ajax(
                 new \WP_Error(
                     'wpmdb-license-not-valid',
-                    sprintf(__("<b>Activate Remote License</b> &mdash; Looks like you don't have a WP Migrate DB Pro license active at %s (#195).", 'wp-migrate-db'), $local_host)
+                    sprintf(__("<b>Activate Remote License</b> &mdash; Looks like you don't have a WP Migrate license active at %s (#195).", 'wp-migrate-db'), $local_host)
                 )
             );
         }

@@ -3,17 +3,34 @@
 namespace DeliciousBrains\WPMDB\Pro;
 
 use DeliciousBrains\WPMDB\Common\Filesystem\RecursiveScanner;
+use DeliciousBrains\WPMDB\Pro\Addon\AddonsFacade;
 use DeliciousBrains\WPMDB\Pro\Backups\BackupsManager;
 use DeliciousBrains\WPMDB\Pro\Beta\BetaManager;
 use DeliciousBrains\WPMDB\Pro\Cli\Export;
+use DeliciousBrains\WPMDB\Pro\Cli\Extra\Cli;
+use DeliciousBrains\WPMDB\Pro\Cli\Extra\CliAddon;
+use DeliciousBrains\WPMDB\Pro\Cli\Extra\Setting;
+use DeliciousBrains\WPMDB\Pro\MF\CliCommand\MediaFilesCli;
+use DeliciousBrains\WPMDB\Pro\MF\MediaFilesAddon;
+use DeliciousBrains\WPMDB\Pro\MF\MediaFilesLocal;
+use DeliciousBrains\WPMDB\Pro\MF\MediaFilesRemote;
 use DeliciousBrains\WPMDB\Pro\Migration\Flush;
 use DeliciousBrains\WPMDB\Pro\Migration\Connection;
 use DeliciousBrains\WPMDB\Pro\Migration\FinalizeComplete;
 use DeliciousBrains\WPMDB\Pro\Migration\Tables\Local;
 use DeliciousBrains\WPMDB\Pro\Migration\Tables\Remote;
+use DeliciousBrains\WPMDB\Pro\MST\CliCommand\MultisiteToolsAddonCli;
+use DeliciousBrains\WPMDB\Pro\MST\MediaFilesCompat;
+use DeliciousBrains\WPMDB\Pro\MST\MultisiteToolsAddon;
 use DeliciousBrains\WPMDB\Pro\Plugin\ProPluginManager;
 use DeliciousBrains\WPMDB\Pro\Queue\Manager;
 use DeliciousBrains\WPMDB\Pro\Queue\QueueHelper;
+use DeliciousBrains\WPMDB\Pro\TPF\Cli\ThemePluginFilesCli;
+use DeliciousBrains\WPMDB\Pro\TPF\ThemePluginFilesAddon;
+use DeliciousBrains\WPMDB\Pro\TPF\ThemePluginFilesFinalize;
+use DeliciousBrains\WPMDB\Pro\TPF\ThemePluginFilesLocal;
+use DeliciousBrains\WPMDB\Pro\TPF\ThemePluginFilesRemote;
+use DeliciousBrains\WPMDB\Pro\TPF\TransferCheck;
 use DeliciousBrains\WPMDB\Pro\Transfers\Files\Chunker;
 use DeliciousBrains\WPMDB\Pro\Transfers\Files\Excludes;
 use DeliciousBrains\WPMDB\Pro\Transfers\Files\FileProcessor;
@@ -25,6 +42,8 @@ use DeliciousBrains\WPMDB\Pro\Transfers\Receiver;
 use DeliciousBrains\WPMDB\Pro\Transfers\Sender;
 use DeliciousBrains\WPMDB\Pro\UI\Template;
 use DeliciousBrains\WPMDB\Pro\RemoteUpdates\RemoteUpdatesManager;
+use DeliciousBrains\WPMDB\Pro\MF\Manager as MF_Manager;
+use DeliciousBrains\WPMDB\Pro\TPF\Manager as TPF_Manager;
 
 class ClassMap extends \DeliciousBrains\WPMDB\ClassMap
 {
@@ -52,6 +71,27 @@ class ClassMap extends \DeliciousBrains\WPMDB\ClassMap
     public $transfers_manager;
     public $transfers_file_processor;
     public $common_flush;
+    public $media_files_addon;
+    public $media_files_cli;
+    public $media_files_addon_remote;
+    public $media_files_addon_local;
+    public $tp_addon_finalize;
+    public $tp_addon;
+    public $tp_addon_transfer_check;
+    public $tp_addon_local;
+    public $tp_addon_remote;
+    public $tp_cli;
+    public $media_files_manager;
+    public $theme_plugin_manager;
+    public $mst_addon;
+    public $mst_addon_cli;
+    public $media_files_compat;
+    public $cli_addon;
+    public $cli_addon_cli;
+    public $cli_settings;
+    public $extra_cli_manager;
+    public $multisite_tools_manager;
+
     /**
      * @var Remote
      */
@@ -81,6 +121,11 @@ class ClassMap extends \DeliciousBrains\WPMDB\ClassMap
      * @var RecursiveScanner
      */
     public $recursive_scanner;
+
+    /**
+     * @var AddonsFacade
+     */
+    public $addons_facade;
 
     public function __construct()
     {
@@ -375,5 +420,224 @@ class ClassMap extends \DeliciousBrains\WPMDB\ClassMap
             $this->queue_manager,
             $this->util
         );
+
+        /* Start MF Section */
+
+        $this->media_files_addon = new MediaFilesAddon(
+            $this->addon,
+            $this->properties,
+            $this->util,
+            $this->transfers_util,
+            $this->filesystem
+        );
+
+        $this->media_files_addon_local = new MediaFilesLocal(
+            $this->form_data,
+            $this->http,
+            $this->util,
+            $this->http_helper,
+            $this->WPMDBRestAPIServer,
+            $this->transfers_manager,
+            $this->transfers_util,
+            $this->transfers_file_processor,
+            $this->transfers_queue_helper,
+            $this->queue_manager,
+            $this->transfers_plugin_helper,
+            $this->profile_manager
+        );
+
+        $this->media_files_addon_remote = new MediaFilesRemote(
+            $this->transfers_plugin_helper
+        );
+
+        $this->media_files_cli = new MediaFilesCli(
+            $this->addon,
+            $this->properties,
+            $this->cli,
+            $this->cli_manager,
+            $this->util,
+            $this->state_data_container,
+            $this->transfers_util,
+            $this->filesystem
+        );
+
+        $this->media_files_manager = new MF_Manager();
+        /* End MF Section */
+
+        /* Start TPF Section */
+        $this->tp_addon_finalize = new ThemePluginFilesFinalize(
+            $this->form_data,
+            $this->filesystem,
+            $this->transfers_util,
+            $this->error_log,
+            $this->http,
+            $this->state_data_container,
+            $this->queue_manager,
+            $this->migration_state_manager,
+            $this->transfers_plugin_helper
+        );
+
+        $this->tp_addon = new ThemePluginFilesAddon(
+            $this->addon,
+            $this->properties,
+            $this->template,
+            $this->filesystem,
+            $this->profile_manager,
+            $this->util,
+            $this->transfers_util,
+            $this->transfers_receiver,
+            $this->tp_addon_finalize,
+            $this->transfers_plugin_helper
+        );
+
+        $this->tp_addon_transfer_check = new TransferCheck(
+            $this->form_data,
+            $this->http,
+            $this->error_log
+        );
+
+        $this->tp_addon_local = new ThemePluginFilesLocal(
+            $this->transfers_util,
+            $this->util,
+            $this->transfers_file_processor,
+            $this->queue_manager,
+            $this->transfers_manager,
+            $this->transfers_receiver,
+            $this->migration_state_manager,
+            $this->http,
+            $this->filesystem,
+            $this->tp_addon_transfer_check,
+            $this->WPMDBRestAPIServer,
+            $this->http_helper,
+            $this->transfers_queue_helper
+        );
+
+        $this->tp_addon_remote = new ThemePluginFilesRemote(
+            $this->transfers_util,
+            $this->transfers_file_processor,
+            $this->queue_manager,
+            $this->transfers_manager,
+            $this->transfers_receiver,
+            $this->http,
+            $this->http_helper,
+            $this->migration_state_manager,
+            $this->settings,
+            $this->properties,
+            $this->transfers_sender,
+            $this->filesystem,
+            $this->scrambler,
+            $this->transfers_plugin_helper
+        );
+
+        $this->tp_cli = new ThemePluginFilesCli(
+            $this->addon,
+            $this->properties,
+            $this->template,
+            $this->filesystem,
+            $this->profile_manager,
+            $this->util,
+            $this->transfers_util,
+            $this->transfers_receiver,
+            $this->tp_addon_finalize,
+            $this->transfers_plugin_helper,
+            $this->cli
+        );
+
+        $this->theme_plugin_manager = new TPF_Manager();
+        /* End TPF Section */
+
+        /* Start MST Section */
+        $this->media_files_compat = new MediaFilesCompat(
+            $this->util,
+            $this->filesystem
+        );
+
+        $this->mst_addon = new MultisiteToolsAddon(
+            $this->addon,
+            $this->properties,
+            $this->multisite,
+            $this->util,
+            $this->migration_state_manager,
+            $this->table,
+            $this->table_helper,
+            $this->form_data,
+            $this->template,
+            $this->profile_manager,
+            $this->dynamic_props,
+            $this->filesystem,
+            $this->media_files_compat
+        );
+
+        $this->mst_addon_cli = new MultisiteToolsAddonCli(
+            $this->addon,
+            $this->properties,
+            $this->multisite,
+            $this->util,
+            $this->migration_state_manager,
+            $this->table,
+            $this->table_helper,
+            $this->form_data,
+            $this->template,
+            $this->profile_manager,
+            $this->cli,
+            $this->dynamic_props,
+            $this->filesystem,
+            $this->media_files_compat
+        );
+
+        $this->multisite_tools_manager = new \DeliciousBrains\WPMDB\Pro\MST\Manager();
+
+        /* End MST Section*/
+
+        /* Start CLI Section */
+        $this->connection = new Connection();
+
+        $this->cli_addon = new CliAddon(
+            $this->addon,
+            $this->properties
+        );
+
+        $this->cli_addon_cli = new Cli(
+            $this->form_data,
+            $this->util,
+            $this->cli_manager,
+            $this->table,
+            $this->error_log,
+            $this->initiate_migration,
+            $this->finalize_migration,
+            $this->http_helper,
+            $this->migration_manager,
+            $this->migration_state_manager,
+            $this->connection,
+            $this->backup_export,
+            $this->properties,
+            $this->multisite,
+            $this->import
+        );
+
+        $this->cli_settings = new Setting(
+            $this->form_data,
+            $this->util,
+            $this->cli_manager,
+            $this->table,
+            $this->error_log,
+            $this->initiate_migration,
+            $this->finalize_migration,
+            $this->http_helper,
+            $this->migration_manager,
+            $this->migration_state_manager,
+            $this->license,
+            $this->settings
+        );
+
+        $this->extra_cli_manager = new \DeliciousBrains\WPMDB\Pro\Cli\Extra\Manager();
+        /* End CLI Section */
+
+        $this->addons_facade = new AddonsFacade($this->license, [
+            $this->media_files_manager,
+            $this->theme_plugin_manager,
+            $this->multisite_tools_manager,
+            $this->extra_cli_manager,
+        ]);
     }
 }

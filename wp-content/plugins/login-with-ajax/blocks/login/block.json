@@ -1,0 +1,16 @@
+{
+	"apiVersion": 2,
+	"name": "login-with-ajax/login",
+	"version": "0.1.0",
+	"title": "Login With AJAX",
+	"category": "widgets",
+	"icon": "lock",
+	"description": "Login With AJAX block to generate login widget shortcode.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "login-with-ajax",
+	"editorScript": "lwa-blocks-login-editor",
+	"editorStyle": "login-with-ajax",
+	"style": "lwa-styles"
+}

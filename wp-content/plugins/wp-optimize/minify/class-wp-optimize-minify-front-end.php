@@ -1007,7 +1007,6 @@ class WP_Optimize_Minify_Front_End {
 							}
 
 							$done[] = $handle;
-							
 							// Add extra data from wp_add_inline_script before
 							if (!empty($wp_scripts->registered[$handle]->extra)) {
 								if (!empty($wp_scripts->registered[$handle]->extra['before']) && is_array($wp_scripts->registered[$handle]->extra['before'])) {

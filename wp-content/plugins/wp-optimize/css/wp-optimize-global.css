@@ -48,6 +48,10 @@
 	font-weight: bold;
 }
 
+.wpo-collapsible-content .smush-details tr {
+	display: table-row;
+}
+
 .wpo-collapsible-content .smush-details th,
 .wpo-collapsible-content .smush-details td {
 	text-align: left;

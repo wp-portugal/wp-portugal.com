@@ -179,6 +179,7 @@ class License
 		delete_site_transient( 'update_plugins' );
 		delete_site_transient( 'wpmdb_upgrade_data' );
         delete_site_transient( Helpers::get_licence_response_transient_key() );
+        delete_site_transient($this->get_available_addons_list_transient_key(get_current_user_id()));
 
 		$this->http->end_ajax( 'license removed' );
 	}
@@ -271,6 +272,8 @@ class License
 			// Save the addons list for use when installing
 			// Don't really need to expire it ever, but let's clean it up after 60 days
 			set_site_transient( 'wpmdb_addons', $decoded_response['addon_list'], HOUR_IN_SECONDS * 24 * 60 );
+            $this->set_available_addons_list_transient($decoded_response['addons_available_list'],
+                get_current_user_id());
 
 			foreach ( $decoded_response['addon_list'] as $key => $addon ) {
 				$plugin_file = sprintf( '%1$s/%1$s.php', $key );
@@ -617,6 +620,10 @@ class License
 	 */
 	function is_valid_licence( $skip_transient_check = false )
 	{
+        if (empty($this->get_available_addons_list(get_current_user_id()))) {
+            $skip_transient_check = true;
+        }
+
 		$response = $this->get_license_status( $skip_transient_check );
 
 		if ( isset( $response['dbrains_api_down'] ) ) {
@@ -637,7 +644,7 @@ class License
 
 		if ( empty( $licence ) ) {
 			$settings_link = sprintf( '<a href="%s">%s</a>', network_admin_url( $this->props->plugin_base ) . '#settings/enter', _x( 'Settings', 'Plugin configuration and preferences', 'wp-migrate-db' ) );
-			$message       = sprintf( __( 'To finish activating WP Migrate DB Pro, please go to %1$s and enter your license key. If you don\'t have a license key, you may <a href="%2$s">purchase one</a>.', 'wp-migrate-db' ), $settings_link, 'http://deliciousbrains.com/wp-migrate-db-pro/pricing/' );
+			$message       = sprintf( __( 'To finish activating WP Migrate, please go to %1$s and enter your license key. If you don\'t have a license key, you may <a href="%2$s">purchase one</a>.', 'wp-migrate-db' ), $settings_link, 'http://deliciousbrains.com/wp-migrate-db-pro/pricing/' );
 
 			return array( 'errors' => array( 'no_licence' => $message ) );
 		}
@@ -647,7 +654,12 @@ class License
 			$trans = get_site_transient( Helpers::get_licence_response_transient_key() );
 
 			if ( false !== $trans ) {
-				return json_decode( $trans, true );
+                $decoded_transient = json_decode( $trans, true );
+                $user_id = get_current_user_id();
+                if (false === $this->get_available_addons_list($user_id)) {
+                    $this->set_available_addons_list_transient($decoded_transient['addons_available_list'], $user_id);
+                }
+				return $decoded_transient;
 			}
 		}
 
@@ -688,6 +700,10 @@ class License
 		$response = $this->api->dbrains_api_request( 'check_support_access', $args );
 
 		set_site_transient( Helpers::get_licence_response_transient_key( $user_id, false ), $response, $this->props->transient_timeout );
+
+        //Store available addons list
+        $decoded_response = json_decode($response, true);
+        $this->set_available_addons_list_transient($decoded_response['addons_available_list'], $user_id);
 
 		return $response;
 	}
@@ -773,7 +789,7 @@ class License
 		if ( empty( $licence ) && !$trans ) {
 		    $message = [];
 			$message['default'] = sprintf( __( '<strong>Activate Your License</strong> &mdash; Please <a href="%s" class="%s">enter your license key</a> to enable push and pull functionality, priority support and plugin updates.', 'wp-migrate-db' ), network_admin_url( $this->props->plugin_base . '#settings/enter' ), 'js-action-link enter-licence' );
-			$message['addons'] = sprintf( __( '<strong>Activate Your License</strong> &mdash; Please <a href="%s">enter your license key</a> to install addons. If your license includes the addons below, you will be able to install them from here with one-click.', 'wp-migrate-db' ), network_admin_url( $this->props->plugin_base . '#settings/enter' ), 'js-action-link enter-licence' );
+			$message['addons'] = sprintf( __( '<strong>Activate Your License</strong> &mdash; Please <a href="%s">enter your license key</a> to activate any upgrades associated with your license.', 'wp-migrate-db' ), network_admin_url( $this->props->plugin_base . '#settings/enter' ), 'js-action-link enter-licence' );
 
 			if ('update' === $context) {
 				return $message['default'];
@@ -970,4 +986,27 @@ class License
 
 		return $result;
 	}
+
+
+    private function get_available_addons_list_transient_key($user_id = null)
+    {
+        $transient_key = 'wpmdb_available_addons';
+        if ( !empty($user_id) && 0 !== $user_id ) {
+            $transient_key = 'wpmdb_available_addons_per_user_' . $user_id;
+        }
+
+        return $transient_key;
+    }
+
+
+    private function set_available_addons_list_transient($list, $user_id = null)
+    {
+        set_site_transient($this->get_available_addons_list_transient_key($user_id), $list);
+    }
+
+
+    public function get_available_addons_list($user_id = null)
+    {
+        return get_site_transient($this->get_available_addons_list_transient_key($user_id));
+    }
 }

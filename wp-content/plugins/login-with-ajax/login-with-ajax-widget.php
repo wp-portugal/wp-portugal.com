@@ -1,4 +1,10 @@
 <?php
+/**
+ * Class LoginWithAjaxWidget
+ *
+ * Legacy widget, replaced by the new widget block API, see the blocks folder.
+ *
+ */
 class LoginWithAjaxWidget extends WP_Widget {
     public $defaults;
     
@@ -10,10 +16,13 @@ class LoginWithAjaxWidget extends WP_Widget {
     		'template' => 'default',
     		'profile_link' => 1,
     		'registration' => 1,
-    		'remember' => 1
+    		'remember' => 1,
     	);
-    	$widget_ops = array('description' => __( "Login widget with AJAX capabilities.", 'login-with-ajax') );
-        parent::__construct(false, $name = 'Login With Ajax', $widget_ops);	
+    	$widget_ops = array(
+    		'description' => __( "Login widget with AJAX capabilities.", 'login-with-ajax'),
+		    'show_instance_in_rest' => true,
+		);
+        parent::__construct(false, 'Login With Ajax', $widget_ops);
     }
 
     /** @see WP_Widget::widget */
@@ -26,12 +35,18 @@ class LoginWithAjaxWidget extends WP_Widget {
 		    echo apply_filters('widget_title',$instance['title'], $instance, $this->id_base);
 		    echo '</span>';
 		    echo $args['after_title'];
+		    // unset title, set to widget_title for future reference
+		    $instance['widget_title'] = $instance['title'];
+		    unset($instance['title']);
     	}elseif( is_user_logged_in() && !empty($instance['title_loggedin']) ) {
 		    echo $args['before_title'];
 		    echo '<span class="lwa-title">';
 		    echo str_replace('%username%', LoginWithAjax::$current_user->display_name, $instance['title_loggedin']);
 		    echo '</span>';
 		    echo $args['after_title'];
+		    // unset title, set to widget_title for future reference
+		    $instance['widget_title'] = $instance['title_loggedin'];
+		    unset($instance['title_loggedin']);
     	}
     	LoginWithAjax::widget($instance);
 	    echo $args['after_widget'];
@@ -50,13 +65,14 @@ class LoginWithAjaxWidget extends WP_Widget {
     /** @see WP_Widget::form */
     function form($instance) {
     	$instance = array_merge($this->defaults, $instance);
+    	$templates_data = LoginWithAjax::get_templates_data();
         ?>
-			<?php if( count(LoginWithAjax::$templates) > 1 ): ?>
+			<?php if( count($templates_data) > 1 ): ?>
 			<p>
             	<label for="<?php echo $this->get_field_id('template'); ?>"><?php esc_html_e('Template', 'login-with-ajax'); ?>:</label>
             	<select class="widefat" id="<?php echo $this->get_field_id('template'); ?>" name="<?php echo $this->get_field_name('template'); ?>" >
-            		<?php foreach( array_keys(LoginWithAjax::$templates) as $template ): ?>
-            		<option <?php echo ($instance['template'] == $template) ? 'selected="selected"':""; ?>><?php echo esc_html($template); ?></option>
+            		<?php foreach( $templates_data as $template => $template_data ): ?>
+            		<option <?php echo ($instance['template'] == $template) ? 'selected="selected"':""; ?> value="<?php echo esc_attr($template); ?>"><?php echo esc_html($template_data->label); ?></option>
             		<?php endforeach; ?>
             	</select>
 			</p>
@@ -93,6 +109,12 @@ class LoginWithAjaxWidget extends WP_Widget {
 			</p>
         <?php
     }
+    
+    public static function hide_legacy( $widget_types ) {
+	    $widget_types[] = 'loginwithajaxwidget';
+	    return $widget_types;
+    }
 
 }
+add_filter( 'widget_types_to_hide_from_legacy_widget_block', 'LoginWithAjaxWidget::hide_legacy' );
 ?>

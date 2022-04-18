@@ -375,6 +375,130 @@
 		
 		check_defer_status();
 
+		/**
+		 * Minify Preloader functionality
+		 */
+		var run_minify_preload_btn = $('#wp_optimize_run_minify_preload'),
+			minify_preload_status_el = $('#wp_optimize_preload_minify_status'),
+			check_status_interval = null;
+
+		run_minify_preload_btn.on('click', function() {
+			var btn = $(this),
+				is_running = btn.data('running'),
+				status = minify_preload_status_el.text();
+
+			btn.prop('disabled', true);
+
+			if (is_running) {
+				btn.data('running', false);
+				clearInterval(check_status_interval);
+				check_status_interval = null;
+				send_command(
+					'cancel_minify_preload',
+					null,
+					function(response) {
+						if (response && response.hasOwnProperty('message')) {
+							minify_preload_status_el.text(response.message);
+						}
+					}
+				).always(function() {
+						btn.val(wpoptimize.run_now);
+						btn.prop('disabled', false);
+				});
+			} else {
+				minify_preload_status_el.text(wpoptimize.starting_preload);
+				btn.data('running', true);
+				send_command(
+					'run_minify_preload',
+					null,
+					null,
+					true,
+					{
+						timeout: 3000 // set a timeout in case the server doesn't support our close browser connection function.
+					}
+				).always(function(response) {
+					try {
+						var resp = wpo_parse_json(response);
+					} catch (e) {
+					}
+
+					if (resp && resp.error) {
+
+						var error_text = wpoptimize.error_unexpected_response;
+
+						if (typeof resp.error != 'function') {
+							error_text = resp.error;
+						} else if (resp.status) {
+							error_text = resp.status + ': ' + resp.statusText;
+						}
+
+						alert(error_text);
+
+						minify_preload_status_el.text(status);
+						btn.prop('disabled', false);
+						btn.data('running', false);
+
+						return;
+					}
+
+					minify_preload_status_el.text(wpoptimize.loading_urls);
+					btn.val(wpoptimize.cancel);
+					btn.prop('disabled', false);
+					run_update_minify_preload_status();
+				});
+			}
+		});
+
+		/**
+		 * If already running then update status
+		 */
+		if (run_minify_preload_btn.data('running')) {
+			run_update_minify_preload_status();
+		}
+
+		/**
+		 * Create interval action for update preloader status.
+		 *
+		 * @return void
+		 */
+		function run_update_minify_preload_status() {
+			if (check_status_interval) return;
+
+			check_status_interval = setInterval(function() {
+				update_minify_preload_status();
+			}, 5000);
+		}
+
+		/**
+		 * Update minify preload status ajax action.
+		 *
+		 * @return void
+		 */
+		function update_minify_preload_status() {
+			send_command('get_minify_preload_status', null, function(response) {
+				if (response.done) {
+					run_minify_preload_btn.val(wpoptimize.run_now);
+					run_minify_preload_btn.data('running', false);
+					clearInterval(check_status_interval);
+					check_status_interval = null;
+				} else {
+					run_minify_preload_btn.val(wpoptimize.cancel);
+					run_minify_preload_btn.data('running', true);
+				}
+				minify_preload_status_el.text(response.message);
+				update_minify_size_information(response);
+			});
+		}
+
+		/**
+		 * Run update information about minify size.
+		 *
+		 * @return void
+		 */
+		function update_minify_size_information(response) {
+			$('#wpo_min_cache_size').text(response.size);
+			$('#wpo_min_cache_total_size').text(response.total_size);
+		}
 		return this;
 	}
 

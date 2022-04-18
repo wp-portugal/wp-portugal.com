@@ -150,8 +150,8 @@ class WPO_Page_Cache {
 	 * @return bool
 	 */
 	public function can_purge_cache() {
-		if (is_multisite()) return $this->is_enabled() && current_user_can('manage_network_options');
-		return $this->is_enabled() && current_user_can('manage_options');
+		if (is_multisite()) return $this->is_enabled() && (current_user_can('manage_network_options') || WP_Optimize()->can_purge_the_cache());
+		return $this->is_enabled() && (current_user_can('manage_options') || WP_Optimize()->can_purge_the_cache());
 	}
 
 	/**

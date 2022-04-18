@@ -5,7 +5,7 @@ Tags: cache, minify, database, image optimize, performance, clean, spam, speed, 
 Requires PHP: 5.6
 Requires at least: 4.5
 Tested up to: 5.9
-Stable tag: 3.2.2
+Stable tag: 3.2.3
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -365,6 +365,14 @@ If none of the above works, disable processing of JavaScript files in the minify
 == Changelog ==
 
 
+
+= 3.2.3 - 09/Mar/2022 =
+
+* FEATURE: Minify: Pre-generate assets
+* FIX: Cache - 'Purge cache permissions' setting does not allow additional roles to access the purge cache tool
+* TWEAK: Make smush details button work in media modal window
+* TWEAK: Do not show overhead in red when the amount is small
+* TWEAK: Avoid PHP Notices caused by "upgrader_process_complete" action
 
 = 3.2.2 - 24/Jan/2022 =
 
@@ -1224,4 +1232,4 @@ If none of the above works, disable processing of JavaScript files in the minify
 * Fix Interface
 
 == Upgrade Notice ==
-* 3.2.2:* Cache - Allow debugging of which cache file is chosen. Premium - Cache - Serve cached content for logged in users, per role. Many and various tweaks and fixes; a recommended update for all.
+* 3.2.3: * Minify: Pre-generate assets. Cache - 'Purge cache permissions' setting does not allow additional roles to access the purge cache tool. Many and various tweaks and fixes; a recommended update for all.

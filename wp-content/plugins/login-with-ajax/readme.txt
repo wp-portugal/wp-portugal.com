@@ -1,41 +1,75 @@
 ﻿=== Login With Ajax ===
 Contributors: netweblogic
-Tags: login, ajax, ajax login, registration, redirect redirect, buddypress, multi site, sidebar, admin, widget
+Tags: login, ajax, ajax login, registration, redirect redirect, buddypress, multi site, sidebar, admin, widget, gutenberg, security, recaptcha
 Text Domain: login-with-ajax
 Requires at least: 4.8
 Tested up to: 5.9
-Stable tag: 3.1.11
+Stable tag: 4.0
 Requires PHP: 5.2
 License: GPLv2 or later
 
-Add smooth ajax login/registration effects and choose where users get redirected upon log in/out. Supports SSL, MultiSite, and BuddyPress.
+Add beautiful login forms with smooth AJAX login/registration effects, custom redrection options and many more login-related features!
 
 == Description ==
 
-Login With Ajax is for sites that need user logins or registrations and would like to avoid the normal wordpress login pages, this plugin adds the capability of placing a login widget in the sidebar with smooth AJAX login effects.
+<blockquote> Version 4 is a major overhaul of the plugin, which has remained largely unchanged for 11 years yet remained a staple tool for logins to WordPress! Changes include a complete rewrite of login templates updated to modern stadnards and practices, as well as new WP features such as Gutenberg Blocks. </blockquote>
+
+Login With Ajax is for sites that need user logins or registrations and would like to avoid the normal wordpress login pages, or add AJAX effects to the regular login pages. This plugin adds the capability of placing a login widget in the sidebar with smooth AJAX login effects.
 
 Some of the features:
 
-* AJAX-powered, no screen refreshes! 
+* AJAX-powered logins, no screen refreshes!
  * Login
  * Registration
  * Remember/Reset Password
+* "AJAXify" the regular WP Login form
+ * Create a better login experience in the default WP login form with AJAX effects for logins, password recovery and registration.
+* Many ways to display and customize your login form:
+ * Gutenberg Blocks
+ * Full-site editor compatible
+ * Widgets (classic and blocks)
+ * Shortcode
+ * Template Tags
+ * PHP API
+* Flexible templates and options
+ * Multiple templates to choose from
+  * Including Modal/Pop-Up login forms
+ * Responsive and Accessible!
+ * Choose a base color for each individual login form.
+ * Individual display options via all display methods (e.g. Gutenberg Blocks, Shortcode etc.)
+ * Create your own upgrade-safe templates, or override our own ones.
 * Custom Login/Logout redirections
  * Redirect users to custom URLs on Login and Logout
  * Redirect users with different roles to custom URLs
  * WPML - Language-specific redirects
-* SSL-compatible
-* Fallback mechanism, will still work on javascript-disabled browsers
-* Compatible with Wordpress, MultiSite, BuddyPress and many other plugins that alter the login/registration form (e.g. captcha plugins)
-* Customizable, upgrade-safe widgets
-* shortcode and template tags available
-* Widget specific option to show link to profile page
+* Modify registration email templates
+* Other Features
+ * Disable CSS styling (via shortcode or PHP display methods)
+ * SSL-compatible
+ * Fallback mechanism, will still work on javascript-disabled browsers
+ * Compatible with Wordpress, MultiSite, BuddyPress and many other plugins
+* Developer Friendly
+ * Multiple PHP and JS hooks
+ * Overridable CSS and JS files
+ * Easy-to-customize and overridable template files
+ * Well-documented
 
-If you have any problems with the plugin after reading the FAQ, Other Notes, etc. please visit the [support forums](http://wordpress.org/support/plugin/login-with-ajax).
+= Pro Add-On Features =
+As of version 4.0, [we now offer a Pro add-on](https://loginwithajax.com/) which extends Login With AJAX with multiple new features:
 
-= Translated Languages Available =
+* *Security Features* - Harden the security of your login forms
+ * 2FA - Two-Factor Authentication
+ * reCaptcha (v2, v2 Invisible and v3)
+ * Login limiter
+* *3rd Party Page Builder Blocks/Widgets/Modules*
+ * Divi
+ * Elementor
+* More on the way!
 
-To view translated languages avaialble or to contribute translations in your language, visit the [WordPress translation portal](https://translate.wordpress.org/projects/wp-plugins/login-with-ajax/). Any translated languages over 90% will be automatically installed with the plugin, for other languages not fully translated, please see our FAQ.
+= Getting Help/Support =
+If you're stuck, we strongly suggest visiting our [Documentation Site](https://docs.loginwithajax.com/) which contains exensive information and advice on setup and troubleshooting.
+
+If you have any problems with the plugin after reading our [Troubleshooting](https://doocs.loginwithajax.com/troubleshooting/), please visit our freely supported [community forums](http://wordpress.org/support/plugin/login-with-ajax), or [Go Pro](https://loginwithajax.com/gopro/) for premium support.
 
 == Installation ==
 
@@ -45,94 +79,40 @@ To view translated languages avaialble or to contribute translations in your lan
 
 3. If you want login/logout redirections, go to Settings > Login With Ajax in the admin area and fill out the form.
 
-4. Add the login with ajax widget to your sidebar, [lwa] on your pages, or use login_with_ajax() in your template.
+4. Add the login with ajax widget to your sidebar, add a Gutenberg block or [lwa] on your pages, or use login_with_ajax() in your template.
 
-5. Happy logging in!
-
-== Upgrade Notice ==
-
-= Upgrading from v3 to v3.1 =
-Due to the improvmenets necessary (specifically allowing multiple LWA widgets on one page), it was important to modify the template files to use classnames instead of ids.
-
-If you have customized your widgets as per the instructions below, you will need make some modifications to your templates, and probably re-evaluate whether you still need custom JS if you went that far.
-
-We've tried to minimize potential conflicts arising from this, but you should consider revising your template regarding these two points:
-
-* LoginWithAjax is now a static class, so things like $this->function() and $this->variable should become LoginWithAjax::function() and LoginWithAjax::$variable
-* Element IDs are now classnames, and are converted like so (we do have backwards compatibility to account for this, but still recommended):
- * LoginWithAjax becomes lwa
- * classname is all lowercase
- * underscores become hyphens
- * Example : LoginWithAjax_Form > lwa-form
+5. For more options and installation instructions, see our [documentation site](https://docs.loginwithajax.com/getting-started/).
 
 == Notes ==
 
-= Shortcodes & Template Tags =
-
-You can use the [shortcode](http://codex.wordpress.org/Shortcode) [login-with-ajax] or [lwa] and [template tag](http://codex.wordpress.org/Template_Tags) `login_with_ajax()` with these options :
-
-* profile_link - (1 or 0)
- * If value is 1 (default), a profile link to wp-admin appears.
-* registration - (1 or 0)
- * If value is 1 (default), a registration link appears, providing you have registration enabled in your WP settings.
-* template - (template name/directory)
- * If this template directory exists, this template will be used. Default is 'default' template.
-* remember - (1 or 0)
- * If value is 1 (default), a remember password link appears for password recovery
-* redirect
- * Successful logins are redirected to this URL
-
-= Multilingual Support =
-
-We have WPML compatiblity with regards to login/logout redirects. Aside from custom redirect links for each language, you can also use the %LANG% placeholder to dynamically insert the language fragment used to build URLs, such as *en* for English or *es* for Spanish.
- 
-= SSL Logins =
-
-To force SSL, see [http://codex.wordpress.org/Administration_Over_SSL]("this page"). The plugin will automatically detect the wordpress settings.
-
-= Customizing the Widget =
-You can customize the html widgets in an upgrade-safe manner by copying files and editing them within your theme. Firstly, you need to understand how Login With Ajax loads templates:
-
-* When looking for files/templates there is an order of precedence - active child theme (if applicable), active parent themes, and finally the plugin folder:
-  * `wp-content/themes/your-theme/plugins/login-with-ajax/`
-  * `wp-content/themes/parent-theme/plugins/login-with-ajax/`
-  * `wp-content/plugins/login-with-ajax/widget/`
-
-* Login With Ajax loads only one CSS and JS file which contains code for all templates. The plugin checks the locations above and loads the one it finds first. The default files are:
- * `wp-content/plugins/login-with-ajax/widget/login-with-ajax.js`
- * `wp-content/plugins/login-with-ajax/widget/widget.css`
- 
-* One caveat for JavaScript files, if you've enabled WP_DEBUG, then LWA will look for a file called `login-with-ajax.source.js`, a non-minified version of the normal JS file.
-
-* Login With Ajax then checks for template folders which are loaded according to the preference highlighted above.
-  * When a user is logged out, the `widget_out.php` will be used.
-  * If logged out, then `widget_in.php` will be used
-  * If either of these files don't exist in your template, the one located in the default folder will be used (which you can also override in your theme). 
-  
-**Examples**
-
-If you wanted to change some text on the default theme, you could simply copy `wp-content/plugins/login-with-ajax/widget/default` to `wp-content/themes/yourtheme/plugins/login-with-ajax/default` and edit the files as needed.
-
-If you need to change the CSS file, copy the file `wp-content/plugins/login-with-ajax/widget/widget.css` over to `wp-content/themes/yourtheme/plugins/login-with-ajax/widget.css` and edit accordingly.
-
-The JavaScript ajax magic relies on the class names and hierarchical structure within the template files, if you want to modify the templates without adding your own JS, make sure you keep these class names and structure intact.
+Please visit our [documentation site](https://docs.loginwithajax.com), which is regularly and extensively maintained and updated with all the information relevant to getting started, advanced setup and troubleshooting common issues.
 
 == Screenshots ==
 
-1. Add a  fully customizable login widget to your sidebars.
+1. Beautiful, responsive login forms with smooth AJAX login effects.
 
-2. Smoothen the process via ajax login, avoid screen refreshes on failures.
+2. Multiple templates to choose from, such as the minimalistic theme.
 
-3. If your login is unsuccessful, user gets notified without loading a new page!
+3. Modal template variations allow for popup login forms.
 
-4. Customizable login/logout redirection settings.
+4. Switch between login, registration and password recovery without leaving the page!
 
-5. Choose what your users see once logged in.
+5. Compatible with the WP Block and Full Site Editor (aka Gutenberg)
+
+6. AJAXify the regular WP login form
+
+7. Multitude of settings to customize the login experience, including redirects and email notifications
+
+8. Another login template, based on the default template from v3 and earlier.
+
+9. The original login template, no styling running on Twenty Twenty
 
 == Frequently Asked Questions ==
 
-= Language Support =
-If your language has been translated 90% or more on the [translate.wordpress.org project page](https://translate.wordpress.org/projects/wp-plugins/login-with-ajax/), then your language translation of Login With Ajax should be automatically installed and maintained by WordPress.
+= Language/Translation Support =
+Login With AJAX is fully translated in over 20 languages, partially translated in many more! Our translations are maintained by volunteers, you can also contribute to these translations.
+
+To view translated languages avaialble or to contribute translations in your language, visit the [WordPress translation portal](https://translate.wordpress.org/projects/wp-plugins/login-with-ajax/). Any translated languages over 90% will be automatically installed with the plugin, for other languages not fully translated, see below:
 
 If not, you can also manually install this, we'll use Russian as an example:
 
@@ -144,25 +124,40 @@ If not, you can also manually install this, we'll use Russian as an example:
 
 We suggest you contribute to the WordPress translation project page, anyone with a registered wordpress.org account can suggest new translations!
 
-= The registration link doesn't show! What's wrong? =
-Before you start troubleshooting, make sure your blog has registrations enabled via the admin area (Settings > General) and that your widget has the registration link box checked.
+= I'm Upgrading from v3 to v4, what should I watch out for? =
+Generally speaking, the majority of users will have a seamless upgrade, and go into 'legacy mode' to help with the transition.
 
-= AJAX Registrations don't work! What's wrong? =
-Firstly, you should make sure that you can register via the normal wp-admin login, if something goes wrong there the problem is not login with ajax. Please note that currently there is no AJAX registration with BuddyPress due to it rewriting the login area (this will be resolved soon).
+= Do I need Pro to get a great login experience? =
+Absolutely not! We have been providing a freely supported and maintained plugin since 2009(!), and have every intention on keeping it that way; a great and comprehensive login plugin with beautiful AJAX effects with solid support on free support forums.
 
-= How can I customize the login widget? =
-See the notes section about customizing a widget.
+We do not intend to limit any sort of functionality in the free version, quite the opposite, we hope to improve it over time as we have done so since the start.
 
-= How do I use SSL with this plugin? =
-Yes, see the notes section.
+That said, doing so takes a lot of time and work, therefore we're offering a Pro version with *additional features* to enhance the login/registration experience and secure your site, along with a more dedicated level of support which we can't offer on the wordpress.org forums. This will enable us to not only keep adding new features, but also maintain a freely supported plugin.
 
-= Do you have a shortcode or template tag? =
-Yes, see the notes section.
+= Something isn't working, what do I do? =
+Check out our [troubleshooting](https://docs.loginwithajax.com/troubleshooting/) and [FAQ](https://docs.loginwithajax.com/faq/) sections, they're both a great place to start. Our [documentation](https://docs.loginwithajax.com) is also likely to answer your questions concering initial setup and customization, if not you can obtain support via our free forums or get in touch directly as a Pro customer.
 
-For further questions and answers (or to submit one yourself) go to our [https://wordpress.org/support/plugin/login-with-ajax/](support forums).
-
+= Where do I go for support? =
+We recommend first visiting our [documentation site](https://docs.loginwithajax.com) which includes a troubleshooting section. IF you have a question or comment, we're available both on our [community forums](https://wordpress.org/support/plugin/login-with-ajax/) which we monitor regularly, as well as our [Pro support](https://loginwithajax.com/gopro/) for dedicated one-to-one support.
 
 == Changelog ==
+= 4.0.1 =
+* fixed 'unexpected ‘const’ (T_CONST)' PHP error for PHP versions < 7.1
+* fixed PHP error when using shortcodes
+
+= 4.0 =
+* Major rewrite, see our migration guide for more information.
+* Improvements to JS and minified JS production files
+* Adding SCSS and minified versions of all CSS
+* Overhaul of templates
+* Added /wp-content/plugin-templates/login-with-ajax/ as a login template directory
+* Added legacy mode for supporting previous templates
+* Added AJAXification of the default WP login, registration and password recovery forms.
+* Added block editor support (gutenberg, widgets, FSE)
+* Changed spinner to SVG
+* Added base color palette picker for native templates
+* Many other minor improvements to code
+
 = 3.1.11 =
 * replaced deprecated JS functions due to jQuery 3.5 transition in WordPress 5.6-7
 

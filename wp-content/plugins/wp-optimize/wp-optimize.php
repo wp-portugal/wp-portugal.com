@@ -3,7 +3,7 @@
 Plugin Name: WP-Optimize - Clean, Compress, Cache
 Plugin URI: https://getwpo.com
 Description: WP-Optimize makes your site fast and efficient. It cleans the database, compresses images and caches pages. Fast sites attract more traffic and users.
-Version: 3.2.2
+Version: 3.2.3
 Update URI: https://wordpress.org/plugins/wp-optimize/
 Author: David Anderson, Ruhani Rabin, Team Updraft
 Author URI: https://updraftplus.com
@@ -16,7 +16,7 @@ if (!defined('ABSPATH')) die('No direct access allowed');
 
 // Check to make sure if WP_Optimize is already call and returns.
 if (!class_exists('WP_Optimize')) :
-define('WPO_VERSION', '3.2.2');
+define('WPO_VERSION', '3.2.3');
 define('WPO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('WPO_PLUGIN_MAIN_PATH', plugin_dir_path(__FILE__));
 define('WPO_PREMIUM_NOTIFICATION', false);
@@ -112,6 +112,8 @@ class WP_Optimize {
 	 * @return void
 	 */
 	public function detect_active_plugins_and_themes_updates($upgrader_object, $options) {
+		if (empty($options) || !isset($options['type'])) return;
+		
 		$should_purge_cache = false;
 		$skin = $upgrader_object->skin;
 		if ('plugin' === $options['type']) {
@@ -123,14 +125,14 @@ class WP_Optimize {
 			$active_theme = get_stylesheet();
 			$parent_theme = get_template();
 			// A theme is updated using the upload system
-			if ('install' === $options['action'] && 'update-theme' === $skin->options['overwrite']) {
+			if (isset($options['action']) && 'install' === $options['action'] && 'update-theme' === $skin->options['overwrite']) {
 				$updated_theme = $upgrader_object->result['destination_name'];
 				// Check if the theme is in use
 				if ($active_theme == $updated_theme || $parent_theme == $updated_theme) {
 					$should_purge_cache = true;
 				}
 			// A theme is updated using the classic update system
-			} elseif ('update' === $options['action'] && is_array($options['themes'])) {
+			} elseif (isset($options['action']) && 'update' === $options['action'] && isset($options['themes']) && is_array($options['themes'])) {
 				// Check if the theme is in use
 				if (in_array($active_theme, $options['themes']) || in_array($parent_theme, $options['themes'])) {
 					$should_purge_cache = true;
@@ -845,6 +847,7 @@ class WP_Optimize {
 				"js" => __('JavaScript', 'wp-optimize').'<span class="menu-pill disabled hidden">'.__('Disabled', 'wp-optimize').'</span>',
 				"css" => __('CSS', 'wp-optimize').'<span class="menu-pill disabled hidden">'.__('Disabled', 'wp-optimize').'</span>',
 				"font" => __('Fonts', 'wp-optimize'),
+				"preload" => __('Preload', 'wp-optimize'),
 				"settings" => __('Settings', 'wp-optimize'),
 				"advanced" => __('Advanced', 'wp-optimize')
 			),

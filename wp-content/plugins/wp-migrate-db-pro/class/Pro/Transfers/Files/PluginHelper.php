@@ -182,7 +182,7 @@ class PluginHelper
 
         $slashed  = $this->filesystem->slash_one_direction($abs_path);
         $date     = isset($_POST['date']) ? $state_data['date'] : null;
-        $timezone = isset($_POST['timezone']) ? $state_data['timezone'] : null;
+        $timezone = !empty($_POST['timezone']) ? $state_data['timezone'] : 'UTC';
 
         $folders = unserialize($state_data['folders']);
 

@@ -13,7 +13,7 @@ Plugin Name: EWWW Image Optimizer
 Plugin URI: https://wordpress.org/plugins/ewww-image-optimizer/
 Description: Reduce file sizes for images within WordPress including NextGEN Gallery and GRAND FlAGallery. Uses jpegtran, optipng/pngout, and gifsicle.
 Author: Exactly WWW
-Version: 6.4.1
+Version: 6.5.0
 Requires at least: 5.6
 Requires PHP: 7.2
 Author URI: https://ewww.io/
@@ -28,27 +28,15 @@ if ( ! defined( 'EWWW_IO_CLOUD_PLUGIN' ) ) {
 	define( 'EWWW_IO_CLOUD_PLUGIN', false );
 }
 
-if ( ! defined( 'EWWW_IMAGE_OPTIMIZER_TOOL_PATH' ) ) {
-	/**
-	 * The folder where we install optimization tools - MUST have a trailing slash.
-	 *
-	 * @var string EWWW_IMAGE_OPTIMIZER_TOOL_PATH
-	 */
-	define( 'EWWW_IMAGE_OPTIMIZER_TOOL_PATH', WP_CONTENT_DIR . '/ewww/' );
-}
 
 // Check the PHP version.
 if ( ! defined( 'PHP_VERSION_ID' ) || PHP_VERSION_ID < 70200 ) {
 	add_action( 'network_admin_notices', 'ewww_image_optimizer_unsupported_php' );
 	add_action( 'admin_notices', 'ewww_image_optimizer_unsupported_php' );
-	// Loads the plugin translations.
-	add_action( 'plugins_loaded', 'ewww_image_optimizer_false_init' );
 } elseif ( defined( 'EWWW_IMAGE_OPTIMIZER_VERSION' ) ) {
 	// Prevent loading both EWWW IO plugins.
 	add_action( 'network_admin_notices', 'ewww_image_optimizer_dual_plugin' );
 	add_action( 'admin_notices', 'ewww_image_optimizer_dual_plugin' );
-	// Loads the plugin translations.
-	add_action( 'plugins_loaded', 'ewww_image_optimizer_false_init' );
 } elseif ( false === strpos( add_query_arg( null, null ), 'ewwwio_disable=1' ) ) {
 	/**
 	 * The full path of the plugin file (this file).
@@ -80,6 +68,31 @@ if ( ! defined( 'PHP_VERSION_ID' ) || PHP_VERSION_ID < 70200 ) {
 	 * @var string EWWW_IMAGE_OPTIMIZER_IMAGES_PATH
 	 */
 	define( 'EWWW_IMAGE_OPTIMIZER_IMAGES_PATH', plugin_dir_path( __FILE__ ) . 'images/' );
+	if ( ! defined( 'EWWW_IMAGE_OPTIMIZER_TOOL_PATH' ) ) {
+		if ( ! defined( 'EWWWIO_CONTENT_DIR' ) ) {
+			$ewwwio_content_dir = trailingslashit( WP_CONTENT_DIR ) . trailingslashit( 'ewww' );
+			if ( ! is_writable( WP_CONTENT_DIR ) || ! empty( $_ENV['PANTHEON_ENVIRONMENT'] ) ) {
+				$upload_dir = wp_get_upload_dir();
+				if ( false === strpos( $upload_dir['basedir'], '://' ) && is_writable( $upload_dir['basedir'] ) ) {
+					$ewwwio_content_dir = trailingslashit( $upload_dir['basedir'] ) . trailingslashit( 'ewww' );
+				}
+			}
+			/**
+			 * The folder where we store debug logs (among other things) - MUST have a trailing slash.
+			 *
+			 * @var string EWWW_IMAGE_OPTIMIZER_TOOL_PATH
+			 */
+			define( 'EWWWIO_CONTENT_DIR', $ewwwio_content_dir );
+		}
+		/**
+		 * The folder where we install optimization tools - MUST have a trailing slash.
+		 *
+		 * @var string EWWW_IMAGE_OPTIMIZER_TOOL_PATH
+		 */
+		define( 'EWWW_IMAGE_OPTIMIZER_TOOL_PATH', EWWWIO_CONTENT_DIR );
+	} elseif ( ! defined( 'EWWWIO_CONTENT_DIR' ) ) {
+		define( 'EWWWIO_CONTENT_DIR', EWWW_IMAGE_OPTIMIZER_TOOL_PATH );
+	}
 
 	/**
 	 * All the 'unique' functions for the core EWWW IO plugin.
@@ -133,12 +146,5 @@ if ( ! function_exists( 'ewww_image_optimizer_unsupported_php' ) ) {
 	 */
 	function ewww_image_optimizer_dual_plugin() {
 		echo "<div id='ewww-image-optimizer-warning-double-plugin' class='error'><p><strong>" . esc_html__( 'Only one version of the EWWW Image Optimizer can be active at a time. Please deactivate other copies of the plugin.', 'ewww-image-optimizer' ) . '</strong></p></div>';
-	}
-
-	/**
-	 * Runs on 'plugins_loaded' to load the language files when EWWW is not loading.
-	 */
-	function ewww_image_optimizer_false_init() {
-		load_plugin_textdomain( 'ewww-image-optimizer', false, plugin_dir_path( __FILE__ ) . 'languages/' );
 	}
 }

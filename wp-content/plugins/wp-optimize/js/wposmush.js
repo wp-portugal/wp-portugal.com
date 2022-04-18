@@ -1,17 +1,5 @@
 jQuery(function($) {
 	WP_Optimize_Smush = WP_Optimize_Smush();
-
-	$('#wpo_smush_details').on('click', '.wpo-collapsible', toggle_smush_details);
-	$('.column-wpo_smush').on('click', '.wpo-collapsible', toggle_smush_details);
-
-	function toggle_smush_details() {
-		$(this).toggleClass('opened');
-		if ($(this).hasClass('opened')) {
-			$(this).text(wposmush.less);
-		} else {
-			$(this).text(wposmush.more);
-		}
-	}
 });
 
 var WP_Optimize_Smush = function() {
@@ -523,6 +511,18 @@ var WP_Optimize_Smush = function() {
 			}
 		});
 	});
+
+	$('body').on('click', '#wpo_smush_details .wpo-collapsible', toggle_smush_details);
+	$('body').on('click', '.column-wpo_smush .wpo-collapsible', toggle_smush_details);
+
+	function toggle_smush_details() {
+		$(this).toggleClass('opened');
+		if ($(this).hasClass('opened')) {
+			$(this).text(wposmush.less);
+		} else {
+			$(this).text(wposmush.more);
+		}
+	}
 
 	$('body').on('click', '#smush-log-modal .close, #smush-information-modal .information-modal-close', function() {
 		$.unblockUI();

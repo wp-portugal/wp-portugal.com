@@ -1,0 +1,416 @@
+// Basic Styles for all Themes
+.lwa-wrapper {
+  position: relative !important;
+
+  .lwa-is-working {
+    opacity: 0.2 !important;
+  }
+
+  .lwa-loading {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: url(loading.svg) 50% 45% no-repeat !important;
+    left: 0 !important;
+    top: 0 !important;
+    background-size: 150px 150px !important;
+  }
+
+  .lwa {
+    // Note that this is a span, allowing something like a DIV to enjoy JS functionality without the styling like in AJAXify
+    span.lwa-status {
+      padding: 15px !important;
+      margin-bottom: 20px !important;
+      border: 1px solid transparent !important;
+      border-radius: 2.5px !important;
+      display: none !important;
+
+      &.lwa-status-invalid, &.lwa-status-confirm {
+        display: block !important;
+      }
+
+      &.lwa-status-invalid {
+        color: #842029 !important;
+        background-color: #f8d7da !important;
+        border-color: #f5c2c7 !important;
+      }
+
+      &.lwa-status-confirm {
+        color: #0f5132 !important;
+        background-color: #d1e7dd !important;
+        border-color: #badbcc !important;
+      }
+    }
+
+    /* Titles */
+    .lwa-title {
+      font-weight: bold !important;
+      font-size: 18px !important;
+      margin-bottom: 15px !important;
+    }
+  }
+}
+
+//#lwa-1.lwa-bones, #lwa-2.lwa-bones, #lwa-3.lwa-bones,
+.lwa-bones {
+  @import "../assets/css/pixelbones";
+
+  --avatar-size : 60px;
+  --avatar-rounded : 50%;
+  --links-case : none;
+
+  .lwa {
+    margin-bottom: 10px !important;
+
+    p {
+      margin-bottom: 20px !important;
+    }
+  }
+
+  .lwa.lwa-login {
+    /* Links */
+    .lwa-links a {
+      display: block !important;
+      margin: 8px 0 0 0 !important;
+      padding: 0 !important;
+      text-transform: var(--links-case) !important;
+    }
+
+    /*Forgotten password*/
+    .lwa-remember {
+      margin-top: 10px !important;
+      display: none;
+    }
+
+    /*Registration*/
+    .lwa-register {
+      margin-top: 10px !important;
+      display: none;
+    }
+
+    /*OpenID specific*/
+    .lwa-register hr {
+      display: block !important;
+    }
+
+    .lwa-register #openid_identifier {
+      width: auto !important;
+    }
+
+    .grid-container.submit {
+      text-align: left !important;
+      grid-template-columns: 50% 1fr !important;
+      padding: 0 !important;
+    }
+
+    .grid-container.submit .lwa-links {
+      text-align: right !important;
+    }
+  }
+
+  // logged out theme - all templates from LWA share this (currently)
+  .lwa-logged-in {
+    --links-case : lowercase;
+
+    /*Logged In CSS*/
+    .lwa-avatar {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .lwa-avatar.rounded img {
+      border-radius: var(--avatar-rounded) !important;
+    }
+
+    .lwa-info a {
+      text-transform: var(--links-case) !important;
+    }
+
+    .lwa-info > p {
+      margin: 0 0 2px !important;
+      padding: 0 !important;
+    }
+
+    .grid-container {
+      text-align: left !important;
+      grid-template-columns: calc(var(--avatar-size) + 10px) 1fr !important;
+      padding: 0 !important;
+    }
+
+    &.vertical {
+      text-align: center !important;
+
+      .grid-container {
+        display: block !important;
+        width : 100% !important;
+        text-align: center !important;
+      }
+
+      .grid-container > div {
+        margin : 0 0 20px 0 !important;
+      }
+
+      .lwa-avatar img {
+        display : block !important;
+        margin : 0 auto 0 !important;
+      }
+    }
+  }
+
+  // Minimalistic Theme
+  .lwa-minimalistic {
+    .input-field {
+      position: relative !important;
+      margin-bottom: 10px !important;
+
+      label {
+        font-size: 80% !important;
+        position: absolute !important;
+        top: calc(50% - 10px) !important;
+        left: 0 !important;
+        opacity: 0 !important;
+        transition: all .3s ease !important;
+      }
+
+      input[type=text], input[type=password] {
+        padding: 10px 0 0 !important;
+        height: 50px !important;
+        border: none !important;
+        border-bottom: solid 1px var(--border-color-softer) !important;
+        background: transparent !important;
+        box-sizing: border-box !important;
+        transition: all .3s linear !important;
+        border-radius: 0 !important;
+
+        &:focus {
+          border: 0 !important;
+          border-bottom: solid 1px var(--border-color) !important;
+          outline: 0 !important;
+          box-shadow: 0 2px 6px -8px var(--border-color-normal) !important;
+        }
+      }
+
+      input:not(:placeholder-shown) {
+        padding: 28px 0 12px 0 !important;
+      }
+
+      input:not(:placeholder-shown) + label {
+        transform: translateY(-20px) !important;
+        opacity: .7 !important;
+      }
+    }
+  }
+}
+
+// Modal Theme
+//
+.lwa-modal-overlay {
+  // Modal popup inspired by https://codepen.io/nainoashizuru/pen/PwJZVa/
+  // Variables
+  $speed: 0.6s;
+  $delay: ($speed * .5);
+  $easing: cubic-bezier(.55, 0, .1, 1);
+
+  // Overlay -- only show for tablet and up
+  @media only screen and (min-width: 40rem) {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 99998 !important;
+    background-color: rgba(#000, 0.6) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    backface-visibility: hidden !important;
+    transition: opacity $speed $easing, visibility $speed $easing !important;
+    -webkit-transition: opacity $speed $easing, visibility $speed $easing !important;
+    transition-delay: $delay !important;
+
+    &.active {
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+  }
+
+  // Modal
+  .lwa-modal-popup {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    background-color: #fff !important;
+    width: 600px !important;
+    max-width: 750px !important;
+    min-height: 200px !important;
+    padding: 10px !important;
+    border-radius: 3px !important;
+    opacity: 0 !important;
+    overflow-y: auto !important;
+    visibility: hidden !important;
+    box-shadow: 0 2px 10px rgba(#000, 0.1) !important;
+    backface-visibility: hidden !important;
+    transform: scale(1.2) !important;
+    transition: all $speed $easing !important;
+    z-index: 99999 !important;
+
+
+    // close modal
+    .lwa-close-modal {
+      position: absolute !important;
+      cursor: pointer !important;
+      top: 15px !important;
+      right: 15px !important;
+      opacity: 0 !important;
+      backface-visibility: hidden !important;
+      transition: opacity $speed $easing, visibility $speed $easing !important;
+      -webkit-transition: opacity $speed $easing, visibility $speed $easing !important;
+      transition-delay: $delay !important;
+    }
+
+    svg {
+      width: 17.5px !important;
+      height: 17.5px !important;
+    }
+
+    // content
+    .lwa-modal-content {
+      opacity: 0 !important;
+      backface-visibility: hidden !important;
+      transition: opacity $speed $easing !important;
+      transition-delay: $delay !important;
+      width:100% !important;
+      margin:20px 5px 5px !important;
+
+      .lwa-form .lwa-title { display:block !important; }
+
+      form { margin-bottom: 0 !important; }
+    }
+
+    &.active {
+      visibility: visible !important;
+      opacity: 1 !important;
+      transform: scale(1) !important;
+
+      .lwa-modal-content, .lwa-close-modal {
+        opacity: 1 !important;
+      }
+    }
+
+    /**
+     * Mobile styling for popups
+     */
+    @media only screen and (max-width: 39.99rem) {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      -webkit-overflow-scrolling: touch !important;
+      border-radius: 0 !important;
+      transform: scale(1.1) !important;
+      padding: 5px !important;
+
+      .lwa-close-modal {
+        top: 0 !important;
+        right: 10px !important;
+
+        svg{
+          width:28px !important;
+          height:28px !important;
+        }
+      }
+    }
+  }
+}
+
+// Classic Template
+.lwa-wrapper {
+  .lwa-classic-vanilla {
+      .lwa-form, .lwa-register > form {
+        grid-row-gap: 10px !important;
+
+        > * {
+          grid-column-gap: 10px !important;
+        }
+      }
+
+      .lwa-links-register-inline-cancel {
+          align-self: center !important;
+      }
+
+      .lwa-links > * {
+          display: block !important;
+      }
+
+      .lwa-links > label {
+          margin-bottom: 0 !important;
+      }
+
+      .lwa-links label .label-body {
+          display: inline-block !important;
+          padding-left: 10px !important;
+          font-size: 85% !important;
+          vertical-align: top !important;
+      }
+
+      .lwa-remember-email input {
+          width: 96% !important;
+      }
+
+      .lwa-remember-email {
+          margin-bottom:10px !important;
+      }
+
+      .lwa-title {
+          font-size:110% !important;
+      }
+  }
+
+  .lwa-classic, .lwa-classic-vanilla {
+
+      .lwa-register > form p:nth-child(-n + 2) {
+        display: block !important;
+        margin-bottom:10px !important;
+      }
+
+      .lwa-register .lwa-submit-button {
+        display: block !important;
+      }
+
+      .lwa-remember-email label {
+          border: 0 !important;
+          clip: rect(1px 1px 1px 1px) !important; /* IE6, IE7 */
+          clip: rect(1px, 1px, 1px, 1px) !important;
+          height: 1px !important;
+          margin: -1px !important;
+          overflow: hidden !important;
+          padding: 0 !important;
+          position: absolute !important;
+          width: 1px !important;
+      }
+
+      .lwa-form, .lwa-register > form {
+        display: grid; // can't be important or it won't slide
+        grid-template-rows: 1fr !important;
+
+        > * {
+          display: grid !important;
+          grid-template-columns: 1fr 3fr !important;
+        }
+        .input-field label {
+          align-self: center !important;
+        }
+      }
+  }
+
+  .lwa-classic {
+      .lwa-register .lwa-submit-button {
+          grid-template-columns: 1fr 1fr 2fr !important;
+      }
+  }
+}

@@ -113,7 +113,7 @@ class BetaManager
      */
     public function add_js_strings($strings)
     {
-        $strings['rollback_beta_to_stable'] = __('Would you like to rollback WP Migrate DB Pro and its addons to the latest stable release now?', 'wp-migrate-db');
+        $strings['rollback_beta_to_stable'] = __('Would you like to rollback WP Migrate to the latest stable release now?', 'wp-migrate-db');
 
         return $strings;
     }

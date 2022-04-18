@@ -30,7 +30,7 @@ function wp_migrate_db_pro(){
 
 function wpmdb_pro_cli_loaded() {
 	// register with wp-cli if it's running, and command hasn't already been defined elsewhere
-	if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( '\DeliciousBrains\WPMDB\Pro\Cli\Command' ) && ! class_exists( '\DeliciousBrains\WPMDBCli\Command' ) ) {
+	if ( defined( 'WP_CLI' ) && WP_CLI && class_exists( '\DeliciousBrains\WPMDB\Pro\Cli\Command' ) && ! class_exists( '\DeliciousBrains\WPMDB\Pro\Cli\Extra\Command' ) ) {
 		\DeliciousBrains\WPMDB\Pro\Cli\Command::register();
 	}
 }

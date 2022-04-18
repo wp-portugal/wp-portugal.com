@@ -54,7 +54,7 @@ class FileProcessor
      *
      * @return array
      */
-    public function get_local_files($directories, $abs_path = '', $excludes = array(), $stage = '', $date = null, $timezone = null, $intent = null)
+    public function get_local_files($directories, $abs_path = '', $excludes = array(), $stage = '', $date = null, $timezone = 'UTC', $intent = null)
     {
         $count      = 0;
         $total_size = 0;

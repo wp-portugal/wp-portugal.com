@@ -145,7 +145,7 @@ class RegisterPro
         $this->backups_manager->register();
         $this->remote_updates_manager->register();
 
-        if (!class_exists('\DeliciousBrains\WPMDBCli\Cli')) {
+        if (!class_exists('\DeliciousBrains\WPMDB\Pro\Cli\Extra\Cli')) {
             $this->cli_export->register();
         }
     }

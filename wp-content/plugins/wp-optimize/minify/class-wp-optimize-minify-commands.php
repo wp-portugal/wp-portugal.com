@@ -2,6 +2,7 @@
 if (!defined('ABSPATH')) die('No direct access allowed');
 
 if (!class_exists('WP_Optimize_Minify_Config')) require_once(dirname(__FILE__) . '/class-wp-optimize-minify-config.php');
+if (!class_exists('WP_Optimize_Minify_Preloader')) require_once(dirname(__FILE__) . '/class-wpo-minify-preloader.php');
 
 /**
  * All cache commands that are intended to be available for calling from any sort of control interface (e.g. wp-admin, UpdraftCentral) go in here. All public methods should either return the data to be returned, or a WP_Error with associated error code, message and error data.
@@ -177,5 +178,33 @@ class WP_Optimize_Minify_Commands {
 			'html' => $config['html_minification'],
 			'stats' => $this->get_minify_cached_files()
 		);
+	}
+
+	/**
+	 * Run minify preload action.
+	 *
+	 * @return void|array - Doesn't return anything if run() is successfull (Run() prints a JSON object and closed browser connection) or an array if failed.
+	 */
+	public function run_minify_preload() {
+		return WP_Optimize_Minify_Preloader::instance()->run('manual');
+	}
+	
+	/**
+	 * Cancel minify preload action.
+	 *
+	 * @return array
+	 */
+	public function cancel_minify_preload() {
+		WP_Optimize_Minify_Preloader::instance()->cancel_preload();
+		return WP_Optimize_Minify_Preloader::instance()->get_status_info();
+	}
+
+	/**
+	 * Get status of minify preload.
+	 *
+	 * @return array
+	 */
+	public function get_minify_preload_status() {
+		return WP_Optimize_Minify_Preloader::instance()->get_status_info();
 	}
 }

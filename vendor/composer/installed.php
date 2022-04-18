@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'a9c1d6b420eeb4ab9aeb6ac46218648abbe63234',
+        'reference' => 'd95a187e6a12092f5ad17324e52036025ee029f4',
         'name' => 'wp-portugal/wp-portugal.com',
         'dev' => true,
     ),
@@ -133,7 +133,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'a9c1d6b420eeb4ab9aeb6ac46218648abbe63234',
+            'reference' => 'd95a187e6a12092f5ad17324e52036025ee029f4',
             'dev_requirement' => false,
         ),
         'wpackagist-plugin/akismet' => array(
