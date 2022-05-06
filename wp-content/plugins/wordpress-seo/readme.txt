@@ -5,7 +5,7 @@ License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 Tags: SEO, XML sitemap, Content analysis, Readability, Schema
 Tested up to: 5.9
-Stable tag: 18.5.1
+Stable tag: 18.8
 Requires PHP: 5.6.20
 
 Improve your WordPress SEO: Write better content and have a fully optimized WordPress site using the Yoast SEO plugin.
@@ -236,62 +236,30 @@ Your question has most likely been answered on our help center: [yoast.com/help/
 
 == Changelog ==
 
-= 18.5.1 =
-Release Date: April 5th, 2022
+= 18.8 =
+Release Date: May 6th, 2022
 
-Bugfixes:
-
-* Fixes a bug where a fatal error would occur on the site health page if WordFence was installed and active.
-* Fixes a bug where a fatal error would occur on PHP 5.6.
-
-= 18.5 =
-Release Date: April 5th, 2022
-
-Say hi to Yoast SEO 18.5! You'll find a number of fixes and enhancements. We've also included more improvements to the rebuild of the AIOSEO importer we introduced a few weeks ago. Happy updating! Read more about what's new in Yoast SEO 18.5 in [our release post in English](https://yoa.st/release-5-4-22) or [our release post in Spanish](https://yoa.st/release-5-4-22-spanish)!
+Did you catch the latest update from Google? Today they made some small changes to how they read XML sitemaps. But you don’t have to worry about that - today's Yoast SEO 18.8 update already applies the latest standards. Read more about what's new in Yoast SEO 18.8 in [our release post in English](https://yoa.st/release-6-5-22) or [our release post in Spanish](https://yoa.st/release-6-5-22-spanish)!
 
 Enhancements:
 
-* Adds a preliminary validation of All-in-One SEO data before importing it into Yoast SEO.
+* Removes XML sitemap image properties `title` and `caption` following deprecation by Google.
 
-Bugfixes:
+= 18.7 =
+Release Date: May 3rd, 2022
 
-* Fixes a bug where the URL preview inside the snippet editor would not consistently reflect the permalink in the Block editor.
-* Fixes a bug where the Customize URL would be incorrectly escaped in our health checks. Props to [BronsonQuick](https://github.com/BronsonQuick).
-* Fixes a bug where in certain edge cases a database error would show during clean-up of All-in-One SEO data.
-* Fixes a bug where reusable block content would not be updated in our analysis when changed in the editor.
-* Fixes a bug where an error about incorrect values in the indexables table would be displayed on certain database setups. Props to [junaidbhura](https://github.com/junaidbhura).
-* Fixes a bug where a fatal error would be displayed in the Search Appearance options when using WordPress version 5.8.3 and below with themes without title-tag support.
-* Fixes a bug where sitemap locations would change once the number of entries exceeded that of the first page.
-* Fixes a bug where Yoast modals would close after opening after editing content in Elementor.
-
-Other:
-
-* Sets the minimum required WordPress version to 5.8.
-
-= 18.4.1 =
-Release Date: March 22nd, 2022
-
-Other:
-
-* Reverts the 18.4 release due to errors in the WordProof integration.
-
-= 18.4 =
-Release Date: March 22nd, 2022
-
-In Yoast SEO 18.4, we're launching a new integration with an innovative new service called [WordProof](https://wordproof.com/). WordProof offers a way to add timestamps to your content and add those to the blockchain to prove ownership. Try it out now! Read more about what's new in Yoast SEO 18.4 in [our release post in English](https://yoa.st/release-22-3-22) or [our release post in Spanish](https://yoa.st/release-22-3-22-spanish)!
+Meet Yoast SEO 18.7: a small Yoast SEO update, fixing several bugs and adding enhancements. We improved our Schema structured data implementation in this release and fine-tuned our SEO analyses. Read more about what's new in Yoast SEO 18.7 in [our release post in English](https://yoa.st/release-3-5-22) or [our release post in Spanish](https://yoa.st/release-3-5-22-spanish)!
 
 Enhancements:
 
-* Adds the possibility to timestamp your Privacy Policy page and your WooCommerce Terms and Conditions page by use of a WordProof certificate.
+* Improves the Schema by changing the `@id` for images for `Person` and `Organization` including the `logo` attribute for the latter, to have a more proper format.
+* Adds a `wpseo_schema_graph` filter to allow filtering the entire Schema graph.
+* Removes penalising for H1 that is not at the beginning of the text body.
 
 Bugfixes:
 
-* Fixes a bug where the Google preview would display wrong breadcrumbs for child pages.
-* Fixes a potential error related to the `has_ancestors` column of our indexables table. Props to @junaidbhura.
-
-Other:
-
-* Sets the minimum required WordPress version to 5.8.
+* Fixes a bug in the Schema where the `thumbnailUrl` attribute of the `Article` object would be wrong if the post had an Open Graph or Twitter image.
+* Fixes typos of several types in brand names and the word metadata. Props to [NekoJonez](https://github.com/NekoJonez).
 
 = Earlier versions =
 For the changelog of earlier versions, please refer to [the changelog on yoast.com](https://yoa.st/yoast-seo-changelog).
