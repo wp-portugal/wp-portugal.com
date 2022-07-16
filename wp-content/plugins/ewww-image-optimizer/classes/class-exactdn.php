@@ -1506,10 +1506,10 @@ if ( ! class_exists( 'ExactDN' ) ) {
 								// Replace original tag with modified version.
 								$content = str_replace( $images['img_tag'][ $index ], $new_tag, $content );
 							}
-						}
-					}
-				} // End foreach().
-			} // End if();
+						} // End if() -- no srcset or sizes attributes found.
+					} // End if() -- not a feed and EIO_SRCSET_FILL enabled.
+				} // End foreach() -- of all images found in the page.
+			} // End if() -- we found images in the page at all.
 
 			// Process <a> elements in the page for image URLs.
 			$content = $this->filter_image_links( $content );
@@ -1864,6 +1864,9 @@ if ( ! class_exists( 'ExactDN' ) ) {
 				return true;
 			}
 			if ( ! empty( $_POST['action'] ) && 'filter_listing' === $_POST['action'] && ! empty( $_POST['layout'] ) && ! empty( $_POST['paged'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
+				return true;
+			}
+			if ( ! empty( $_POST['action'] ) && 'load_more_posts' === $_POST['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 				return true;
 			}
 			if ( ! empty( $_POST['action'] ) && 'mabel-rpn-getnew-purchased-products' === $_POST['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
@@ -2682,6 +2685,12 @@ if ( ! class_exists( 'ExactDN' ) ) {
 				add_filter( 'exactdn_override_image_downsize', '__return_true', PHP_INT_MAX );
 				add_filter( 'exactdn_skip_image', '__return_true', PHP_INT_MAX ); // This skips existing srcset indices.
 				add_filter( 'exactdn_srcset_multipliers', '__return_false', PHP_INT_MAX ); // This one skips the additional multipliers.
+			} elseif ( is_string( $route ) && false !== strpos( $route, 'wp/v2/media/' ) && ! empty( $request['context'] ) && 'view' === $request['context'] ) {
+				$this->debug_message( 'REST API media endpoint (could be post editor with WP >= 6.0)' );
+				// We don't want ExactDN urls anywhere near the editor, so disable everything we can.
+				add_filter( 'exactdn_override_image_downsize', '__return_true', PHP_INT_MAX );
+				add_filter( 'exactdn_skip_image', '__return_true', PHP_INT_MAX ); // This skips existing srcset indices.
+				add_filter( 'exactdn_srcset_multipliers', '__return_false', PHP_INT_MAX ); // This one skips the additional multipliers.
 			} elseif ( is_string( $route ) && false !== strpos( $route, 'wp/v2/media' ) && ! empty( $request['post'] ) && ! empty( $request->get_file_params() ) ) {
 				$this->debug_message( 'REST API media endpoint (new upload)' );
 				// We don't want ExactDN urls anywhere near the editor, so disable everything we can.
@@ -2832,15 +2841,28 @@ if ( ! class_exists( 'ExactDN' ) ) {
 			// Build URL, first removing WP's resized string so we pass the original image to ExactDN.
 			if ( preg_match( '#(-\d+x\d+)\.(' . implode( '|', $this->extensions ) . '){1}(?:\?.+)?$#i', $src, $src_parts ) ) {
 				$stripped_src = str_replace( $src_parts[1], '', $src );
-				$upload_dir   = wp_get_upload_dir();
+				$scaled_src   = str_replace( $src_parts[1], '-scaled', $src );
 
-				// Extracts the file path to the image minus the base url.
-				$file_path = substr( $stripped_src, strlen( $upload_dir['baseurl'] ) );
-
-				if ( is_file( $upload_dir['basedir'] . $file_path ) ) {
-					$src = $stripped_src;
+				$file = false;
+				if ( $this->allowed_urls && $this->allowed_domains ) {
+					$file = $this->cdn_to_local( $src );
 				}
-				$this->debug_message( 'stripped dims' );
+				if ( ! $file ) {
+					$file = $this->url_to_path_exists( $src );
+				}
+				if ( $file ) {
+					// Extracts the file path to the image minus the base url.
+					$file_path   = str_replace( $src_parts[1], '', $file );
+					$scaled_path = str_replace( $src_parts[1], '-scaled', $file );
+
+					if ( $this->is_file( $file_path ) ) {
+						$src = $stripped_src;
+						$this->debug_message( 'stripped dims to original' );
+					} elseif ( $this->is_file( $scaled_path ) ) {
+						$src = $scaled_src;
+						$this->debug_message( 'stripped dims to scaled' );
+					}
+				}
 			}
 			return $src;
 		}
@@ -3099,6 +3121,9 @@ if ( ! class_exists( 'ExactDN' ) ) {
 		 * @return boolean True to skip the page, unchanged otherwise.
 		 */
 		function skip_page( $skip = false, $uri = '' ) {
+			if ( false !== strpos( $uri, 'bricks=run' ) ) {
+				return true;
+			}
 			if ( false !== strpos( $uri, '?brizy-edit' ) ) {
 				return true;
 			}
@@ -3319,6 +3344,7 @@ if ( ! class_exists( 'ExactDN' ) ) {
 
 			$jpg_quality  = apply_filters( 'jpeg_quality', null, 'image_resize' );
 			$webp_quality = apply_filters( 'webp_quality', 75, 'image/webp' );
+			$avif_quality = apply_filters( 'avif_quality', 45, 'image/avif' );
 
 			$more_args = array();
 			if ( false === strpos( $image_url, 'strip=all' ) && $this->get_option( $this->prefix . 'metadata_remove' ) ) {
@@ -3332,17 +3358,23 @@ if ( ! class_exists( 'ExactDN' ) ) {
 			} elseif ( false === strpos( $image_url, 'lossy=' ) && ! $this->get_option( 'exactdn_lossy' ) ) {
 				$more_args['lossy'] = 0;
 			} elseif ( false === strpos( $image_url, 'lossy=' ) && $this->get_option( 'exactdn_lossy' ) ) {
-				$more_args['lossy'] = is_numeric( $this->get_option( 'exactdn_lossy' ) ) ? (int) $this->get_option( 'exactdn_lossy' ) : 80;
+				$more_args['lossy'] = is_numeric( $this->get_option( 'exactdn_lossy' ) ) ? (int) $this->get_option( 'exactdn_lossy' ) : 1;
 			}
 			if ( false === strpos( $image_url, 'quality=' ) && ! is_null( $jpg_quality ) && 82 !== (int) $jpg_quality ) {
 				$more_args['quality'] = $jpg_quality;
 			}
-			if ( false === strpos( $image_url, 'quality=' ) && 75 !== (int) $webp_quality && $webp_quality < $jpg_quality ) {
-				$more_args['quality'] = $webp_quality;
+			if ( false === strpos( $image_url, 'webp=' ) && 75 !== (int) $webp_quality ) {
+				$more_args['webp'] = $webp_quality;
+			}
+			if ( false === strpos( $image_url, 'avif=' ) && 45 !== (int) $avif_quality ) {
+				$more_args['avif'] = $avif_quality;
 			}
 			if ( defined( 'EIO_WEBP_SHARP_YUV' ) && EIO_WEBP_SHARP_YUV ) {
 				$more_args['sharp'] = 1;
+			} elseif ( $this->get_option( $this->prefix . 'sharpen' ) ) {
+				$more_args['sharp'] = 1;
 			}
+
 			// Merge given args with the automatic (option-based) args, and also makes sure args is an array if it was previously a string.
 			$args = wp_parse_args( $args, $more_args );
 

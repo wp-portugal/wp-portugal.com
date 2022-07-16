@@ -47,13 +47,6 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_3 {
 	public function __construct() {
 		parent::__construct();
 
-		if (!class_exists('Updraft_Smush_Manager_Commands')) include_once('class-updraft-smush-manager-commands.php');
-		if (!class_exists('Updraft_Smush_Task')) include_once('class-updraft-smush-task.php');
-		if (!class_exists('Re_Smush_It_Task')) include_once('class-updraft-resmushit-task.php');
-		if (!class_exists('Updraft_Logger_Interface')) include_once('class-updraft-logger-interface.php');
-		if (!class_exists('Updraft_Abstract_Logger')) include_once('class-updraft-abstract-logger.php');
-		if (!class_exists('Updraft_File_Logger')) include_once('class-updraft-file-logger.php');
-		if (!class_exists('WP_Optimize_Transients_Cache')) include_once('class-wp-optimize-transients-cache.php');
 
 		$this->commands = new Updraft_Smush_Manager_Commands($this);
 		$this->options = WP_Optimize()->get_options();
@@ -558,11 +551,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_3 {
 	public function is_queue_processed() {
 
 		$active = $this->get_pending_tasks();
-		if ($active && 0 != count($active))
-			return false;
-
-		if (false !== get_option('updraft_semaphore_smush'))
-			return false;
+		if ($active && 0 != count($active)) return false;
 
 		return true;
 	}
@@ -1089,7 +1078,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_3 {
 
 		$js_variables['smush_ajax_nonce'] = wp_create_nonce('updraft-task-manager-ajax-nonce');
 
-		wp_enqueue_script('block-ui-js', WPO_PLUGIN_URL.'js/jquery.blockUI'.$min_or_not.'.js', array('jquery'), $enqueue_version);
+		wp_enqueue_script('block-ui-js', WPO_PLUGIN_URL.'/includes/blockui/jquery.blockUI'.$min_or_not.'.js', array('jquery'), $enqueue_version);
 		wp_enqueue_script('smush-js', WPO_PLUGIN_URL.'js/wposmush'.$min_or_not_internal.'.js', array('jquery', 'block-ui-js'), $enqueue_version);
 		wp_enqueue_style('smush-css', WPO_PLUGIN_URL.'css/smush'.$min_or_not_internal.'.css', array(), $enqueue_version);
 		wp_localize_script('smush-js', 'wposmush', $js_variables);
@@ -1118,6 +1107,7 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_3 {
 			'autosmush'			 => false,
 			'back_up_delete_after' => $this->options->get_option('back_up_delete_after', true),
 			'back_up_delete_after_days' => $this->options->get_option('back_up_delete_after_days', 50),
+			'webp_conversion'	 => false,
 		);
 		
 		$this->update_smush_options($options);
@@ -1553,6 +1543,15 @@ class Updraft_Smush_Manager extends Updraft_Task_Manager_1_3 {
 		if ('' != $the_original_file && file_exists($the_original_file)) {
 			@unlink($the_original_file);// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 		}
+	}
+
+	/**
+	 * Resets webp serving method by setting rewrite capability status to false
+	 *
+	 * @return bool
+	 */
+	public function reset_webp_serving_method() {
+		return $this->options->update_option('rewrite_status', false);
 	}
 
 	/**

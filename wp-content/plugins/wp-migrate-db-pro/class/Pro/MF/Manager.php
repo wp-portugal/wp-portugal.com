@@ -22,10 +22,6 @@ class Manager implements AddonManagerInterface
         $container->get(MediaFilesRemote::class)->register();
         $container->get(MediaFilesCli::class)->register();
 
-        if ( ! function_exists('wp_migrate_db_pro_loaded') || ! wp_migrate_db_pro_loaded()) {
-            return false;
-        }
-
         add_filter('wpmdb_addon_registered_mf', '__return_true');
 
         return $container->get(MediaFilesAddon::class);

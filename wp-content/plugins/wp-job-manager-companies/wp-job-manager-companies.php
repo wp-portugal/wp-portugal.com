@@ -5,7 +5,7 @@
  * Description: Output a list of all companies that have posted a job, with a link to a company profile.
  * Author:      Astoundify
  * Author URI:  http://astoundify.com
- * Version:     1.4
+ * Version:     1.5
  * Text Domain: wp-job-manager-companies
  */
 

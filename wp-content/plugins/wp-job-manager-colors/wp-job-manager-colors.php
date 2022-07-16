@@ -5,7 +5,7 @@
  * Description: Assign custom colors for each existing job type.
  * Author:      Astoundify
  * Author URI:  http://astoundify.com
- * Version:     1.0.2
+ * Version:     1.0.3
  * Text Domain: job_manager_colors
  */
 

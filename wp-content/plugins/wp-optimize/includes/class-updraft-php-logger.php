@@ -3,7 +3,6 @@
 if (!defined('ABSPATH')) die('No direct access allowed');
 
 if (class_exists('Updraft_PHP_Logger')) return;
-if (!class_exists('Updraft_Abstract_Logger')) require_once('class-updraft-abstract-logger.php');
 
 /**
  * Class Updraft_PHP_Logger

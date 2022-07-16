@@ -15,9 +15,6 @@ class Manager implements AddonManagerInterface {
             return $wpmdbpro_theme_plugin_files;
         }
 
-        if (!function_exists('wp_migrate_db_pro_loaded') || !wp_migrate_db_pro_loaded()) {
-            return false;
-        }
 
         $container = WPMDBDI::getInstance();
         $container->get(ThemePluginFilesAddon::class)->register();

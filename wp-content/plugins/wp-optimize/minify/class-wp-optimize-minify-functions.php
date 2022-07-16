@@ -1082,7 +1082,7 @@ class WP_Optimize_Minify_Functions {
 			WP_PLUGIN_URL => WP_PLUGIN_DIR,
 			$uploads_url => $uploads_dir,
 			get_template_directory_uri() => get_template_directory(),
-			includes_url() => ABSPATH . WPINC,
+			untrailingslashit(includes_url()) => ABSPATH . WPINC,
 		);
 
 		$file = false;

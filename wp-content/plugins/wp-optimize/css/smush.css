@@ -408,6 +408,7 @@ span#wpo_smush_delete_backup_done {
 
 .wpo-fieldgroup .button.wpo-toggle-advanced-options.opened .wpo-toggle-advanced-options__text-hide {
 	display: inline-block;
+	margin-bottom: 20px;
 }
 
 .wpo-fieldgroup .button.wpo-toggle-advanced-options.opened::before {

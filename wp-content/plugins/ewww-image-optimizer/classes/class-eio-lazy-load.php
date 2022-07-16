@@ -121,7 +121,7 @@ if ( ! class_exists( 'EIO_Lazy_Load' ) ) {
 			}
 
 			add_filter( 'vc_get_vc_grid_data_response', array( $this, 'filter_page_output' ) );
-			add_filter( 'woocommerce_prl_ajax_response_html', array( $this, 'filter_page_output' ) );
+			add_filter( 'woocommerce_prl_ajax_response_html', array( $this, 'filter_html_array' ) );
 
 			// Filter for FacetWP JSON responses.
 			add_filter( 'facetwp_render_output', array( $this, 'filter_facetwp_json_output' ) );
@@ -198,6 +198,9 @@ if ( ! class_exists( 'EIO_Lazy_Load' ) ) {
 			}
 			if ( empty( $uri ) ) {
 				$uri = $this->request_uri;
+			}
+			if ( false !== strpos( $uri, 'bricks=run' ) ) {
+				return false;
 			}
 			if ( false !== strpos( $uri, '?brizy-edit' ) ) {
 				return false;
@@ -326,7 +329,7 @@ if ( ! class_exists( 'EIO_Lazy_Load' ) ) {
 			// If JS WebP isn't running, set ewww_webp_supported to false so we have something defined.
 			if ( ! class_exists( 'EIO_JS_Webp' ) ) {
 				$body_tags        = $this->get_elements_from_html( $buffer, 'body' );
-				$body_webp_script = '<script data-cfasync="false">var ewww_webp_supported=false;</script>';
+				$body_webp_script = '<script data-cfasync="false" data-no-defer="1">var ewww_webp_supported=false;</script>';
 				if ( $this->is_iterable( $body_tags ) && ! empty( $body_tags[0] ) && false !== strpos( $body_tags[0], '<body' ) ) {
 					// Add the WebP script right after the opening tag.
 					$buffer = str_replace( $body_tags[0], $body_tags[0] . "\n" . $body_webp_script, $buffer );
@@ -787,6 +790,40 @@ if ( ! class_exists( 'EIO_Lazy_Load' ) ) {
 				}
 			}
 			return $element;
+		}
+
+		/**
+		 * Parse an array of potential HTML strings.
+		 *
+		 * @param array $output An array of HTML strings.
+		 * @return array The output data with lazy loaded images.
+		 */
+		function filter_html_array( $output ) {
+			$this->debug_message( '<b>' . __METHOD__ . '()</b>' );
+			if ( $this->is_iterable( $output ) ) {
+				foreach ( $output as $index => $html ) {
+					if ( is_array( $html ) ) {
+						$output[ $index ] = $this->filter_html_array( $html );
+					}
+					if ( ! is_string( $html ) ) {
+						$this->debug_message( "skipped $index, not a string" );
+						continue;
+					}
+					if ( strlen( $html ) < 100 ) {
+						$this->debug_message( "skipped $index, too short? $html" );
+						continue;
+					}
+					if ( false === strpos( $html, '<img ' ) ) {
+						$this->debug_message( "skipped $index, no img tags found" );
+						continue;
+					}
+					$new_html = $this->filter_page_output( $html );
+					if ( $new_html !== $html ) {
+						$output[ $index ] = $new_html;
+					}
+				}
+			}
+			return $output;
 		}
 
 		/**
@@ -1282,12 +1319,12 @@ if ( ! class_exists( 'EIO_Lazy_Load' ) ) {
 					. ';';
 
 			$lazysizes_script .= file_get_contents( $lazysizes_file );
-			echo '<script data-cfasync="false" type="text/javascript" id="eio-lazy-load">' . $lazysizes_script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<script data-cfasync="false" data-no-defer="1" id="eio-lazy-load">' . $lazysizes_script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			if ( defined( strtoupper( $this->prefix ) . 'LAZY_PRINT' ) && constant( strtoupper( $this->prefix ) . 'LAZY_PRINT' ) ) {
 				$lsprint_file = constant( strtoupper( $this->prefix ) . 'PLUGIN_PATH' ) . 'includes/ls.print.min.js';
 				if ( $this->is_file( $lsprint_file ) ) {
 					$lsprint_script = file_get_contents( $lsprint_file );
-					echo '<script data-cfasync="false" id="eio-lazy-load-print">' . $lsprint_script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					echo '<script data-cfasync="false" data-no-defer="1" id="eio-lazy-load-print">' . $lsprint_script . '</script>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			}
 		}

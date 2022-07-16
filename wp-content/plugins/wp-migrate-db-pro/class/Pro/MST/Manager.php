@@ -49,9 +49,7 @@ class Manager implements AddonManagerInterface
         }
 
         if (false === $force_load
-            && ( ! function_exists('wp_migrate_db_pro_loaded')
-                || ! wp_migrate_db_pro_loaded()
-                || (is_multisite() && wp_is_large_network()))) {
+            && ((is_multisite() && wp_is_large_network()))) {
             return false;
         }
 

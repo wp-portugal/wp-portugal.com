@@ -27,18 +27,6 @@ if (!defined('WPO_CACHE_CONFIG_DIR')) define('WPO_CACHE_CONFIG_DIR', WPO_CACHE_D
  */
 if (!defined('WPO_CACHE_FILES_DIR')) define('WPO_CACHE_FILES_DIR', untrailingslashit(WP_CONTENT_DIR).'/cache/wpo-cache');
 
-if (!class_exists('WPO_Cache_Config')) require_once(dirname(__FILE__) . '/class-wpo-cache-config.php');
-if (!class_exists('WPO_Cache_Rules')) require_once(dirname(__FILE__) . '/class-wpo-cache-rules.php');
-
-if (!class_exists('WP_Optimize_Detect_Cache_Plugins')) require_once(dirname(__FILE__) . '/class-wpo-detect-cache-plugins.php');
-
-if (!class_exists('WP_Optimize_Page_Cache_Preloader')) require_once(dirname(__FILE__) . '/class-wpo-cache-preloader.php');
-if (!class_exists('WPO_Cache_Config')) require_once(dirname(__FILE__) . '/class-wpo-cache-config.php');
-if (!class_exists('WPO_Cache_Rules')) require_once(dirname(__FILE__) . '/class-wpo-cache-rules.php');
-
-if (!class_exists('Updraft_Abstract_Logger')) require_once(WPO_PLUGIN_MAIN_PATH.'includes/class-updraft-abstract-logger.php');
-if (!class_exists('Updraft_PHP_Logger')) require_once(WPO_PLUGIN_MAIN_PATH.'includes/class-updraft-php-logger.php');
-
 require_once dirname(__FILE__) . '/file-based-page-cache-functions.php';
 
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
@@ -109,14 +97,16 @@ class WPO_Page_Cache {
 		$this->rules  = WPO_Cache_Rules::instance();
 		$this->logger = new Updraft_PHP_Logger();
 
-		add_action('activate_plugin', array($this, 'activate_deactivate_plugin'));
+		add_action('activated_plugin', array($this, 'activate_deactivate_plugin'));
 		add_action('deactivate_plugin', array($this, 'activate_deactivate_plugin'));
+		add_action('wpo_purge_old_cache', array($this, 'purge_old'));
 
 		/**
 		 * Regenerate config file on cache flush.
 		 */
 		add_action('wpo_cache_flush', array($this, 'update_cache_config'));
 		add_action('wpo_cache_flush', array($this, 'delete_cache_size_information'));
+		add_action('update_option_permalink_structure', array($this, 'update_option_permalink_structure'), 10, 3);
 
 		// Add purge cache link to admin bar.
 		add_filter('wpo_cache_admin_bar_menu_items', array($this, 'admin_bar_purge_cache'), 20, 1);
@@ -127,12 +117,27 @@ class WPO_Page_Cache {
 		add_action('admin_init', array($this, 'admin_init'));
 
 		$this->check_compatibility_issues();
+
+		add_filter('cron_schedules', array($this, 'cron_schedules'));
+		add_action('wpo_save_images_settings', array($this, 'update_webp_images_option'));
+	}
+
+	/**
+	 * Activate cron job for deleting expired cache files
+	 */
+	public function cron_activate() {
+		$page_cache_length = $this->config->get_option('page_cache_length');
+		if (!wp_next_scheduled('wpo_purge_old_cache')) {
+			wp_schedule_event(time() + (false === $page_cache_length ? '86400' : $page_cache_length), 'wpo_purge_old_cache', 'wpo_purge_old_cache');
+		}
 	}
 
 	/**
 	 * Do required actions on activate/deactivate any plugin.
 	 */
 	public function activate_deactivate_plugin() {
+
+		wp_clear_scheduled_hook('wpo_purge_old_cache');
 
 		$this->update_cache_config();
 
@@ -383,6 +388,13 @@ class WPO_Page_Cache {
 		// N.B. The only use of WP_CACHE in WP core is to include('advanced-cache.php') (and run a function if it's then defined); so, if the decision to leave it enable is, for some unexpected reason, technically incorrect, it still can't cause a problem.
 		$disabled_wp_config = $this->write_wp_config(false);
 		if (!$disabled_wp_config) {
+			$plugin_basename = basename(WPO_PLUGIN_MAIN_PATH);
+			$action = "deactivate_".$plugin_basename."/wp-optimize.php";
+			if (current_action() === $action) {
+				$cache_config = WPO_Cache_Config::instance()->config;
+				$cache_config['enable_page_caching'] = false;
+				WPO_Cache_Config::instance()->update($cache_config, true);
+			}
 			$this->log("Could not turn off the WP_CACHE constant in wp-config.php");
 			$this->add_warning('error_disabling', __('Could not turn off the WP_CACHE constant in wp-config.php', 'wp-optimize'));
 		}
@@ -431,6 +443,57 @@ class WPO_Page_Cache {
 	}
 
 	/**
+	 * Purge cache files older than cache life span
+	 */
+	public function purge_old() {
+		$page_cache_length = $this->config->get_option('page_cache_length');
+		$expires = time() - $page_cache_length;
+		$log = array();
+		$cache_folder = WPO_CACHE_FILES_DIR . '/' . str_ireplace(array('http://', 'https://'), '', get_site_url());
+		// get all directories that are a direct child of current directory
+		if (is_dir($cache_folder) && is_writable($cache_folder)) {
+			if ($handle = opendir($cache_folder)) {
+				while (false !== ($d = readdir($handle))) {
+					if (0 == strcmp($d, '.') || 0 == strcmp($d, '..')) {
+						continue;
+					}
+					
+					if ($this->is_front_page_cache($d)) {
+						$modified_time = (int) filemtime("$cache_folder/$d");
+						if ($modified_time <= $expires) {
+							unlink("$cache_folder/$d");
+						}
+						continue;
+					}
+
+					$dir = $cache_folder.'/'.$d;
+					if (!is_dir($dir)) continue;
+
+					$stat = stat($dir);
+					$modified_time = $stat['mtime'];
+					$log[] = "checking if cache has expired - $d";
+					if ($modified_time <= $expires) {
+						$log[] = "deleting cache in $dir";
+						wpo_delete_files($dir, true);
+						if (file_exists($dir)) rmdir($dir);
+					}
+				}
+				closedir($handle);
+			}
+		}
+		return $log;
+	}
+
+	/**
+	 * Finds out given cache file is of front page or not
+	 *
+	 * @return bool
+	 */
+	private function is_front_page_cache($d) {
+		return in_array($d, array('index.html', 'index.html.gz'));
+	}
+
+	/**
 	 * Purges the cache
 	 *
 	 * @return bool - true on success, false otherwise
@@ -454,15 +517,21 @@ class WPO_Page_Cache {
 	 */
 	public function is_enabled() {
 
+		if (!$this->config->get_option('enable_page_caching')) return false;
+
 		if (!defined('WP_CACHE') || !WP_CACHE) {
+			$this->log("WP_CACHE constant is not present in wp-config.php");
 			return false;
 		}
 
 		if (!defined('WPO_ADVANCED_CACHE') || !WPO_ADVANCED_CACHE) {
+			$this->log("WPO_ADVANCED_CACHE constant is not present in advanced-cache.php");
 			return false;
 		}
 
-		if (!file_exists(WPO_CACHE_CONFIG_DIR . '/'.$this->get_cache_config_filename())) {
+		$config_file = WPO_CACHE_CONFIG_DIR . '/'.$this->config->get_cache_config_filename();
+		if (!file_exists($config_file)) {
+			$this->log("$config_file is not present");
 			return false;
 		}
 
@@ -505,28 +574,13 @@ class WPO_Page_Cache {
 	}
 
 	/**
-	 * Get advanced-cache.php file name with full path.
-	 *
-	 * @return string
-	 */
-	public function get_cache_config_filename() {
-		$url = parse_url(network_site_url());
-
-		if (isset($url['port']) && '' != $url['port'] && 80 != $url['port']) {
-			return 'config-'.$url['host'].'-port'.$url['port'].'.php';
-		} else {
-			return 'config-'.$url['host'].'.php';
-		}
-	}
-
-	/**
 	 * Writes advanced-cache.php
 	 *
 	 * @param boolean $update_required - Whether the update is required or not.
 	 * @return bool
 	 */
 	private function write_advanced_cache($update_required = false) {
-		$config_file_basename = $this->get_cache_config_filename();
+		$config_file_basename = $this->config->get_cache_config_filename();
 		$cache_file_basename = untrailingslashit(plugin_dir_path(__FILE__));
 		$plugin_basename = basename(WPO_PLUGIN_MAIN_PATH);
 		$cache_path = '/wpo-cache';
@@ -786,7 +840,7 @@ EOF;
 				$this->log("Unable to write inside the cache configuration folder; please check file/folder permissions");
 				// If the config exists, only send a warning. Otherwise send an error.
 				$type = 'warning';
-				if (!file_exists(WPO_CACHE_CONFIG_DIR . '/'.$this->get_cache_config_filename())) {
+				if (!file_exists(WPO_CACHE_CONFIG_DIR . '/'.$this->config->get_cache_config_filename())) {
 					$type = 'error';
 					$errors++;
 				}
@@ -795,6 +849,21 @@ EOF;
 		}
 
 		return !$errors;
+	}
+
+	/**
+	 * Update permalink strucutre in cache config
+	 *
+	 * @param string $old_value Old value of permalink_structure option
+	 * @param string $value 	New value of permalink_structure option
+	 * @param string $option 	Option name `permalink_structure`
+	 */
+	public function update_option_permalink_structure($old_value, $value, $option) {
+		$current_config = $this->config->get();
+		if ($old_value != $value) {
+			$current_config[$option] = $value;
+			$this->config->update($current_config, true);
+		}
 	}
 
 	/**
@@ -1072,6 +1141,7 @@ EOF;
 		// Maybe update the advanced cache.
 		if ((!defined('DOING_AJAX') || !DOING_AJAX) && current_user_can('update_plugins')) {
 			$this->maybe_update_advanced_cache();
+			$this->cron_activate();
 		}
 	}
 
@@ -1084,8 +1154,6 @@ EOF;
 	public function log($message) {
 		if (isset($this->logger)) {
 			$this->logger->log($message, 'error');
-		} else {
-			error_log($message);
 		}
 	}
 
@@ -1222,6 +1290,29 @@ EOF;
 		$message = sprintf(__('The request to write the file %s failed.', 'wp-optimize'), htmlspecialchars($this->get_advanced_cache_filename()));
 		$message .= ' '.__('Please check file and directory permissions on the file paths up to this point, and your PHP error log.', 'wp-optimize');
 		WP_Optimize()->include_template('notices/cache-notice.php', false, array('message' => $message));
+	}
+
+	/**
+	 * Scheduler public functions to update schedulers
+	 *
+	 * @param  array $schedules An array of schedules being passed.
+	 * @return array            An array of schedules being returned.
+	 */
+	public function cron_schedules($schedules) {
+		$page_cache_length = $this->config->get_option('page_cache_length');
+		$schedules['wpo_purge_old_cache'] = array('interval' => false === $page_cache_length ? 86400 : $page_cache_length, 'display' => __('Every time after the cache has expired', 'wp-optimize'));
+		return $schedules;
+	}
+
+	/**
+	 * Update cache config file to reflect the webp images option
+	 */
+	public function update_webp_images_option() {
+		if ($this->is_enabled()) {
+			$cache_settings = WPO_Cache_Config::instance()->get();
+			$cache_settings['use_webp_images'] = WP_Optimize()->get_options()->get_option('webp_conversion');
+			WPO_Cache_Config::instance()->update($cache_settings);
+		}
 	}
 }
 

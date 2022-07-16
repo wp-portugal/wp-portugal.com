@@ -1,9 +1,9 @@
 === Admin Widget for WordPress Portugal News ===
-Contributors: vanillallounge 
+Contributors: vanillallounge
 Tags: dashboard, widget, rss, Portugal
 Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 1.0.1
+Tested up to: 5.9.3
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,16 +32,17 @@ Given that I've reached the bookmark-overdose level, I can't really remember. Ho
 
 I don't want to anger Nacin.
 
-= Why do you use complicated words like "whence"? =
-
-Proper English, do you speak it?
-
 == Changelog ==
+
+= 1.1 =
+
+* Compatibility with WordPress 5.9.3
+* Review coding standards
 
 = 1.0.1 =
 
-Now improved with code that actually works
+* Now improved with code that actually works
 
-= 1.0 = 
+= 1.0 =
 
 * Initial version

@@ -49,24 +49,24 @@ class pw_new_user_approve_user_list {
 		if ( isset( $_GET['action'] ) && in_array( $_GET['action'], array( 'approve', 'deny' ) ) && !isset( $_GET['new_role'] ) ) {
 			check_admin_referer( 'new-user-approve' );
 
-			$sendback = remove_query_arg( array( 'approved', 'denied', 'deleted', 'ids', 'pw-status-query-submit', 'new_role' ), wp_get_referer() );
+			$sendback = esc_url( remove_query_arg( array( 'approved', 'denied', 'deleted', 'ids', 'pw-status-query-submit', 'new_role' ), wp_get_referer() ));
 			if ( !$sendback )
 				$sendback = admin_url( 'users.php' );
 
 			$wp_list_table = _get_list_table( 'WP_Users_List_Table' );
 			
 			$pagenum = $wp_list_table->get_pagenum();
-			$sendback = add_query_arg( 'paged', $pagenum, $sendback );
+			$sendback = esc_url( add_query_arg( 'paged', $pagenum, $sendback ));
 
-			$status = sanitize_key( $_GET['action'] );
-			$user = absint( $_GET['user'] );
+			$status = ( !empty( $_GET['action']) ) ? sanitize_key( $_GET['action'] ): '';
+			$user   = ( !empty( $_GET['user']  ) ) ? absint( wp_unslash($_GET['user'] ) ) :'';
 
 			pw_new_user_approve()->update_user_status( $user, $status );
 
 			if ( $_GET['action'] == 'approve' ) {
-				$sendback = add_query_arg( array( 'approved' => 1, 'ids' => $user ), $sendback );
+				$sendback = esc_url( add_query_arg( array( 'approved' => 1, 'ids' => $user ), $sendback )) ;
 			} else {
-				$sendback = add_query_arg( array( 'denied' => 1, 'ids' => $user ), $sendback );
+				$sendback = esc_url( add_query_arg( array( 'denied' => 1, 'ids' => $user ), $sendback ));
 			}
 
 			wp_redirect( $sendback );
@@ -174,14 +174,14 @@ class pw_new_user_approve_user_list {
 		$filtered_status = $this->selected_status();
 
 		?>
-		<label class="screen-reader-text" for="<?php echo $id ?>"><?php _e( 'View all users', 'new-user-approve' ); ?></label>
-		<select id="<?php echo $id ?>" name="<?php echo $id ?>" style="float: none; margin: 0 0 0 15px;">
-			<option value="view_all"><?php _e( 'View all users', 'new-user-approve' ); ?></option>
+		<label class="screen-reader-text" for="<?php echo esc_attr( $id) ?>"><?php esc_html_e( 'View all users', 'new-user-approve' ); ?></label>
+		<select id="<?php echo esc_attr($id) ?>" name="<?php echo esc_attr( $id )?>" style="float: none; margin: 0 0 0 15px;">
+			<option value="view_all"><?php esc_html_e( 'View all users', 'new-user-approve' ); ?></option>
 		<?php foreach ( pw_new_user_approve()->get_valid_statuses() as $status ) : ?>
 			<option value="<?php echo esc_attr( $status ); ?>"<?php selected( $status, $filtered_status ); ?>><?php echo esc_html( $status ); ?></option>
 		<?php endforeach; ?>
 		</select>
-		<?php echo apply_filters( 'new_user_approve_filter_button', $filter_button ); ?>
+		<?php echo wp_kses_post( apply_filters( 'new_user_approve_filter_button', $filter_button )); ?>
 		<style>
 			#pw-status-query-submit {
 				float: right;
@@ -236,7 +236,7 @@ class pw_new_user_approve_user_list {
 
 	private function selected_status() {
 		if ( ! empty( $_REQUEST['new_user_approve_filter-top'] ) || ! empty( $_REQUEST['new_user_approve_filter-bottom'] ) ) {
-			return esc_attr( ( ! empty( $_REQUEST['new_user_approve_filter-top'] ) ) ? $_REQUEST['new_user_approve_filter-top'] : $_REQUEST['new_user_approve_filter-bottom'] );
+			return esc_attr( ( ! empty( $_REQUEST['new_user_approve_filter-top'] ) ) ? sanitize_text_field( wp_unslash( $_REQUEST['new_user_approve_filter-top'])) : sanitize_text_field( wp_unslash( $_REQUEST['new_user_approve_filter-bottom'])) );
 		}
 
 		return null;
@@ -253,11 +253,12 @@ class pw_new_user_approve_user_list {
 		if ( $screen->id == 'users' ) : ?>
 			<script type="text/javascript">
 				jQuery(document).ready(function ($) {
-					$('<option>').val('approve').text('<?php _e( 'Approve', 'new-user-approve' )?>').appendTo("select[name='action']");
-					$('<option>').val('approve').text('<?php _e( 'Approve', 'new-user-approve' )?>').appendTo("select[name='action2']");
+					
+					$('<option>').val('approve').text('<?php esc_attr_e( 'Approve', 'new-user-approve' )?>').appendTo("select[name='action']");
+					$('<option>').val('approve').text('<?php esc_attr_e( 'Approve', 'new-user-approve' )?>').appendTo("select[name='action2']");
 
-					$('<option>').val('deny').text('<?php _e( 'Deny', 'new-user-approve' )?>').appendTo("select[name='action']");
-					$('<option>').val('deny').text('<?php _e( 'Deny', 'new-user-approve' )?>').appendTo("select[name='action2']");
+					$('<option>').val('deny').text('<?php esc_attr_e( 'Deny', 'new-user-approve' )?>').appendTo("select[name='action']");
+					$('<option>').val('deny').text('<?php esc_attr_e( 'Deny', 'new-user-approve' )?>').appendTo("select[name='action2']");
 				});
 			</script>
 		<?php endif;
@@ -329,7 +330,7 @@ class pw_new_user_approve_user_list {
 
 			$sendback = remove_query_arg( array( 'action', 'action2', 'tags_input', 'post_author', 'comment_status', 'ping_status', '_status', 'post', 'bulk_edit', 'post_view' ), $sendback );
 
-			wp_redirect( $sendback );
+			wp_redirect( esc_url($sendback) );
 			exit();
 		}
 	}
@@ -349,17 +350,17 @@ class pw_new_user_approve_user_list {
 		$message = null;
 
 		if ( isset( $_REQUEST['denied'] ) && (int) $_REQUEST['denied'] ) {
-			$denied = esc_attr( $_REQUEST['denied'] );
+			$denied = sanitize_text_field(wp_unslash( $_REQUEST['denied'] ) );
 			$message = sprintf( _n( 'User denied.', '%s users denied.', $denied, 'new-user-approve' ), number_format_i18n( $denied ) );
 		}
 
 		if ( isset( $_REQUEST['approved'] ) && (int) $_REQUEST['approved'] ) {
-			$approved = esc_attr( $_REQUEST['approved'] );
+			$approved = sanitize_text_field( wp_unslash( $_REQUEST['approved'] ) );
 			$message = sprintf( _n( 'User approved.', '%s users approved.', $approved, 'new-user-approve' ), number_format_i18n( $approved ) );
 		}
 
 		if ( !empty( $message ) ) {
-			echo '<div class="updated"><p>' . $message . '</p></div>';
+			echo ( wp_kses_post( '<div class="updated"><p>' . $message . '</p></div>'));
 		}
 	}
 
@@ -379,12 +380,12 @@ class pw_new_user_approve_user_list {
 		?>
 		<table class="form-table">
 			<tr>
-				<th><label for="new_user_approve_status"><?php _e( 'Access Status', 'new-user-approve' ); ?></label>
+				<th><label for="new_user_approve_status"><?php esc_html_e( 'Access Status', 'new-user-approve' ); ?></label>
 				</th>
 				<td>
 					<select id="new_user_approve_status" name="new_user_approve_status">
 						<?php if ( $user_status == 'pending' ) : ?>
-							<option value=""><?php _e( '-- Status --', 'new-user-approve' ); ?></option>
+							<option value=""><?php esc_html_e( '-- Status --', 'new-user-approve' ); ?></option>
 						<?php endif; ?>
 						<?php foreach ( array( 'approved', 'denied' ) as $status ) : ?>
 							<option
@@ -392,10 +393,10 @@ class pw_new_user_approve_user_list {
 						<?php endforeach; ?>
 					</select>
 					<span
-						class="description"><?php _e( 'If user has access to sign in or not.', 'new-user-approve' ); ?></span>
+						class="description"><?php esc_html_e( 'If user has access to sign in or not.', 'new-user-approve' ); ?></span>
 					<?php if ( $user_status == 'pending' ) : ?>
 						<br/><span
-							class="description"><?php _e( 'Current user status is <strong>pending</strong>.', 'new-user-approve' ); ?></span>
+							class="description"><?php esc_html_e( 'Current user status is <strong>pending</strong>.', 'new-user-approve' ); ?></span>
 					<?php endif; ?>
 				</td>
 			</tr>
@@ -411,12 +412,14 @@ class pw_new_user_approve_user_list {
 	 * @return bool
 	 */
 	public function save_profile_status_field( $user_id ) {
+
 		if ( !current_user_can( 'edit_user', $user_id ) ) {
 			return false;
 		}
-
+		$nonce = '';
+        if ( wp_verify_nonce($nonce) ) {return;}
 		if ( !empty( $_POST['new_user_approve_status'] ) ) {
-			$new_status = esc_attr( $_POST['new_user_approve_status'] );
+			$new_status = sanitize_text_field( wp_unslash( $_POST['new_user_approve_status'] ) );
 
 			if ( $new_status == 'approved' )
 				$new_status = 'approve'; else if ( $new_status == 'denied' )

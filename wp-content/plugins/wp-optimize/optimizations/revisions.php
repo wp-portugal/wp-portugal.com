@@ -141,7 +141,7 @@ class WP_Optimization_revisions extends WP_Optimization {
 			}
 		}
 		$revisions = rtrim($revisions, ',');
-		$revisions = explode(',', $revisions);
+		$revisions = empty($revisions) ? array() : explode(',', $revisions);
 
 		while (count($revisions) > 0) {
 			$delete_this_time = array_splice($revisions, 0, min(count($revisions), 250));

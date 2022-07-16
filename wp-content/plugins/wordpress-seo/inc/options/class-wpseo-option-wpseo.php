@@ -34,6 +34,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'indexing_started'                         => null,
 		'indexing_reason'                          => '',
 		'indexables_indexing_completed'            => false,
+		'index_now_key'                            => '',
 		// Non-form field, should only be set via validation routine.
 		'version'                                  => '', // Leave default as empty to ensure activation/upgrade works.
 		'previous_version'                         => '',
@@ -54,6 +55,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'enable_cornerstone_content'               => true,
 		'enable_xml_sitemap'                       => true,
 		'enable_text_link_counter'                 => true,
+		'enable_index_now'                         => true,
 		'show_onboarding_notice'                   => false,
 		'first_activated_on'                       => false,
 		'myyoast-oauth'                            => [
@@ -81,15 +83,44 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 		'algolia_integration_active'               => false,
 		'import_cursors'                           => [],
 		'workouts_data'                            => [ 'configuration' => [ 'finishedSteps' => [] ] ],
+		'configuration_finished_steps'             => [],
 		'dismiss_configuration_workout_notice'     => false,
+		'dismiss_premium_deactivated_notice'       => false,
 		'importing_completed'                      => [],
 		'wincher_integration_active'               => true,
 		'wincher_tokens'                           => [],
 		'wincher_automatically_add_keyphrases'     => false,
 		'wincher_website_id'                       => '',
+		'wordproof_integration_active'             => false,
+		'wordproof_integration_changed'            => false,
 		'first_time_install'                       => false,
 		'should_redirect_after_install_free'       => false,
 		'activation_redirect_timestamp_free'       => 0,
+		'remove_feed_global'                       => false,
+		'remove_feed_global_comments'              => false,
+		'remove_feed_post_comments'                => false,
+		'remove_feed_authors'                      => false,
+		'remove_feed_categories'                   => false,
+		'remove_feed_tags'                         => false,
+		'remove_feed_custom_taxonomies'            => false,
+		'remove_feed_post_types'                   => false,
+		'remove_feed_search'                       => false,
+		'remove_atom_rdf_feeds'                    => false,
+		'remove_shortlinks'                        => false,
+		'remove_rest_api_links'                    => false,
+		'remove_rsd_wlw_links'                     => false,
+		'remove_oembed_links'                      => false,
+		'remove_generator'                         => false,
+		'remove_emoji_scripts'                     => false,
+		'remove_powered_by_header'                 => false,
+		'remove_pingback_header'                   => false,
+		'clean_campaign_tracking_urls'             => false,
+		'clean_permalinks'                         => false,
+		'clean_permalinks_extra_variables'         => '',
+		'search_cleanup'                           => false,
+		'search_cleanup_emoji'                     => false,
+		'search_cleanup_patterns'                  => false,
+		'search_character_limit'                   => 50,
 	];
 
 	/**
@@ -274,7 +305,9 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 				case 'license_server_version':
 				case 'home_url':
 				case 'zapier_api_key':
+				case 'index_now_key':
 				case 'wincher_website_id':
+				case 'clean_permalinks_extra_variables':
 					if ( isset( $dirty[ $key ] ) ) {
 						$clean[ $key ] = $dirty[ $key ];
 					}
@@ -350,6 +383,7 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 				case 'zapier_subscription':
 				case 'wincher_tokens':
 				case 'workouts_data':
+				case 'configuration_finished_steps':
 					$clean[ $key ] = $old[ $key ];
 
 					if ( isset( $dirty[ $key ] ) ) {
@@ -373,6 +407,12 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 					}
 					break;
 
+				case 'search_character_limit':
+					if ( isset( $dirty[ $key ] ) ) {
+						$clean[ $key ] = (int) $dirty[ $key ];
+					}
+					break;
+
 				case 'import_cursors':
 				case 'importing_completed':
 					if ( isset( $dirty[ $key ] ) && is_array( $dirty[ $key ] ) ) {
@@ -380,9 +420,18 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 					}
 					break;
 
+				case 'wordproof_integration_active':
+					$clean[ $key ] = ( isset( $dirty[ $key ] ) ? WPSEO_Utils::validate_bool( $dirty[ $key ] ) : false );
+					// If the setting has changed, record it.
+					if ( $old[ $key ] !== $clean[ $key ] ) {
+						$clean['wordproof_integration_changed'] = true;
+					}
+					break;
+
+
 				/*
-				 * Boolean (checkbox) fields.
-				 */
+				* Boolean (checkbox) fields.
+				*/
 
 				/*
 				 * Covers:
@@ -392,6 +441,30 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 				 *  'dynamic_permalinks'
 				 *  'indexing_first_time'
 				 *  'first_time_install'
+				 *  'remove_feed_global'
+				 *  'remove_feed_global_comments'
+				 *  'remove_feed_post_comments'
+				 *  'remove_feed_authors'
+				 *  'remove_feed_categories'
+				 *  'remove_feed_tags'
+				 *  'remove_feed_custom_taxonomies'
+				 *  'remove_feed_post_types'
+				 *  'remove_feed_search'
+				 *  'remove_atom_rdf_feeds'
+				 *  'remove_shortlinks'
+				 *  'remove_rest_api_links'
+				 *  'remove_rsd_wlw_links'
+				 *  'remove_oembed_links'
+				 *  'remove_generator'
+				 *  'remove_emoji_scripts'
+				 *  'remove_powered_by_header'
+				 *  'remove_pingback_header'
+				 *  'clean_campaign_tracking_urls'
+				 *  'clean_permalinks'
+				 *  'clean_permalinks_extra_variables'
+				 *  'search_cleanup'
+				 *  'search_cleanup_emoji'
+				 *  'search_cleanup_patterns'
 				 *  'should_redirect_after_install_free'
 				 *  and most of the feature variables.
 				 */
@@ -434,6 +507,30 @@ class WPSEO_Option_Wpseo extends WPSEO_Option {
 			'semrush_integration_active'     => false,
 			'zapier_integration_active'      => false,
 			'wincher_integration_active'     => false,
+			'remove_feed_global'             => false,
+			'remove_feed_global_comments'    => false,
+			'remove_feed_post_comments'      => false,
+			'enable_index_now'               => false,
+			'remove_feed_authors'            => false,
+			'remove_feed_categories'         => false,
+			'remove_feed_tags'               => false,
+			'remove_feed_custom_taxonomies'  => false,
+			'remove_feed_post_types'         => false,
+			'remove_feed_search'             => false,
+			'remove_atom_rdf_feeds'          => false,
+			'remove_shortlinks'              => false,
+			'remove_rest_api_links'          => false,
+			'remove_rsd_wlw_links'           => false,
+			'remove_oembed_links'            => false,
+			'remove_generator'               => false,
+			'remove_emoji_scripts'           => false,
+			'remove_powered_by_header'       => false,
+			'remove_pingback_header'         => false,
+			'clean_campaign_tracking_urls'   => false,
+			'clean_permalinks'               => false,
+			'search_cleanup'                 => false,
+			'search_cleanup_emoji'           => false,
+			'search_cleanup_patterns'        => false,
 		];
 
 		// We can reuse this logic from the base class with the above defaults to parse with the correct feature values.

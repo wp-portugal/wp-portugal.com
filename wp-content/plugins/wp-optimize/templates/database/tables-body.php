@@ -33,6 +33,9 @@
 			if ($tablestatus->wp_core_table) {
 				echo "<br><span style='font-size: 11px;'>".__('Belongs to:', 'wp-optimize')."</span> ";
 				echo "<span style='font-size: 11px;'>".__('WordPress core', 'wp-optimize')."</span>";
+			} elseif (false !== stripos($tablestatus->Name, 'actionscheduler_')) {
+				echo "<br><span style='font-size: 11px;'>".__('This table is used by many plugins for batch processing. ', 'wp-optimize')."</span> ";
+				echo "<span style='font-size: 11px;'>".__('Thus, it cannot be deleted.', 'wp-optimize')."</span>";
 			} else {
 				echo '<div class="table-plugins">';
 				echo "<span style='font-size: 11px;'>".__('Known plugins that use this table name:', 'wp-optimize')."</span> ";

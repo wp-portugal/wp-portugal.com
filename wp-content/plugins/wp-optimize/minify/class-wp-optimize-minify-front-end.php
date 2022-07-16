@@ -127,10 +127,10 @@ class WP_Optimize_Minify_Front_End {
 	 * @return String
 	 */
 	public function inline_css($html, $handle, $href, $media) {
-		$exclude_css = array_map('trim', explode("\n", trim($this->options['exclude_css'])));
+		$exclude_css = $this->get_excluded_css_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_css);
 		$blacklist = WP_Optimize_Minify_Functions::get_ie_blacklist();
-		$async_css = array_map('trim', explode("\n", trim($this->options['async_css'])));
+		$async_css = $this->get_async_css_list();
 		$master_ignore = array_merge($ignore_list, $blacklist);
 
 		// make sure href is complete
@@ -328,7 +328,7 @@ class WP_Optimize_Minify_Front_End {
 	 */
 	public function defer_js($tag, $handle, $src) {
 		$wp_domain = trim(str_ireplace(array('http://', 'https://'), '', trim(site_url(), '/')));
-		$exclude_js = array_map('trim', explode("\n", trim($this->options['exclude_js'])));
+		$exclude_js = $this->get_excluded_js_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_js);
 		// Should this defer the Poly fills for IE?
 		$blacklist = WP_Optimize_Minify_Functions::get_ie_blacklist();
@@ -456,9 +456,9 @@ class WP_Optimize_Minify_Front_End {
 		$cache_path = WP_Optimize_Minify_Cache_Functions::cache_path();
 		$cache_dir = $cache_path['cachedir'];
 		$cache_dir_url = $cache_path['cachedirurl'];
-		$exclude_css = array_map('trim', explode("\n", trim($this->options['exclude_css'])));
+		$exclude_css = $this->get_excluded_css_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_css);
-		$async_css = array_map('trim', explode("\n", trim($this->options['async_css'])));
+		$async_css = $this->get_async_css_list();
 
 		$minify_css = $this->options['enable_css_minification'];
 		$merge_css = $this->options['enable_merging_of_css'];
@@ -576,6 +576,8 @@ class WP_Optimize_Minify_Front_End {
 			$nfonts = array();
 			if ($this->options['merge_google_fonts']) {
 				$nfonts[] = WP_Optimize_Minify_Fonts::concatenate_google_fonts($google_fonts);
+				// mark the google fonts as done so they don't get processed
+				$done = array_merge($done, array_keys($google_fonts));
 			} else {
 				foreach ($google_fonts as $h => $a) {
 					if (!empty($a)) {
@@ -866,9 +868,9 @@ class WP_Optimize_Minify_Front_End {
 		$cache_dir_url = $cache_path['cachedirurl'];
 
 		
-		$exclude_js = array_map('trim', explode("\n", trim($this->options['exclude_js'])));
+		$exclude_js = $this->get_excluded_js_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_js);
-		$async_js = trim($this->options['async_js']) ? array_map('trim', explode("\n", trim($this->options['async_js']))) : array();
+		$async_js = $this->get_async_js_list();
 		$scripts = clone $wp_scripts;
 		$scripts->all_deps($scripts->queue);
 		$footer = array();
@@ -1134,9 +1136,9 @@ class WP_Optimize_Minify_Front_End {
 		$cache_path = WP_Optimize_Minify_Cache_Functions::cache_path();
 		$cache_dir = $cache_path['cachedir'];
 		$cache_dir_url = $cache_path['cachedirurl'];
-		$exclude_js = array_map('trim', explode("\n", trim($this->options['exclude_js'])));
+		$exclude_js = $this->get_excluded_js_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_js);
-		$async_js = trim($this->options['async_js']) ? array_map('trim', explode("\n", trim($this->options['async_js']))) : array();
+		$async_js = $this->get_async_js_list();
 		$scripts = clone $wp_scripts;
 		$scripts->all_deps($scripts->queue);
 		$minify_js = $this->options['enable_js_minification'];
@@ -1434,9 +1436,9 @@ class WP_Optimize_Minify_Front_End {
 		$cache_path = WP_Optimize_Minify_Cache_Functions::cache_path();
 		$cache_dir = $cache_path['cachedir'];
 		$cache_dir_url = $cache_path['cachedirurl'];
-		$exclude_css = array_map('trim', explode("\n", trim($this->options['exclude_css'])));
+		$exclude_css = $this->get_excluded_css_list();
 		$ignore_list = WP_Optimize_Minify_Functions::compile_ignore_list($exclude_css);
-		$async_css = array_map('trim', explode("\n", trim($this->options['async_css'])));
+		$async_css = $this->get_async_css_list();
 		$minify_css = $this->options['enable_css_minification'];
 		$merge_css = $this->options['enable_merging_of_css'];
 		$process_css = $minify_css || $merge_css;
@@ -2057,7 +2059,7 @@ class WP_Optimize_Minify_Front_End {
 		if (!$this->run_on_page('extra_preload_headers')) return;
 
 		// fetch headers
-		$pre_connect = array_map('trim', explode("\n", trim($this->options['hpreconnect'])));
+		$pre_connect = $this->get_pre_connect_list();
 
 		// preload
 		if (is_array($pre_connect) && count($pre_connect) > 0) {
@@ -2136,7 +2138,7 @@ class WP_Optimize_Minify_Front_End {
 		}
 
 		// add the LoadAsync JavaScript function
-		$async_js = trim($this->options['async_js']) ? array_map('trim', explode("\n", trim($this->options['async_js']))) : array();
+		$async_js = $this->get_async_js_list();
 		if (count($async_js) > 0
 			|| ( 'all' === $this->options['enable_defer_js'] && 'async_using_js' === $this->options['defer_js_type'] )
 		) {
@@ -2200,5 +2202,65 @@ class WP_Optimize_Minify_Front_End {
 	 */
 	private function remove_query_string_from_static_assets() {
 		add_filter('style_loader_src', array('WP_Optimize_Minify_Functions', 'remove_cssjs_ver'), 10, 2);
+	}
+
+	/**
+	 * Converts the lines in a textarea option value into an array
+	 *
+	 * @param string $option
+	 * @return array
+	 */
+	private function convert_option_to_array($option) {
+		return trim($option) ? array_map('trim', explode("\n", trim($option))) : array();
+	}
+
+	/**
+	 * Retrieves excluded css URLs as an array
+	 *
+	 * @return array
+	 */
+	private function get_excluded_css_list() {
+		$excluded_css = $this->options['exclude_css'];
+		return $this->convert_option_to_array($excluded_css);
+	}
+
+	/**
+	 * Retrieves async css URLs as an array
+	 *
+	 * @return array
+	 */
+	private function get_async_css_list() {
+		$async_css = $this->options['async_css'];
+		return $this->convert_option_to_array($async_css);
+	}
+
+	/**
+	 * Retrieves excluded javascript URLs as an array
+	 *
+	 * @return array
+	 */
+	private function get_excluded_js_list() {
+		$excluded_js = $this->options['exclude_js'];
+		return $this->convert_option_to_array($excluded_js);
+	}
+
+	/**
+	 * Retrieves async javascript URLs as an array
+	 *
+	 * @return array
+	 */
+	private function get_async_js_list() {
+		$async_js = $this->options['async_js'];
+		return $this->convert_option_to_array($async_js);
+	}
+
+	/**
+	 * Retrieves pre connect headers as an array
+	 *
+	 * @return array
+	 */
+	private function get_pre_connect_list() {
+		$pre_connect = $this->options['hpreconnect'];
+		return $this->convert_option_to_array($pre_connect);
 	}
 }

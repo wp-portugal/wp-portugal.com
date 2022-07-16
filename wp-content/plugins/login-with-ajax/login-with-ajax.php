@@ -4,7 +4,7 @@ Plugin Name: Login With Ajax
 Plugin URI: http://wordpress.org/extend/plugins/login-with-ajax/
 Description: Ajax driven login widget. Customisable from within your template folder, and advanced settings from the admin area.
 Author: Marcus Sykes
-Version: 4.0.1
+Version: 4.1
 Author URI: http://msyk.es/?utm_source=login-with-ajax&utm_medium=plugin-header&utm_campaign=plugins
 Tags: Login, Ajax, Redirect, BuddyPress, MU, MultiSite, security, sidebar, admin, widget
 Text Domain: login-with-ajax
@@ -24,7 +24,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-define('LOGIN_WITH_AJAX_VERSION', '4.0.1');
+define('LOGIN_WITH_AJAX_VERSION', '4.1');
 define('LOGIN_WITH_AJAX_PATH', dirname(__FILE__));
 define('LOGIN_WITH_AJAX_URL', trailingslashit(plugin_dir_url(__FILE__)));
 class LoginWithAjax {
@@ -338,7 +338,7 @@ class LoginWithAjax {
 	    } else {
 	    	$register_link = wp_registration_url();
 	    }
-	    return static::template_link( $template, $register_link );
+	    return static::template_link( $register_link, $template );
 	}
 	
 	/**
@@ -348,7 +348,8 @@ class LoginWithAjax {
 	 * @see LoginWithAjax::template_link()
 	 */
 	public static function get_remember_url( $template = null ){
-		return static::template_link( $template, add_query_arg('action', 'lostpassword', wp_login_url()) );
+		$url = apply_filters('lwa_remember_url', add_query_arg('action', 'lostpassword', wp_login_url()), $template );
+		return static::template_link( $url, $template );
 	}
 	
 	/**
@@ -358,7 +359,8 @@ class LoginWithAjax {
 	 * @see LoginWithAjax::template_link()
 	 */
 	public static function get_login_url( $template = null ){
-		return static::template_link( $template, wp_login_url() );
+		$url = apply_filters('lwa_login_url', wp_login_url(), $template);
+		return static::template_link( $url, $template );
 	}
 
 	/*
@@ -407,7 +409,7 @@ class LoginWithAjax {
 		}
 		//final replaces
 		if( !empty($redirect) ){
-			$redirect = str_replace("%LASTURL%", $_SERVER['HTTP_REFERER'], $redirect);
+			$redirect = str_replace("%LASTURL%", wp_get_raw_referer(), $redirect);
 			if( !empty($lang) ){
 				$redirect = str_replace("%LANG%", $lang.'/', $redirect);
 			}
@@ -557,7 +559,7 @@ class LoginWithAjax {
 			    foreach( array('login_form','lwa_register_form', 'lostpassword_form') as $action ) remove_action($action, 'lwa_wpml_input_var');
 			}
 		}
-		static::$template = self::$data['template'];
+		if( !empty(self::$data['template']) ) static::$template = self::$data['template'];
 	}
 	
 	public static function get_output( $instance = array() ){

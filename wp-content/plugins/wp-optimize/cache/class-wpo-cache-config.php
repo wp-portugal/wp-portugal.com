@@ -57,7 +57,7 @@ class WPO_Cache_Config {
 	 */
 	public function get_option($option_key, $default = false) {
 		$options = $this->get();
-		return isset($options[$option_key]) ? $options[$option_key] : $default;
+		return apply_filters("wpo_option_key_{$option_key}", (isset($options[$option_key]) ? $options[$option_key] : $default));
 	}
 
 	/**
@@ -156,13 +156,7 @@ class WPO_Cache_Config {
 	 */
 	private function write($config, $only_if_present = false) {
 
-		$url = parse_url(network_site_url());
-
-		if (isset($url['port']) && '' != $url['port'] && 80 != $url['port']) {
-			$config_file = WPO_CACHE_CONFIG_DIR.'/config-'.$url['host'].'-port'.$url['port'].'.php';
-		} else {
-			$config_file = WPO_CACHE_CONFIG_DIR.'/config-'.$url['host'].'.php';
-		}
+		$config_file = WPO_CACHE_CONFIG_DIR.'/'.$this->get_cache_config_filename();
 
 		$this->config = wp_parse_args($config, $this->get_defaults());
 
@@ -238,6 +232,7 @@ class WPO_Cache_Config {
 			'page_cache_length_value'					=> 24,
 			'page_cache_length_unit'					=> 'hours',
 			'page_cache_length'							=> 86400,
+			'cache_exception_conditional_tags'			=> array(),
 			'cache_exception_urls'						=> array(),
 			'cache_exception_cookies'					=> array(),
 			'cache_exception_browser_agents'			=> array(),
@@ -248,9 +243,26 @@ class WPO_Cache_Config {
 			'enable_user_caching'						=> false,
 			'site_url'									=> network_site_url('/'),
 			'enable_cache_per_country'					=> false,
+			'permalink_structure'						=> get_option('permalink_structure'),
+			'uploads'									=> wp_upload_dir()['basedir'],
 		);
 
 		return apply_filters('wpo_cache_defaults', $defaults);
+	}
+
+	/**
+	 * Get advanced-cache.php file name with full path.
+	 *
+	 * @return string
+	 */
+	public function get_cache_config_filename() {
+		$url = parse_url(network_site_url());
+
+		if (isset($url['port']) && '' != $url['port'] && 80 != $url['port']) {
+			return 'config-'.$url['host'].'-port'.$url['port'].'.php';
+		} else {
+			return 'config-'.$url['host'].'.php';
+		}
 	}
 
 	/**

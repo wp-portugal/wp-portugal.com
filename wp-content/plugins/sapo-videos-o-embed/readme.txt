@@ -2,8 +2,8 @@
 Contributors: vanillalounge
 Tags: Sapo, oEmbed, video, Portugal
 Requires at least: 3.0
-Tested up to: 4.9
-Stable tag: 1.2
+Tested up to: 5.9.3
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,9 @@ See Sapo Video's original announcement of oEmbed Support at http://sapovideos.bl
 3. Copy and paste the desired Sapo Video URL on your content, on a line by itself
 
 == Changelog ==
+
+= 1.2.1 =
+* Tested with WordPress 5.9.3
 
 = 1.2 =
 * Updated WordPress version tested up to 4.9.

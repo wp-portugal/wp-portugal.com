@@ -73,9 +73,6 @@ class WPO_Server_Info {
 	 * Test Apache/LiteSpeed server's htaccess capabilities, and sets status and info
 	 */
 	private function test_htaccess_capabilities() {
-		if (!class_exists('WPO_Htaccess_Capabilities')) {
-			include_once WPO_PLUGIN_MAIN_PATH . 'webp/class-wpo-htaccess-capabilities.php';
-		}
 		$htc = WPO_Htaccess_Capabilities::get_instance();
 		if ($htc->htaccess_enabled && $htc->mod_rewrite && $htc->mod_headers && $htc->mod_mime) {
 			$this->_rewrite_status = true;

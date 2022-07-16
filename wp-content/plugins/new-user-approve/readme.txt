@@ -3,8 +3,8 @@ Contributors: wpexpertsio
 Donate link: https://newuserapprove.com
 Tags: users, registration, sign up, user management, login, user approval
 Requires at least: 4.0
-Tested up to: 5.9.1
-Stable tag: 2.1
+Tested up to: 6.0
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,11 +15,11 @@ are able to login to the site.
 
 **New User Approve plugin automates the user registration process on your WordPress website.**
 
-Typically, the user registration process on a WordPress website is pretty straightforward. When a new user registers, their unique identity is created in the website’s database. An email is then sent to the new user that contains their login credentials. **Simple as it can be, but it goes to say that there is plenty of room for customization**.
+Typically, the user registration process on a WordPress website is pretty straightforward. When a new user registers, their unique identity is created in the website's database. An email is then sent to the new user that contains their login credentials. **Simple as it can be, but it goes to say that there is plenty of room for customization**.
 
 **Introducing New User Approve** -  a new way to register users on your WordPress website. 
 
-Here’s how the process works with **New User Approve:**
+Here is how the process works with **New User Approve:**
 
 1. A user registers on the site, and their ID is created.
 2. An email is sent to the administrators of the site. 
@@ -30,75 +30,93 @@ Here’s how the process works with **New User Approve:**
 
 Only approved users will be allowed to log in to the site. Thus, users waiting for approval or the ones rejected will not be able to login to the site - Simple, straightforward, and effective.
 
-The user’s status can be updated even after the initial approval/denial request. Also, users that have been created before the activation of **New User Approve** will be treated as approved users.
+The user status can be updated even after the initial approval/denial request. The admin can search approve, deny and pending users. Also, users that have been created before the activation of **New User Approve** will be treated as approved users.
 
-**New and improved user interface in Version 2.0**
-The overall interface has been revised and improved for a trendy, fresh, and minimal look. The latest design includes a whole new look and experience for the layout so your users can have an experience unlike any other. 
+**Latest Update - New User Approve v2.3** 
 
-The clean and easy user interface always helps the existing and the new customers gain confidence in your website.
+**Automation Made Easier With Zapier**
+Zapier allows you to automate mundane tasks and processes without the need for a developer. Zapier uses a simple trigger and action for creating commands, which in the case of New User Approve are:
 
-**Send invitation codes**
+* User Approved – Triggers when a user is approved.
+* User Denied – Triggers when a user is denied.
+
+With Zapier, you can use the trigger events for applications like Gmail, Google Sheets, Slack and more.
+
+**Send Invitation Codes**
 Make the registration process easier by sending the invitation code to those who you want to skip the process altogether. People who user the invitation codes are auto-approved by the system.
 
 The invitation codes will be genrated manually and work smoothly with WooCommerce's registration mechanism. They can also be edited and deactivated at any time.
 
+**New User Approve v2.0 - Improved User Interface & Code Optimization**
+The overall interface has been revised and improved for a trendy, fresh, and minimal look. The latest design includes a whole new look and experience for the layout so your users can have an experience unlike any other. 
+
+The clean and easy user interface always helps the existing and the new customers gain confidence in your website.
+
 [youtube https://www.youtube.com/watch?v=RowV3wmD_jg]
 
 **Compatibility**
-New User Approve is compatible with [WooCommerce](https://woocommerce.com/), [MemberPress](https://memberpress.com/), [WP-Foro](https://wpforo.com/), [Learndash](https://www.learndash.com/), and [Ultimate Member](https://ultimatemember.com/).
+New User Approve is compatible with [WooCommerce](https://woocommerce.com/), [MemberPress](https://memberpress.com/), [WP-Foro](https://wpforo.com/), [Learndash](https://www.learndash.com/), and [Ultimate Member](https://ultimatemember.com/), [BuddyPress](https://buddypress.org/), [Zapier](https://zapier.com/).
 
-**[Follow New User Approve on Github](https://github.com/picklewagon/new-user-approve)**
+**[Follow New User Approve on Github](https://github.com/wpexpertsio/new-user-approve)**
 
 Further support at [newuserapprove.com](http://newuserapprove.com/).
 
-**Customize**
+**Custom Actions & Filters**
 **New User Approve** can be customized using **custom actions and filters**. You can find out more about these by browsing the source code.
 
-A commercial plugin that adds a config panel for customization is also available at [https://newuserapprove.com/options-addon/](https://newuserapprove.com/options-addon/).
+A commercial plugin that adds a config panel for customization is also available at [https://newuserapprove.com/#PricePlan](https://newuserapprove.com/#PricePlan).
 
-**The code for this plugin is also available at Github** [https://github.com/picklewagon/new-user-approve](https://github.com/picklewagon/new-user-approve). Pull requests are welcomed.
+**The code for this plugin is also available at Github** [https://github.com/wpexpertsio/new-user-approve](https://github.com/wpexpertsio/new-user-approve). Pull requests are welcomed.
 
-**FILTERS**
-- *new_user_approve_user_status* – modify the list of users shown in the tables
-- *new_user_approve_request_approval_message* – modify the request approval message
-- *new_user_approve_request_approval_subject* – modify the request approval subject
-- *new_user_approve_approve_user_message* – modify the user approval message
-- *new_user_approve_approve_user_subject* – modify the user approval subject
-- *new_user_approve_deny_user_message* – modify the user denial message
-- *new_user_approve_deny_user_subject* – modify the user denial subject
-- *new_user_approve_pending_message* – modify message user sees after registration
-- *new_user_approve_registration_message* – modify message after a successful registration
-- *new_user_approve_register_instructions* – modify message that appears on registration screen
-- *new_user_approve_pending_error* – error message shown to pending users when attempting to log in
-- *new_user_approve_denied_error* – error message shown to denied users when attempting to log in
+**Filters**
+- *new_user_approve_user_status* - modify the list of users shown in the tables
+- *new_user_approve_request_approval_message* - modify the request approval message
+- *new_user_approve_request_approval_subject* - modify the request approval subject
+- *new_user_approve_approve_user_message* - modify the user approval message
+- *new_user_approve_approve_user_subject* - modify the user approval subject
+- *new_user_approve_deny_user_message* - modify the user denial message
+- *new_user_approve_deny_user_subject* - modify the user denial subject
+- *new_user_approve_pending_message* - modify message user sees after registration
+- *new_user_approve_registration_message* - modify message after a successful registration
+- *new_user_approve_register_instructions* - modify message that appears on registration screen
+- *new_user_approve_pending_error* - error message shown to pending users when attempting to log in
+- *new_user_approve_denied_error* - error message shown to denied users when attempting to log in
+- *nua_input_sanitize_hook',$input,$current* - enables you to sanitize and save custom fields
+- *nua_pass_create_new_user', $user_pass* - modify the password being assiged to newly created user
 
-**ACTIONS**
-- *new_user_approve_user_approved* – after the user has been approved
-- *new_user_approve_user_denied* – after the user has been denied
-- *new_user_approve_approve_user* – when the user has been approved
-- *new_user_approve_deny_user* – when the user has been denied
+**Actions**
+- *new_user_approve_user_approved* - after the user has been approved
+- *new_user_approve_user_denied* - after the user has been denied
+- *new_user_approve_approve_user* - when the user has been approved
+- *new_user_approve_deny_user* - when the user has been denied
+- *nua_add_settings', $this->option_page* - enables you to add custom setting fields
+- *nua_enqueue_scripts_for_settings* - enables you to add custom scripts on settings page
+- *nua_settings_main_tab',$action* - enables you to add custom settings tab
 
 == DOCUMENTATION ==
 [Click here](https://newuserapprove.com/documentation/#installation-guide) to view the detailed technical documentation of New User Approve Free Version. The documentation includes a step-by-step configuration guide and troubleshooting.
 
-**New User Approve Pro features**
-[Download Premium from here](https://newuserapprove.com/options-addon)
+**New User Approve Pro Features**
+[Download Premium from here](https://newuserapprove.com/#PricePlan)
 
 * Ability to remove plugin stats from the admin dashboard.
-* Remove the admin panel from the WordPress dashboard specifically added to update a user’s status.
+* Remove the admin panel from the WordPress dashboard specifically added to update user status.
 * Auto approve or reject users by adding them to Blacklist or Whitelist.
 * Customize the welcome message displayed above the WordPress login form.
-* Customize the ‘Pending error message’ displayed to the user on the log-in page when their account is still pending approval.
-* Customize the ‘Denied error message’ displayed to the user when their account is denied approval.
+* Customize the "Pending error message" displayed to the user on the log-in page when their account is still pending approval.
+* Customize the "Denied error message" displayed to the user when their account is denied approval.
 * Customize the welcome message displayed above the WordPress registration form.
-* Customize the ‘registration complete’ message displayed after the user submits the registration form for approval.
+* Customize the "registration complete" message displayed after the user submits the registration form for approval.
 * Ability To send notification emails to all admins.
-* Notify admins when a user’s status is updated.
+* Notify admins when a user's status is updated.
+* Integration with Zapier - allow you to send data between Zapier and New User Approve.
+* Zapier trigger events for user approved and denied. 
+* Create invitation codes for user registration form on BuddyPress.
 * Disable notification emails to current site admin.
 * Customize the email sent to admin/s when a user registers on the site.
 * Customize the email sent to the user when their profile is approved.
 * Customize the email sent to the user when their profile is denied.
-* Suppress denial notification/s.
+* Suppress denial notification(s).
 * Option to send all notification/s in the HTML format.
 * Different template tags can be used in Notification Emails and other messages.
 * Invitation codes to invite and approve users automatically.
@@ -168,11 +186,24 @@ We are aware of a few issues with multisite
 1. User Registration Approval - Pending Users.
 2. User Registration Approval - Approved Users.
 3. User Registration Approval - Denied Users.
-4. Invitation Code Settings - Add Codes.
-5. Invitation Code Settings - Settings.
-6. Pro Features.
+4. User Registration Approval - Zapier Settings.
+5. Invitation Code Settings - Add Codes.
+6. Invitation Code Settings - Settings.
+7. Pro Features.
 
 == Changelog ==
+
+= 2.4.1 =
+* Tweak – Security Fixes
+
+= 2.4 =
+* Tweak – Code improvement
+
+= 2.3 =
+* Added - Zapier Integration
+* Added - Filter Hook to Filter password before user creation.
+* Added - Search approve, deny and pending users.
+* Improvement - Code Optimization.
 
 = 2.1 = 
 * Updated Freemius SDK Version 2.4.3
@@ -451,4 +482,3 @@ Download version 1.3.2 immediately! A bug was found in version 1.3 that allows a
 == Other Notes ==
 
 The code for this plugin is also available at Github - https://github.com/picklewagon/new-user-approve. Pull requests welcomed.
-

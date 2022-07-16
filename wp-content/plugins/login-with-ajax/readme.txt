@@ -3,16 +3,14 @@ Contributors: netweblogic
 Tags: login, ajax, ajax login, registration, redirect redirect, buddypress, multi site, sidebar, admin, widget, gutenberg, security, recaptcha
 Text Domain: login-with-ajax
 Requires at least: 4.8
-Tested up to: 5.9
-Stable tag: 4.0
+Tested up to: 6.0
+Stable tag: 4.1
 Requires PHP: 5.2
 License: GPLv2 or later
 
 Add beautiful login forms with smooth AJAX login/registration effects, custom redrection options and many more login-related features!
 
 == Description ==
-
-<blockquote> Version 4 is a major overhaul of the plugin, which has remained largely unchanged for 11 years yet remained a staple tool for logins to WordPress! Changes include a complete rewrite of login templates updated to modern stadnards and practices, as well as new WP features such as Gutenberg Blocks. </blockquote>
 
 Login With Ajax is for sites that need user logins or registrations and would like to avoid the normal wordpress login pages, or add AJAX effects to the regular login pages. This plugin adds the capability of placing a login widget in the sidebar with smooth AJAX login effects.
 
@@ -54,6 +52,8 @@ Some of the features:
  * Easy-to-customize and overridable template files
  * Well-documented
 
+First released in 2009, the oldest login plugin for WordPress, regularly maintained and updated since then!
+
 = Pro Add-On Features =
 As of version 4.0, [we now offer a Pro add-on](https://loginwithajax.com/) which extends Login With AJAX with multiple new features:
 
@@ -67,6 +67,8 @@ As of version 4.0, [we now offer a Pro add-on](https://loginwithajax.com/) which
 * More on the way!
 
 = Getting Help/Support =
+<blockquote> Version 4 is a major overhaul of the plugin, which has remained largely unchanged for 11 years yet remained a staple tool for logins to WordPress! Changes include a complete rewrite of login templates updated to modern stadnards and practices, as well as new WP features such as Gutenberg Blocks. </blockquote>
+
 If you're stuck, we strongly suggest visiting our [Documentation Site](https://docs.loginwithajax.com/) which contains exensive information and advice on setup and troubleshooting.
 
 If you have any problems with the plugin after reading our [Troubleshooting](https://doocs.loginwithajax.com/troubleshooting/), please visit our freely supported [community forums](http://wordpress.org/support/plugin/login-with-ajax), or [Go Pro](https://loginwithajax.com/gopro/) for premium support.

@@ -13,7 +13,6 @@ class WP_Optimize_Minify {
 	 */
 	public function __construct() {
 
-		if (!class_exists('WP_Optimize_Minify_Commands')) include_once(WPO_PLUGIN_MAIN_PATH . 'minify/class-wp-optimize-minify-commands.php');
 		$this->minify_commands = new WP_Optimize_Minify_Commands();
 
 		if (!class_exists('WP_Optimize_Minify_Config')) {
@@ -128,10 +127,6 @@ class WP_Optimize_Minify {
 	 */
 	private function load_admin() {
 		if (!is_admin()) return;
-
-		if (!class_exists('WP_Optimize_Minify_Admin')) {
-			include WP_OPTIMIZE_MINIFY_DIR.'/class-wp-optimize-minify-admin.php';
-		}
 		new WP_Optimize_Minify_Admin();
 	}
 
@@ -142,9 +137,6 @@ class WP_Optimize_Minify {
 	 */
 	private function load_frontend() {
 		if ($this->enabled) {
-			if (!class_exists('WP_Optimize_Minify_Front_End')) {
-				include WP_OPTIMIZE_MINIFY_DIR.'/class-wp-optimize-minify-front-end.php';
-			}
 			new WP_Optimize_Minify_Front_End();
 		}
 	}
@@ -155,9 +147,6 @@ class WP_Optimize_Minify {
 	 * @return void
 	 */
 	private function load_premium() {
-		if (!class_exists('WP_Optimize_Minify_Premium')) {
-			include WP_OPTIMIZE_MINIFY_DIR.'/class-wp-optimize-minify-premium.php';
-		}
 		$this->premium = new WP_Optimize_Minify_Premium();
 	}
 

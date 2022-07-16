@@ -26,14 +26,21 @@ $no_cache_because = array();
 // check if we want to cache current page.
 if (function_exists('add_filter') && function_exists('apply_filters')) {
 	add_filter('wpo_restricted_cache_page_type', 'wpo_restricted_cache_page_type');
+	add_filter('wpo_url_in_conditional_tags_exceptions', 'wpo_url_in_conditional_tags_exceptions');
 	$restricted_cache_page_type = apply_filters('wpo_restricted_cache_page_type', false);
+	$conditional_tag_exceptions = wpo_url_in_conditional_tags_exceptions();
 } else {
 	// On old WP versions, you can't filter the result
 	$restricted_cache_page_type = wpo_restricted_cache_page_type(false);
+	$conditional_tag_exceptions = wpo_url_in_conditional_tags_exceptions();
 }
 
 if ($restricted_cache_page_type) {
 	$no_cache_because[] = $restricted_cache_page_type;
+}
+
+if ($conditional_tag_exceptions) {
+	$no_cache_because[] = $conditional_tag_exceptions;
 }
 
 // Don't cache non-GET requests.

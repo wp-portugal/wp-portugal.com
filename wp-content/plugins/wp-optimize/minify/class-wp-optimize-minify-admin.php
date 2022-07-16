@@ -136,9 +136,6 @@ class WP_Optimize_Minify_Admin {
 	 * @return void
 	 */
 	public function output_status() {
-		if (!class_exists('WP_Optimize_Detect_Minify_Plugins')) {
-			require_once(WP_OPTIMIZE_MINIFY_DIR.'/class-wp-optimize-detect-minify-plugins.php');
-		}
 		$this->found_incompatible_plugins = WP_Optimize_Detect_Minify_Plugins::get_instance()->get_active_minify_plugins();
 		$wpo_minify_options = wp_optimize_minify_config()->get();
 		$cache_path = WP_Optimize_Minify_Cache_Functions::cache_path();
@@ -245,7 +242,6 @@ class WP_Optimize_Minify_Admin {
 		$wpo_minify_preloader = WP_Optimize_Minify_Preloader::instance();
 		$is_running = $wpo_minify_preloader->is_running();
 		$status = $wpo_minify_preloader->get_status_info();
-		if (!class_exists('WPO_Cache_Config')) require_once(WPO_PLUGIN_MAIN_PATH . '/cache/class-wpo-cache-config.php');
 		$cache_config = WPO_Cache_Config::instance();
 		WP_Optimize()->include_template(
 			'minify/preload-tab.php',

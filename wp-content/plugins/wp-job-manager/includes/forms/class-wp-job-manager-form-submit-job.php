@@ -226,12 +226,19 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						'placeholder' => __( 'e.g. "London"', 'wp-job-manager' ),
 						'priority'    => 2,
 					],
+					'remote_position' => [
+						'label'       => __( 'Remote Position', 'wp-job-manager' ),
+						'description' => __( 'Select if this is a remote position.', 'wp-job-manager' ),
+						'type'        => 'checkbox',
+						'required'    => false,
+						'priority'    => 3,
+					],
 					'job_type'        => [
 						'label'       => __( 'Job type', 'wp-job-manager' ),
 						'type'        => $job_type,
 						'required'    => true,
 						'placeholder' => __( 'Choose job type&hellip;', 'wp-job-manager' ),
-						'priority'    => 3,
+						'priority'    => 4,
 						'default'     => 'full-time',
 						'taxonomy'    => 'job_listing_type',
 					],
@@ -240,7 +247,7 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						'type'        => 'term-multiselect',
 						'required'    => true,
 						'placeholder' => '',
-						'priority'    => 4,
+						'priority'    => 5,
 						'default'     => '',
 						'taxonomy'    => 'job_listing_category',
 					],
@@ -248,7 +255,7 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						'label'    => __( 'Description', 'wp-job-manager' ),
 						'type'     => 'wp-editor',
 						'required' => true,
-						'priority' => 5,
+						'priority' => 6,
 					],
 					'application'     => [
 						'label'       => $application_method_label,
@@ -256,7 +263,14 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 						'sanitizer'   => $application_method_sanitizer,
 						'required'    => true,
 						'placeholder' => $application_method_placeholder,
-						'priority'    => 6,
+						'priority'    => 7,
+					],
+					'job_salary'      => [
+						'label'       => __( 'Salary', 'wp-job-manager' ),
+						'type'        => 'text',
+						'required'    => false,
+						'placeholder' => 'e.g. 20000',
+						'priority'    => 8,
 					],
 				],
 				'company' => [
@@ -323,6 +337,9 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 		if ( ! get_option( 'job_manager_enable_types' ) || 0 === intval( wp_count_terms( 'job_listing_type' ) ) ) {
 			unset( $this->fields['job']['job_type'] );
 		}
+		if ( ! get_option( 'job_manager_enable_salary' ) ) {
+			unset( $this->fields['job']['job_salary'] );
+		}
 	}
 
 	/**
@@ -376,7 +393,7 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 			foreach ( $group_fields as $key => $field ) {
 				if (
 					$field['required']
-					&& empty( $values[ $group_key ][ $key ] )
+					&& $this->is_empty( $values[ $group_key ][ $key ] )
 					&& ( ! isset( $field['empty'] ) || $field['empty'] )
 				) {
 					// translators: Placeholder %s is the label for the required field.
@@ -514,6 +531,33 @@ class WP_Job_Manager_Form_Submit_Job extends WP_Job_Manager_Form {
 		 * @param array $values   Submitted input values.
 		 */
 		return apply_filters( 'submit_job_form_validate_fields', true, $this->fields, $values );
+	}
+
+	/**
+	 * Checks whether a value is empty.
+	 *
+	 * @param string|numeric|array|boolean $value
+	 * @return bool True if value is empty, false otherwise.
+	 */
+	protected function is_empty( $value ) {
+		/**
+		 * Filter values considered as empty or falsy for required fields.
+		 * Useful for example if you want to consider zero (0) as a non-empty value.
+		 *
+		 * @see http://php.net/manual/en/function.empty.php -- standard default empty values
+		 *
+		 * @since 1.36.0
+		 *
+		 * @param array  $false_vals A list of values considered as falsy.
+		 */
+		$false_vals = apply_filters( 'submit_job_form_validate_fields_empty_values', [ '', 0, 0.0, '0', null, false, [] ] );
+
+		// strict true for type checking.
+		if ( in_array( $value, $false_vals, true ) ) {
+			return true;
+		}
+
+		return false;
 	}
 
 	/**

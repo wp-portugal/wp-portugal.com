@@ -448,7 +448,7 @@ class WPSEO_Utils {
 	 * @since 1.8.0
 	 */
 	public static function clear_rewrites() {
-		delete_option( 'rewrite_rules' );
+		update_option( 'rewrite_rules', '' );
 	}
 
 	/**
@@ -897,6 +897,7 @@ class WPSEO_Utils {
 			'isBreadcrumbsDisabled' => WPSEO_Options::get( 'breadcrumbs-enable', false ) !== true && ! current_theme_supports( 'yoast-seo-breadcrumbs' ),
 			// phpcs:ignore Generic.ControlStructures.DisallowYodaConditions -- Bug: squizlabs/PHP_CodeSniffer#2962.
 			'isPrivateBlog'         => ( (string) get_option( 'blog_public' ) ) === '0',
+			'news_seo_is_active'    => ( defined( 'WPSEO_NEWS_FILE' ) ),
 		];
 
 		$additional_entries = apply_filters( 'wpseo_admin_l10n', [] );

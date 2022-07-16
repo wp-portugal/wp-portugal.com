@@ -85,7 +85,11 @@ class MultisiteToolsAddonCli extends MultisiteToolsAddon
     public function update_prefix($profile, $post_data){
         $destination_site   = 'push' === $profile['action'] ? $post_data['site_details']['remote'] : $post_data['site_details']['local'];
         $destination_prefix = $destination_site['prefix'];
-        $site_id            = $profile['mst_subsite_to_subsite'] ? $profile['mst_destination_subsite'] : $profile['mst_selected_subsite'];
+        $site_id            = 0;
+        if ($profile['multisite_tools']['enabled']) {
+            $site_id = $profile['mst_subsite_to_subsite'] ? $profile['mst_destination_subsite'] : $profile['mst_selected_subsite'];
+        }
+       
         if (1 < $site_id) {
             $profile['new_prefix'] = $destination_prefix . $site_id . '_';
         } else {
@@ -106,6 +110,9 @@ class MultisiteToolsAddonCli extends MultisiteToolsAddon
     {
         if (!isset($profile['multisite_tools'])) {
             return $profile;
+        }
+        if (isset($profile['mst_select_subsite']) && ! $profile['mst_select_subsite']) {
+            $profile['multisite_tools']['enabled'] = false;
         }
 
         $mst = $profile['multisite_tools'];

@@ -4,8 +4,8 @@ Donate link: https://david.dw-perspective.org.uk/donate
 Tags: cache, minify, database, image optimize, performance, clean, spam, speed, caching, smush, smushing
 Requires PHP: 5.6
 Requires at least: 4.5
-Tested up to: 5.9
-Stable tag: 3.2.3
+Tested up to: 6.0
+Stable tag: 3.2.6
 License: GPLv2+
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -366,6 +366,37 @@ If none of the above works, disable processing of JavaScript files in the minify
 
 
 
+
+* FIX: The unused images CSV downloads have a few redundant images listed
+
+
+= 3.2.6 - 15/Jun/2022 =
+
+* FIX: Incorrect static method calling causes parse Error in PHP 5.6.36
+* FIX: WebP - Trailing slash file creation issue in PHP 8 
+* FIX: PHP warning in cache rules file
+* FIX: Asynchronous google fonts loaded twice
+* TWEAK: Conditional Tags anchor tag fix
+
+= 3.2.5 - 03/Jun/2022 =
+
+* FIX: Fix a fatal error that could occur in 3.2.4 if settings had not been saved
+
+= 3.2.4 - 24/May/2022 =
+
+* FEATURE: Create a cron job to delete expired cache files
+* FEATURE: WebP image format can be used to serve images
+* FIX: Incorrect record count after importing
+* FIX: Image smushing issues
+* FIX: Problem with Redirect – Trailing Slash on URLs
+* FIX: Unused images issue with ACF `repeater` and nested fields
+* TWEAK: Added functionality for exclude caching based on conditional tags
+* TWEAK: Update last optimized time for scheduled optimizations
+* TWEAK: Cache - Prevent already header sent warnings while importing posts
+* TWEAK: Improved UI for `actionscheduler_` tables
+* TWEAK: Add filter to allow/disallow `gz` file generation
+* TWEAK: Show error message to user when WP_CACHE constant can't be removed from wp-config.php due to file permission issue.
+
 = 3.2.3 - 09/Mar/2022 =
 
 * FEATURE: Minify: Pre-generate assets
@@ -373,6 +404,7 @@ If none of the above works, disable processing of JavaScript files in the minify
 * TWEAK: Make smush details button work in media modal window
 * TWEAK: Do not show overhead in red when the amount is small
 * TWEAK: Avoid PHP Notices caused by "upgrader_process_complete" action
+* TWEAK: Force monolog 2.3.* in order to avoid PHP 7.2+ dependency
 
 = 3.2.2 - 24/Jan/2022 =
 
@@ -1232,4 +1264,4 @@ If none of the above works, disable processing of JavaScript files in the minify
 * Fix Interface
 
 == Upgrade Notice ==
-* 3.2.3: * Minify: Pre-generate assets. Cache - 'Purge cache permissions' setting does not allow additional roles to access the purge cache tool. Many and various tweaks and fixes; a recommended update for all.
+* 3.2.6: WebP - Trailing slash file creation issue in PHP 8 and incorrect static method calling causes parse Error in PHP 5.6.36; a recommended update for all.

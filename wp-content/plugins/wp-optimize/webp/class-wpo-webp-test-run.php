@@ -20,7 +20,7 @@ class WPO_WebP_Test_Run {
 	public static function get_converter_status() {
 		$source = WPO_PLUGIN_MAIN_PATH . 'images/logo/wpo_logo_small.png';
 		$upload_dir = wp_upload_dir();
-		$destination =  $upload_dir['basedir']. '/wpo/images/wpo_logo_small.webp';
+		$destination =  $upload_dir['basedir']. '/wpo/images/wpo_logo_small.png.webp';
 
 		$converters = array(
 			// 'cwebp',
@@ -47,6 +47,9 @@ class WPO_WebP_Test_Run {
 				);
 				$converter_instance->doConvert();
 				$working_converters[] = $converter_id;
+				// Copying source file to `uploads` folder. To be used test redirection
+				// We're doing it here, to make sure folders already exists `/wpo/images/`
+				copy($source, $upload_dir['basedir'] . '/wpo/images/wpo_logo_small.png');
 			} catch (\Exception $e) {
 				$errors[$converter_id] = $e->getMessage();
 			}

@@ -3,12 +3,12 @@
 
 <?php
 if ( isset( $_GET['user'] ) && isset( $_GET['status'] ) ) {
-	echo '<div id="message" class="updated fade"><p>' . __( 'User successfully updated.', 'new-user-approve' ) . '</p></div>';
+	echo wp_kses_post('<div id="message" class="updated fade"><p>' . __( 'User successfully updated.', 'new-user-approve' ) . '</p></div>');
 }
 ?>
 
 <div class="wrap">
-	<h2><?php _e( 'User Registration Approval', 'new-user-approve' ); ?></h2>
+	<h2><?php esc_html_e( 'User Registration Approval', 'new-user-approve' ); ?></h2>
 
 	<?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
 	<?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>

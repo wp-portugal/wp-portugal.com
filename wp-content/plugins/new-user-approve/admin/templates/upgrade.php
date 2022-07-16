@@ -846,9 +846,7 @@ a {
 </style>
 
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" crossorigin="anonymous"></script>
-<script src="https://checkout.freemius.com/checkout.min.js"></script>
+
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -942,7 +940,7 @@ jQuery(document).ready(function($){
 
 });
 
-
+var new_user_approve_logo = url("./image/new-user-logo.png");
 function buy_now(selected_plan_id, selected_billing_cycle, licenses) {
 
     var handler = FS.Checkout.configure({
@@ -950,7 +948,7 @@ function buy_now(selected_plan_id, selected_billing_cycle, licenses) {
          plugin_id:  '5930',
          plan_id:    selected_plan_id,
          public_key: 'pk_4c854593bf607fd795264061bbf57',
-         image:      'https://newuserapprove.com/wp-content/uploads/2020/09/cropped-new-user-logo_2c24dec67c275b6b862d7d7e1eb472e3.png',
+         image:      new_user_approve_logo,
          billing_cycle: selected_billing_cycle
 
     });
@@ -959,7 +957,7 @@ function buy_now(selected_plan_id, selected_billing_cycle, licenses) {
     var plugin_id=  '5930';
          var plan_id=    selected_plan_id;
          var public_key= 'pk_4c854593bf607fd795264061bbf57';
-         var image=      'https://newuserapprove.com/wp-content/uploads/2020/09/cropped-new-user-logo_2c24dec67c275b6b862d7d7e1eb472e3.png';
+         var image=      new_user_approve_logo;
         var  billing_cycle= selected_billing_cycle;
     handler.open({
 

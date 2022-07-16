@@ -41,6 +41,7 @@ class Updraft_Smush_Manager_Commands extends Updraft_Task_Manager_Commands_1_0 {
 			'mark_as_compressed',
 			'mark_all_as_uncompressed',
 			'clean_all_backup_images',
+			'reset_webp_serving_method',
 		);
 
 		return array_merge($commands, $smush_commands);
@@ -211,12 +212,17 @@ class Updraft_Smush_Manager_Commands extends Updraft_Task_Manager_Commands_1_0 {
 		$options['image_quality'] = filter_var($data['image_quality'], FILTER_SANITIZE_NUMBER_INT);
 		$options['show_smush_metabox'] = filter_var($data['show_smush_metabox'], FILTER_VALIDATE_BOOLEAN) ? 'show' : 'hide';
 		$options['webp_conversion'] = filter_var($data['webp_conversion'], FILTER_VALIDATE_BOOLEAN) ? true : false;
+		$is_webp_conversion_enabled = $options['webp_conversion'] ? 'true' : 'false';
+		WP_Optimize()->log("WebP conversion is enabled? $is_webp_conversion_enabled");
+		$options['webp_converters'] = false;
 
 		$success = $this->task_manager->update_smush_options($options);
 
 		if (!$success) {
 			return new WP_Error('update_failed', __('Options could not be updated', 'wp-optimize'));
 		}
+
+		do_action('wpo_save_images_settings');
 
 		$response = array();
 		$response['status'] = true;
@@ -473,6 +479,18 @@ class Updraft_Smush_Manager_Commands extends Updraft_Task_Manager_Commands_1_0 {
 		flush();
 		
 		if (function_exists('fastcgi_finish_request')) fastcgi_finish_request();
+	}
+
+	/**
+	 * Resets webp serving method
+	 *
+	 * @return array
+	 */
+	public function reset_webp_serving_method() {
+		$success = $this->task_manager->reset_webp_serving_method();
+		return array(
+			'success' => $success,
+		);
 	}
 }
 

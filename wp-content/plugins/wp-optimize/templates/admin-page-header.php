@@ -31,7 +31,7 @@
 		<span class="wpo-subheader"><?php echo htmlspecialchars(__('Make your site fast & efficient', 'wp-optimize')); ?></span>
 	</div>
 	<?php
-	$wp_optimize->include_template('pages-menu.php', false, array('menu_items' => WP_Optimize()->get_submenu_items()));
+	$wp_optimize->include_template('pages-menu.php', false, array('menu_items' => WP_Optimize()->get_admin_instance()->get_submenu_items()));
 	?>
 </header>
 <?php

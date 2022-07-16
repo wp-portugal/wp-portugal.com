@@ -28,6 +28,7 @@ var WP_Optimize_Smush = function() {
 		smush_view_logs_btn = $('.wpo_smush_get_logs'),
 		smush_delete_backup_images_btn = $('#wpo_smush_delete_backup_btn'),
 		compression_server_select = $('.compression_server'),
+		reset_webp_serving_method_btn = $('#wpo_reset_webp_serving_method'),
 		smush_images_tab_loaded = false,
 		smush_service_features = [],
 		smush_total_seconds = 0,
@@ -60,6 +61,18 @@ var WP_Optimize_Smush = function() {
 
 	smush_images_grid.on('mouseup', '.thumbnail', function (e) {
 		ctrl_shift_on_image_held = e.shiftKey || e.ctrlKey;
+	});
+
+	// Resets server rewrite capability
+	reset_webp_serving_method_btn.on('click', function(e) {
+		e.preventDefault();
+		smush_manager_send_command('reset_webp_serving_method', {}, function(resp) {
+			if (!resp.success) {
+				console.log('[Failed] WebP server capability detection');
+			} else {
+				$('#wpo_reset_webp_serving_method_done').show().delay(3000).fadeOut();
+			}
+		});
 	});
 
 	/**
@@ -415,12 +428,11 @@ var WP_Optimize_Smush = function() {
 
 		if ($('#enable_custom_compression').is(":checked")) {
 			image_quality = $('#custom_compression_slider').val();
-			lossy_compression = image_quality < 100 ? true : false;
 		} else {
-			// The '90' here has to be kept in sync with WP_Optimize::admin_page_wpo_images_smush()
-			image_quality = $('#enable_lossy_compression').is(":checked") ? 90 : 100;
-			lossy_compression = image_quality < 100 ? true : false;
+			// The '60' here has to be kept in sync with WP_Optimize::admin_page_wpo_images_smush()
+			image_quality = $('#enable_lossy_compression').is(":checked") ? 60 : 100;
 		}
+		lossy_compression = image_quality < 100 ? true : false;
 
 		smush_options = {
 			'compression_server': $("input[name='compression_server_" + image.attachment_id + "']:checked").val(),
@@ -625,12 +637,11 @@ var WP_Optimize_Smush = function() {
 
 		if ($('#enable_custom_compression').is(":checked")) {
 			image_quality = $('#custom_compression_slider').val();
-			lossy_compression = image_quality < 100 ? true : false;
 		} else {
 			// The '90' here has to be kept in sync with WP_Optimize::admin_page_wpo_images_smush()
-			image_quality = $('#enable_lossy_compression').is(":checked") ? 90 : 100;
-			lossy_compression = image_quality < 100 ? true : false;
+			image_quality = $('#enable_lossy_compression').is(":checked") ? 60 : 100;
 		}
+		lossy_compression = image_quality < 100 ? true : false;
 
 		var smush_options = {
 			'compression_server': $("input[name='compression_server']:checked").val(),

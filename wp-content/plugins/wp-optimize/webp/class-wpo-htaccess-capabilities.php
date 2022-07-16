@@ -14,7 +14,7 @@ class WPO_Htaccess_Capabilities {
 	 */
 	public function __construct() {
 		$uploads = wp_upload_dir();
-		$this->hct = new HtaccessCapabilityTester($uploads['basedir'] . '/wpo/', $uploads['baseurl'] . '/wpo/');
+		$this->hct = new HtaccessCapabilityTester($uploads['basedir'] . '/wpo', $uploads['baseurl'] . '/wpo');
 		$this->htaccess_enabled = $this->hct->htaccessEnabled();
 		$this->mod_headers = $this->get_mod_header_status();
 		$this->mod_mime = $this->get_mod_mime_status();

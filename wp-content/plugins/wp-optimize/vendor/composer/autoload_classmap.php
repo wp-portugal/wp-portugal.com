@@ -62,4 +62,8 @@ return array(
     'lessc_formatter_compressed' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
     'lessc_formatter_lessjs' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
     'lessc_parser' => $vendorDir . '/marcusschwarz/lesserphp/lessc.inc.php',
+    'simplehtmldom\\Debug' => $vendorDir . '/simplehtmldom/simplehtmldom/Debug.php',
+    'simplehtmldom\\HtmlDocument' => $vendorDir . '/simplehtmldom/simplehtmldom/HtmlDocument.php',
+    'simplehtmldom\\HtmlNode' => $vendorDir . '/simplehtmldom/simplehtmldom/HtmlNode.php',
+    'simplehtmldom\\HtmlWeb' => $vendorDir . '/simplehtmldom/simplehtmldom/HtmlWeb.php',
 );

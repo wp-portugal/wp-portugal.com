@@ -8,6 +8,7 @@
 namespace Automattic\Jetpack\Waf;
 
 use Automattic\Jetpack\Connection\Client;
+use Automattic\Jetpack\Modules;
 use Jetpack_Options;
 
 /**
@@ -17,6 +18,7 @@ class Waf_Runner {
 
 	const WAF_RULES_VERSION             = '1.0.0';
 	const MODE_OPTION_NAME              = 'jetpack_waf_mode';
+	const IP_LISTS_ENABLED_OPTION_NAME  = 'jetpack_waf_ip_list';
 	const IP_ALLOW_LIST_OPTION_NAME     = 'jetpack_waf_ip_allow_list';
 	const IP_BLOCK_LIST_OPTION_NAME     = 'jetpack_waf_ip_block_list';
 	const RULES_FILE                    = __DIR__ . '/../rules/rules.php';
@@ -24,6 +26,7 @@ class Waf_Runner {
 	const BLOCK_IP_FILE                 = __DIR__ . '/../rules/block-ip.php';
 	const VERSION_OPTION_NAME           = 'jetpack_waf_rules_version';
 	const RULE_LAST_UPDATED_OPTION_NAME = 'jetpack_waf_last_updated_timestamp';
+	const SHARE_DATA_OPTION_NAME        = 'jetpack_waf_share_data';
 
 	/**
 	 * Set the mode definition if it has not been set.
@@ -34,6 +37,18 @@ class Waf_Runner {
 		if ( ! defined( 'JETPACK_WAF_MODE' ) ) {
 			$mode_option = get_option( self::MODE_OPTION_NAME );
 			define( 'JETPACK_WAF_MODE', $mode_option );
+		}
+	}
+
+	/**
+	 * Set the mode definition if it has not been set.
+	 *
+	 * @return void
+	 */
+	public static function define_share_data() {
+		if ( ! defined( 'JETPACK_WAF_SHARE_DATA' ) ) {
+			$share_data_option = get_option( self::SHARE_DATA_OPTION_NAME, false );
+			define( 'JETPACK_WAF_SHARE_DATA', $share_data_option );
 		}
 	}
 
@@ -64,6 +79,21 @@ class Waf_Runner {
 		);
 
 		return in_array( $option, $allowed_modes, true );
+	}
+
+	/**
+	 * Determines if the WAF module is enabled on the site.
+	 *
+	 * @return bool
+	 */
+	public static function is_enabled() {
+		// if ABSPATH is defined, then WordPress has already been instantiated,
+		// so we can check to see if the waf module is activated.
+		if ( defined( 'ABSPATH' ) ) {
+			return ( new Modules() )->is_active( 'waf' );
+		}
+
+		return true;
 	}
 
 	/**
@@ -159,6 +189,9 @@ class Waf_Runner {
 			add_option( self::VERSION_OPTION_NAME, self::WAF_RULES_VERSION );
 		}
 
+		add_option( self::SHARE_DATA_OPTION_NAME, true );
+
+		self::initialize_filesystem();
 		self::create_waf_directory();
 		self::generate_ip_rules();
 		self::create_blocklog_table();
@@ -284,8 +317,10 @@ class Waf_Runner {
 			'wpcom'
 		);
 
-		if ( 200 !== wp_remote_retrieve_response_code( $response ) ) {
-			throw new \Exception( 'API connection failed.' );
+		$response_code = wp_remote_retrieve_response_code( $response );
+
+		if ( 200 !== $response_code ) {
+			throw new \Exception( 'API connection failed.', $response_code );
 		}
 
 		$rules_json = wp_remote_retrieve_body( $response );
@@ -305,11 +340,32 @@ class Waf_Runner {
 	 * @return void
 	 */
 	public static function generate_rules() {
+		/**
+		 * WordPress filesystem abstraction.
+		 *
+		 * @var \WP_Filesystem_Base $wp_filesystem
+		 */
 		global $wp_filesystem;
 
 		self::initialize_filesystem();
 
-		$rules = self::get_rules_from_api();
+		$api_exception       = null;
+		$throw_api_exception = true;
+		try {
+			$rules = self::get_rules_from_api();
+		} catch ( \Exception $e ) {
+			if ( 401 === $e->getCode() ) {
+				// do not throw API exceptions for users who do not have access
+				$throw_api_exception = false;
+			}
+
+			if ( $wp_filesystem->exists( self::RULES_FILE ) && $throw_api_exception ) {
+				throw $e;
+			}
+
+			$rules         = "<?php\n";
+			$api_exception = $e;
+		}
 
 		// Ensure that the folder exists.
 		if ( ! $wp_filesystem->is_dir( dirname( self::RULES_FILE ) ) ) {
@@ -330,6 +386,32 @@ class Waf_Runner {
 		if ( ! $wp_filesystem->put_contents( self::RULES_FILE, $rules ) ) {
 			throw new \Exception( 'Failed writing rules file to: ' . self::RULES_FILE );
 		}
+
+		if ( null !== $api_exception && $throw_api_exception ) {
+			throw $api_exception;
+		}
+	}
+
+	/**
+	 * We allow for both, one IP per line or comma-; semicolon; or whitespace-separated lists. This also validates the IP addresses
+	 * and only returns the ones that look valid.
+	 *
+	 * @param string $ips List of ips - example: "8.8.8.8\n4.4.4.4,2.2.2.2;1.1.1.1 9.9.9.9,5555.5555.5555.5555".
+	 * @return array List of valid IP addresses. - example based on input example: array('8.8.8.8', '4.4.4.4', '2.2.2.2', '1.1.1.1', '9.9.9.9')
+	 */
+	private static function ip_option_to_array( $ips ) {
+		$ips = (string) $ips;
+		$ips = preg_split( '/[\s,;]/', $ips );
+
+		$result = array();
+
+		foreach ( $ips as $ip ) {
+			if ( filter_var( $ip, FILTER_VALIDATE_IP ) !== false ) {
+				$result[] = $ip;
+			}
+		}
+
+		return $result;
 	}
 
 	/**
@@ -354,40 +436,34 @@ class Waf_Runner {
 			$wp_filesystem->mkdir( dirname( self::RULES_FILE ) );
 		}
 
-		$allow_list = get_option( self::IP_ALLOW_LIST_OPTION_NAME );
-		$block_list = get_option( self::IP_BLOCK_LIST_OPTION_NAME );
+		$allow_list = self::ip_option_to_array( get_option( self::IP_ALLOW_LIST_OPTION_NAME ) );
+		$block_list = self::ip_option_to_array( get_option( self::IP_BLOCK_LIST_OPTION_NAME ) );
 
-		$allow_rules_content = '';
-		$block_rules_content = '';
-
-		if ( $allow_list && is_array( $allow_list ) ) {
-			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			$allow_rules_content .= '$waf_allow_list = ' . var_export( $allow_list, true ) . ";\n";
-			// phpcs:enable
-			$allow_rules_content .= 'return $waf->is_ip_in_array( $waf_allow_list );' . "\n";
-
-			if ( ! $wp_filesystem->put_contents( self::ALLOW_IP_FILE, "<?php\n$allow_rules_content" ) ) {
-				throw new \Exception( 'Failed writing allow list file to: ' . self::ALLOW_IP_FILE );
-			}
-		} else {
-			if ( ! $wp_filesystem->put_contents( self::ALLOW_IP_FILE, '<?php return false;' ) ) {
-				throw new \Exception( 'Failed writing empty allow list file to: ' . self::ALLOW_IP_FILE );
-			}
+		$lists_enabled = (bool) get_option( self::IP_LISTS_ENABLED_OPTION_NAME );
+		if ( false === $lists_enabled ) {
+			// Making the lists empty effectively disabled the feature while still keeping the other WAF rules evaluation active.
+			$allow_list = array();
+			$block_list = array();
 		}
 
-		if ( $block_list && is_array( $block_list ) ) {
-			// phpcs:disable WordPress.PHP.DevelopmentFunctions
-			$block_rules_content .= '$waf_block_list = ' . var_export( $block_list, true ) . ";\n";
-			// phpcs:enable
-			$block_rules_content .= 'return $waf->is_ip_in_array( $waf_block_list );' . "\n";
+		$allow_rules_content = '';
+		// phpcs:disable WordPress.PHP.DevelopmentFunctions
+		$allow_rules_content .= '$waf_allow_list = ' . var_export( $allow_list, true ) . ";\n";
+		// phpcs:enable
+		$allow_rules_content .= 'return $waf->is_ip_in_array( $waf_allow_list );' . "\n";
 
-			if ( ! $wp_filesystem->put_contents( self::BLOCK_IP_FILE, "<?php\n$block_rules_content" ) ) {
-				throw new \Exception( 'Failed writing block list file to: ' . self::BLOCK_IP_FILE );
-			}
-		} else {
-			if ( ! $wp_filesystem->put_contents( self::BLOCK_IP_FILE, '<?php return false;' ) ) {
-				throw new \Exception( 'Failed writing empty block list file to: ' . self::BLOCK_IP_FILE );
-			}
+		if ( ! $wp_filesystem->put_contents( self::ALLOW_IP_FILE, "<?php\n$allow_rules_content" ) ) {
+			throw new \Exception( 'Failed writing allow list file to: ' . self::ALLOW_IP_FILE );
+		}
+
+		$block_rules_content = '';
+		// phpcs:disable WordPress.PHP.DevelopmentFunctions
+		$block_rules_content .= '$waf_block_list = ' . var_export( $block_list, true ) . ";\n";
+		// phpcs:enable
+		$block_rules_content .= 'return $waf->is_ip_in_array( $waf_block_list );' . "\n";
+
+		if ( ! $wp_filesystem->put_contents( self::BLOCK_IP_FILE, "<?php\n$block_rules_content" ) ) {
+			throw new \Exception( 'Failed writing block list file to: ' . self::BLOCK_IP_FILE );
 		}
 	}
 }

@@ -204,6 +204,12 @@ class WPSEO_Metabox extends WPSEO_Meta {
 			'<a href="https://googlewebmastercentral.blogspot.com/2009/12/handling-legitimate-cross-domain.html" target="_blank" rel="noopener">',
 			WPSEO_Admin_Utils::get_new_tab_message() . '</a>'
 		);
+		/* translators: %s expands to the post type name. */
+		WPSEO_Meta::$meta_fields['advanced']['wordproof_timestamp']['title']        = __( 'Timestamp this %s', 'wordpress-seo' );
+		WPSEO_Meta::$meta_fields['advanced']['wordproof_timestamp']['description']  = __( 'Use WordProof to timestamp this page to comply with legal regulations and join the fight for a more transparant and accountable internet.', 'wordpress-seo' );
+		WPSEO_Meta::$meta_fields['advanced']['wordproof_timestamp']['options']['0'] = __( 'Off', 'wordpress-seo' );
+		WPSEO_Meta::$meta_fields['advanced']['wordproof_timestamp']['options']['1'] = __( 'On', 'wordpress-seo' );
+		WPSEO_Meta::$meta_fields['advanced']['wordproof_timestamp']['type']         = 'hidden';
 
 		WPSEO_Meta::$meta_fields['advanced']['redirect']['title']       = __( '301 Redirect', 'wordpress-seo' );
 		WPSEO_Meta::$meta_fields['advanced']['redirect']['description'] = __( 'The URL that this page should redirect to.', 'wordpress-seo' );
@@ -897,18 +903,18 @@ class WPSEO_Metabox extends WPSEO_Meta {
 
 		$script_data = [
 			// @todo replace this translation with JavaScript translations.
-			'media'            => [ 'choose_image' => __( 'Use Image', 'wordpress-seo' ) ],
-			'metabox'          => $this->get_metabox_script_data(),
-			'userLanguageCode' => WPSEO_Language_Utils::get_language( \get_user_locale() ),
-			'isPost'           => true,
-			'isBlockEditor'    => $is_block_editor,
-			'postStatus'       => get_post_status( $post_id ),
-			'analysis'         => [
-				'plugins'                     => $plugins_script_data,
-				'worker'                      => $worker_script_data,
-				'estimatedReadingTimeEnabled' => $this->estimated_reading_time_conditional->is_met(),
+			'media'                      => [ 'choose_image' => __( 'Use Image', 'wordpress-seo' ) ],
+			'metabox'                    => $this->get_metabox_script_data(),
+			'userLanguageCode'           => WPSEO_Language_Utils::get_language( \get_user_locale() ),
+			'isPost'                     => true,
+			'isBlockEditor'              => $is_block_editor,
+			'postStatus'                 => get_post_status( $post_id ),
+			'analysis'                   => [
+				'plugins' => $plugins_script_data,
+				'worker'  => $worker_script_data,
 			],
-			'dismissedAlerts'  => $dismissed_alerts,
+			'dismissedAlerts'            => $dismissed_alerts,
+			'webinarIntroBlockEditorUrl' => WPSEO_Shortlinker::get( 'https://yoa.st/webinar-intro-block-editor' ),
 		];
 
 		if ( post_type_supports( get_post_type(), 'thumbnail' ) ) {

@@ -12,7 +12,6 @@ class UpdraftCentral_WP_Optimize_Commands extends UpdraftCentral_Commands {
 	 * Class constructor
 	 */
 	public function __construct() {
-		if (!class_exists('WP_Optimize_Commands')) include_once(WPO_PLUGIN_MAIN_PATH.'includes/class-commands.php');
 		$this->commands = new WP_Optimize_Commands();
 		
 	}

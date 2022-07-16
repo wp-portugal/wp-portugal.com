@@ -672,8 +672,6 @@ class Akismet {
 		
 		$api_response = self::check_db_comment( $id, $recheck_reason );
 
-		delete_comment_meta( $id, 'akismet_rechecking' );
-
 		if ( is_wp_error( $api_response ) ) {
 			// Invalid comment ID.
 		}
@@ -700,6 +698,8 @@ class Akismet {
 				array( 'response' => substr( $api_response, 0, 50 ) )
 			);
 		}
+
+		delete_comment_meta( $id, 'akismet_rechecking' );
 
 		return $api_response;
 	}

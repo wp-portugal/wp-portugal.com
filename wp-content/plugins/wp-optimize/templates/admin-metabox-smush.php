@@ -12,7 +12,7 @@
 	</div>
 	<div class='wpo_smush_single_image compression_level' <?php echo $smush_display; ?>>
 		<label for="enable_lossy_compression">
-			<input type="radio" id="enable_lossy_compression" name="compression_level" class="smush-options compression_level" <?php checked($smush_options['image_quality'], 90); ?>> 
+			<input type="radio" id="enable_lossy_compression" name="compression_level" class="smush-options compression_level" <?php checked($smush_options['image_quality'], 60); ?>> 
 			<?php _e('Prioritize maximum compression', 'wp-optimize');?>
 			<span tabindex="0" data-tooltip="<?php _e('Potentially uses lossy compression to ensure maximum savings per image, the resulting images are of a slightly lower quality', 'wp-optimize');?>"><span class="dashicons dashicons-editor-help"></span> </span>
 		</label>
@@ -27,9 +27,8 @@
 		</label>
 		<div class="smush-options custom_compression" <?php if (!$custom) echo 'style="display:none;"';?>>
 			<span class="alignleft"><?php _e('Maximum compression', 'wp-optimize');?></span>
-			<input id="custom_compression_slider" class="compression_level" data-max="Maximum Compression"  type="range" step="5" value="<?php echo intval($smush_options['image_quality']); ?>" min="60" max="85" list="number" />
+			<input id="custom_compression_slider" class="compression_level" data-max="Maximum Compression"  type="range" step="5" value="<?php echo intval($smush_options['image_quality']); ?>" min="65" max="85" list="number" />
 			<datalist id="number">
-				<option value="60"/>
 				<option value="65"/>
 				<option value="70"/>
 				<option value="75"/>
